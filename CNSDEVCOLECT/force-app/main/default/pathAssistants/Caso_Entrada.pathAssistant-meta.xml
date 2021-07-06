@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Caso Entrada</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Revisar si el Certificado de Liquidación esta adjuntado.&lt;/p&gt;&lt;p&gt;Actualiza los montos de las Oportunidades ya evaluadas en base al certificado de liquidación, para las distintas oportunidades.&lt;/p&gt;&lt;p&gt;En caso de que las oportunidades no estén evaluadas, debes acelerar estas evaluaciones apurando la entrega de documentos por parte del cliente. &lt;/p&gt;&lt;p&gt;En caso de que un producto no fue aprobado por riesgo el ejecutivo debe cerrar perdida la oportunidad con motivo de no interés “Rechazado por riesgo”.&lt;/p&gt;&lt;p&gt;Con las oportunidades evaluadas y Aprobadas (MAC Hipotecario, Solicitud Evaluación Evalvin Consumo y Plan) y Certificado de Liquidación, estas listo para hacer la Oferta. &lt;/p&gt;</info>
+        <picklistValueName>Evaluación</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;El responsable de esta etapa es un encargado de operaciones (Unidad de Control y Gestión Portabilidad)&lt;/p&gt;&lt;p&gt;Una vez que la UCGP Operacional tenga certeza respecto el pago que tiene que realizar al proveedor inicial, procederá a desembolsar lo fondos y enviar Notificación de Pago Efectuado vía Redbanc. &lt;/p&gt;&lt;p&gt;Recibido el Comprobante de Pago General y/o el Comprobante de Pago para Inscripción a través de Redbanc, la UCGP Comercial deberá reenviárselos al ejecutivo. &lt;/p&gt;&lt;p&gt;Finalmente, el ejecutivo deberá enviar un correo de Rendición de Cuenta al cliente, en el cual además de notificar el cumplimiento del mandato de término, deberá adjuntar: &lt;/p&gt;&lt;p&gt;Comprobante de Pago General y/o el Comprobante de Pago para Inscripción en PDF&lt;/p&gt;</info>
+        <picklistValueName>Mandato de termino</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Documentos Necesarios para realizar la Oferta: (MAC Hipotecario, Solicitud Evaluación Evalvin Consumo y Plan) y Certificado de Liquidación.&lt;/p&gt;&lt;p&gt;Ingresar a Ofertador de los datos, contenidos en los documentos anteriores.&lt;/p&gt;&lt;p&gt;Enviar la Oferta al cliente, utilizando las plantillas “Oferta de Portabilidad” u “Oferta&lt;/p&gt;&lt;p&gt;Portabilidad Financiera + Rechazo parcial”, según corresponda&lt;/p&gt;&lt;p&gt;Documento de “Aceptación + Mandato de Término”&lt;/p&gt;&lt;p&gt;PDF de la Oferta&lt;/p&gt;&lt;p&gt;Aceptación de Oferta de Portabilidad &lt;/p&gt;&lt;p&gt;El cliente debe enviar aceptación de la Oferta de Portabilidad (Es válido un OK por correo por parte del cliente haciendo referencia al número del caso y Oferta de portabilidad) Ejemplo: Acepto Oferta N° 123456.&lt;/p&gt;&lt;p&gt;Este correo de Aceptación, más Oferta enviada se deben subir al caso Salesforce y Avanzarlo a la etapa siguiente, para que la UCGP se solicite certificado de actualización de deuda (CAD), el que es necesario para pasar a curse y Firma de contratos.&lt;/p&gt;</info>
+        <picklistValueName>Oferta</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Si no es Apto enviar plantilla “Rechazo en la punta - No apto”&lt;/p&gt;&lt;p&gt;Cliente Apto y sin Firma.&lt;/p&gt;&lt;p&gt;Llamar al cliente y solicitar al cliente que ingrese nueva solicitud, pero esta vez firmándola.&lt;/p&gt;&lt;p&gt;Cliente Apto con Firma.&lt;/p&gt;&lt;p&gt;Contactar a cliente realizar Simulación y enviar al cliente. Utilizar plantilla “Simulación de Portabilidad”&lt;/p&gt;&lt;p&gt;Crear Oportunidades en Salesforce asociando caso de Portabilidad.&lt;/p&gt;&lt;p&gt;Avanzar Caso de Portabilidad para solicitud de CL. &lt;/p&gt;&lt;p&gt;Continuar Gestionando Oportunidades, solicitando documentos para evaluar y procesar las oportunidades en paralelo. &lt;/p&gt;</info>
+        <picklistValueName>Pre Portabilidad</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;El encargado de operaciones es el responsable (Unidad de Control y Gestión Portabilidad) UCGP, quienes deben obtener desde el portal de Redbanc los certificados de liquidación y otros documentos:&lt;/p&gt;&lt;p&gt;a.Certificado de Liquidación de Deuda.&lt;/p&gt;&lt;p&gt;b.Certificado de pago de impuesto de timbres y estampillas, &lt;/p&gt;&lt;p&gt;c.Con los documentos adjuntados el encargado de operaciones marca completada la etapa&lt;/p&gt;&lt;p&gt;En paralelo, las Oportunidades en Salesforce deben seguir su curso actual (Etapas de Simulación, recopilación y revisión).&lt;/p&gt;</info>
+        <picklistValueName>Solicitud Cert. de liquidación</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;El responsable de esta etapa es un encargado de operaciones UCGP quien deberá completar y adjuntar el documento “Notificación de Aceptación de la Oferta + Bloqueo + Actualización de la Deuda”  Tarea del digitador&lt;/p&gt;&lt;p&gt;Luego el archivo debe ser transformado en formato JSON y cargarlo en la plataforma Redbanc.&lt;/p&gt;&lt;p&gt;Una vez recibido el certificado de deuda, y si cumple con las condiciones ofertadas (Gestión de contrato), lo adjunta al caso de Salesforce y completa el evento clave.&lt;/p&gt;</info>
+        <picklistValueName>Solicitud Doc. de aceptación</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Caso_PF_Caso_de_Portabilidad</recordTypeName>
+</PathAssistant>

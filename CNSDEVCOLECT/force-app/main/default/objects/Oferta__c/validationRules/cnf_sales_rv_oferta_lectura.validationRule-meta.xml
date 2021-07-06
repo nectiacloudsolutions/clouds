@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cnf_sales_rv_oferta_lectura</fullName>
+    <active>true</active>
+    <description>Regla de validación que controla la no modificación de campos obligatorios de la Oferta.</description>
+    <errorConditionFormula>AND(
+ $Setup.Consorcio_Org__c.Validation_rules__c = TRUE,
+ $Setup.Consorcio_Org__c.Sales_project__c = TRUE,
+OR(
+ RecordType.DeveloperName = &quot;sales_oferta&quot;,
+ RecordType.DeveloperName = &quot;sales_oferta_lectura&quot;
+),
+OR(
+ ISCHANGED (Name),
+ ISCHANGED (AccountId__c),
+ ISCHANGED (Familia_Producto_sales__c),
+ ISCHANGED (Rut_Cliente_sales__c),
+ ISCHANGED (Origen_sales__c),
+ ISCHANGED (Vigencia_Oferta_sales__c)
+)
+)</errorConditionFormula>
+    <errorMessage>RV_OFE No puede modificar los campos de la Oferta.</errorMessage>
+</ValidationRule>

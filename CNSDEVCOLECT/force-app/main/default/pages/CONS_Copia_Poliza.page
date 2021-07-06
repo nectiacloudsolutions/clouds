@@ -1,0 +1,96 @@
+<apex:page standardController="Producto_del_Cliente__c"   extensions="CONS_Copia_Poliza" cache="true" sidebar="false"  lightningStylesheets="true" showHeader="true" action="{!siguiente}">
+    
+      <style>
+        div.block01 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.25;
+        z-index: 1000;
+        background-color: black;
+        }
+        div.block02{
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1001;
+        margin: 25% 50%;	
+        }
+        div.block03{
+        display: inline-block;
+        padding: 2px;
+        background-color: #fff;
+        width: 125px;        
+        }
+        img.block04{
+        float: left;
+        margin: 8px;
+        }
+        span.block05{
+        display: inline-block;
+        padding: 10px 0px;
+        }
+    </style>
+    <apex:form >
+        
+        <apex:pageBlock id="pagina1" rendered="true">
+            
+             <div > 
+                <center>
+                    <apex:commandButton value="enviar"  action="{!enviar}" rendered="{!if(errorpagina=true,true,false)}" reRender="pagina1"  status="espera">
+                     <apex:actionStatus id="espera">
+                            <apex:facet name="start">
+                                <div class="block01">
+                                    &nbsp;
+                                </div>
+                                <div class="block02">
+                                    <div class="block03">
+                                        <img src="/img/loading.gif" class="block04" />
+                                        <span class="block05">Cargando...</span>
+                                    </div>
+                                </div>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:commandButton>
+                    <apex:commandButton value="continuar"   reRender="pagina1" action="{!continuar}"  rendered="{!if(errorpagina=true,false,true)}" />
+                    <apex:commandButton value="continuar"   reRender="pagina1" action="{!continuarcaso}"  rendered="{!continuarsinenviar}" />
+                    <apex:commandButton value="volver"  action="{!volver}" rendered="{!if(errorpagina=true,true,false)}" reRender="pagina1" />
+                </center>
+                
+            </div>
+            <apex:pageMessages rendered="{!error}"/>  
+           
+            <apex:pageBlock id="pagina2" rendered="{!if(errorpagina=true,true,false)}">
+                <iframe width='100%'  style='margin: -8px;border: none;' height='900px' src="data:application/pdf;base64,{!aux}"  ></iframe>
+            </apex:pageBlock>
+             <div > 
+                <center>
+                    <apex:commandButton value="enviar"  action="{!enviar}" rendered="{!if(errorpagina=true,true,false)}" reRender="pagina1"  status="espera2">
+                     <apex:actionStatus id="espera2">
+                            <apex:facet name="start">
+                                <div class="block01">
+                                    &nbsp;
+                                </div>
+                                <div class="block02">
+                                    <div class="block03">
+                                        <img src="/img/loading.gif" class="block04" />
+                                        <span class="block05">Cargando...</span>
+                                    </div>
+                                </div>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:commandButton>
+                    <apex:commandButton value="continuar"   reRender="pagina1" action="{!continuarcaso}"  rendered="{!continuarsinenviar}" />
+                    <apex:commandButton value="continuar"   reRender="pagina1" action="{!continuar}"  rendered="{!if(errorpagina=true,false,true)}" />
+                    <apex:commandButton value="volver"  action="{!volver}" rendered="{!if(errorpagina=true,true,false)}" reRender="pagina1" />
+                </center>
+                
+            </div>
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

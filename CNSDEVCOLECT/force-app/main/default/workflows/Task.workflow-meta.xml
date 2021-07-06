@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>CCB_Env_a_encuesta_Asesor_Financiero_CNS</fullName>
+        <description>CCB - Envía encuesta Asesor Financiero CNS</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Plantillas_CCB/CCB_ENCUESTA_Cliente_Inversiones_CCB</template>
+    </alerts>
+    <alerts>
+        <fullName>CCB_Env_a_encuesta_Cliente_Inversiones_Banco</fullName>
+        <description>CCB - Envía encuesta Cliente Inversiones Banco</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Plantillas_CCB/CCB_ENCUESTA_Cliente_Inversiones_Banco</template>
+    </alerts>
+    <alerts>
+        <fullName>CCB_Env_a_encuesta_Cliente_Inversiones_CCB</fullName>
+        <description>CCB - Envía encuesta Cliente Inversiones CCB</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Plantillas_CCB/CCB_ENCUESTA_Cliente_Inversiones_CCB</template>
+    </alerts>
+    <alerts>
+        <fullName>cnf_sal_ea_envio_agenda_llamado</fullName>
+        <description>Sales Enivo Entravista Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Plantillas_Sales_Consorcio/cnf_sal_et_envio_cita_tarea</template>
+    </alerts>
+    <alerts>
+        <fullName>cnf_sal_rul_ea_envio_agendamiento_de_tarea</fullName>
+        <description>Sales Enviar Agenda Tarea</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantillas_Sales_Consorcio/cnf_sal_et_correo_evento_lead</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Banco_Marca_casilla_Re_insistencia</fullName>
+        <field>Reinsistencia__c</field>
+        <literalValue>1</literalValue>
+        <name>Banco - Marca casilla Re-insistencia</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Env_o_encuesta_asesor_Inversiones_Banco</fullName>
+        <description>Envío encuesta asesor Inversiones Banco</description>
+        <field>Env_o_encuesta_asesor_Inversiones_Banco__c</field>
+        <literalValue>1</literalValue>
+        <name>Envío encuesta asesor Inversiones Banco</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Env_o_encuesta_asesor_Inversiones_CCB</fullName>
+        <field>Env_o_encuesta_asesor_Inversiones_CCB__c</field>
+        <literalValue>1</literalValue>
+        <name>Envío encuesta asesor Inversiones CNS</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Banco - Tareas de reinsistencias</fullName>
+        <actions>
+            <name>Banco_Marca_casilla_Re_insistencia</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.Subject</field>
+            <operation>equals</operation>
+            <value>Re-Insistencia</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>CCB - Envío de encuesta tarea asesor Inversiones BANCO</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Task.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Asesor Inversiones Banco Task</value>
+        </criteriaItems>
+        <description>CCB - Envío de encuesta tarea asesor Inversiones Banco</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>CCB_Env_a_encuesta_Cliente_Inversiones_Banco</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Env_o_encuesta_asesor_Inversiones_Banco</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>CCB - Envío de encuesta tarea asesor Inversiones CNS</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Task.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Asesor Inversiones Corredora Task</value>
+        </criteriaItems>
+        <description>CCB - Envío de encuesta tarea asesor Inversiones cns</description>
+        <triggerType>onCreateOnly</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>CCB_Env_a_encuesta_Cliente_Inversiones_CCB</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>Env_o_encuesta_asesor_Inversiones_CCB</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Task.CreatedDate</offsetFromField>
+            <timeLength>24</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Sales Envio Cita Tarea</fullName>
+        <actions>
+            <name>cnf_sal_ea_envio_agenda_llamado</name>
+            <type>Alert</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Task.enviar_agenda_al_lead_sales__c</field>
+            <operation>equals</operation>
+            <value>Verdadero</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

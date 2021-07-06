@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vista_Compacta</fullName>
+    <fields>Name</fields>
+    <fields>Tipo_Nectia__c</fields>
+    <fields>Estado_Nectia__c</fields>
+    <label>Vista Compacta</label>
+</CompactLayout>

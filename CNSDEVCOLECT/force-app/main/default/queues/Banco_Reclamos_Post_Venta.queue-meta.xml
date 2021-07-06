@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Banco - Reclamos Post Venta</name>
+    <queueMembers>
+        <users>
+            <user>aclaver@bancoconsorcio.cl</user>
+            <user>crebolledo@bancoconsorcio.cl</user>
+            <user>cvargas@bancoconsorcio.cl</user>
+            <user>hayala@bancoconsorcio.cl</user>
+            <user>icortes@bancoconsorcio.cl</user>
+            <user>malvarez@bancoconsorcio.cl</user>
+            <user>mgalvez@bancoconsorcio.cl</user>
+            <user>mgalleguillos@bancoconsorcio.cl</user>
+            <user>pguzman@bancoconsorcio.cl</user>
+            <user>rcabezas@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

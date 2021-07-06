@@ -1,0 +1,41 @@
+<!--
+  @description       : 
+  @author            : eayalcor@everis.com
+  @group             : 
+  @last modified on  : 11-05-2020
+  @last modified by  : eayalcor@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   11-04-2020   eayalcor@everis.com   Initial Version
+-->
+<template>
+    <lightning-card title="Informaciones" icon-name="custom:custom55">
+        <template if:true={access}>
+            <template if:true={sections}>
+                <template if:true={isVisible}>
+                    <template for:each={sections} for:item="section">   
+                        <c-item-Info 
+                        key={section.Id} 
+                        information={section}>
+                        </c-item-Info >
+                    </template>
+                </template>
+                <template if:false={isVisible}>
+                    <div class="slds-p-around_medium lgc-bg">
+                        <p>No existe Información</p>
+                    </div>
+                </template>
+            </template>
+            <template if:true={error}>
+                    <div class="slds-p-around_medium lgc-bg">
+                        <p>{error.body.message}</p>
+                    </div>
+            </template>
+        </template>
+        <template if:false={access}>
+            <div class="slds-p-around_medium lgc-bg">
+                <p>No tiene acceso</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>

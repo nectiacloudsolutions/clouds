@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Retención Certificados</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Retenci_n_Certificados</publicGroup>
+        </publicGroups>
+        <users>
+            <user>acaceres@bancoconsorcio.cl</user>
+            <user>dmolina@bancoconsorcio.cl</user>
+            <user>nescalona@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

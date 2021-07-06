@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <description>App de Everis para los perfiles de Campañas</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <label>Sales Marketing</label>
+    <navType>Standard</navType>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_Sales_Marketing</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Sales_Opp_Seguro_Vida</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Sales_Opp_Seguro_Vida_Solo_Lectura</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Sales_Seguros_Auto</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Sales_Seguros_Auto_Lectura</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Sales_Seguros_Hogar</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Opportunity_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Opportunity</pageOrSobjectType>
+        <recordType>Opportunity.Sales_Seguros_Hogar_Lectura</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Sales_Cotizacion_Lectura</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Sales_Seguros_Auto</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Sales_Seguros_Auto_Lectura</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.cnf_sales_rt_cotizacion</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Sales_Seguros_Hogar</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>Sales_Quote_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Quote</pageOrSobjectType>
+        <recordType>Quote.Sales_Seguros_Hogar_Lectura</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de Campaña</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Campaign</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Sales_Marketing_UtilityBar</utilityBar>
+</CustomApplication>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <email>integraciones.crm@consorcio.cl</email>
+    <name>Port. Hipotecario Ret.</name>
+    <queueMembers>
+        <users>
+            <user>cmella@bancoconsorcio.cl</user>
+            <user>cristobal.ide@consorcio.cl</user>
+            <user>dgonzalez@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

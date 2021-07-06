@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Seguros - Resolución Área Reclamos</name>
+    <queueMembers>
+        <users>
+            <user>carmen.bussenius@consorcio.cl</user>
+            <user>carolina.valdes@consorcio.cl</user>
+            <user>daniela.infante@consorcio.cl</user>
+            <user>ivonne.arcos@consorcio.cl</user>
+            <user>leonora.filp@consorcio.cl</user>
+            <user>viviana.arcos@consorcio.cl</user>
+            <user>yesenia.arcos@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

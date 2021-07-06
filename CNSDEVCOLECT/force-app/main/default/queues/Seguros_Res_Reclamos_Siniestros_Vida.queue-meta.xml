@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Seguros - Res. Reclamos Siniestros Vida</name>
+    <queueMembers>
+        <users>
+            <user>carolyn.guzman.v@consorcio.cl</user>
+            <user>claudia.sobarzo@consorcio.cl</user>
+            <user>denisse.castillo@consorcio.cl</user>
+            <user>dora.jara.b@consorcio.cl</user>
+            <user>fabian.echeverria@consorcio.cl</user>
+            <user>giselle.orellana@consorcio.cl</user>
+            <user>externo.arquibot01@consorcio.cl</user>
+            <user>marcela.brito@consorcio.cl</user>
+            <user>marcela.moraga@consorcio.cl</user>
+            <user>milenka.llanos@consorcio.cl</user>
+            <user>nicolas.jara@consorcio.cl</user>
+            <user>veronica.llanos@consorcio.cl</user>
+            <user>yudy.inostroza@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

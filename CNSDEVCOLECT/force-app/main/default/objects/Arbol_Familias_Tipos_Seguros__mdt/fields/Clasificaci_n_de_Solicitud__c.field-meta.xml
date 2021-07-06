@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clasificaci_n_de_Solicitud__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Clasificación de Solicitud</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Actualización</fullName>
+                <default>true</default>
+                <label>Actualización</label>
+            </value>
+            <value>
+                <fullName>Anulación de Siniestro</fullName>
+                <default>false</default>
+                <label>Anulación de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Aplicación de Deducible Inteligente en Siniestro</fullName>
+                <default>false</default>
+                <label>Aplicación de Deducible Inteligente en Siniestro</label>
+            </value>
+            <value>
+                <fullName>Aumento de Cargas</fullName>
+                <default>false</default>
+                <label>Aumento de Cargas</label>
+            </value>
+            <value>
+                <fullName>Cambio de Liquidador Asignado</fullName>
+                <default>false</default>
+                <label>Cambio de Liquidador Asignado</label>
+            </value>
+            <value>
+                <fullName>Cambio de Taller Asignado</fullName>
+                <default>false</default>
+                <label>Cambio de Taller Asignado</label>
+            </value>
+            <value>
+                <fullName>Cobertura en Siniestro de Daños Pre-existentes</fullName>
+                <default>false</default>
+                <label>Cobertura en Siniestro de Daños Pre-existentes</label>
+            </value>
+            <value>
+                <fullName>Cobertura Oncológica</fullName>
+                <default>false</default>
+                <label>Cobertura Oncológica</label>
+            </value>
+            <value>
+                <fullName>Detalle de Reparación Involucrada</fullName>
+                <default>false</default>
+                <label>Detalle de Reparación Involucrada</label>
+            </value>
+            <value>
+                <fullName>Detalle de Repuestos Involucrados en Reparación</fullName>
+                <default>false</default>
+                <label>Detalle de Repuestos Involucrados en Reparación</label>
+            </value>
+            <value>
+                <fullName>Disminución/Eliminación de Copago o Garantías de Servicios</fullName>
+                <default>false</default>
+                <label>Disminución/Eliminación de Copago o Garantías de Servicios</label>
+            </value>
+            <value>
+                <fullName>Disminución de Cargas</fullName>
+                <default>false</default>
+                <label>Disminución de Cargas</label>
+            </value>
+            <value>
+                <fullName>Entrega de Informe/Preinforme de Liquidación</fullName>
+                <default>false</default>
+                <label>Entrega de Informe/Preinforme de Liquidación</label>
+            </value>
+            <value>
+                <fullName>Entrega de Servicios</fullName>
+                <default>false</default>
+                <label>Entrega de Servicios</label>
+            </value>
+            <value>
+                <fullName>Estado de Atención al Tercero</fullName>
+                <default>false</default>
+                <label>Estado de Atención al Tercero</label>
+            </value>
+            <value>
+                <fullName>Extensión de Duración de Servicios</fullName>
+                <default>false</default>
+                <label>Extensión de Duración de Servicios</label>
+            </value>
+            <value>
+                <fullName>Grabación Telefónica</fullName>
+                <default>false</default>
+                <label>Grabación Telefónica</label>
+            </value>
+            <value>
+                <fullName>Impugnación de Siniestro</fullName>
+                <default>false</default>
+                <label>Impugnación de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Inicio Trámite</fullName>
+                <default>false</default>
+                <label>Inicio Trámite</label>
+            </value>
+            <value>
+                <fullName>Inspección de Vehículo en Taller</fullName>
+                <default>false</default>
+                <label>Inspección de Vehículo en Taller</label>
+            </value>
+            <value>
+                <fullName>Inspección de Vehículo Inmovilizado</fullName>
+                <default>false</default>
+                <label>Inspección de Vehículo Inmovilizado</label>
+            </value>
+            <value>
+                <fullName>Nuevo beneficiario</fullName>
+                <default>false</default>
+                <label>Nuevo beneficiario</label>
+            </value>
+            <value>
+                <fullName>Póliza Vida individual</fullName>
+                <default>false</default>
+                <label>Póliza Vida individual</label>
+            </value>
+            <value>
+                <fullName>Reapertura de Siniestro</fullName>
+                <default>false</default>
+                <label>Reapertura de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Reembolso sobre Gastos</fullName>
+                <default>false</default>
+                <label>Reembolso sobre Gastos</label>
+            </value>
+            <value>
+                <fullName>Renovación de Cargas</fullName>
+                <default>false</default>
+                <label>Renovación de Cargas</label>
+            </value>
+            <value>
+                <fullName>Separación de Eventos</fullName>
+                <default>false</default>
+                <label>Separación de Eventos</label>
+            </value>
+            <value>
+                <fullName>Siniestro SEF</fullName>
+                <default>false</default>
+                <label>Siniestro SEF</label>
+            </value>
+            <value>
+                <fullName>Siniestro Vida individual</fullName>
+                <default>false</default>
+                <label>Siniestro Vida individual</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

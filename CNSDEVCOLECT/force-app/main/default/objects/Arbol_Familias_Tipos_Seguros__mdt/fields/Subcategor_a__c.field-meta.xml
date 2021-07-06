@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subcategor_a__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Subcategoría</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>¿Cómo funciona el deducile?</fullName>
+                <default>true</default>
+                <label>¿Cómo funciona el deducile?</label>
+            </value>
+            <value>
+                <fullName>¿Cómo solicito un reembolso?</fullName>
+                <default>false</default>
+                <label>¿Cómo solicito un reembolso?</label>
+            </value>
+            <value>
+                <fullName>¿Cuáles son mis topes?</fullName>
+                <default>false</default>
+                <label>¿Cuáles son mis topes?</label>
+            </value>
+            <value>
+                <fullName>Actualización datos empresa (razón social, dirección)</fullName>
+                <default>false</default>
+                <label>Actualización datos empresa (razón social, dirección)</label>
+            </value>
+            <value>
+                <fullName>Actualización de contacto comisiones</fullName>
+                <default>false</default>
+                <label>Actualización de contacto comisiones</label>
+            </value>
+            <value>
+                <fullName>Agregar Cuenta Depósito Pago de Comisiones</fullName>
+                <default>false</default>
+                <label>Agregar Cuenta Depósito Pago de Comisiones</label>
+            </value>
+            <value>
+                <fullName>APP</fullName>
+                <default>false</default>
+                <label>APP</label>
+            </value>
+            <value>
+                <fullName>Asegurados Sin Activación de beneficios</fullName>
+                <default>false</default>
+                <label>Asegurados Sin Activación de beneficios</label>
+            </value>
+            <value>
+                <fullName>Baja MAL procesada (Asegurados)</fullName>
+                <default>false</default>
+                <label>Baja MAL procesada (Asegurados)</label>
+            </value>
+            <value>
+                <fullName>Baja NO procesada (Asegurados)</fullName>
+                <default>false</default>
+                <label>Baja NO procesada (Asegurados)</label>
+            </value>
+            <value>
+                <fullName>Cambio de Intermediario</fullName>
+                <default>false</default>
+                <label>Cambio de Intermediario</label>
+            </value>
+            <value>
+                <fullName>Capital o Renta</fullName>
+                <default>false</default>
+                <label>Capital o Renta</label>
+            </value>
+            <value>
+                <fullName>Certificado Cobertura</fullName>
+                <default>false</default>
+                <label>Certificado Cobertura</label>
+            </value>
+            <value>
+                <fullName>Certificado Cobertura Masivo</fullName>
+                <default>false</default>
+                <label>Certificado Cobertura Masivo</label>
+            </value>
+            <value>
+                <fullName>Clave Asegurado</fullName>
+                <default>false</default>
+                <label>Clave Asegurado</label>
+            </value>
+            <value>
+                <fullName>Clave colectivos consorcio Contratante</fullName>
+                <default>false</default>
+                <label>Clave colectivos consorcio Contratante</label>
+            </value>
+            <value>
+                <fullName>Clave colectivos consorcio Corredor</fullName>
+                <default>false</default>
+                <label>Clave colectivos consorcio Corredor</label>
+            </value>
+            <value>
+                <fullName>Clave Plataforma corredores contratante</fullName>
+                <default>false</default>
+                <label>Clave Plataforma corredores contratante</label>
+            </value>
+            <value>
+                <fullName>Clave Plataforma corredores corredor</fullName>
+                <default>false</default>
+                <label>Clave Plataforma corredores corredor</label>
+            </value>
+            <value>
+                <fullName>Clave Plataforma corredores jefe corredor</fullName>
+                <default>false</default>
+                <label>Clave Plataforma corredores jefe corredor</label>
+            </value>
+            <value>
+                <fullName>Colectivos Consorcio</fullName>
+                <default>false</default>
+                <label>Colectivos Consorcio</label>
+            </value>
+            <value>
+                <fullName>Condicionado particular</fullName>
+                <default>false</default>
+                <label>Condicionado particular</label>
+            </value>
+            <value>
+                <fullName>Contactos de cobranza y Cartas</fullName>
+                <default>false</default>
+                <label>Contactos de cobranza y Cartas</label>
+            </value>
+            <value>
+                <fullName>Contactos de Suscripción / Cartas de Rechazo</fullName>
+                <default>false</default>
+                <label>Contactos de Suscripción / Cartas de Rechazo</label>
+            </value>
+            <value>
+                <fullName>Convenio Farmacia</fullName>
+                <default>false</default>
+                <label>Convenio Farmacia</label>
+            </value>
+            <value>
+                <fullName>Convenio IMED</fullName>
+                <default>false</default>
+                <label>Convenio IMED</label>
+            </value>
+            <value>
+                <fullName>Convenios Dentales</fullName>
+                <default>false</default>
+                <label>Convenios Dentales</label>
+            </value>
+            <value>
+                <fullName>Convenio Telemedicina</fullName>
+                <default>false</default>
+                <label>Convenio Telemedicina</label>
+            </value>
+            <value>
+                <fullName>Convenio Ventanilla Única</fullName>
+                <default>false</default>
+                <label>Convenio Ventanilla Única</label>
+            </value>
+            <value>
+                <fullName>Corte de beneficios</fullName>
+                <default>false</default>
+                <label>Corte de beneficios</label>
+            </value>
+            <value>
+                <fullName>Dentales</fullName>
+                <default>false</default>
+                <label>Dentales</label>
+            </value>
+            <value>
+                <fullName>Devolución de primas</fullName>
+                <default>false</default>
+                <label>Devolución de primas</label>
+            </value>
+            <value>
+                <fullName>Devolución documentos de reembolsos Salud</fullName>
+                <default>false</default>
+                <label>Devolución documentos de reembolsos Salud</label>
+            </value>
+            <value>
+                <fullName>Documento ilegible</fullName>
+                <default>false</default>
+                <label>Documento ilegible</label>
+            </value>
+            <value>
+                <fullName>Emisión de Cobranza</fullName>
+                <default>false</default>
+                <label>Emisión de Cobranza</label>
+            </value>
+            <value>
+                <fullName>Emisión de Factura</fullName>
+                <default>false</default>
+                <label>Emisión de Factura</label>
+            </value>
+            <value>
+                <fullName>Error en cobranza</fullName>
+                <default>false</default>
+                <label>Error en cobranza</label>
+            </value>
+            <value>
+                <fullName>Error en condicionado particular</fullName>
+                <default>false</default>
+                <label>Error en condicionado particular</label>
+            </value>
+            <value>
+                <fullName>Error en configuración de plan</fullName>
+                <default>false</default>
+                <label>Error en configuración de plan</label>
+            </value>
+            <value>
+                <fullName>Error en factura</fullName>
+                <default>false</default>
+                <label>Error en factura</label>
+            </value>
+            <value>
+                <fullName>Error en Informe recibido</fullName>
+                <default>false</default>
+                <label>Error en Informe recibido</label>
+            </value>
+            <value>
+                <fullName>Error en liquidación</fullName>
+                <default>false</default>
+                <label>Error en liquidación</label>
+            </value>
+            <value>
+                <fullName>Error Liquidación Comisiones</fullName>
+                <default>false</default>
+                <label>Error Liquidación Comisiones</label>
+            </value>
+            <value>
+                <fullName>Error pago Comisión</fullName>
+                <default>false</default>
+                <label>Error pago Comisión</label>
+            </value>
+            <value>
+                <fullName>Estado Baja</fullName>
+                <default>false</default>
+                <label>Estado Baja</label>
+            </value>
+            <value>
+                <fullName>Estado Cobranza</fullName>
+                <default>false</default>
+                <label>Estado Cobranza</label>
+            </value>
+            <value>
+                <fullName>Estado Comisiones</fullName>
+                <default>false</default>
+                <label>Estado Comisiones</label>
+            </value>
+            <value>
+                <fullName>Estado de Emisión y Renovación</fullName>
+                <default>false</default>
+                <label>Estado de Emisión y Renovación</label>
+            </value>
+            <value>
+                <fullName>Estado de Evaluación de Asegurado</fullName>
+                <default>false</default>
+                <label>Estado de Evaluación de Asegurado</label>
+            </value>
+            <value>
+                <fullName>Estado de Pago Siniestro</fullName>
+                <default>false</default>
+                <label>Estado de Pago Siniestro</label>
+            </value>
+            <value>
+                <fullName>Estado Facturas</fullName>
+                <default>false</default>
+                <label>Estado Facturas</label>
+            </value>
+            <value>
+                <fullName>Estado Incorporación</fullName>
+                <default>false</default>
+                <label>Estado Incorporación</label>
+            </value>
+            <value>
+                <fullName>Estados de Pagos de Grupo Empresarial</fullName>
+                <default>false</default>
+                <label>Estados de Pagos de Grupo Empresarial</label>
+            </value>
+            <value>
+                <fullName>Estados de Pagos de período(Recaudación / Facturación)</fullName>
+                <default>false</default>
+                <label>Estados de Pagos de período(Recaudación / Facturación)</label>
+            </value>
+            <value>
+                <fullName>Estado Traspaso</fullName>
+                <default>false</default>
+                <label>Estado Traspaso</label>
+            </value>
+            <value>
+                <fullName>Evaluación de Asegurado</fullName>
+                <default>false</default>
+                <label>Evaluación de Asegurado</label>
+            </value>
+            <value>
+                <fullName>Factura a contrapago</fullName>
+                <default>false</default>
+                <label>Factura a contrapago</label>
+            </value>
+            <value>
+                <fullName>Farmacia</fullName>
+                <default>false</default>
+                <label>Farmacia</label>
+            </value>
+            <value>
+                <fullName>Filial mal configurada</fullName>
+                <default>false</default>
+                <label>Filial mal configurada</label>
+            </value>
+            <value>
+                <fullName>Fondo Libre Disposición</fullName>
+                <default>false</default>
+                <label>Fondo Libre Disposición</label>
+            </value>
+            <value>
+                <fullName>Gasto No recibido</fullName>
+                <default>false</default>
+                <label>Gasto No recibido</label>
+            </value>
+            <value>
+                <fullName>Hora Médica</fullName>
+                <default>false</default>
+                <label>Hora Médica</label>
+            </value>
+            <value>
+                <fullName>IMED</fullName>
+                <default>false</default>
+                <label>IMED</label>
+            </value>
+            <value>
+                <fullName>Incorporación</fullName>
+                <default>false</default>
+                <label>Incorporación</label>
+            </value>
+            <value>
+                <fullName>Incorporación MAL procesada (Asegurados)</fullName>
+                <default>false</default>
+                <label>Incorporación MAL procesada (Asegurados)</label>
+            </value>
+            <value>
+                <fullName>Incorporación NO procesada (Asegurados)</fullName>
+                <default>false</default>
+                <label>Incorporación NO procesada (Asegurados)</label>
+            </value>
+            <value>
+                <fullName>Informe de deuda</fullName>
+                <default>false</default>
+                <label>Informe de deuda</label>
+            </value>
+            <value>
+                <fullName>Liquidación</fullName>
+                <default>false</default>
+                <label>Liquidación</label>
+            </value>
+            <value>
+                <fullName>Liquidación Comisiones</fullName>
+                <default>false</default>
+                <label>Liquidación Comisiones</label>
+            </value>
+            <value>
+                <fullName>Lista desplegable</fullName>
+                <default>false</default>
+                <label>Lista desplegable</label>
+            </value>
+            <value>
+                <fullName>Modificación correo electrónico y cuenta corriente</fullName>
+                <default>false</default>
+                <label>Modificación correo electrónico y cuenta corriente</label>
+            </value>
+            <value>
+                <fullName>Modificación correo electrónico y cuenta corriente masivos</fullName>
+                <default>false</default>
+                <label>Modificación correo electrónico y cuenta corriente masivos</label>
+            </value>
+            <value>
+                <fullName>Modificación datos de contacto (no rut)</fullName>
+                <default>false</default>
+                <label>Modificación datos de contacto (no rut)</label>
+            </value>
+            <value>
+                <fullName>Modificación Rut Asegurado</fullName>
+                <default>false</default>
+                <label>Modificación Rut Asegurado</label>
+            </value>
+            <value>
+                <fullName>Modificar Vigencia Asegurados</fullName>
+                <default>false</default>
+                <label>Modificar Vigencia Asegurados</label>
+            </value>
+            <value>
+                <fullName>No recibido</fullName>
+                <default>false</default>
+                <label>No recibido</label>
+            </value>
+            <value>
+                <fullName>Otros Aplicativos</fullName>
+                <default>false</default>
+                <label>Otros Aplicativos</label>
+            </value>
+            <value>
+                <fullName>Otros Convenios</fullName>
+                <default>false</default>
+                <label>Otros Convenios</label>
+            </value>
+            <value>
+                <fullName>Pago Comercial</fullName>
+                <default>false</default>
+                <label>Pago Comercial</label>
+            </value>
+            <value>
+                <fullName>Pago Comisión</fullName>
+                <default>false</default>
+                <label>Pago Comisión</label>
+            </value>
+            <value>
+                <fullName>Pago reembolsos</fullName>
+                <default>false</default>
+                <label>Pago reembolsos</label>
+            </value>
+            <value>
+                <fullName>Plan de Beneficios</fullName>
+                <default>false</default>
+                <label>Plan de Beneficios</label>
+            </value>
+            <value>
+                <fullName>Plazos de presentación de gastos Médicos mal configurados</fullName>
+                <default>false</default>
+                <label>Plazos de presentación de gastos Médicos mal configurados</label>
+            </value>
+            <value>
+                <fullName>Plazos y documentación para denuncio Siniestro Vida</fullName>
+                <default>false</default>
+                <label>Plazos y documentación para denuncio Siniestro Vida</label>
+            </value>
+            <value>
+                <fullName>Portal Reembolsos</fullName>
+                <default>false</default>
+                <label>Portal Reembolsos</label>
+            </value>
+            <value>
+                <fullName>Problema Aplicativo Colectivos Consorcio</fullName>
+                <default>false</default>
+                <label>Problema Aplicativo Colectivos Consorcio</label>
+            </value>
+            <value>
+                <fullName>Problemas APP</fullName>
+                <default>false</default>
+                <label>Problemas APP</label>
+            </value>
+            <value>
+                <fullName>Problemas Portal Reembolsos</fullName>
+                <default>false</default>
+                <label>Problemas Portal Reembolsos</label>
+            </value>
+            <value>
+                <fullName>Problemas Sitio Privado</fullName>
+                <default>false</default>
+                <label>Problemas Sitio Privado</label>
+            </value>
+            <value>
+                <fullName>Problemas WEB Corredores</fullName>
+                <default>false</default>
+                <label>Problemas WEB Corredores</label>
+            </value>
+            <value>
+                <fullName>Reliquidación</fullName>
+                <default>false</default>
+                <label>Reliquidación</label>
+            </value>
+            <value>
+                <fullName>Requisitos de Asegurabilidad mal configurados</fullName>
+                <default>false</default>
+                <label>Requisitos de Asegurabilidad mal configurados</label>
+            </value>
+            <value>
+                <fullName>Reserva de Hora Medica</fullName>
+                <default>false</default>
+                <label>Reserva de Hora Medica</label>
+            </value>
+            <value>
+                <fullName>Rut ficticio (para extranjeros)</fullName>
+                <default>false</default>
+                <label>Rut ficticio (para extranjeros)</label>
+            </value>
+            <value>
+                <fullName>Sitio Privado</fullName>
+                <default>false</default>
+                <label>Sitio Privado</label>
+            </value>
+            <value>
+                <fullName>Tarifas / primas/tasas mal configurados</fullName>
+                <default>false</default>
+                <label>Tarifas / primas/tasas mal configurados</label>
+            </value>
+            <value>
+                <fullName>Telemedicina</fullName>
+                <default>false</default>
+                <label>Telemedicina</label>
+            </value>
+            <value>
+                <fullName>Traspaso</fullName>
+                <default>false</default>
+                <label>Traspaso</label>
+            </value>
+            <value>
+                <fullName>Usuario Plataforma corredores jefe corredor</fullName>
+                <default>false</default>
+                <label>Usuario Plataforma corredores jefe corredor</label>
+            </value>
+            <value>
+                <fullName>Usuario y clave colectivos consorcio Contratante</fullName>
+                <default>false</default>
+                <label>Usuario y clave colectivos consorcio Contratante</label>
+            </value>
+            <value>
+                <fullName>Usuario y clave colectivos consorcio Corredor</fullName>
+                <default>false</default>
+                <label>Usuario y clave colectivos consorcio Corredor</label>
+            </value>
+            <value>
+                <fullName>Usuario y clave Plataforma corredores contratante</fullName>
+                <default>false</default>
+                <label>Usuario y clave Plataforma corredores contratante</label>
+            </value>
+            <value>
+                <fullName>Usuario y clave Plataforma corredores corredor</fullName>
+                <default>false</default>
+                <label>Usuario y clave Plataforma corredores corredor</label>
+            </value>
+            <value>
+                <fullName>Ventanilla Única</fullName>
+                <default>false</default>
+                <label>Ventanilla Única</label>
+            </value>
+            <value>
+                <fullName>Vigencias Asegurados</fullName>
+                <default>false</default>
+                <label>Vigencias Asegurados</label>
+            </value>
+            <value>
+                <fullName>WEB Corredores</fullName>
+                <default>false</default>
+                <label>WEB Corredores</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

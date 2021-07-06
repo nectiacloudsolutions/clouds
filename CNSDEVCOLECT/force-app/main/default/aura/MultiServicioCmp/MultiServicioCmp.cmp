@@ -1,0 +1,16 @@
+<!--
+  @description       : 
+  @author            : eayalcor@everis.com
+  @group             : 
+  @last modified on  : 08-24-2020
+  @last modified by  : eayalcor@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   08-24-2020   eayalcor@everis.com   Initial Version
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  controller="BtnInvokeController">
+    <aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="typeInvoke" type="String" default="Multiservicio"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+</aura:component>

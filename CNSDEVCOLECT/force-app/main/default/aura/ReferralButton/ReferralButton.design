@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="questionText" label="Título de Pregunta" />
+    <design:attribute name="title" label="Texto de Pregunta" />
+	<sfdc:objects>
+        <sfdc:object>Opportunity</sfdc:object>
+    </sfdc:objects>
+</design:component>

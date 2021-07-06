@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Quote</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Path Quote Consumo</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>monto_total_sales__c</fieldNames>
+        <fieldNames>Cuota_sales__c</fieldNames>
+        <fieldNames>Tasa_de_Interes_Mensual_sales__c</fieldNames>
+        <fieldNames>Plazo_en_meses_sales__c</fieldNames>
+        <fieldNames>Primer_Vencimiento_sales__c</fieldNames>
+        <info>&lt;p&gt;El campo de la fecha de primer vencimiento no puede ser una fecha anterior al día actual y debe ser el día 5 o 17 del mes en curso.&lt;/p&gt;</info>
+        <picklistValueName>Abierto</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>quote_banca_consumo</recordTypeName>
+</PathAssistant>

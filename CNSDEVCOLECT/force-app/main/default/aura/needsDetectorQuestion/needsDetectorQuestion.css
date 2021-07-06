@@ -1,0 +1,13 @@
+.THIS .slds-truncate {
+    white-space: normal;
+    
+}
+.THIS .slds-fontsizzze {
+  font-size:16px;
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+}
+
+.THIS .slds-radio .slds-form-element__label{
+    font-size:16px;
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+}

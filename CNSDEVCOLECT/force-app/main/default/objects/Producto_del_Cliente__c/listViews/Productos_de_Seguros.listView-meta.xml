@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Productos_de_Seguros</fullName>
+    <columns>NAME</columns>
+    <columns>Rut_del_Cliente__c</columns>
+    <columns>Cliente_Nectia__c</columns>
+    <columns>Poliza_Nectia__c</columns>
+    <columns>Estado_Nectia__c</columns>
+    <columns>Familia_del__c</columns>
+    <columns>L_nea__c</columns>
+    <columns>CREATED_DATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>NAME</field>
+        <operation>contains</operation>
+        <value>apv</value>
+    </filters>
+    <label>Productos de Seguros</label>
+</ListView>

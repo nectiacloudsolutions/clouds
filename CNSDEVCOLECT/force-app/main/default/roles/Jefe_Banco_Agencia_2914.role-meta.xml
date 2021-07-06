@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Jefe Banco Agencia 2914</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Jefe Banco Agencia 2914</name>
+    <opportunityAccessLevel>Read</opportunityAccessLevel>
+    <parentRole>Gerente_Contact_Center</parentRole>
+</Role>

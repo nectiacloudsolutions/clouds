@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>cnf_sales_rv_informevisit_Restr_Proceso</fullName>
+    <active>true</active>
+    <description>Restringir al usuario que cambie de estado Generado a En Proceso</description>
+    <errorConditionFormula>AND(
+ISPICKVAL(Estado__c, &quot;En proceso&quot;),
+ISPICKVAL(PRIORVALUE(Estado__c), &quot;Generado&quot;)
+)</errorConditionFormula>
+    <errorMessage>RV_LEA El Informe de visita ya se encuentra generado.</errorMessage>
+</ValidationRule>

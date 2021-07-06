@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Banco - Back S.O.</name>
+    <queueMembers>
+        <users>
+            <user>apinto@bancoconsorcio.cl</user>
+            <user>corellana@bancoconsorcio.cl</user>
+            <user>dsepulvedac@bancoconsorcio.cl</user>
+            <user>ecarrascov@bancoconsorcio.cl</user>
+            <user>gmontecino@bancoconsorcio.cl</user>
+            <user>lrojas@bancoconsorcio.cl</user>
+            <user>nhermosilla@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

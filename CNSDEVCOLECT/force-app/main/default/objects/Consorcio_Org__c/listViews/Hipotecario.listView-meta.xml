@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hipotecario</fullName>
+    <columns>SETUP_OWNER_NAME</columns>
+    <columns>Hipotecario_sales__c</columns>
+    <columns>Sales_project__c</columns>
+    <columns>Validation_rules__c</columns>
+    <columns>Cambiar_Propietario_sales__c</columns>
+    <columns>Referir_sales__c</columns>
+    <columns>Sincronizar_sales__c</columns>
+    <columns>Participantes_Sales__c</columns>
+    <columns>Etapa_Simulacion_sales__c</columns>
+    <columns>Etapa_Recopilacion_sales__c</columns>
+    <columns>Etapa_Revision_sales__c</columns>
+    <columns>Etapa_Evaluacion_sales__c</columns>
+    <columns>Etapa_Formalizacion_sales__c</columns>
+    <columns>Etapa_Inscripcion_sales__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Hipotecario</label>
+</ListView>

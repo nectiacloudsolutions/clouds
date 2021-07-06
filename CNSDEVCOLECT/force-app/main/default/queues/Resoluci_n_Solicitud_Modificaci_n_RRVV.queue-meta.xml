@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Resolución Solicitud Modificación RRVV</name>
+    <queueMembers>
+        <users>
+            <user>alma.sanmartin@consorcio.cl</user>
+            <user>amada.retamal@consorcio.cl</user>
+            <user>lisbeth.quiroz@consorcio.cl</user>
+            <user>lorena.zuniga@consorcio.cl</user>
+            <user>mariapia.guzman@consorcio.cl</user>
+            <user>mariel.fuentes.l@consorcio.cl</user>
+            <user>paola.cancino@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

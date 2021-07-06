@@ -1,0 +1,113 @@
+<aura:component >
+    <!--ATTRIBUTES-->
+    <aura:attribute name="pregunta" type="MAP" default=""/>
+    <aura:attribute name="options" type="List" />
+    <aura:attribute name="value" type="String"/>
+    <aura:attribute name="fecha" type="date" />
+    <aura:attribute name="mostrarSM" type="Boolean" default="false"/>
+    <aura:attribute name="mostrarDate" type="Boolean" default="false"/>
+    <aura:attribute name="mostrarPickList" type="Boolean" default="false"/>
+    <!--HANDLER-->    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="cmpEvent" type="c:needsDetectorEvent"/> 
+    <ui:scrollerWrapper class="scrollerSize">
+        <div class="innerDivWrapper">
+    <!--PREGUNTA-->
+    <aura:if isTrue="{!v.mostrarSM}">
+        <div class="slds-box slds-p-top_none">
+            <article class="slds-card">
+                <div class="slds-card__header slds-grid slds-p-top_none" >
+                  
+                        <div class="slds-media__figure ">
+                            <span class="slds-icon_container slds-icon-standard-account" title="account">
+                                <span class="slds-assistive-text">Help text</span>
+                            </span>
+                        </div>
+                        <div class="slds-grid slds-gutters ">
+                            <h2 class="slds-card__header-title" style="font-size:13px">
+                                
+                                <lightning:card title="" iconName="" class="slds-fontsizze" >
+                                    <lightning:icon iconName="custom:custom11" alternativeText="Approved" class=""/>
+                                    <label iconName="custom:custom11" > &ensp;{!v.pregunta.descripcionPregunta} &ensp;</label>
+                                    <lightning:helptext content="{!v.pregunta.helpText}"
+                                                        />
+                                    
+                                    <lightning:radioGroup 
+                                                          name="{!v.pregunta.idPregunta}"
+                                                          label="Seleccione una opción"
+                                                          options="{!v.options}"
+                                                          value="{!v.value}"
+                                                          onchange="{! c.handleChange }"
+                                                          type="radio"/>
+                                    
+                                </lightning:card>
+                                
+                            </h2>
+                        </div>
+                        <div class="slds-no-flex">
+                            
+                        </div>
+                    
+                </div>
+                
+                
+            </article>
+            
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.mostrarDate}">
+        <div class="slds-box">
+            <lightning:card title="{!v.pregunta.descripcionPregunta}" iconName="standard:account" >
+                <lightning:input type="date" label="Fecha de Nacimiento" name="date" />
+                
+            </lightning:card>
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.mostrarPickList}">
+        <div class="slds-box slds-p-top_none">
+            
+            
+            <article class="slds-card slds-p-top_none">
+                <div class="slds-card__header slds-grid slds-p-top_none">
+                    <header class="slds-media slds-media_center slds-has-flexi-truncate ">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container slds-icon-standard-account" title="account">
+                                
+                                <span class="slds-assistive-text">Help text</span>
+                            </span>
+                        </div>
+                        <div class="slds-grid slds-gutters ">
+                            <h2 class="slds-card__header-title" style="font-size:13px">
+                                
+                                <lightning:card title="" iconName="" class="slds-fontsizze" >
+                                    <lightning:icon iconName="custom:custom11" alternativeText="Approved"  />
+                                    <label iconName="custom:custom11" > &ensp;{!v.pregunta.descripcionPregunta} &ensp;</label>
+                                    <lightning:helptext content="{!v.pregunta.helpText}"
+                                                        />
+                                    
+                                    <lightning:select aura:id="select" name="select"  label="" onchange="{! c.onChangePickList }" value="{!v.value}">   
+                                        
+                                        <option style="font-size:13px" value="0">Seleccione una...</option> 
+                                        <aura:iteration items="{!v.options}" var="option">
+                                            <option style="font-size:16px" value="{!option.value}">{!option.label}</option>
+                                        </aura:iteration> 
+                                    </lightning:select> 
+                                    
+                                </lightning:card>
+                                
+                            </h2>
+                        </div>
+                        <div class="slds-no-flex">
+                            
+                        </div>
+                    </header>
+                </div>
+                
+                
+            </article>
+        </div>
+        
+    </aura:if>
+    </div>
+    </ui:scrollerWrapper>
+</aura:component>

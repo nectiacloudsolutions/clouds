@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Autoriza</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Autoriza</label>
+        <sharedTo>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>Autoriza_uso_de_datos__c</field>
+            <operation>equals</operation>
+            <value>Verdadero</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Producto_Cliente_Banco</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Producto Cliente Banco</label>
+        <sharedTo>
+            <group>Sales_Consorcio_Banco</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Banco</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Producto_Cliente_Corredora</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Producto Cliente Corredora</label>
+        <sharedTo>
+            <group>Sales_Consorcio_Corredora</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Corredora</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Producto_Cliente_Seguros</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Producto Cliente Seguros</label>
+        <sharedTo>
+            <group>Sales_Consorcio_Seguros</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Seguros</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Producto_Cliente_Servicios</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Producto Cliente Servicios</label>
+        <sharedTo>
+            <group>Sales_Consorcio_Servicios</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Seguros,Producto cliente Banco,Producto cliente Corredora</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Productos_del_cliente_Banco</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Productos del cliente Banco</label>
+        <sharedTo>
+            <roleAndSubordinates>Banco</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Banco</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Productos_del_cliente_Corredora</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Productos del cliente Corredora</label>
+        <sharedTo>
+            <roleAndSubordinates>Corredora</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Corredora</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Productos_del_cliente_Seguros</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Productos del cliente Seguros</label>
+        <sharedTo>
+            <roleAndSubordinates>Seguros</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Producto cliente Seguros</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+</SharingRules>

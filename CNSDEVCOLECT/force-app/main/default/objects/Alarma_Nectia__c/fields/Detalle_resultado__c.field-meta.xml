@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Detalle_resultado__c</fullName>
+    <externalId>false</externalId>
+    <label>Detalle resultado</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Anuló/Rescató su póliza</fullName>
+                <default>false</default>
+                <label>Anuló/Rescató su póliza</label>
+            </value>
+            <value>
+                <fullName>Apto</fullName>
+                <default>false</default>
+                <label>Apto</label>
+            </value>
+            <value>
+                <fullName>Cliente necesita monto mayor</fullName>
+                <default>false</default>
+                <label>Cliente necesita monto mayor</label>
+            </value>
+            <value>
+                <fullName>Disminuye prima y/o elimina coberturas</fullName>
+                <default>false</default>
+                <label>Disminuye prima y/o elimina coberturas</label>
+            </value>
+            <value>
+                <fullName>Firma denegada</fullName>
+                <default>false</default>
+                <label>Firma denegada</label>
+            </value>
+            <value>
+                <fullName>Gestionado Anteriormente</fullName>
+                <default>false</default>
+                <label>Gestionado Anteriormente</label>
+            </value>
+            <value>
+                <fullName>Le gusta método tradicional</fullName>
+                <default>false</default>
+                <label>Le gusta método tradicional</label>
+            </value>
+            <value>
+                <fullName>Lo evaluara con la familia</fullName>
+                <default>false</default>
+                <label>Lo evaluara con la familia</label>
+            </value>
+            <value>
+                <fullName>Muy caro/tasa muy alta</fullName>
+                <default>false</default>
+                <label>Muy caro/tasa muy alta</label>
+            </value>
+            <value>
+                <fullName>No Acepta</fullName>
+                <default>false</default>
+                <label>No Acepta</label>
+            </value>
+            <value>
+                <fullName>No acepta autenticación</fullName>
+                <default>false</default>
+                <label>No acepta autenticación</label>
+            </value>
+            <value>
+                <fullName>No apto</fullName>
+                <default>false</default>
+                <label>No apto</label>
+            </value>
+            <value>
+                <fullName>No desea compartir sus datos</fullName>
+                <default>false</default>
+                <label>No desea compartir sus datos</label>
+            </value>
+            <value>
+                <fullName>No desea que lo llamen</fullName>
+                <default>false</default>
+                <label>No desea que lo llamen</label>
+            </value>
+            <value>
+                <fullName>No existen regalos asociados</fullName>
+                <default>false</default>
+                <label>No existen regalos asociados</label>
+            </value>
+            <value>
+                <fullName>No le interesa</fullName>
+                <default>false</default>
+                <label>No le interesa</label>
+            </value>
+            <value>
+                <fullName>No quiere aumentar su deuda</fullName>
+                <default>false</default>
+                <label>No quiere aumentar su deuda</label>
+            </value>
+            <value>
+                <fullName>No quiere más productos CNS</fullName>
+                <default>false</default>
+                <label>No quiere más productos CNS</label>
+            </value>
+            <value>
+                <fullName>No quiere pagar parte del ahorro</fullName>
+                <default>false</default>
+                <label>No quiere pagar parte del ahorro</label>
+            </value>
+            <value>
+                <fullName>No quiere préstamo</fullName>
+                <default>false</default>
+                <label>No quiere préstamo</label>
+            </value>
+            <value>
+                <fullName>No se ofrece, no cumple requisitos</fullName>
+                <default>false</default>
+                <label>No se ofrece, no cumple requisitos</label>
+            </value>
+            <value>
+                <fullName>No tiene email</fullName>
+                <default>false</default>
+                <label>No tiene email</label>
+            </value>
+            <value>
+                <fullName>No tiene impresora</fullName>
+                <default>false</default>
+                <label>No tiene impresora</label>
+            </value>
+            <value>
+                <fullName>No usa internet</fullName>
+                <default>false</default>
+                <label>No usa internet</label>
+            </value>
+            <value>
+                <fullName>Plazo no adecuado</fullName>
+                <default>false</default>
+                <label>Plazo no adecuado</label>
+            </value>
+            <value>
+                <fullName>Producto en otro banco</fullName>
+                <default>false</default>
+                <label>Producto en otro banco</label>
+            </value>
+            <value>
+                <fullName>Producto ofrecido por Ejec. Venta</fullName>
+                <default>false</default>
+                <label>Producto ofrecido por Ejec. Venta</label>
+            </value>
+            <value>
+                <fullName>Requiere disponibilidad inmediata</fullName>
+                <default>false</default>
+                <label>Requiere disponibilidad inmediata</label>
+            </value>
+            <value>
+                <fullName>Se envía a otra área</fullName>
+                <default>false</default>
+                <label>Se envía a otra área</label>
+            </value>
+            <value>
+                <fullName>Seguimiento</fullName>
+                <default>false</default>
+                <label>Seguimiento</label>
+            </value>
+            <value>
+                <fullName>Seguro en otro compañía</fullName>
+                <default>false</default>
+                <label>Seguro en otro compañía</label>
+            </value>
+            <value>
+                <fullName>Se va del país</fullName>
+                <default>false</default>
+                <label>Se va del país</label>
+            </value>
+            <value>
+                <fullName>Tiene preexistencia</fullName>
+                <default>false</default>
+                <label>Tiene preexistencia</label>
+            </value>
+            <value>
+                <fullName>Tiene problemas económicos</fullName>
+                <default>false</default>
+                <label>Tiene problemas económicos</label>
+            </value>
+            <value>
+                <fullName>Tomo crédito por otro canal</fullName>
+                <default>false</default>
+                <label>Tomo crédito por otro canal</label>
+            </value>
+            <value>
+                <fullName>Ya tiene la cobertura en otra Inst.</fullName>
+                <default>false</default>
+                <label>Ya tiene la cobertura en otra Inst.</label>
+            </value>
+            <value>
+                <fullName>Autenticación errónea</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Autenticación errónea</label>
+            </value>
+            <value>
+                <fullName>Cliente molesto</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cliente molesto</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

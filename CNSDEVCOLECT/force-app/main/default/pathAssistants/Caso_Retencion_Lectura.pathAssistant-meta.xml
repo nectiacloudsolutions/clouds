@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Caso Retencion Lectura</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;1.   En primer lugar, hay que contactar a cliente para dar inicios a las acciones de retención (Simulación).&lt;/p&gt;&lt;p&gt;2.   En paralelo debemos crear oportunidades en Salesforce de forma manual y registrar el “N° de caso en la oportunidad” para tener trazabilidad&lt;/p&gt;&lt;p&gt;3.   Si el cliente está interesado en la simulación por la totalidad de los productos se deberá marcar la etapa como completada y pasar al siguiente paso “En evaluación”&lt;/p&gt;&lt;p&gt;4.   Si no muestra interés por la simulación de uno de los productos se deberá cerrar la oportunidad y mantener el caso abierto hasta la resolución final&lt;/p&gt;&lt;p&gt;5.   Si el cliente no muestra interés por la totalidad de los productos a retener, se deben cerrar:&lt;/p&gt;&lt;p&gt;   a.   Todas las oportunidades asociadas al caso con un motivo&lt;/p&gt;&lt;p&gt;   b.   Como también el “Caso” con un motivo&lt;/p&gt;</info>
+        <picklistValueName>En proceso</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;1. En primer lugar, el caso no se debe cerrar si riesgo no ha evaluado al menos una de las oportunidades y el cliente está interesado aun.&lt;/p&gt;&lt;p&gt;2. Si el cliente no muestra interés en la totalidad de los productos a retener, se deben cerrar las oportunidades como perdida en Salesforce, al igual que el “Caso”&lt;/p&gt;&lt;p&gt;3. Una vez que todas las oportunidades estén evaluadas y aprobada por riesgo, además de poseer la firma de los contratos por parte del cliente, se debe cerrar el “Caso”&lt;/p&gt;&lt;p&gt;4. A su vez, se deberá marcar cómo fue retenido,&lt;/p&gt;&lt;p&gt;   a. Retención total&lt;/p&gt;&lt;p&gt;   b. Retención Parcial&lt;/p&gt;&lt;p&gt;   c. Retención total más portabilidad de entrada&lt;/p&gt;&lt;p&gt;   d. Retención total + Generación de otras oportunidades&lt;/p&gt;&lt;p&gt;   e. Retención parcial más portabilidad de entrada&lt;/p&gt;&lt;p&gt;   f. Retención parcial+ Generación de otras oportunidades&lt;/p&gt;</info>
+        <picklistValueName>Evaluación</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>PF_Portabilidad_Salida_Lectura</recordTypeName>
+</PathAssistant>

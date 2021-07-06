@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Resultado_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Resultado</label>
+    <required>false</required>
+    <trackHistory>true</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Acepta</fullName>
+                <default>false</default>
+                <label>Acepta</label>
+            </value>
+            <value>
+                <fullName>Atiende a Tercero</fullName>
+                <default>false</default>
+                <label>Atiende a Tercero</label>
+            </value>
+            <value>
+                <fullName>Autenticación errónea</fullName>
+                <default>false</default>
+                <label>Autenticación errónea</label>
+            </value>
+            <value>
+                <fullName>Cliente molesto</fullName>
+                <default>false</default>
+                <label>Cliente molesto</label>
+            </value>
+            <value>
+                <fullName>Datos validados</fullName>
+                <default>false</default>
+                <label>Datos validados</label>
+            </value>
+            <value>
+                <fullName>Información entregada</fullName>
+                <default>false</default>
+                <label>Información entregada</label>
+            </value>
+            <value>
+                <fullName>Información no entregada</fullName>
+                <default>false</default>
+                <label>Información no entregada</label>
+            </value>
+            <value>
+                <fullName>Interesado</fullName>
+                <default>false</default>
+                <label>Interesado</label>
+            </value>
+            <value>
+                <fullName>No acepta</fullName>
+                <default>false</default>
+                <label>No acepta</label>
+            </value>
+            <value>
+                <fullName>No asiste</fullName>
+                <default>false</default>
+                <label>No asiste</label>
+            </value>
+            <value>
+                <fullName>No interesado</fullName>
+                <default>false</default>
+                <label>No interesado</label>
+            </value>
+            <value>
+                <fullName>No realizado</fullName>
+                <default>false</default>
+                <label>No realizado</label>
+            </value>
+            <value>
+                <fullName>Realizado</fullName>
+                <default>false</default>
+                <label>Realizado</label>
+            </value>
+            <value>
+                <fullName>Si asiste</fullName>
+                <default>false</default>
+                <label>Si asiste</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

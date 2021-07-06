@@ -1,0 +1,154 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,Lightning:actionOverride" controller="LeadWizardController" access="GLOBAL">
+    <!-- Attributes -->
+    <aura:attribute name="RUT" type="String" access="public" default=""/>
+    <aura:attribute name="enabledSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="question" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="errorMessage" type="String" access="private"/>
+    <aura:attribute name="hasErrors" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="obj" type="String" access="public" />
+    <aura:attribute name="ID" type="String" access="public" default=""/>
+    <aura:attribute name="lead" type="Lead" access="public" />
+    <aura:attribute name="isOpen" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="firstName" type="String" access="public" />
+    <aura:attribute name="lastName" type="String" access="public" />
+    <aura:attribute name="phone" type="String" access="public" />
+    <aura:attribute name="email" type="String" access="public" />
+    <aura:attribute name="textBtn" type="String" default='Crear o Consultar' access="public" />
+    <aura:attribute name="leadNot" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="notifiText" type="String" default=""/>
+    <aura:attribute name="ownerId" type="String" default=""/>
+    <aura:attribute name="LeadId" type="String" default=""/>
+
+    
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    <!-- Modal -->
+    <!--Use aura:if tag to display Model Box, on the bese of conditions. [isOpen boolean attribute] -->   
+    <aura:if isTrue="{!v.isOpen}">
+        
+        <!--###### MODAL BOX Start######--> 
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModel }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Crear Prospecto</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                    <!-- CREATE NEW LEAD -->
+                        <!-- CREATE NEW LEAD FORM -->
+                        <form class="slds-form--stacked">
+                            <lightning:input name="RUT" 
+                                             value="{!v.RUT}"
+                                             placeholder="" 
+                                             disabled="true"
+                                             label= "RUT" />
+                            <lightning:input name="input8" 
+                                             value="{!v.firstName }" 
+                                             placeholder="Ingrese los nombres" 
+                                             label= "Nombres" />
+                            <lightning:input name= "input8" 
+                                             value= "{!v.lastName }" 
+                                             placeholder="Ingrese los apellidos" 
+                                             label="Apellidos" />
+                            <lightning:input type="email" 
+                                             name="email" 
+                                             value="{!v.email }"
+                                             placeholder="tudirección@compañia.com" 
+                                             label="Email" />
+                            <lightning:input type="tel" 
+                                             label="Telefono" 
+                                             name="phone"
+                                             value="{!v.phone }" 
+                                             pattern="[0-9]{9}"/>
+                        </form>
+                        <!-- / CREATE NEW LEAD FORM -->
+
+                    </div>
+                    <!--###### MODAL BOX FOOTER Part Start ######-->
+                    <footer class="slds-modal__footer">
+                        <lightning:button variant="neutral" 
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>
+                        <lightning:button variant="brand" 
+                                          label="Crear Prospecto"
+                                          title="Crear Prospecto"
+                                          onclick="{!c.createLead}"/>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+            <!--###### MODAL BOX Part END Here ######-->
+            
+        </aura:if>
+    
+    
+    
+    
+    
+    
+    
+    <!--/ Modal -->
+    
+    
+    <!-- PAGE HEADER -->
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:search" alternativeText="Mis Prospectos"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">INFORMACIÓN DE</h1>
+                <h2 class="slds-text-heading--medium">PROSPECTO</h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- / PAGE HEADER -->
+    <lightning:layout >
+        <!-- FORM SECTION -->
+        <lightning:layoutItem size="12">
+            <div aria-labelledby="newleadform" class="slds-is-relative">
+                <!-- Show Spinner -->
+                <aura:if isTrue="{!v.enabledSpinner}">
+                    <lightning:spinner aura:id="cmpSpinner" variant="brand"/>
+                </aura:if>
+                <aura:if isTrue="{!!v.question}">
+                    <fieldset class="slds-box slds-theme--default ">
+                        <div class="slds-form--stacked">
+                            <lightning:input id="input-Test" aura:id="RUTInput" label="RUT " name="RUT" 
+                                             value="{!v.RUT}" fieldLevelHelp="El formato del RUT debe ser 123456789 o 12345678-9"
+                                             messageWhenBadInput="You must say foo" /> 
+                            <lightning:button label="{!v.textBtn}" class="slds-m-top--medium" variant="brand"
+                                              onclick="{!c.clickCreateWithRUT}" />
+                            <!--
+							<lightning:button label="Crear Candidato Sin RUT" class="slds-m-top-medium" variant="brand"
+                                              onclick="{!c.clickCreateWithOutRUT}" />
+							-->
+				
+                            <aura:if isTrue="{!v.hasErrors}">
+
+                            </aura:if>
+                        </div>
+                    </fieldset>
+                    
+                    <aura:if isTrue="{!v.leadNot}">
+                        <div class="slds-box slds-theme--default slds-container--fluid">
+                            <b>{!v.notifiText}</b>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                <!-- Message Section -->
+                
+            </div>
+        </lightning:layoutItem>
+        <!-- / FORM SECTION -->
+        
+    </lightning:layout>
+</aura:component>

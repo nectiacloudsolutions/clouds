@@ -1,0 +1,110 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,force:hasRecordId" access="global" controller="addParticipantController" >
+    <aura:html tag="style">
+        .cuf-content {
+        	padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+       		padding: 0rem !important;
+        }      
+        .slds-modal__content{
+            height:unset !important;
+            max-height:unset !important;
+        }
+    </aura:html>
+    <aura:attribute name="RUT" type="String" access="public" default=""/>
+    <aura:attribute name="enabledSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showFields" type="Boolean"  default="false"/>
+    <aura:attribute name="showHeader" type="Boolean"  default="true"/>
+    <aura:attribute name="rutAccount" type="String" />
+    <aura:attribute name="typeDocument" type="List" />
+    <aura:attribute name="nameClient" type="String" />
+    <aura:attribute name="lastnameClient" type="String" />
+    <aura:attribute name="apellidomatClient" type="String" />
+    <aura:attribute name="dateofBirth" type="String" />
+    <aura:attribute name="remunerationAccount" type="String" />
+    <aura:attribute name="mobileAccount" type="String" />
+    <aura:attribute name="idLeadAccount" type="String" />
+    <aura:attribute name="isLead" type="Boolean" default="false" />
+    <aura:attribute name="isAccount" type="Boolean" default="false" />
+    <aura:attribute name="valuesforTypeDocument" type="String[]" default="['RUT', 'DNI']"/>
+    
+    <aura:attribute name="cmpEnabled" type="Boolean" default="false" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:search" alternativeText="Agregar participante"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">Agregar</h1>
+                <h2 class="slds-text-heading--medium">PARTICIPANTE</h2>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    
+    <lightning:layout>
+        <lightning:layoutItem size="12">
+            <aura:if isTrue="{!v.showHeader}">
+                <div aria-labelledby="newleadform" class="slds-is-relative">
+                    <fieldset class="slds-box slds-theme--default ">
+                        <div class="slds-form--stacked">
+                            <lightning:input id="input-Test" aura:id="RUTInput" label="RUT" name="RUT" 
+                                             value="{!v.RUT}" fieldLevelHelp="El formato del RUT debe ser 18174837-0 o 181748370"
+                                             messageWhenBadInput="" disabled="{!!v.cmpEnabled}" />
+                        </div>
+                        <div class="slds-form--stacked slds-m-top_x-small">
+                            <lightning:button variant="brand" label="Agregar Participante" onclick="{! c.clickCreateWithRUT }" disabled="{!!v.cmpEnabled}" />
+                        </div>
+                    </fieldset>
+                    <aura:if isTrue="{!v.enabledSpinner}">
+                        <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                    </aura:if>
+                </div>
+            </aura:if>
+            <aura:if isTrue="{!v.showFields}">
+                <div class="slds-col slds-size_12-of-12 slds-form-element__row">
+                    <fieldset id="fieldset" class="slds-box slds-theme--default slds-container--grand  ">
+                        <label class="slds-form-element__label required-field" >Nº Documento Identidad</label>
+                        <lightning:input type="text" value="{!v.rutAccount}" readonly="readonly" />
+                        
+                        <lightning:select label="Tipo de Documento de Identidad" class="label-hidden">
+                            <aura:iteration items="{!v.valuesforTypeDocument}" var="item">
+                                <option text="{!item}"></option>
+                            </aura:iteration>
+                        </lightning:select>
+                        
+                        <label class="slds-form-element__label required-field" >Nombre Cliente</label>
+                        <lightning:input type="text" value="{!v.nameClient}" />
+                        
+                        <label class="slds-form-element__label required-field" >Apellido Paterno</label>
+                        <lightning:input type="text" value="{!v.lastnameClient}" />
+                        
+                        <label class="slds-form-element__label required-field" >Apellido Materno</label>
+                        <lightning:input type="text" value="{!v.apellidomatClient}" />
+                        
+                        <label class="slds-form-element__label required-field" >Fecha de Nacimiento</label>
+                        <lightning:input type="date" value="{!v.dateofBirth}" />
+                        
+                        <label class="slds-form-element__label required-field" >Remuneración</label>
+                        <lightning:input type="number" value="{!v.remunerationAccount}" />
+                        
+                        <label class="slds-form-element__label required-field" >Celular</label>
+                        <lightning:input type="text" value="{!v.mobileAccount}" />
+                        
+                        <div class="slds-grid slds-grid_align-center">
+                            <div class="slds-col slds-m-top_small">
+                                <lightning:button variant="brand" label="Registrar Participante" onclick="{! c.onRegisterAccount }" />
+                                <lightning:button variant="brand" label="Cancelar" onclick="{! c.onCancel }" />
+                            </div>
+                        </div>
+                    </fieldset>
+                    
+                    <aura:if isTrue="{!v.enabledSpinner}">
+                        <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                    </aura:if>
+                </div>
+            </aura:if>
+        </lightning:layoutItem>
+    </lightning:layout>
+</aura:component>

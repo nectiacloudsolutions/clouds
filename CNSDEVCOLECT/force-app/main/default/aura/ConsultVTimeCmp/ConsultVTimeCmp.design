@@ -1,0 +1,6 @@
+<design:component>
+	<design:attribute name="headerBtnOpp" label="Titulo" />
+   <!-- <sfdc:objects>
+        <sfdc:object>Quote</sfdc:object>
+    </sfdc:objects>-->
+</design:component>

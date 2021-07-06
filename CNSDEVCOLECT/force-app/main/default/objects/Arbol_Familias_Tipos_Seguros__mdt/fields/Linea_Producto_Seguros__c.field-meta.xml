@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Linea_Producto_Seguros__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Linea - Producto Seguros</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Colectivos</fullName>
+                <default>true</default>
+                <label>Colectivos</label>
+            </value>
+            <value>
+                <fullName>FFMM</fullName>
+                <default>false</default>
+                <label>FFMM</label>
+            </value>
+            <value>
+                <fullName>Generales</fullName>
+                <default>false</default>
+                <label>Generales</label>
+            </value>
+            <value>
+                <fullName>Rentas Vitalicias</fullName>
+                <default>false</default>
+                <label>Rentas Vitalicias</label>
+            </value>
+            <value>
+                <fullName>Vida</fullName>
+                <default>false</default>
+                <label>Vida</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

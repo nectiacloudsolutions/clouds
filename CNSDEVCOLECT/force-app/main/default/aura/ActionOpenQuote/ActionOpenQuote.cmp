@@ -1,0 +1,25 @@
+<!--
+  @description       : 
+  @author            : eayalcor@everis.com
+  @group             : 
+  @last modified on  : 08-21-2020
+  @last modified by  : eayalcor@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   08-18-2020   eayalcor@everis.com   Initial Version
+-->
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"  controller="ActionQuoteController"> 
+    <aura:attribute name="recordId" type="String" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+<!--     <aura:handler event="aura:doneRendering" action="{!c.doneRendering}"/>
+    <aura:handler name="render" value="{!this}" action="{!c.doneRendering}"/> -->
+    <div class="modal-header slds-modal__header">
+      <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Estamos Procesando</h2>
+    </div>
+    <div class="slds-modal__content slds-p-around_x-large slds-is-relative minHeight" id="modal-content">
+          <div class="exampleHolder">
+              <lightning:spinner alternativeText="Loading" size="large" />
+          </div>
+    </div>
+</aura:component>

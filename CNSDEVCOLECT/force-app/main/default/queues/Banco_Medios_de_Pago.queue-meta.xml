@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Banco - Medios de Pago</name>
+    <queueMembers>
+        <users>
+            <user>cnunezf@bancoconsorcio.cl</user>
+            <user>fcamacho@bancoconsorcio.cl</user>
+            <user>jguerraty@bancoconsorcio.cl</user>
+            <user>lbravoa@bancoconsorcio.cl</user>
+            <user>lperez@bancoconsorcio.cl</user>
+            <user>mpalmau@bancoconsorcio.cl</user>
+            <user>nreyes@bancoconsorcio.cl</user>
+            <user>rzamora@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

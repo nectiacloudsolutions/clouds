@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vistaNotifMB</fullName>
+    <columns>NAME</columns>
+    <columns>Adjunto__c</columns>
+    <columns>Cliente_Apto__c</columns>
+    <columns>Estado__c</columns>
+    <columns>FromId__c</columns>
+    <columns>ID_Notificacion__c</columns>
+    <columns>Nombre__c</columns>
+    <columns>Nombre_Adjunto__c</columns>
+    <columns>Plantilla__c</columns>
+    <columns>SLA__c</columns>
+    <columns>Sub_Estado__c</columns>
+    <columns>Tipo__c</columns>
+    <columns>FromName__c</columns>
+    <columns>FromMail__c</columns>
+    <columns>Campos_Plantilla__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>vistaNotifMB</label>
+</ListView>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>CL-AI</fullName>
+        <default>false</default>
+        <label>Aisén Del Gral. C. Ibáñez Del Campo</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-AN</fullName>
+        <default>false</default>
+        <label>Antofagasta</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-AR</fullName>
+        <default>false</default>
+        <label>Araucanía</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-AP</fullName>
+        <default>false</default>
+        <label>Arica Y Parinacota</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-AT</fullName>
+        <default>false</default>
+        <label>Atacama</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-BI</fullName>
+        <default>false</default>
+        <label>Bío Bío</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-CO</fullName>
+        <default>false</default>
+        <label>Coquimbo</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-LI</fullName>
+        <default>false</default>
+        <label>Lib. Gral. Bernardo O&apos;Higgins</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-LL</fullName>
+        <default>false</default>
+        <label>Los Lagos</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-LR</fullName>
+        <default>false</default>
+        <label>Los Ríos</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-MA</fullName>
+        <default>false</default>
+        <label>Magallanes</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-ML</fullName>
+        <default>false</default>
+        <label>Maule</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-RM</fullName>
+        <default>false</default>
+        <label>Metropolitana de Santiago</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-NB</fullName>
+        <default>false</default>
+        <label>Ñuble</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-TA</fullName>
+        <default>false</default>
+        <label>Tarapacá</label>
+    </customValue>
+    <customValue>
+        <fullName>CL-VS</fullName>
+        <default>false</default>
+        <label>Valparaíso</label>
+    </customValue>
+    <customValue>
+        <fullName>Sin región</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>Sin región</label>
+    </customValue>
+    <description>Valores globales de regiones. Creado por Everis.</description>
+    <masterLabel>Región</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

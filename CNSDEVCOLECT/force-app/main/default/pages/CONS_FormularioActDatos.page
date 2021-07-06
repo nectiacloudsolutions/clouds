@@ -1,0 +1,578 @@
+<apex:page applyHtmlTag="false" renderAs="pdf" showHeader="false" Controller="CONS_FormularioActDatosController" >
+<head>
+
+<style type="text/css">
+    page{
+        size:letter;
+    }
+    body{
+        font-family: 'sans-serif';
+        margin: 0;
+        color: #06295f;
+    }
+    .container-form {
+        background: #fff;
+        width: 720px;
+        margin: 0 auto;
+    }   
+    .main-form {
+        width: 710px;
+        margin: 0 auto;
+        padding: 10px;      
+    }
+    .main-header {
+        width: 100%;
+        height: auto;
+        display: inline-block;
+    }
+    .wrapper-form {
+        width: 100%;
+        height: auto;
+    }
+    .form-name {
+        float: left;
+        width: 300px;
+    }
+    .low-title {
+        font-size: 8px;
+    }   
+    
+    .form-rut {
+        float: right;
+        width: 300px;
+    }
+    .box-first  {
+        display: inline-block;
+    }
+    .wrapper-form label {
+        font-size: 12px;
+    }
+    .logo {
+        float: left;
+        width: 110px;
+    }
+    .box-first-title {
+        margin-bottom: 30px;
+        width: 516px;
+        float: right;
+    }
+    .form-caso {
+        width: 250px;
+        float: left;
+    }
+    .form-fecha {
+        width: 250px;
+        float: right;
+    }
+    .main-title {
+        font-size: 16px;
+        text-align: center;
+        border-bottom: 2px solid #06295f;
+        border-top: 2px solid #06295f;
+        margin-top: 20px;
+        margin-bottom: 0px;     
+    }
+    .form-envio {
+        float: left;
+        width: 300px;
+    }
+    .form-comercial {
+        display: inline;
+        float: right;
+        width: 400px;
+    }
+    .box-one {
+        display: inline-block;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .first-title {
+        font-size: 14px;
+        border-bottom: 1px solid #ced4da;       
+    }
+    .box-two {
+        display: inline-block;
+        margin-bottom: 20px;        
+    }
+    .btn-success{
+        text-decoration: none;
+        padding: 10px;
+        font-family: arial;
+        text-transform: uppercase;
+        font-weight: 800;
+        font-size: 16px;
+        color: #fff;
+        background-color: #92ba1f;
+        cursor: pointer;
+        border: 0;
+        border-radius: 10px;
+   }
+   .btn-success:hover{
+        color: #fff;
+        background-color: #749c00;
+        text-decoration: none;
+   }
+   .btn-actualizar {
+        margin-top: 20px;   
+   }
+  .container-info p {
+        font-size: 11px;
+        text-align: justify;
+   }
+  .form-control {
+        display: block;
+        width: 80%;
+        padding: 0.3rem .75rem;
+        font-size: 10px;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+    }
+    .form-control-out {
+        display: block;
+        width: 80%;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #495057;
+       
+    }
+  .form-control-first {
+        display: block;
+        width: 40%;
+        padding: 0.3rem .75rem;
+        font-size: 12px;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+    }   
+    .form-numero {
+        float: left;
+        width: 200px;
+    }
+    .form-depto {
+        float: left;
+        width: 200px;
+    }   
+    .form-poblacion {
+        float: left;
+        width: 200px;
+    }
+    .box-three {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    .form-comuna {
+        float: left;
+        width: 200px;
+    }
+    .form-ciudad {
+        float: left;
+        width: 200px;
+    }   
+    .form-region {
+        float: left;
+        width: 200px;
+    }
+    .box-four {
+        display: inline-block;
+        margin-bottom: 20px;
+    }
+    .form-fono
+    {
+        float: left;
+        width: 200px;
+    }
+    .form-celular {
+        float: left;
+        width: 200px;
+    }   
+    .form-mail {
+        float: left;
+        width: 200px;
+    }
+    .box-firma {
+        width: 300px;
+        float: left;
+    }
+    .box-cliente {
+        width: 300px;
+        float: right;
+    }
+    .box-footer {
+        display: inline-block;
+        margin: 40px 0;     
+    }
+    .wrapper-firma {
+        border-bottom: 1px solid #a2a2a2;
+        width: 200px;
+        margin: 0 auto;     
+    }
+    .title-ejecutivo {
+        text-align: center;
+        font-size: 12px;
+    }
+    .wrapper-cliente {
+        border-bottom: 1px solid #a2a2a2;
+        width: 200px;
+        margin: 0 auto;     
+    }
+    .title-cliente {
+        text-align: center;
+        font-size: 12px;
+    }
+    .container-info {
+        margin-bottom: 40px;
+        border-radius: 5px;
+        display: block;
+        padding: 10px;
+        border: 2px solid #06295f;
+        margin-top: 25px;
+    }
+    input[type="checkbox"] {
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        z-index: 0;
+        border: 2px solid #8a8a8a;
+        -webkit-border-radius: 1px;
+        border-radius: 1px;
+        margin-top: 3px;
+    }
+    .form-label {
+        padding-top: calc(.375rem + 1px);
+        padding-bottom: calc(.375rem + 1px);
+        margin-bottom: 0;
+        font-size: inherit;
+        line-height: 1.5;
+    }
+    .form-label-datos {
+        padding-top: calc(.375rem + 1px);
+        padding-bottom: calc(.375rem + 1px);
+        margin-bottom: 0;
+        font-size: 11px;
+        line-height: 1.5;
+    }
+    .form-label-header {
+        padding-top: calc(.375rem + 1px);
+        padding-bottom: calc(.375rem + 1px);
+        margin-bottom: 0;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+    .box-caso {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 60%;
+        float: right;
+    }
+    .box-fecha {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 70%;
+        float: right;
+    }
+    .box-calle {
+        margin-bottom: 20px;
+    }
+    .container-info h1 {
+        font-size: 14px;
+    }   
+    .form-ejecutivo {
+        width: 50%;
+        display: inline-block;
+        font-size: 10;
+        margin-bottom: 10px;
+    }
+    
+    .form-rut-ejecutivo {
+        width: 50%;
+        display: inline-block;
+        font-size: 10;
+        margin-bottom: 10px;
+    }
+    
+    .form-secursal {
+        width: 50%;
+        display: inline-block;
+        font-size: 10;
+        margin-bottom: 10px;
+    }   
+    
+    
+    
+    .box-ejecutivo {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 70%;
+        font-size: 10;
+        float: right;
+    }
+    
+    .box-rut-ejecutivo {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 70%;
+        font-size: 10;
+        float: right;
+    }
+    
+    .box-sucursal {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 83.333333%;
+        flex: 0 0 83.333333%;
+        max-width: 70%;
+        font-size: 10;
+        float: right;
+    }   
+</style>
+</head>
+
+<body>
+<div class="container-form">
+    <div class="main-form">
+    
+        <div class="main-header">   
+            <div class="logo">
+                <apex:image url="https://www.consorcio.cl/documents/10180/0/logo-consorcio.png" width="100%"/>
+                
+            </div>
+            <div class="box-first-title">
+                <h1 class="main-title">ACTUALIZACIÓN DATOS DE CONTACTO DE CLIENTES</h1>
+                <p class="low-title">AVDA. EL BOSQUE SUR 180 * LAS CONDES, SANTIAGO * CALLCENTER: 600 221 3000 - 600 221 5000 * WWW.CONSORCIO.CL</p>        
+            
+                <div class="datos-anexos">
+                    <div class="form-caso">
+                        <label class="form-label-header">N° CASO SF</label>
+                        <div class="box-caso">
+                            <apex:outputText value="{!casoAct.CaseNumber}" styleClass="form-control-out"></apex:outputText>
+                            
+                        </div>
+                    </div>
+                    <div class="form-fecha">
+                        <label class="form-label-header">FECHA</label>
+                        <div class="box-fecha">
+                        <apex:outputText value="{0,date,dd'-'MM'-'yyyy}" styleClass="form-control-out"> 
+                              <apex:param value="{!TODAY()}"  />
+                        </apex:outputText> 
+                        
+                        </div>
+                    </div>                  
+                </div>
+            </div>          
+        </div>
+
+        <div class="wrapper-form">
+            
+                    <div class="box-title">
+                        <h2 class="first-title">Identificación Contratante</h2>
+                    </div>
+                    <div class="box-first">
+                        <div class="form-name">
+                            <label class="control-label">Nombre</label>
+                            <div class="col-lg-3">
+                                
+                                <apex:outputText value="{!casoAct.Account.Name}" styleClass="form-control-out"></apex:outputText>
+                            </div>
+                        </div>
+                        <div class="form-rut">
+                            <label class="control-label">Rut</label>
+                            <div class="col-lg-3">
+                                <apex:outputText value="{!casoAct.Account.RUT__c}" styleClass="form-control-out"></apex:outputText>
+                            </div>
+                        </div>                                      
+                    </div>
+                    
+                    <div class="box-second">
+                        
+                        <div class="box-one">
+                            <div class="second-title">
+                                <h2 class="first-title">Actualización Datos de Contacto</h2>
+                            </div>
+
+                            <div class="form-envio">
+                                <label class="col-lg-3 control-label">Actualización de Dirección de Envio</label>
+                                
+                            </div>
+                            
+                            <div class="form-comercial">
+                                <div class="col-lg-9">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="checkbox" name="*****" value="C" /> Comercial
+                                        </label>
+
+                                    </div>
+
+                                    <div class="radio">
+                                        <label>
+                                            <input type="checkbox" name="*****" value="P" /> Particular Calle
+                                        </label>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            
+                        
+                        <div class="box-calle">
+                            <div class="form-calle">
+                                <label class="col-lg-3 control-label">Calle</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Nombre_calle__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>                          
+                            </div>                          
+                        </div>
+                        
+                        <div class="box-two">
+                            <div class="form-numero">
+                                <label class="col-lg-3 control-label">Numero</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Numero_Nectia__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+
+                            <div class="form-depto">
+                                <label class="col-lg-3 control-label">Depto/Of</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Numero_de_departamento__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>                              
+
+                            <div class="form-poblacion">
+                                <label class="col-lg-3 control-label">Villa / Población</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Nombre_Villa__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <div class="box-three">
+                            <div class="form-comuna">
+                                <label class="col-lg-3 control-label">Comuna</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Comuna__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+
+                            <div class="form-ciudad">
+                                <label class="col-lg-3 control-label">Ciudad</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Comuna__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+
+                            <div class="form-region">
+                                <label class="col-lg-3 control-label">Región</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.C_digo_regi_n__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="box-four">
+                            <div class="form-fono">
+                                <label class="col-lg-3 control-label">Teléfono</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Otro_telefono__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+
+                            <div class="form-celular">
+                                <label class="col-lg-3 control-label">Celular</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Telefono_movil__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>                                                                                                  
+    
+                            <div class="form-mail">
+                                <label class="col-lg-3 control-label">Correo Electrónico</label>
+                                <div class="col-lg-3">
+                                    <apex:outputText value="{!casoAct.Correo_electr_nico__c}" styleClass="form-control-out"></apex:outputText>
+                                </div>
+                            </div>
+                            
+                        </div>                  
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">Solo pensionados y/o beneficiario de pensión de sobrevivencia: Autorizo expresamente a Consorcio a enviar mi liquidación de pensión mensual al correo electrónico indicado arriba</label>
+                        <div class="col-lg-9">
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="*****" value="S" /> Sí­
+                                </label>
+
+                            </div>
+
+                            <div class="radio">
+                                <label>
+                                    <input type="checkbox" name="*****" value="N" /> No
+                                </label>
+
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        
+            <div class="container-info">
+                <h1>COMUNICACIONES Y USO DE INFORMACIÓN</h1>
+                <p>El Cliente otorga autorización a las Compañías de Seguros, Corredoras de Bolsa, Banco y demás Empresas pertenecientes al grupo Consorcio Financiero S.A. a que se recopile toda información, antecedentes y datos de carácter personal suministrados en este acto o durante la vigencia de cualquiera de los productos contratados con ellos, autorizando y aceptando expresamente la transmisión y almacenamiento de los mismos en Chile como en el extranjero, incluidos aquellos sujetos a secreto o reserva bancaria. Asimismo, a realizar todos los actos entre dichas compañías que sean necesarios para transmitir, comunicar, compartir, almacenar, conservar, modiﬁcar, actualizar, así como todo otro acto regulado en la Ley 19.628, para el adecuado cumplimiento de los siguientes propósitos: Enviar la dirección física, correo electrónico y/o número de telefonía móvil, todos aquellos antecedentes relacionados con los productos contratados y cualquier otro tipo de información comercial y/o promocional sobre cualquier producto o servicio ofrecido al público, sea con el propósito de informarlo, con el fin de poder conocerlos, acceder a sus condiciones objetivas, precios y tarifas, consultar sobre sus características relevantes, cotizarlos y/o contratarlos por cualquiera de las Empresas pertenecientes al grupo Consorcio Financiero S.A.</p>
+                <p>El Cliente se compromete a mantener los datos actualizados y exactos, como también a informar de modificaciones respecto a la información relativa a ella, tan pronto como sea posible.</p>
+                <p>Así mismo declara conocer y aceptar que si no desea recibir información comercial de las compañías pertenecientes al grupo empresarial se encargará personalmente de cancelar mi suscripción de comunicaciones enviando un correo electrónico a la casilla <b>remover@consorcio.cl</b></p>
+                <p>Por su parte, las compañías del grupo empresarial de Consorcio Financiero S.A. se obligan a no utilizar los datos suministrados en este acto para otro fin que aquellos señalados precedentemente ni a ceder, transferir o compartir dicha información con terceras personas diferentes a las indicadas en este documento.</p>
+            </div>
+    
+    
+        <div class="box-footer">
+            <div class="box-firma">
+                <div class="wrapper-firma"></div>
+                <p class="title-ejecutivo">FIRMA EJECUTIVO</p>
+            </div>
+            <div class="box-cliente">
+                <div class="wrapper-cliente"></div>
+                <p class="title-cliente">FIRMA CLIENTE</p>
+            </div>          
+        </div>
+        
+        <div style="font-size: 10;">
+            <div class="form-ejecutivo">
+                <label class="form-label-datos">Nombre Ejecutivo</label>
+                <div class="box-ejecutivo">
+                    <apex:outputText value="{!NombreEjecutivo}" styleClass="form-control-out"></apex:outputText>
+                </div>
+            </div>
+            <div class="form-rut-ejecutivo">
+                <label class="form-label-datos">Rut Ejecutivo</label>
+                <div class="box-rut-ejecutivo">
+                    <apex:outputText value="{!RutEjecutivo}" styleClass="form-control-out"></apex:outputText>
+                </div>
+            </div>
+            <div class="form-secursal">
+                <label class="form-label-datos">Sucursal</label>
+                <div class="box-rut-ejecutivo">
+                    <apex:outputText value="{!SucursalEjecutivo}" styleClass="form-control-out"></apex:outputText>
+                </div>
+            </div>                                                                              
+            
+        </div>  
+    
+
+    </div>                      
+</div>          
+                
+
+</body>
+
+
+</apex:page>

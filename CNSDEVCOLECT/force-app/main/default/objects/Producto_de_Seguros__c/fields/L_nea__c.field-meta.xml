@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>L_nea__c</fullName>
+    <externalId>false</externalId>
+    <label>Línea</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Colectivos</fullName>
+                <default>false</default>
+                <label>Colectivos</label>
+            </value>
+            <value>
+                <fullName>FFMM</fullName>
+                <default>false</default>
+                <label>FFMM</label>
+            </value>
+            <value>
+                <fullName>Generales</fullName>
+                <default>false</default>
+                <label>Generales</label>
+            </value>
+            <value>
+                <fullName>Rentas Vitalicias</fullName>
+                <default>false</default>
+                <label>Rentas Vitalicias</label>
+            </value>
+            <value>
+                <fullName>Vida</fullName>
+                <default>false</default>
+                <label>Vida</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

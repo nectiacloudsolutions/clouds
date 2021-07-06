@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Colaboracion_para_Usuarios_de_Servicio</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Colaboración para Usuarios de Servicio</label>
+        <sharedTo>
+            <group>Usuarios_de_Servicio</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Ejecutivos_Venta_Oportunidades</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Colaboración para Gerente Ventas y subordinados, prueba cambio de propietario.</description>
+        <label>Ejecutivos Venta - Oportunidades</label>
+        <sharedTo>
+            <group>Ejecutivos_Venta_Oportunidades</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

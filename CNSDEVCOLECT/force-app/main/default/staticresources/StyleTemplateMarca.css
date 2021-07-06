@@ -1,0 +1,64 @@
+body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: justify;
+        line-height:1.4;
+        font-size: 15px;
+    }
+    .dest {
+        padding: 0.5cm 0.5cm 0.5cm 1cm;
+        font-style: italic;
+    }
+    .centrado{
+        padding: 0.5cm 0.5cm 0.5cm 1cm;
+        
+        text-align: center;
+        margin: auto;
+        width: 50%;
+
+    }
+    #element1 {
+        display:inline-block;
+        padding-top: 15px;
+    } 
+    #element2 {
+        display:inline-block;  
+        float: right;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 23px;
+    } 
+    .firma {
+        width: 200px;
+        border-bottom: 2px solid #000;
+        margin-bottom: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .titulo { 
+        text-align: center;
+        font-weight: bold;
+        margin-top: 10px;
+        width: 50% ;
+        height: 45px;
+        color: #003da5;
+        font-size: 20px;
+    }
+    
+    .logo img {width: 200px; height: 45px;}
+    .contenedor {width: 60%; height: auto; margin-bottom: 60px; display: flex; margin: auto;}
+    .izq {width: 50%; display: table-cell;}
+    .der {width: 50%; display: table-cell; margin-left: 40px;}
+    .cuadro {width: 30px; height: 30px; border: 1px solid #454545; float: left; margin-right: 10px;}
+    .txt {  padding-top: 5px; }
+    .box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .box div {
+          width: 300px;
+          height: 100px;
+          text-align: center;
+        }

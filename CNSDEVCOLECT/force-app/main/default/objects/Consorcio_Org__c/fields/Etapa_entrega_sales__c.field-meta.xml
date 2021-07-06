@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Etapa_entrega_sales__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo creado por everis que controla perfiles que puede avanzar a etapa Entrega en Oportunidad de Banca Plan plus.</description>
+    <externalId>false</externalId>
+    <label>Etapa Entrega</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

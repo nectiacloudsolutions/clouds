@@ -1,0 +1,7 @@
+<design:component>
+    <design:attribute name="headerPropensity" label="Titulo" />
+	<sfdc:objects>
+        <sfdc:object>Account</sfdc:object>
+        <sfdc:object>Lead</sfdc:object>
+    </sfdc:objects>
+</design:component>

@@ -1,0 +1,82 @@
+<!--
+  @description       : 
+  @author            : mbeltran@everis.com
+  @group             : 
+  @last modified on  : 10-21-2020
+  @last modified by  : ggonzroj@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   10-18-2020   mbeltran@everis.com   Initial Version
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickActionWithoutHeader,Lightning:actionOverride,flexipage:availableForRecordHome,lightning:isUrlAddressable" controller="LeadWizardControllerB2B" access="GLOBAL" >
+    <aura:attribute name="RUT" type="String" access="public" default=""/>
+    <aura:attribute name="enabledSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="question" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="errorMessage" type="String" access="private"/>
+    <aura:attribute name="hasErrors" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="obj" type="String" access="public" />
+    <aura:attribute name="ID" type="String" access="public" default=""/>
+    <aura:attribute name="lead" type="Lead" access="public" />
+    <aura:attribute name="isOpen" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="firstName" type="String" access="public" />
+    <aura:attribute name="lastName" type="String" access="public" />
+    <aura:attribute name="phone" type="String" access="public" />
+    <aura:attribute name="email" type="String" access="public" />
+    <aura:attribute name="textBtn" type="String" default='Crear o Consultar' access="public" />
+    <aura:attribute name="leadNot" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="notifiText" type="String" default=""/>
+    <aura:attribute name="ownerId" type="String" default=""/>
+    <aura:attribute name="LeadId" type="String" default=""/>
+
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+    <!-- PAGE HEADER -->
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem>
+            <lightning:icon iconName="standard:search" alternativeText="Mis Prospectos"/>
+        </lightning:layoutItem>
+        <lightning:layoutItem padding="horizontal-small">
+            <div class="page-section page-header">
+                <h1 class="slds-text-heading--label">BANCA EMPRESAS</h1>
+                <h2 class="slds-text-heading--medium">INFORMACIÓN DE PROSPECTO</h2>
+                
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- / PAGE HEADER -->
+    <lightning:layout >
+        <!-- FORM SECTION -->
+        <lightning:layoutItem size="12">
+            <div aria-labelledby="newleadform" class="slds-is-relative">
+                <!-- Show Spinner -->
+                <aura:if isTrue="{!v.enabledSpinner}">
+                    <lightning:spinner aura:id="cmpSpinner" variant="brand"/>
+                </aura:if>
+                <aura:if isTrue="{!!v.question}">
+                    <fieldset class="slds-box slds-theme--default ">
+                        <div class="slds-form--stacked">
+                            <lightning:input id="input-Test" aura:id="RUTInput" label="RUT EMPRESA" name="RUT" 
+                                             value="{!v.RUT}" fieldLevelHelp="El formato del RUT debe ser 12345678-9"
+                                             messageWhenBadInput="Error de entrada" /> 
+                            <lightning:button label="{!v.textBtn}" class="slds-m-top--medium" variant="brand"
+                                              onclick="{!c.clickCreateOrView}" />
+                            <aura:if isTrue="{!v.hasErrors}">
+                            </aura:if>
+                        </div>
+                    </fieldset>
+                    <aura:if isTrue="{!v.leadNot}">
+                        <div class="slds-box slds-theme--default slds-container--fluid">
+                            <b>{!v.notifiText}</b>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                <!-- Message Section -->
+                
+            </div>
+        </lightning:layoutItem>
+        <!-- / FORM SECTION -->
+        
+    </lightning:layout>
+
+</aura:component>

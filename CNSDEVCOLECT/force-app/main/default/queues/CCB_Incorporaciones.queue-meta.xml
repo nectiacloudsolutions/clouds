@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>CCB - Incorporaciones</name>
+    <queueMembers>
+        <users>
+            <user>bbustos@consorciocb.cl</user>
+            <user>msegovia@consorciocb.cl</user>
+            <user>nsanmartin@consorciocb.cl</user>
+            <user>vtognarelli@consorciocb.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

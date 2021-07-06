@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cotizador__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo que registra si el producto asociado a la Oportunidad pertenece al flujo con cotizador.</description>
+    <externalId>false</externalId>
+    <label>Cotizador</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

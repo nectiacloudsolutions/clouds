@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Path Banca Hipotecario</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Name</fieldNames>
+        <fieldNames>CloseDate</fieldNames>
+        <fieldNames>AccountId</fieldNames>
+        <info>&lt;p&gt;¡Enhorabuena!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Ha comenzado su proceso para generar una nueva oportunidad de negocio. En esta primera etapa usted deberá completar los campos que se indican en la sección Campos Clave, así como también generar una Agenda de Tipo Entrevista y que el resultado de ésta sea Reunión Exitoso para avanzar a la siguiente etapa generando una simulación.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Le deseamos la mejor de las suertes.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;quot;&lt;i&gt;El éxito consiste en obtener lo que se desea. La felicidad, en disfrutar lo que se obtiene.&lt;/i&gt;&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Contacto</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;¡Esplendido!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Si ha alcanzado este punto significa que la documentación estaba correcta. En esta etapa se debe aguardar la respuesta por parte del área de riesgo, la cual puede ser:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Aprobación -&amp;gt; la oportunidad puede pasar a la etapa de Formalización.&lt;/li&gt;&lt;li&gt;Rechazado -&amp;gt; en este caso el área de riesgo informará a su jefe las razones por las cuales se rechazó la oportunidad. Tras esto su jefe determinará si se pierde la oportunidad o si ésta puede continuar con diferentes condiciones, según lo indicado por el área de riesgo.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;quot;&lt;i&gt;La paciencia es amarga, pero sus frutos son dulces.&lt;/i&gt;&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Evaluación</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;¡Maravilloso!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Para saber lo que sucede en esta etapa y la siguiente no se puede perder la siguiente temporada de su serie favorita &amp;quot;&lt;i&gt;Producto Hipotecario&lt;/i&gt;&amp;quot;.&lt;/p&gt;</info>
+        <picklistValueName>Formalización</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;¡Almost There!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Coming soon...&lt;/p&gt;</info>
+        <picklistValueName>Inscripción</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>copia_cedula_sales__c</fieldNames>
+        <fieldNames>acreditacion_de_vehiculos_sales__c</fieldNames>
+        <fieldNames>acreditacion_activos_sales__c</fieldNames>
+        <fieldNames>acreditacion_de_pasivos_sales__c</fieldNames>
+        <fieldNames>acreditacion_de_propiedades_sales__c</fieldNames>
+        <info>&lt;p&gt;¡Grandioso!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Si usted se encuentra en esta etapa significa que su cliente aceptó la simulación ofrecida. En esta etapa deberá cargar los siguientes documentos en Alfresco, a medida que los vaya obteniendo por parte de su cliente, y luego, en la pestaña Documentos, deberá ir seleccionando Ingresado para cada documento y posteriormente presionar el botón Enviar a Visado:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Copia Cédula Identidad.&lt;/li&gt;&lt;li&gt;Acreditación de activos circulantes.&lt;/li&gt;&lt;li&gt;Acreditación de vehículos.&lt;/li&gt;&lt;li&gt;Acreditación de propiedades.&lt;/li&gt;&lt;li&gt;Acreditación de pasivos.&lt;/li&gt;&lt;li&gt;Acreditación del pie.&lt;/li&gt;&lt;li&gt;Certificado de matrimonio (sí corresponde).&lt;/li&gt;&lt;li&gt;Liquidaciones de Sueldo (Si Tipo de Contrato es Dependiente).&lt;/li&gt;&lt;li&gt;Certificado AFP (Si Tipo de Contrato es Dependiente).&lt;/li&gt;&lt;li&gt;Boletas Honorarios (Si Tipo de Contrato es Independiente).&lt;/li&gt;&lt;li&gt;Declaraciones Anuales de Impuestos (Si Tipo de Contrato es Independiente).&lt;/li&gt;&lt;/ul&gt;</info>
+        <picklistValueName>Recopilación</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;¡Continué Así!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;En esta etapa deberá, si ha adjuntado todos los documentos solicitados en la etapa anterior, esperar a que el ejecutivo de visado, señalado en la sección Equipo de la Oportunidad (a la derecha de la ficha de su oportunidad) de por aprobados todos los documentos que usted recopiló en la etapa anterior.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&amp;quot;&lt;i&gt;Quien tiene paciencia, obtendrá lo que desea.&lt;/i&gt;&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Revisión</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>SyncedQuoteId</fieldNames>
+        <info>&lt;p&gt;¡Muy bien!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Si se encuentra en esta etapa significa que su cliente está interesado en el negocio. En esta sección usted deberá realizar las siguientes acciones:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;Deberá ingresar a la simulación generada a raíz de la reunión exitosa ingresada en la etapa anterior.&lt;/li&gt;&lt;li&gt;Cuando se encuentre dentro de la simulación deberá llenar los campos de las secciones Datos Propiedad y Datos Dirección.&lt;/li&gt;&lt;li&gt;Una vez llenados los datos del paso 2, y si su cliente acepta la simulación, deberá marcar el check Aprobación de Cliente.&lt;/li&gt;&lt;li&gt;Por último deberá presionar el botón Iniciar Sincronización y darle a Aceptar en la ventana emergente.&lt;/li&gt;&lt;li&gt;En caso de que usted no sea un ejecutivo especialista deberá presionar el botón Referir para continuar con la venta. Tras esto usted podrá seguir visualizando la información de la oportunidad sin problemas.&lt;/li&gt;&lt;/ol&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;&amp;quot;Con números se puede demostrar cualquier cosa.&lt;/i&gt;&amp;quot;&lt;/p&gt;</info>
+        <picklistValueName>Simulación</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>sales_banca_hipotecario</recordTypeName>
+</PathAssistant>

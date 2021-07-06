@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tipo_oportunidad__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Tipo Oportunidad</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Hipotecario</fullName>
+                <default>false</default>
+                <label>Hipotecario</label>
+            </value>
+            <value>
+                <fullName>Plan Plus</fullName>
+                <default>false</default>
+                <label>Plan Plus</label>
+            </value>
+            <value>
+                <fullName>Otro</fullName>
+                <default>false</default>
+                <label>Otro</label>
+            </value>
+            <value>
+                <fullName>Consumo</fullName>
+                <default>false</default>
+                <label>Consumo</label>
+            </value>
+            <value>
+                <fullName>Consumo Dependiente</fullName>
+                <default>false</default>
+                <label>Consumo Dependiente</label>
+            </value>
+            <value>
+                <fullName>Consumo Independiente</fullName>
+                <default>false</default>
+                <label>Consumo Independiente</label>
+            </value>
+            <value>
+                <fullName>Consumo Socio Empresa</fullName>
+                <default>false</default>
+                <label>Consumo Socio Empresa</label>
+            </value>
+            <value>
+                <fullName>Consumo Rentista</fullName>
+                <default>false</default>
+                <label>Consumo Rentista</label>
+            </value>
+            <value>
+                <fullName>Consumo Form</fullName>
+                <default>false</default>
+                <label>Consumo Form</label>
+            </value>
+            <value>
+                <fullName>Hipotecario Form</fullName>
+                <default>false</default>
+                <label>Hipotecario Form</label>
+            </value>
+            <value>
+                <fullName>Plan Plus Independiente Boleta</fullName>
+                <default>false</default>
+                <label>Plan Plus Independiente Boleta</label>
+            </value>
+            <value>
+                <fullName>Plan Plus Independiente Socio Empresa</fullName>
+                <default>false</default>
+                <label>Plan Plus Independiente Socio Empresa</label>
+            </value>
+            <value>
+                <fullName>Plan Plus Dependiente</fullName>
+                <default>false</default>
+                <label>Plan Plus Dependiente</label>
+            </value>
+            <value>
+                <fullName>Plan Plus Pensionado</fullName>
+                <default>false</default>
+                <label>Plan Plus Pensionado</label>
+            </value>
+            <value>
+                <fullName>Plan Plus Rentista</fullName>
+                <default>false</default>
+                <label>Plan Plus Rentista</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

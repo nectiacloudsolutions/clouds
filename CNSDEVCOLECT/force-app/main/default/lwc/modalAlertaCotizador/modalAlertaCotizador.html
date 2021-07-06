@@ -1,0 +1,60 @@
+<template>
+    <template if:true={showModal}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                
+                <!-- modal header start -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModalAction}>
+                       <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse" size="small" ></lightning-icon>
+                    </button>
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Alertas Operacionales</h2>
+                </header>
+                <!-- modal body start -->
+                <div class="slds-modal__content slds-p-around_medium">
+                    <lightning-accordion allow-multiple-sections-open
+                                        onsectiontoggle={handleSectionToggle}
+                                        >
+                        <template if:true={loading}> <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner></template>
+                        <lightning-accordion-section name="ppendientes" label="Propuestas Pendientes">
+                            <lightning-badge slot="actions" label={countPpendiente}></lightning-badge>
+                            <lightning-icon slot="actions" 
+                                            icon-name={iconpp}
+                                            alternative-text="0" 
+                                            variant={vpp}
+                                            size="small" ></lightning-icon>
+                            
+                            <template if:false={showPpTable}>
+                                <p>{activeSections.dpp} </p>
+                            </template>
+                            <template if:true={showPpTable}>
+                                <c-detalle-propuestas-pendientes perfil={activeSections.perfil}></c-detalle-propuestas-pendientes>
+                            </template>
+                        </lightning-accordion-section>
+
+                        <lightning-accordion-section name="mpendientes" label="Mandatos Pendientes">
+                            <lightning-badge slot="actions" label={countMpendiente}></lightning-badge>
+                            <lightning-icon slot="actions" 
+                                            icon-name={iconmp} 
+                                            alternative-text="66" 
+                                            variant={vmp}
+                                            size="small" ></lightning-icon>
+                            <template if:false={showMpTable}>
+                                <p> {activeSections.dmp} </p>
+                            </template>
+                            <template if:true={showMpTable}>
+                                <c-detalle-mandatos-pendientes perfil={activeSections.perfil}></c-detalle-mandatos-pendientes>
+                            </template>
+                        </lightning-accordion-section>
+                    </lightning-accordion>
+                    
+                    <!-- modal footer start-->
+                    <footer class="slds-modal__footer">
+                        <lightning-button variant="brand" label="Cerrar" title="Cerrar"  onclick={closeModalAction}></lightning-button>
+                    </footer> 
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+</template>

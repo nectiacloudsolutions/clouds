@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Botón para enviar la siguiente información a fin de estar informado/a del avance del negocio en Cumbres:
+
+- Número Oportunidad Comercializadora
+- Id de la Oportunidad
+- Rut Cliente (sin dígito)</description>
+    <height>250</height>
+    <label>Envío Solicitud</label>
+    <lightningComponent>opportunityCumbresButton</lightningComponent>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>LightningComponent</type>
+    <width>-100</width>
+</QuickAction>

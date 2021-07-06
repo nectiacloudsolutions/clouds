@@ -1,0 +1,9 @@
+.THIS .slds-textarea {
+    height:100px !important;
+}
+.THIS .avatarIconColor{
+     background-color:#ebbe2a;
+ }
+.THIS .avatarIconColor svg {
+    fill:rgb(255,255,255);
+}

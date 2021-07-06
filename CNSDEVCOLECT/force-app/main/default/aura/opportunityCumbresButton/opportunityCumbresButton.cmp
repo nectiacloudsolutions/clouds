@@ -1,0 +1,67 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" access="global" controller="OppCumbresButtonController" >
+	
+	<aura:attribute name="recordId" type="String" default=""/>
+    <aura:attribute name="contador" type="Boolean" default="false" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="stage" type="Boolean" default="false" />
+    <aura:attribute name="respuesta" type="String" />
+    <aura:attribute name="title" type="String" default="Envío Solicitud"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:html tag="style">
+        .cuf-content {
+            padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+            padding: 0rem !important;
+        }       
+        .slds-modal__content{
+            overflow-y:hidden !important;
+            height:unset !important;
+            max-height:unset !important;
+        }
+    </aura:html>
+         
+    <div class="modal-header slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+    </div>
+    
+    <div class="slds-modal__content slds-p-around_x-large slds-is-relative minHeight" id="modal-content">
+        <aura:if isTrue="{! v.contador }">
+            <aura:if isTrue="{! v.loaded }">             
+                <aura:if isTrue="{! v.stage }">   
+                    <div class="slds-grid slds-box slds-box_x-small">                      
+                        <div class="slds-col slds-size_3-of-12 slds-align_absolute-center">
+                            <b>Estado Solicitud</b>
+                        </div>
+                        <div class="slds-col slds-size_9-of-12 slds-align_absolute-center">
+                            <b>{!v.respuesta}</b>
+                        </div>
+                    </div> 
+                    <aura:set attribute="else">
+                        <div class="slds-grid slds-box slds-box_x-small">  
+                            <div class="slds-col slds-size_3-of-12 slds-align_absolute-center">
+                                <b>Estado Solicitud</b>
+                            </div>
+                            <div class="slds-col slds-size_9-of-12 slds-align_absolute-center">
+                                <b>Solo se puede enviar la solicitud en Etapa Recopilación</b>
+                            </div>
+                        </div>
+                    </aura:set>                                        
+                </aura:if>                                                           
+                <aura:set attribute="else">
+                    <div class="" style="height:6rem">
+                        <div role="status" class="slds-spinner slds-spinner_medium">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </aura:set>
+            </aura:if>
+        </aura:if>
+    </div>
+    <div class="modal-footer slds-modal__footer">
+        <lightning:button variant="brand" label="Aceptar" title="Base action" onclick="{! c.closeModal }" />
+    </div>    
+</aura:component>

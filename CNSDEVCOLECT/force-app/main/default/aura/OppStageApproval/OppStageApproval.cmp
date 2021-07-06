@@ -1,0 +1,195 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,Lightning:actionOverride" access="global" controller="ApprovalRequestController">
+	<aura:attribute name="enabledSpinner" type="Boolean" access="private" default="false"/>
+	<aura:attribute name="showFirstSection" type="Boolean" access="private" default="true"/>
+	<aura:attribute name="showSecondSection" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showThirdSection" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showFourthSection" type="Boolean" access="private" default="false"/>
+	<aura:attribute name="showSalesManager" type="Boolean" access="private" default="false"/>
+	<aura:attribute name="showEjecutiveProfile" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showModalConfirmation" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showModalReject" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="showSendTo" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="headerSendTo" type="String" access="private" default=""/>
+    <aura:attribute name="textSendTo" type="String" access="private" default=""/>
+    <aura:attribute name="supervisorObs" type="String" access="public" default=""/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:handler event="force:showToast" action="{!c.onChangeStage}" />
+    
+    <aura:if isTrue="{!v.showSalesManager}">
+        <lightning:layout class="slds-page-header slds-page-header--object-home">
+            <lightning:layoutItem>
+                <lightning:icon iconName="standard:stage" />
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="horizontal-small">
+                <div class="page-section page-header">
+                    <h1 class="slds-text-heading--label">{!$Label.c.LABS_SF_labelApprove}</h1>
+                    <h2 class="slds-text-heading--medium">{!$Label.c.LABS_SF_labelDocuments}</h2>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <lightning:layout>
+            <lightning:layoutItem size="12">
+                <div aria-labelledby="newleadform" class="slds-is-relative">
+                    <fieldset class="slds-box slds-theme--default ">
+                        <div class="slds-form--stacked">
+                            <aura:if isTrue="{!v.showFirstSection}">
+                                <div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+                                    <lightning:button label="{!$Label.c.LABS_SF_BtnApprove}" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.openModalConfirmation}"/>
+                                    <lightning:button label="{!$Label.c.LABS_SF_BtnToRefuse}" class="slds-m-top--medium" variant="destructive"
+                                                      onclick="{!c.rejectManager}"/>
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showSecondSection}">
+                                <lightning:textarea label="{!$Label.c.LABS_SF_observations}" value="{!v.supervisorObs}" maxlength="50" />
+                                <div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+                                    <lightning:button label="{!$Label.c.LABS_SF_BtnConfirm}" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.onConfirm}" />
+                                    <lightning:button label="{!$Label.c.LABS_SF_BtnCancel}" class="slds-m-top--medium" variant="Neutral"
+                                                      onclick="{!c.onCancel}" />
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showThirdSection}">
+                                <div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+                                    <lightning:button label="{!$Label.c.OSA_BtnAccept}" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.sendToRisk}" />
+                                    <lightning:button label="{!$Label.c.OSA_BtnReject}" class="slds-m-top--medium" variant="destructive"
+                                                      onclick="{!c.sendToExecutive}" />
+                                    <lightning:button label="{!$Label.c.OSA_BtnClose}" class="slds-m-top--medium" variant="Neutral"
+                                                      onclick="{!c.sendToClose}" />
+                                </div>
+                            </aura:if>
+                            <aura:if isTrue="{!v.showFourthSection}">
+                                <lightning:textarea label="Observaciones: " value="{!v.supervisorObs}" maxlength="50" />
+                                <div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+                                    <lightning:button label="Confirmar" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.onConfirmOSA}" />
+                                    <lightning:button label="Cancelar" class="slds-m-top--medium" variant="Neutral"
+                                                      onclick="{!c.onCancelOSA}" />
+                                </div>
+                            </aura:if>
+                        </div>
+                    </fieldset>
+                    <aura:if isTrue="{!v.enabledSpinner}">
+						<lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+					</aura:if>
+				</div>
+			</lightning:layoutItem>
+		</lightning:layout>
+	</aura:if>
+	<aura:if isTrue="{!v.showEjecutiveProfile}">
+		<lightning:layout class="slds-page-header slds-page-header--object-home">
+			<lightning:layoutItem>
+				<lightning:icon iconName="standard:stage" />
+			</lightning:layoutItem>
+			<lightning:layoutItem padding="horizontal-small">
+				<div class="page-section page-header">
+					<h1 class="slds-text-heading--label">{!$Label.c.LABS_SF_labelApprove}</h1>
+					<h2 class="slds-text-heading--medium">{!$Label.c.LABS_SF_labelDocuments}</h2>
+				</div>
+			</lightning:layoutItem>
+		</lightning:layout>
+		<lightning:layout>
+			<lightning:layoutItem size="12">
+				<div aria-labelledby="newleadform" class="slds-is-relative">
+					<fieldset class="slds-box slds-theme--default ">
+						<div class="slds-form--stacked">
+							<div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+								<label class="slds-form-element__label">{!$Label.c.LABS_SF_observations}&nbsp;{!v.supervisorObs}</label>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</lightning:layoutItem>
+		</lightning:layout>
+	</aura:if>
+    <aura:if isTrue="{!v.showModalConfirmation}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirmación de Etapa Revisión</h2>
+                </header>
+                <aura:if isTrue="{!v.enabledSpinner}">
+						<lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+					</aura:if>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>
+                        <b>La documentación será enviada a Revisión.</b>
+                    </p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancelar"
+                                      title="Cancelar"
+                                      onclick="{! c.closeModal }"/>
+                    <lightning:button variant="brand"
+                                      label="Confirmar"
+                                      title="Confirmar"
+                                      onclick="{! c.approveManager }"/>
+                   
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    <aura:if isTrue="{!v.showModalReject}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Rechazo de documentación</h2>
+                </header>
+                <aura:if isTrue="{!v.enabledSpinner}">
+                    <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                </aura:if>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>
+                        <b>¿Está seguro que desea rechazar la documentación?</b>
+                    </p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancelar"
+                                      title="Cancelar"
+                                      onclick="{! c.closeModalReject}"/>
+                    <lightning:button variant="brand"
+                                      label="Confirmar"
+                                      title="Confirmar"
+                                      onclick="{! c.approveModalReject}"/>
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    <aura:if isTrue="{!v.showSendTo}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.headerSendTo}</h2>
+                </header>
+                <aura:if isTrue="{!v.enabledSpinner}">
+                    <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                </aura:if>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>
+                        <b>{!v.textSendTo}</b>
+                    </p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancelar"
+                                      title="Cancelar"
+                                      onclick="{! c.closeModalOSA }"/>
+                    <lightning:button variant="brand"
+                                      label="Confirmar"
+                                      title="Confirmar"
+                                      onclick="{! c.approveManagerOSA }"/>
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+</aura:component>

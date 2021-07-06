@@ -1,0 +1,6 @@
+<apex:page standardController="Case"   extensions="CONS_Reintentar" action="{!validar}">
+    <apex:form >
+        <apex:messages />
+        <apex:commandButton title="Volver"  action="{!volver}" >volver</apex:commandButton>
+    </apex:form>
+</apex:page>

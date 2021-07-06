@@ -1,0 +1,45 @@
+<apex:page standardController="Account" extensions="Cons_F4_actualizarDatos" lightningStylesheets="true" title="Modificación de datos" >
+    <apex:messages />
+    <apex:form >
+        <apex:pageBlock title="Nueva solicitud de actualización de datos">
+            <center>
+                <apex:commandButton value="Enviar" action="{!enviarDatos}"/>
+            </center>
+            <!--<apex:commandButton value="Cancelar" action="{!cancelar}" immediate="true"/>-->
+            
+            <apex:pageBlockSection columns="2">
+                
+                <apex:inputField value="{!c.Nombre_calle__c}" label="Calle" required="true"/>
+                <!--<apex:inputField value="{!c.Otro_telefono__c}" required="false"/>-->
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                
+                <apex:inputField value="{!c.Numero_Nectia__c}" required="true"/>
+                <apex:inputField value="{!c.Telefono_movil__c}"  required="true"/>
+                
+                <apex:inputField value="{!c.Nombre_Villa__c}"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>               
+                
+                <apex:inputField value="{!c.Numero_piso__c}"/>
+                <apex:inputField value="{!c.Correo_electr_nico__c}" required="true"/>
+                
+                <apex:inputField value="{!c.Numero_de_departamento__c}"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                
+                <apex:inputField value="{!c.C_digo_regi_n__c}" label="Región" required="true" />
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                
+                <apex:inputField value="{!c.Comuna__c}" required="true"/>
+                <apex:pageBlockSectionItem > </apex:pageBlockSectionItem>
+                
+                <apex:inputField value="{!c.Codigo_de_Validacion_Autentia_Nectia__c}" rendered="{!PerfilPresencial}" required="true"/>
+                <!--<apex:outputText value="{!PerfilPresencial}"/>-->
+                
+            </apex:pageBlockSection>
+            <center>
+                <apex:commandButton value="Enviar" action="{!enviarDatos}"/>
+            </center>
+            <!--<apex:commandButton value="Cancelar" action="{!cancelar}" immediate="true"/>-->
+        </apex:pageBlock>
+        
+    </apex:form>
+</apex:page>

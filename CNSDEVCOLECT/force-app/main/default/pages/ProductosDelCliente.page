@@ -1,0 +1,84 @@
+<!--
+Creado por: María José Velásquez
+Fecha de creación:
+Descripción: Página de creación rápida de casos sobre un producto de cliente, recordar cambiar ids al pasar a producción.
+Fecha de modificación: 12-12-2018
+-->
+
+<apex:page standardController="Account" extensions="relatedProductsExtension" lightningStylesheets="true" showHeader="false">
+
+    <apex:includeScript value="/support/console/43.0/integration.js"/>
+    <script type="text/javascript"> 
+        var idPrd;
+        var idReg;
+        function testOpenSubtab(idPrd0,idReg0) {
+            idPrd = idPrd0;
+            idReg = idReg0;
+            //alert(idReg);
+            if (sforce.console.isInConsole()) {
+                  sforce.console.getEnclosingPrimaryTabId(openSubtab);
+               } else {
+                   if(idReg != '0121N000000oBmWQAU' && idReg != '0121N000000oBmYQAU'){
+                      window.open('/apex/CONS_Nuevo_Caso_Producto?id='+idPrd+'&idTipoRegistro='+idReg,'_self');
+                   }else{
+                       if(idReg != '0121N000000oBmWQAU'){
+                          window.open('/apex/CONS_Crear_Caso_Producto_Seguros?id='+idPrd+'&idTipoRegistro='+idReg,'_self'); 
+                       }else{    
+                        window.open('/apex/CONS_Nuevo_Caso_Producto_Banco?id='+idPrd+'&idTipoRegistro='+idReg,'_self');
+                       }
+                   }
+            }
+        }
+        
+        var openSubtab = function openSubtab(result) {
+            //Now that we have the primary tab ID, we can open a new subtab in it
+            var primaryTabId = result.id;          
+            console.log(idPrd);
+            console.log(idReg);
+            //alert(idReg);
+            if(idReg != '0121N000000oBmWQAU' && idReg != '0121N000000oBmYQAU'){
+                sforce.console.openSubtab(primaryTabId , '/apex/CONS_Nuevo_Caso_Producto?id='+idPrd+'&idTipoRegistro='+idReg, true, 
+                'Nuevo Caso', null, openSuccess, 'salesforceSubtab');
+            }else{
+                       if(idReg != '0121N000000oBmWQAU'){
+                          window.open('/apex/CONS_Crear_Caso_Producto_Seguros?id='+idPrd+'&idTipoRegistro='+idReg,'_self'); 
+                       }else{    
+                            sforce.console.openSubtab(primaryTabId , '/apex/CONS_Nuevo_Caso_Producto_Banco?id='+idPrd+'&idTipoRegistro='+idReg, true, 
+                            'Nuevo Caso', null, openSuccess, 'salesforceSubtab');
+                       }
+            }
+        };
+        
+        var openSuccess = function openSuccess(result) {
+            //Report whether we succeeded in opening the subtab
+            if (result.success == true) {
+                //alert('subtab successfully opened');
+            } else {
+                //alert('subtab cannot be opened');
+            }
+        };
+    </script>
+    <head>
+  <apex:slds /> 
+</head>
+
+   <apex:form >
+   <apex:pageBlock >
+   <apex:pageBlockTable value="{!listaProductos}" var="prd" columns="3" width="300">
+       <apex:column value="{!prd.Name}" id="theValue0"/>
+       <apex:column value="{!prd.Estado_Nectia__c}" id="theValue1" />
+       
+            <apex:param name="param1" id="var1" assignTo="{!tipoRegistroPrd}" value="{!prd.RecordTypeId}" />
+            <apex:param name="param2" id="var2" assignTo="{!idProducto}" value="{!prd.Id}" />
+        
+       <apex:column headerValue="Acción" >
+           <apex:commandButton title="Crear Caso" immediate="false" onclick="testOpenSubtab('{!prd.Id}','{!prd.RecordTypeId}');return false" value="Crear Caso" rerender="hola">
+               
+           </apex:commandButton>
+       </apex:column>
+       
+   </apex:pageBlockTable> 
+       <apex:actionFunction name="setValues" action="{!crearCaso}" rerender="test"/>
+   </apex:pageBlock>
+    </apex:form>
+</apex:page>

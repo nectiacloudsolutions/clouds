@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_de_documento__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Tipo de documento</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Carta de Mora</fullName>
+                <default>true</default>
+                <label>Carta de Mora</label>
+            </value>
+            <value>
+                <fullName>Carta de Renovación</fullName>
+                <default>false</default>
+                <label>Carta de Renovación</label>
+            </value>
+            <value>
+                <fullName>Carta Informativa</fullName>
+                <default>false</default>
+                <label>Carta Informativa</label>
+            </value>
+            <value>
+                <fullName>Certificado de Cargas Legales</fullName>
+                <default>false</default>
+                <label>Certificado de Cargas Legales</label>
+            </value>
+            <value>
+                <fullName>Certificado de Cobertura</fullName>
+                <default>false</default>
+                <label>Certificado de Cobertura</label>
+            </value>
+            <value>
+                <fullName>Certificado de Cotizaciones de Salud</fullName>
+                <default>false</default>
+                <label>Certificado de Cotizaciones de Salud</label>
+            </value>
+            <value>
+                <fullName>Certificado de Cuenta Cte.</fullName>
+                <default>false</default>
+                <label>Certificado de Cuenta Cte.</label>
+            </value>
+            <value>
+                <fullName>Certificado de Termino Beneficio</fullName>
+                <default>false</default>
+                <label>Certificado de Termino Beneficio</label>
+            </value>
+            <value>
+                <fullName>Certificado de Vigencia</fullName>
+                <default>false</default>
+                <label>Certificado de Vigencia</label>
+            </value>
+            <value>
+                <fullName>Certificado Estado Siniestro</fullName>
+                <default>false</default>
+                <label>Certificado Estado Siniestro</label>
+            </value>
+            <value>
+                <fullName>Certificado Tributario</fullName>
+                <default>false</default>
+                <label>Certificado Tributario</label>
+            </value>
+            <value>
+                <fullName>Certiificado de Pago</fullName>
+                <default>false</default>
+                <label>Certiificado de Pago</label>
+            </value>
+            <value>
+                <fullName>Copia Beneficiarios Designados</fullName>
+                <default>false</default>
+                <label>Copia Beneficiarios Designados</label>
+            </value>
+            <value>
+                <fullName>Copia Beneficiarios Vida</fullName>
+                <default>false</default>
+                <label>Copia Beneficiarios Vida</label>
+            </value>
+            <value>
+                <fullName>Copia Cartola</fullName>
+                <default>false</default>
+                <label>Copia Cartola</label>
+            </value>
+            <value>
+                <fullName>Copia de Factura</fullName>
+                <default>false</default>
+                <label>Copia de Factura</label>
+            </value>
+            <value>
+                <fullName>Copia de Mandato</fullName>
+                <default>false</default>
+                <label>Copia de Mandato</label>
+            </value>
+            <value>
+                <fullName>Copia de Póliza</fullName>
+                <default>false</default>
+                <label>Copia de Póliza</label>
+            </value>
+            <value>
+                <fullName>Copia de Propuesta</fullName>
+                <default>false</default>
+                <label>Copia de Propuesta</label>
+            </value>
+            <value>
+                <fullName>Copia Examenes Medicos</fullName>
+                <default>false</default>
+                <label>Copia Examenes Medicos</label>
+            </value>
+            <value>
+                <fullName>Copia Liquidación de Siniestros</fullName>
+                <default>false</default>
+                <label>Copia Liquidación de Siniestros</label>
+            </value>
+            <value>
+                <fullName>Copia Liquidación Pensión</fullName>
+                <default>false</default>
+                <label>Copia Liquidación Pensión</label>
+            </value>
+            <value>
+                <fullName>Copia SAAP</fullName>
+                <default>false</default>
+                <label>Copia SAAP</label>
+            </value>
+            <value>
+                <fullName>Cupón de Pago</fullName>
+                <default>false</default>
+                <label>Cupón de Pago</label>
+            </value>
+            <value>
+                <fullName>Cupón de Rehabilitación</fullName>
+                <default>false</default>
+                <label>Cupón de Rehabilitación</label>
+            </value>
+            <value>
+                <fullName>Cuponera</fullName>
+                <default>false</default>
+                <label>Cuponera</label>
+            </value>
+            <value>
+                <fullName>Declaración Jurada (Op. Renta)</fullName>
+                <default>false</default>
+                <label>Declaración Jurada (Op. Renta)</label>
+            </value>
+            <value>
+                <fullName>Devolución originales siniestro</fullName>
+                <default>false</default>
+                <label>Devolución originales siniestro</label>
+            </value>
+            <value>
+                <fullName>Documentos de Siniestros</fullName>
+                <default>false</default>
+                <label>Documentos de Siniestros</label>
+            </value>
+            <value>
+                <fullName>Grabación Televenta</fullName>
+                <default>false</default>
+                <label>Grabación Televenta</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

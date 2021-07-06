@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Port. Ret. Consumo/Plus</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Port_Ret_Consumo_Plus</publicGroup>
+        </publicGroups>
+        <users>
+            <user>cmella@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

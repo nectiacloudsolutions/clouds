@@ -1,0 +1,33 @@
+<apex:page standardController="Case" extensions="Cons_urlcontroller"  showHeader="false" sidebar="false" >
+    <apex:includeScript value="/support/console/44.0/integration.js"/>
+
+    <script type="text/javascript">
+     function urllink() {
+         var url="{!url}";
+         window.location = url;
+         };
+    urllink();
+    
+    /* function testIsInConsole() {
+         sforce.console.getFocusedSubtabObjectId(showObjectId);
+          
+        };
+     var showObjectId = function showObjectId(result) {
+         var res='{!id}';
+         if(result.id != res){
+              window.location = '/apex/Cons_Vistaurlconsorciocorredora?scontrolCaching=1&id='+result.id;
+             }else{
+              setTimeout(testIsInConsole,4000 );
+             }
+         
+        
+         };
+     setTimeout(testIsInConsole, 5000);*/
+    </script>
+   
+ <!--<button onclick="myVar = setTimeout(testIsInConsole, 1)">actualizar</button>-->
+    <apex:iframe src="{!url}" scrolling="true" id="theIframe" rendered="{!if(error==false,true,false)}" width="100%" height="900px" />
+ <!-- <iframe height="600px" id="theIframe" name="theIframe" src="https://transaccional.ccbolsa.cl/CCBolsa/inicioSesion.do?accion=traspasoSesion&ID=13254579&ORIGEN=2" width="100%"></iframe> --> 
+<apex:pageMessages rendered="{!error}"/>  
+
+</apex:page>

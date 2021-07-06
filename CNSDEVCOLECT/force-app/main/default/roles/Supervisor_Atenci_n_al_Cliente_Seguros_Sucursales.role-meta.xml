@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>Read</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Supervisor Atencion al Cliente Seguros Sucursales</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Supervisor Atención al Cliente Seguros Sucursales</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Seguros</parentRole>
+</Role>

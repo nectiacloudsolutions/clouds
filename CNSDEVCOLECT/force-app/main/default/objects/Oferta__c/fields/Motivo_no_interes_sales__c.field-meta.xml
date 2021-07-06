@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Motivo_no_interes_sales__c</fullName>
+    <externalId>false</externalId>
+    <label>Motivo no Interés</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cesante</fullName>
+                <default>false</default>
+                <label>Cesante</label>
+            </value>
+            <value>
+                <fullName>Mejor Oferta Competencia</fullName>
+                <default>false</default>
+                <label>Mejor Oferta Competencia</label>
+            </value>
+            <value>
+                <fullName>No quiere endeudarse</fullName>
+                <default>false</default>
+                <label>No quiere endeudarse</label>
+            </value>
+            <value>
+                <fullName>Oferta poco atractiva</fullName>
+                <default>false</default>
+                <label>Oferta poco atractiva</label>
+            </value>
+            <value>
+                <fullName>Descontento con Consorcio</fullName>
+                <default>false</default>
+                <label>Descontento con Consorcio</label>
+            </value>
+            <value>
+                <fullName>Situación COVID</fullName>
+                <default>false</default>
+                <label>Situación COVID</label>
+            </value>
+            <value>
+                <fullName>Cómodo con su banco</fullName>
+                <default>false</default>
+                <label>Cómodo con su banco</label>
+            </value>
+            <value>
+                <fullName>Sin interés en Refinanciar</fullName>
+                <default>false</default>
+                <label>Sin interés en Refinanciar</label>
+            </value>
+            <value>
+                <fullName>Características de producto</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Características de producto</label>
+            </value>
+            <value>
+                <fullName>Mala experiencia con CNS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mala experiencia con CNS</label>
+            </value>
+            <value>
+                <fullName>Mejor oferta otra compañía</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Mejor oferta otra compañía</label>
+            </value>
+            <value>
+                <fullName>No tiene capacidad económica</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No tiene capacidad económica</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

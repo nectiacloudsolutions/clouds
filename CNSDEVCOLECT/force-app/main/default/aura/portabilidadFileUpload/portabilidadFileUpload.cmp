@@ -1,0 +1,74 @@
+<!--
+  @description       : 
+  @author            : lmunogar@everis.com
+  @group             : 
+  @last modified on  : 12-11-2020
+  @last modified by  : mbeltran@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   16-09-2020   lmunogar@everis.com   Initial Version
+-->
+<aura:component access="global" controller="FileUploadCaseController">
+    <!--Register the component level event-->
+    <!--Declare Handlers-->
+    <aura:registerEvent name="eventFileUpload" type="c:eventFileUpload" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- 'parentId' Aura Attribute for store the Id for Parent Record where we are attach our file -->
+    <aura:attribute name="parentId" type="Id" />
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    <aura:attribute name="isDisabledAction" type="boolean" default="false" />
+    <aura:attribute name="isDisabledFile" type="boolean" default="false" />
+    <aura:attribute name="isDisabledView" type="boolean" default="false" />
+    <aura:attribute name="isDisabledDelete" type="boolean" default="false" />
+    <aura:attribute name="needConfirm" type="boolean" default="false" />
+    <aura:attribute name="fileName" type="String" />
+    <aura:attribute name="idDocs" type="String" />
+    <aura:attribute name="FileList" type="Object" />
+    <aura:attribute name="lstDocs" type="Object" />
+    <aura:attribute name="docWrapperFile" type="Object" />
+    <aura:attribute name="docsType" type="String" access="public" default=""/>
+    <aura:attribute name="statusActionButton" type="String" />
+    <aura:attribute name="SObjectType" type="String" />
+    
+    <!--ATRIBUTOS PDF-->
+    <aura:attribute name="pdfData" type="String"/>
+    <aura:attribute name="pdfContainer" type="Aura.Component[]"/>
+    <aura:attribute name="isOpenPdf" type="boolean" default="false"/>
+    <aura:attribute name="UploadAlfresco" type="Object"/>
+    
+    <!--Declare Attributes-->
+    <aura:attribute name="showSpinner" type="boolean" default="false"/>
+
+    <!--Component Start-->
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Cargando Documento, Favor esperar..." title="Cargando Documento, Favor esperar..." variant="brand" size="large"/>
+    </aura:if>    
+    
+    <aura:if isTrue="{!v.isOpenPdf}">
+        <!--###### MODAL BOX ######-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                
+                <header class="slds-modal__header">
+                    {!v.UploadAlfresco.nombreArchivo}
+                </header>
+                
+                {!v.pdfContainer}
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cerrar" title="Cerrar" onclick="{! c.closeModel }" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+    <div class="slds-col slds-align_absolute-center" style=" margin: 0 auto; text-align:center; position: absolute;">
+        <lightning:input aura:id="fileId" onchange="{!c.handleFilesChange}" files="{!v.FileList}" type="file" accept=".pdf"
+                         name="file" label="Archivo" multiple="false" disabled="{!v.isDisabledFile}" />
+        <lightning:buttonicon iconName="utility:delete"  title="Delete" onclick="{!c.deleteFile }" disabled="{!v.isDisabledDelete}"/>            
+        <lightning:buttonicon iconName="utility:preview"  title="Preview"  onclick="{!c.viewFile}" disabled="{!v.isDisabledView}"/>
+    </div>
+    
+</aura:component>

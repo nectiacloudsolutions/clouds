@@ -1,0 +1,4 @@
+<apex:page controller="renderEmailController" renderAs="pdf">
+    <apex:stylesheet value="{!$Resource.StyleTemplateMarca}"/>       
+    <apex:outputText value="{!body}" escape="false" />
+</apex:page>

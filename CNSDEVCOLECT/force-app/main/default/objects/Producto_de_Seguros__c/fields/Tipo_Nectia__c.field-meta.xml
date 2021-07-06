@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Tipo</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Area_Nectia__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Auto Full</fullName>
+                <default>false</default>
+                <label>Auto Full</label>
+            </value>
+            <value>
+                <fullName>Auto Flex</fullName>
+                <default>false</default>
+                <label>Auto Flex</label>
+            </value>
+            <value>
+                <fullName>Auto Light</fullName>
+                <default>false</default>
+                <label>Auto Light</label>
+            </value>
+            <value>
+                <fullName>Pérdida Total + Responsabilidad Civil</fullName>
+                <default>false</default>
+                <label>Pérdida Total + Responsabilidad Civil</label>
+            </value>
+            <value>
+                <fullName>Responsabilidad Civil</fullName>
+                <default>false</default>
+                <label>Responsabilidad Civil</label>
+            </value>
+            <value>
+                <fullName>SOAP</fullName>
+                <default>false</default>
+                <label>SOAP</label>
+            </value>
+            <value>
+                <fullName>SOAPEX -Seguro Obligatorio Extranjero</fullName>
+                <default>false</default>
+                <label>SOAPEX -Seguro Obligatorio Extranjero</label>
+            </value>
+            <value>
+                <fullName>Vehículos Pesados</fullName>
+                <default>false</default>
+                <label>Vehículos Pesados</label>
+            </value>
+            <value>
+                <fullName>Hogar Total</fullName>
+                <default>false</default>
+                <label>Hogar Total</label>
+            </value>
+            <value>
+                <fullName>Hogar Contenido</fullName>
+                <default>false</default>
+                <label>Hogar Contenido</label>
+            </value>
+            <value>
+                <fullName>VidAhorro Flex</fullName>
+                <default>false</default>
+                <label>VidAhorro Flex</label>
+            </value>
+            <value>
+                <fullName>VidAhorro 100</fullName>
+                <default>false</default>
+                <label>VidAhorro 100</label>
+            </value>
+            <value>
+                <fullName>Vida Futura</fullName>
+                <default>false</default>
+                <label>Vida Futura</label>
+            </value>
+            <value>
+                <fullName>Protección Activa</fullName>
+                <default>false</default>
+                <label>Protección Activa</label>
+            </value>
+            <value>
+                <fullName>Seguro Oncológico</fullName>
+                <default>false</default>
+                <label>Seguro Oncológico</label>
+            </value>
+            <value>
+                <fullName>Accidentes Personales</fullName>
+                <default>false</default>
+                <label>Accidentes Personales</label>
+            </value>
+            <value>
+                <fullName>Seguro Deporte</fullName>
+                <default>false</default>
+                <label>Seguro Deporte</label>
+            </value>
+            <value>
+                <fullName>Seguro Viaje</fullName>
+                <default>false</default>
+                <label>Seguro Viaje</label>
+            </value>
+            <value>
+                <fullName>Mascota Protegida</fullName>
+                <default>false</default>
+                <label>Mascota Protegida</label>
+            </value>
+            <value>
+                <fullName>Responsabilidad Civil Múltiple</fullName>
+                <default>false</default>
+                <label>Responsabilidad Civil Múltiple</label>
+            </value>
+            <value>
+                <fullName>Empresas</fullName>
+                <default>false</default>
+                <label>Empresas</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>Auto Full</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>Auto Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>Auto Light</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>Pérdida Total + Responsabilidad Civil</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>Responsabilidad Civil</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>SOAP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>SOAPEX -Seguro Obligatorio Extranjero</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Auto</controllingFieldValue>
+            <valueName>Vehículos Pesados</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hogar</controllingFieldValue>
+            <valueName>Hogar Total</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Hogar</controllingFieldValue>
+            <valueName>Hogar Contenido</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vida/Ahorro</controllingFieldValue>
+            <valueName>VidAhorro Flex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vida/Ahorro</controllingFieldValue>
+            <valueName>VidAhorro 100</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vida/Protección</controllingFieldValue>
+            <valueName>Vida Futura</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vida/Protección</controllingFieldValue>
+            <valueName>Protección Activa</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vida/Protección</controllingFieldValue>
+            <valueName>Seguro Oncológico</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Vida/Protección</controllingFieldValue>
+            <valueName>Accidentes Personales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Otros Seguros</controllingFieldValue>
+            <valueName>Seguro Deporte</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Otros Seguros</controllingFieldValue>
+            <valueName>Seguro Viaje</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Otros Seguros</controllingFieldValue>
+            <valueName>Mascota Protegida</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Otros Seguros</controllingFieldValue>
+            <valueName>Responsabilidad Civil Múltiple</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

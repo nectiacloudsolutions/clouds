@@ -1,0 +1,45 @@
+<aura:component implements="force:hasRecordId,force:hasRecordId,force:lightningQuickActionWithoutHeader,lightning:isUrlAddressable,force:appHostable"    
+                access="global" controller='dataNotAuthorizedController' >
+    <aura:attribute name="ShowCmp" type="Boolean" default="false" />
+    <aura:attribute name="IdAcc" type="String" default="{!recordId}" />
+    <aura:attribute name="pdfData" type="String"/>
+    <aura:attribute name="pdfContainer" type="Aura.Component[]"/>
+    <aura:attribute name="isOpenPdf" type="boolean" default="false"/>
+    <aura:attribute name="loading" type="Boolean" default="true" />
+    <aura:attribute name="UploadAlfresco" type="Object"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <div  style="height:100%; width:100%"  id="modal-content">
+        <aura:if isTrue="{! v.loading }">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                     aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+                <div class="exampleHolder">
+                    <lightning:spinner alternativeText="Loading" size="large" />
+                </div>
+            </section>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.ShowCmp}">
+                    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                             aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+                        <div class="slds-modal__container" style="height:100%"> 
+                            <header class="slds-modal__header">
+                                <p>Desautoriza Uso de Datos</p>
+                            </header>
+                            {!v.pdfContainer}
+                            <footer class="slds-modal__footer">
+                                <lightning:button variant="brand" label="Aceptar" title="Aceptar" onclick="{! c.confirmUse }" />
+                                <lightning:button variant="neutral" label="Cancelar" title="Cancelar" onclick="{! c.closeModel }" />
+                            </footer>
+                        </div>
+                    </section>
+                    <aura:set attribute="else">    
+                        <center><h3>No posee los permisos necesarios para crear un caso de desuscripción.</h3></center>
+                        <center>
+                            <br></br>
+                            <lightning:button variant="brand" label="Cerrar" title="Cerrar" onclick="{! c.closeModel }" />
+                        </center>        
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+</aura:component>

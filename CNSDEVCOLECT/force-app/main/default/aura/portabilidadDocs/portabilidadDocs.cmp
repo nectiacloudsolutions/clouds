@@ -1,0 +1,58 @@
+<!--
+  @File Name          : portabilidadDocs.cmp
+  @Description        : 
+  @Author             : lmunogar@everis.com
+  @Group              : 
+  @Last Modified By   : cagonzle@everis.com
+  @Last Modified On   : 04-01-2021
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    15-09-2020   lmunogar@everis.com     		Initial Version
+  2.0    04-01-2021   cagonzle@everis.com     		Dinamyc function
+-->
+<aura:component implements="force:hasRecordId,force:hasSObjectName,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" controller="PortabilidadDocsController">
+    <!--declare events hendlers-->  
+    <aura:handler name="eventFileUpload" event="c:eventFileUpload" action="{!c.handleComponentEvent}"/>
+
+	<aura:attribute name="CSType" type="String" default=""/>
+
+    <aura:attribute name="recordId" type="String" default="{!v.recordId}"/>
+    <aura:attribute name="docWrapper" type="Map" />
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="enabledSpinner" type="Boolean" default="false"/>
+	<aura:attribute name="ObjectName" type="String" default="{!v.sObjectName}"/>
+	<aura:attribute name="RelatedField" type="String" default=""/>
+    
+    <!-- CONTANTS CMP -->
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:showToast" action="{!c.onChangeStage}" />
+
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if>
+
+    <lightning:layout class="slds-media__body slds-wrap"> 
+        
+        <lightning:layoutItem size="12">
+            <div class="slds-is-relative">
+                <lightning:tabset aura:id="tabClient" selectedTabId="client">
+                    <div class="slds-is-relative">
+                        <fieldset class="slds-box slds-theme--default slds-p-top_none">
+                            <!-- Columnas -->
+                            <c:portabilidadDocsFields cmpImplementation="{!v.CSType}" cmpItems="{!v.docWrapper.documentosList[0].documentsList}" />                                                               
+                        </fieldset>
+                        <!--aura:if isTrue="{!v.enabledSpinnerModal}">
+                            <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                        </aura:if-->
+                        <aura:if isTrue="{!v.enabledSpinner}">
+                            <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                        </aura:if>
+                    </div>
+                </lightning:tabset>
+            </div>
+        </lightning:layoutItem>
+
+    </lightning:layout>
+</aura:component>

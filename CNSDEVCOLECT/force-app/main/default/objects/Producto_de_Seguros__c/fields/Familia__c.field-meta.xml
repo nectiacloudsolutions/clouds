@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familia__c</fullName>
+    <externalId>false</externalId>
+    <label>Familia</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AFP</fullName>
+                <default>false</default>
+                <label>AFP</label>
+            </value>
+            <value>
+                <fullName>APV</fullName>
+                <default>false</default>
+                <label>APV</label>
+            </value>
+            <value>
+                <fullName>Fondos Mutuos</fullName>
+                <default>false</default>
+                <label>Fondos Mutuos</label>
+            </value>
+            <value>
+                <fullName>INVALIDEZ</fullName>
+                <default>false</default>
+                <label>Invalidez</label>
+            </value>
+            <value>
+                <fullName>Inversión GOLD</fullName>
+                <default>false</default>
+                <label>Inversión GOLD</label>
+            </value>
+            <value>
+                <fullName>Renta Privada</fullName>
+                <default>false</default>
+                <label>Renta Privada</label>
+            </value>
+            <value>
+                <fullName>Renta Privada Sobrevivencia</fullName>
+                <default>false</default>
+                <label>Renta Privada Sobrevivencia</label>
+            </value>
+            <value>
+                <fullName>Renta Privada Vejez</fullName>
+                <default>false</default>
+                <label>Renta Privada Vejez</label>
+            </value>
+            <value>
+                <fullName>Renta Vitalicia Invalidez</fullName>
+                <default>false</default>
+                <label>Renta Vitalicia Invalidez</label>
+            </value>
+            <value>
+                <fullName>Renta Vitalicia Sobrevivencia</fullName>
+                <default>false</default>
+                <label>Renta Vitalicia Sobrevivencia</label>
+            </value>
+            <value>
+                <fullName>Renta Vitalicia Vejez</fullName>
+                <default>false</default>
+                <label>Renta Vitalicia Vejez</label>
+            </value>
+            <value>
+                <fullName>Renta Vitalicia Vejez Anticipada</fullName>
+                <default>false</default>
+                <label>Renta Vitalicia Vejez Anticipada</label>
+            </value>
+            <value>
+                <fullName>Responsabilidad Civil</fullName>
+                <default>false</default>
+                <label>Responsabilidad Civil</label>
+            </value>
+            <value>
+                <fullName>Seguro Accidentes</fullName>
+                <default>false</default>
+                <label>Seguro Accidentes</label>
+            </value>
+            <value>
+                <fullName>Seguro con Ahorro</fullName>
+                <default>false</default>
+                <label>Seguro con Ahorro</label>
+            </value>
+            <value>
+                <fullName>Seguro Desgravamen</fullName>
+                <default>false</default>
+                <label>Seguro Desgravamen</label>
+            </value>
+            <value>
+                <fullName>Seguro Dotal con Ahorro</fullName>
+                <default>false</default>
+                <label>Seguro Dotal con Ahorro</label>
+            </value>
+            <value>
+                <fullName>Seguro Educacional</fullName>
+                <default>false</default>
+                <label>Seguro Educacional</label>
+            </value>
+            <value>
+                <fullName>Seguro Fidelidad</fullName>
+                <default>false</default>
+                <label>Seguro Fidelidad</label>
+            </value>
+            <value>
+                <fullName>Seguro Flexible con Ahorro</fullName>
+                <default>false</default>
+                <label>Seguro Flexible con Ahorro</label>
+            </value>
+            <value>
+                <fullName>Seguro Hogar</fullName>
+                <default>false</default>
+                <label>Seguro Hogar</label>
+            </value>
+            <value>
+                <fullName>Seguro Incendio</fullName>
+                <default>false</default>
+                <label>Seguro Incendio</label>
+            </value>
+            <value>
+                <fullName>Seguro Incendio Comercial</fullName>
+                <default>false</default>
+                <label>Seguro Incendio Comercial</label>
+            </value>
+            <value>
+                <fullName>Seguro Incendio Condominios</fullName>
+                <default>false</default>
+                <label>Seguro Incendio Condominios</label>
+            </value>
+            <value>
+                <fullName>Seguro L. Comerciales</fullName>
+                <default>false</default>
+                <label>Seguro L. Comerciales</label>
+            </value>
+            <value>
+                <fullName>Seguro Maquinaria</fullName>
+                <default>false</default>
+                <label>Seguro Maquinaria</label>
+            </value>
+            <value>
+                <fullName>Seguro Mascotas</fullName>
+                <default>false</default>
+                <label>Seguro Mascotas</label>
+            </value>
+            <value>
+                <fullName>Seguro Patrimonial</fullName>
+                <default>false</default>
+                <label>Seguro Patrimonial</label>
+            </value>
+            <value>
+                <fullName>Seguro Salud</fullName>
+                <default>false</default>
+                <label>Seguro Salud</label>
+            </value>
+            <value>
+                <fullName>Seguros Colectivos Desgravamen</fullName>
+                <default>false</default>
+                <label>Seguros Colectivos Desgravamen</label>
+            </value>
+            <value>
+                <fullName>Seguros Colectivos Vida &amp; Salud</fullName>
+                <default>false</default>
+                <label>Seguros Colectivos Vida &amp; Salud</label>
+            </value>
+            <value>
+                <fullName>Seguros Garantía</fullName>
+                <default>false</default>
+                <label>Seguros Garantía</label>
+            </value>
+            <value>
+                <fullName>Seguros Vida Tradicional</fullName>
+                <default>false</default>
+                <label>Seguros Vida Tradicional</label>
+            </value>
+            <value>
+                <fullName>Seguro Transporte</fullName>
+                <default>false</default>
+                <label>Seguro Transporte</label>
+            </value>
+            <value>
+                <fullName>Seguro Vehículos</fullName>
+                <default>false</default>
+                <label>Seguro Vehículos</label>
+            </value>
+            <value>
+                <fullName>Seguro Viaje</fullName>
+                <default>false</default>
+                <label>Seguro Viaje</label>
+            </value>
+            <value>
+                <fullName>Seguro Vida Accidentes Personales</fullName>
+                <default>false</default>
+                <label>Seguro Vida Accidentes Personales</label>
+            </value>
+            <value>
+                <fullName>SOAP</fullName>
+                <default>false</default>
+                <label>SOAP</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,31 @@
+Name,OrigenDocumento__c,OrdenListDoc__c,NombreDocumento__c,Lectura__c,Escritura__c
+DA_Port_SPF,Portabilidad Financiera Entrada,1,Solicitud Portabilidad,Todos,INTEGRACION
+DA_Port_SP,Portabilidad Financiera Entrada,2,Solicitud Portabilidad Firmada,Todos,INTEGRACION
+DA_Port_SPFP,Portabilidad Financiera Entrada,3,Firma Manual,Todos,INTEGRACION_OUT_CUMBRES
+DA_Port_CL,Portabilidad Financiera Entrada,4,Certificado de Liquidación,Todos,SI
+DA_Port_IT,Portabilidad Financiera Entrada,5,Informe de Tasación,Todos,INTEGRACION
+DA_Port_C20130,Portabilidad Financiera Entrada,6,Certificado 20.130,Todos,INTEGRACION
+DA_Port_OC20130,Portabilidad Financiera Entrada,7,Otros Certificados 20.130,Todos,SI
+DA_Port_ET,Portabilidad Financiera Entrada,8,Estudio de Títulos,Todos,INTEGRACION
+DA_Port_OPdf,Portabilidad Financiera Entrada,9,Oferta Vigente,Todos,INTEGRACION
+DA_Port_AOpdf,Portabilidad Financiera Entrada,10,Aceptación de Oferta PDF,Todos,SI
+DA_Port_AO,Portabilidad Financiera Entrada,11,Arrepentimiento de Oferta,Todos,SI
+DA_Port_RO,Portabilidad Financiera Entrada,12,Retracto de Oferta,Todos,SI
+DA_Port_CADpdf,Portabilidad Financiera Entrada,13,CAD Vigente,Todos,SI
+DA_Port_NP,Portabilidad Financiera Entrada,14,Notificación de Pago,Todos,SI
+DA_Port_PMTPdf,Portabilidad Financiera Entrada,15,Prórroga de Mandato de Término PDF,Todos,SI
+DA_Port_CP,Portabilidad Financiera Entrada,16,Comprobante de pago generales,Todos,SI
+DA_Port_CPI,Portabilidad Financiera Entrada,17,Comprobante de pago para inscripción,Todos,SI
+DA_Port_BLANK,Portabilidad Financiera Entrada,18,___________________________,NO,NO
+DA_Port_DR1,Portabilidad Financiera Entrada,19,Depuración de renta 1,Todos,SI
+DA_Port_DR2,Portabilidad Financiera Entrada,20,Depuración de renta 2,Todos,SI
+DA_Port_DR3,Portabilidad Financiera Entrada,21,Depuración de renta 3,Todos,SI
+DA_Port_DR4,Portabilidad Financiera Entrada,22,Depuración de renta 4,Todos,SI
+DA_Port_DR5,Portabilidad Financiera Entrada,23,Depuración de renta 5,Todos,SI
+DA_Port_DR6,Portabilidad Financiera Entrada,24,Depuración de renta 6,Todos,SI
+DA_PortSld_SP,Portabilidad Financiera Salida,1,Solicitud de portabilidad,Todos,SI
+DA_PortSld_CLQ,Portabilidad Financiera Salida,2,Certificado de liquidación,Todos,SI
+DA_PortSld_C20,Portabilidad Financiera Salida,3,Certificado 20.130,Todos,SI
+PF_DocForma_Pagare,Documento_Formalizacion,1,Pagaré,Todos,SI
+PF_DocForma_Mandato,Documento_Formalizacion,2,Mandato,Todos,SI
+PF_DocForma_RestoCarpeta,Documento_Formalizacion,3,Resto de Carpeta,Todos,SI

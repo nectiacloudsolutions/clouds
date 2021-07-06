@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Seguros - Res. Recs Siniestros Vehículos</name>
+    <queueMembers>
+        <users>
+            <user>benjamin.perez.e@consorcio.cl</user>
+            <user>camila.lobos.c@consorcio.cl</user>
+            <user>carolyn.guzman.v@consorcio.cl</user>
+            <user>cristian.villalonn@consorcio.cl</user>
+            <user>cristobal.faret.c@consorcio.cl</user>
+            <user>denis.bulnes.c@consorcio.cl</user>
+            <user>evelyn.guerreroo@consorcio.cl</user>
+            <user>fabian.villablancaa@consorcio.cl</user>
+            <user>francisco.soto.g@consorcio.cl</user>
+            <user>mariajose.diaz.j@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

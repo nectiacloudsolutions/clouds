@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Project_B2B__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Validar si el perfil permite acciones en Sales B2B</description>
+    <externalId>false</externalId>
+    <label>Sales Project B2B</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

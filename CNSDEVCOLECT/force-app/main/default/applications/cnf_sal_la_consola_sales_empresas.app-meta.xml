@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Aplicación creada por Everis para el proyecto Sales empresas.</description>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>Consola Sales Empresas</label>
+    <navType>Console</navType>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.PersonAccount</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cuentas_Corporativas</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cuentas_Corporativas</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cuentas_Corporativas</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CNS_leads_sales_bbee</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.sales_empresa</recordType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CNS_leads_sales_bbee</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.sales_empresa</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CNS_leads_sales_bbee</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.sales_empresa</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>CNS_leads_sales_bbee</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Lead</pageOrSobjectType>
+        <recordType>Lead.sales_empresa</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_Sales_BBEE</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Banco</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Banco</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Banco</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_Sales_BBEE_Analista_IN</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_BBEE_Jefe_Plataforma</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>Tab</actionName>
+        <content>Home_Sales_BBEE</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>standard-home</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Admin</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Corredora</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Corredora</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Corredora</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Seguros</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Seguros</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cliente_Empresa_Seguros</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Nuevo</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Nuevo</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Nuevo</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Banco</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Banco</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Banco</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Corredora</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Corredora</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Corredora</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Seguros</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Seguros</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cliente_Persona_Seguros</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cuenta</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cuenta</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>Account.Cuenta</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cuenta_persona</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cuenta_persona</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.Cuenta_persona</recordType>
+        <type>Flexipage</type>
+        <profile>Jefe de plataforma Banca Empresas</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.PersonAccount</recordType>
+        <type>Flexipage</type>
+        <profile>Analista Inteligencia de Negocios</profile>
+    </profileActionOverrides>
+    <profileActionOverrides>
+        <actionName>View</actionName>
+        <content>cns_sales_bbee_cliente</content>
+        <formFactor>Large</formFactor>
+        <pageOrSobjectType>Account</pageOrSobjectType>
+        <recordType>PersonAccount.PersonAccount</recordType>
+        <type>Flexipage</type>
+        <profile>Ejecutivo Comercial Banca Empresas</profile>
+    </profileActionOverrides>
+    <tabs>standard-home</tabs>
+    <tabs>standard-Lead</tabs>
+    <tabs>standard-Opportunity</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
+    <tabs>standard-Event</tabs>
+    <tabs>standard-report</tabs>
+    <tabs>standard-Dashboard</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Consola_Sales_Empresas_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>standard-Account</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Contact</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Dashboard</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Event</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Lead</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Opportunity</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-home</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-report</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>

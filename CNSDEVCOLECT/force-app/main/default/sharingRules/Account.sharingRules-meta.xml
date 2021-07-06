@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingGuestRules>
+        <fullName>Encuestasurvey</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Encuestasurvey</label>
+        <sharedTo>
+            <guestUser>EncuestasSurvey</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Cliente Persona Banco,Cliente Empresa Seguros,Cliente Nuevo,Cuenta personal,Cuentas Corporativas,Cuenta persona,Cliente Empresa Corredora,Cliente Empresa Banco,Cuenta,Cliente Persona Seguros,Cliente Persona Corredora</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingGuestRules>
+        <fullName>Survey_Collaboration</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para servicio de encuestas CCB.</description>
+        <label>Survey Collaboration</label>
+        <sharedTo>
+            <guestUser>Encuestasdeservicio</guestUser>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Cliente Persona Banco,Cliente Empresa Seguros,Cliente Nuevo,Cuenta personal,Cuentas Corporativas,Cuenta persona,Cliente Empresa Corredora,Cliente Empresa Banco,Cuenta,Cliente Persona Seguros,Cliente Persona Corredora</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingOwnerRules>
+        <fullName>Cliente_No_Carterizado</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración del Cliente No Carterizado con rama superior.</description>
+        <label>Cliente No Carterizado</label>
+        <sharedTo>
+            <group>Colaboracion_Cliente_No_Carterizado</group>
+        </sharedTo>
+        <sharedFrom>
+            <role>Cliente_No_Carterizado</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Comercial_Hipotecario</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Comercial Hipotecario</description>
+        <label>Corporativos - Comercial Hipotecario</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Subgerente_Comercial_Hipotecario</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Sucursal_Agustinas</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Sucursal Agustinas</description>
+        <label>Corporativos - Sucursal Agustinas</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Agustinas</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Sucursal_Apoquindo</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Sucursal Apoquindo</description>
+        <label>Corporativos - Sucursal Apoquindo</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Apoquindo</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Sucursal_El_Bosque</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Sucursal El Bosque</description>
+        <label>Corporativos - Sucursal El Bosque</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_El_Bosque</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Sucursal_Mac_Iver</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Sucursal Mac Iver</description>
+        <label>Corporativos - Sucursal Mac Iver</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Mac_Iver</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Sucursal_Maipu</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Sucursal Maipú</description>
+        <label>Corporativos - Sucursal Maipú</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Maipu</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Corporativos_Sucursal_Puente_Alto</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado Corporativo 1, 2 y 3 con Sucursal Puente Alto</description>
+        <label>Corporativos - Sucursal Puente Alto</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Puente_Alto</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Ejecutivos_Apoquindo</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para que los ejecutivos de Apoquindo puedan ver clientes y casos fuera de su cartera.</description>
+        <label>Ejecutivos Apoquindo</label>
+        <sharedTo>
+            <group>Ejecutivos_Sucursal_Apoquindo</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Ejecutivos_de_Servicio</fullName>
+        <accessLevel>Edit</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Edit</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para todos los Ejecutivos y Jefes de Servicio.</description>
+        <label>Ejecutivos de Servicio</label>
+        <sharedTo>
+            <group>Usuarios_de_Servicio</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Ejecutivos_de_Sucursal_Excepto_Apoquindo</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para todos los ejecutivos de sucursales no carterizados en el paso a producción 04.04.20. 07.04.20: Se incorpora al Grupo Público a los usuarios de apoquindo por problemas con &quot;Cliente no Carterizado&quot;</description>
+        <label>Ejecutivos de Sucursal Excepto Apoquindo</label>
+        <sharedTo>
+            <group>Ejecutivos_Sucursal_Excepto_Apoquindo</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Plus_Web</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para Ejecutivos FFVV Plus - Web</description>
+        <label>FFVV Plus - Web</label>
+        <sharedTo>
+            <group>FFVV_Plus_Web</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Antofagasta</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Antofagasta</description>
+        <label>FFVV - Sucursal Antofagasta</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Antofagasta</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Antofagasta</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Arica</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Arica</description>
+        <label>FFVV - Sucursal Arica</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Arica</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Arica</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Calama</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Calama</description>
+        <label>FFVV - Sucursal Calama</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Calama</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Calama</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Chillan</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Chillán</description>
+        <label>FFVV - Sucursal Chillán</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Chillan</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Chillan</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Concepcion</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Concepción</description>
+        <label>FFVV - Sucursal Concepción</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Concepcion</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Concepcion</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Copiapo</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Copiapó</description>
+        <label>FFVV - Sucursal Copiapó</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Copiapo</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Copiapo</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Curico</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Curicó</description>
+        <label>FFVV - Sucursal Curicó</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Curico</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Curico</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Iquique</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Iquique</description>
+        <label>FFVV - Sucursal Iquique</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Iquique</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Iquique</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_La_Serena</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal La Serena</description>
+        <label>FFVV - Sucursal La Serena</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_La_Serena</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_La_Serena</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Linares</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Linares</description>
+        <label>FFVV - Sucursal Linares</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Linares</group>
+        </sharedTo>
+        <sharedFrom>
+            <role>Jefe_Sucursal_Linares</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Los_Andes</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Los Andes</description>
+        <label>FFVV - Sucursal Los Andes</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Los_Andes</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Los_Andes</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Los_Angeles</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Los Angeles</description>
+        <label>FFVV - Sucursal Los Angeles</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Los_Angeles</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Los_Angeles</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Osorno</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Osorno</description>
+        <label>FFVV - Sucursal Osorno</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Osorno</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Osorno</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Puerto_Montt</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Puerto Montt</description>
+        <label>FFVV - Sucursal Puerto Montt</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Puerto_Montt</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Puerto_Montt</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Punta_Arenas</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Punta Arenas</description>
+        <label>FFVV - Sucursal Punta Arenas</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Punta_Arenas</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Punta_Arenas</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Rancagua</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Rancagua</description>
+        <label>FFVV - Sucursal Rancagua</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Rancagua</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Rancagua</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_San_Fernando</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal San Fernando</description>
+        <label>FFVV - Sucursal San Fernando</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_San_Fernando</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_San_Fernando</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Talca</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Talca</description>
+        <label>FFVV - Sucursal Talca</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Talca</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Talca</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Temuco</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Temuco</description>
+        <label>FFVV - Sucursal Temuco</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Temuco</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Temuco</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Valdivia</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Valdivia</description>
+        <label>FFVV - Sucursal Valdivia</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Valdivia</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Valdivia</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>FFVV_Sucursal_Vina_del_Mar</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración entre par ordenado FFVV y Sucursal Viña del Mar</description>
+        <label>FFVV - Sucursal Viña del Mar</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Vina_del_Mar</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Jefe_Sucursal_Vina_del_Mar</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerente_Contact_Center</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para Gerente Contact Center y subordinados</description>
+        <label>Gerente Contact Center</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Contact_Center</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerente_Riesgo</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para Gerente de Riesgo y subordinados.</description>
+        <label>Gerente Riesgo</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Riesgo</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerente_Visado</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para Gerente Visado y sus subordinados.</description>
+        <label>Gerente Visado</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Visado</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerentes</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Read</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Read</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para Gerentes de Sucursales, Zonales y Sub.Gte. Comercial Hipotecario.</description>
+        <label>Gerentes</label>
+        <sharedTo>
+            <group>Gerentes</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Jefes_de_Sucursales</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>Edit</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>Edit</opportunityAccessLevel>
+        </accountSettings>
+        <description>Colaboración para Jefes de Sucursales.</description>
+        <label>Jefes de Sucursales</label>
+        <sharedTo>
+            <group>Jefe_Sucursales</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

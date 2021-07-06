@@ -1,0 +1,119 @@
+<aura:component >
+    <aura:attribute name="cmpImplementation" type="String" default="DocumentosPF"/>
+    <aura:attribute name="cmpItems" type="Map" />
+    
+    <aura:if isTrue="{!v.cmpImplementation == ''}">
+        <div class="slds-grid slds-wrap slds-p-top_medium">
+            <div class="slds-col slds-size_5-of-12">
+                <div class="slds-form-element ">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold">Nombre Documentos</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold slds-align_absolute-left">Estado</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold slds-align_absolute-left">Fecha de carga</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_3-of-12">
+                <div class="slds-form-element" >
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold slds-align_absolute-left">Acciones</div>
+                </div>
+            </div>
+        </div>
+        <aura:iteration items="{!v.cmpItems}" var="item" indexVar="key">
+            <div class="slds-grid slds-wrap ">
+                <div class="slds-col slds-size_5-of-12 slds-m-top_large" >                                 
+                    <div class="slds-text-heading_small field-Size">
+                        <lightning:formattedText value="{!item.nombreDoc}" />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                    <!--estado-->
+                    <lightning:select value="{!item.estadoDoc}" name ="" disabled="true">
+                        <option value="">Sin documento</option>
+                        <option value="Ingresado">Ingresado</option>
+                    </lightning:select>
+                </div> 
+                <div class="slds-col slds-size_2-of-12 slds-p-right_medium" >
+                    <!--fecha de carga-->
+                    <lightning:input  type="date" value="{!item.fechaCarga}" disabled="true"/>
+                </div>
+                <div class="slds-col slds-size_3-of-12 slds-p-top_medium" >
+                    <!--acciones-->
+                    <fieldset >
+                        <c:portabilidadFileUpload fileName="{!item.nombreDoc}" SObjectType ="{!item.SObjectType}"  parentId="{!item.idRecord}" idDocs="{!item.idDoc}"  lstDocs="{!item}" docWrapperFile ="{!v.docWrapper}" docsType="Portabilidad" statusActionButton="{!item.actionBtnDoc}" needConfirm="{!item.needConfirm}" />
+                    </fieldset>
+                </div>
+            </div>
+        </aura:iteration>        
+    </aura:if>
+    <aura:if isTrue="{!v.cmpImplementation == 'Documento_Formalizacion'}">
+        <div class="slds-grid slds-wrap slds-p-top_medium">
+            <div class="slds-col slds-size_4-of-12">
+                <div class="slds-form-element ">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold">Documento</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold slds-align_absolute-left">Estado</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+                <div class="slds-form-element">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold slds-align_absolute-left">Motivo</div>
+                </div>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+                <div class="slds-form-element ">
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold">Observaciones</div>
+                </div>
+            </div>                
+            <div class="slds-col slds-size_2-of-12">
+                <div class="slds-form-element" >
+                    <div class="slds-form-element__label slds-text-heading_small slds-text-title_caps field-bold slds-align_absolute-left">Acciones</div>
+                </div>
+            </div>
+        </div>
+        <aura:iteration items="{!v.cmpItems}" var="item" indexVar="key">
+            <div class="slds-grid slds-wrap ">
+                <div class="slds-col slds-size_4-of-12 slds-m-top_large" >                                 
+                    <div class="slds-text-heading_small field-Size">
+                        <lightning:formattedText value="{!item.nombreDoc}" />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                    <!--estado-->
+                    <lightning:select value="{!item.estadoDoc}" name ="" disabled="false">
+                        <option value="">Sin documento</option>
+                        <option value="Ingresado">Ingresado</option>
+                        <option value="No aplica">No aplica</option>                        
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                    <!--estado-->
+                    <lightning:select value="" name ="" disabled="false">
+                        <option value="Documento No Corresponde">Documento No Corresponde</option>
+                        <option value="Documento Ilegible">Documento Ilegible</option>
+                        <option value="Documento Incompleto">Documento Incompleto</option>
+                    </lightning:select>
+                </div>                 
+                <div class="slds-col slds-size_2-of-12 slds-p-right_medium" >
+                    <!--fecha de carga-->
+                    <lightning:input  value="" disabled="false"/>
+                </div>
+                <div class="slds-col slds-size_2-of-12 slds-p-top_medium" >
+                    <!--acciones-->
+                    <fieldset >
+                        <c:portabilidadFileUpload fileName="{!item.nombreDoc}" SObjectType ="{!item.SObjectType}"  parentId="{!item.idRecord}" idDocs="{!item.idDoc}"  lstDocs="{!item}" docWrapperFile ="{!v.docWrapper}" docsType="Portabilidad" statusActionButton="{!item.actionBtnDoc}" needConfirm="{!item.needConfirm}" />
+                    </fieldset>
+                </div>
+            </div>
+        </aura:iteration>          
+    </aura:if>
+</aura:component>

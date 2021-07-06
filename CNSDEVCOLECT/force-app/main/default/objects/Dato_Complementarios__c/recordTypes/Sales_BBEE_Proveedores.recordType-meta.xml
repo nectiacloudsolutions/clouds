@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_BBEE_Proveedores</fullName>
+    <active>true</active>
+    <description>Datos complementarios para principales proveedores del prospecto</description>
+    <label>Proveedor del Prospecto</label>
+    <picklistValues>
+        <picklist>Estado__c</picklist>
+        <values>
+            <fullName>Activo</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Inactivo</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
+        <picklist>Tipo__c</picklist>
+        <values>
+            <fullName>Proveedor</fullName>
+            <default>true</default>
+        </values>
+    </picklistValues>
+</RecordType>

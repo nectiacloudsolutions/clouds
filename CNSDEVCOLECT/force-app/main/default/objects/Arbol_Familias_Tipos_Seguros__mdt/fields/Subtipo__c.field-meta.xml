@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subtipo__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Subtipo</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Acceso</fullName>
+                <default>false</default>
+                <label>Acceso</label>
+            </value>
+            <value>
+                <fullName>Actualización datos de producto</fullName>
+                <default>false</default>
+                <label>Actualización datos de producto</label>
+            </value>
+            <value>
+                <fullName>Actualización de datos</fullName>
+                <default>false</default>
+                <label>Actualización de datos</label>
+            </value>
+            <value>
+                <fullName>Actualización Firma del Cliente</fullName>
+                <default>false</default>
+                <label>Actualización Firma del Cliente</label>
+            </value>
+            <value>
+                <fullName>Actualización Información de Clientes</fullName>
+                <default>false</default>
+                <label>Actualización Información de Clientes</label>
+            </value>
+            <value>
+                <fullName>APS</fullName>
+                <default>false</default>
+                <label>APS</label>
+            </value>
+            <value>
+                <fullName>Asesoría Legal</fullName>
+                <default>false</default>
+                <label>Asesoría Legal</label>
+            </value>
+            <value>
+                <fullName>Asignación Familiar</fullName>
+                <default>false</default>
+                <label>Asignación Familiar</label>
+            </value>
+            <value>
+                <fullName>Asistencia de Siniestros</fullName>
+                <default>false</default>
+                <label>Asistencia de Siniestros</label>
+            </value>
+            <value>
+                <fullName>Asociadas a Producción S. Generales</fullName>
+                <default>false</default>
+                <label>Asociadas a Producción S. Generales</label>
+            </value>
+            <value>
+                <fullName>Asociadas a Producción S. Vida</fullName>
+                <default>false</default>
+                <label>Asociadas a Producción S. Vida</label>
+            </value>
+            <value>
+                <fullName>Atención al cliente</fullName>
+                <default>false</default>
+                <label>Atención al cliente</label>
+            </value>
+            <value>
+                <fullName>Atención del Tercero Afectado en Siniestro</fullName>
+                <default>false</default>
+                <label>Atención del Tercero Afectado en Siniestro</label>
+            </value>
+            <value>
+                <fullName>Atención de Siniestro de Pérdida Parcial</fullName>
+                <default>false</default>
+                <label>Atención de Siniestro de Pérdida Parcial</label>
+            </value>
+            <value>
+                <fullName>Atención de Siniestro de Pérdida Total</fullName>
+                <default>false</default>
+                <label>Atención de Siniestro de Pérdida Total</label>
+            </value>
+            <value>
+                <fullName>Cambio vía de pago</fullName>
+                <default>false</default>
+                <label>Cambio vía de pago</label>
+            </value>
+            <value>
+                <fullName>Campañas vigentes</fullName>
+                <default>false</default>
+                <label>Campañas vigentes</label>
+            </value>
+            <value>
+                <fullName>Cartola</fullName>
+                <default>false</default>
+                <label>Cartola</label>
+            </value>
+            <value>
+                <fullName>Certificados</fullName>
+                <default>false</default>
+                <label>Certificados</label>
+            </value>
+            <value>
+                <fullName>Cheques Pagados</fullName>
+                <default>false</default>
+                <label>Cheques Pagados</label>
+            </value>
+            <value>
+                <fullName>Coberturas</fullName>
+                <default>false</default>
+                <label>Coberturas</label>
+            </value>
+            <value>
+                <fullName>Cobranza</fullName>
+                <default>false</default>
+                <label>Cobranza</label>
+            </value>
+            <value>
+                <fullName>Comisiones y facturas</fullName>
+                <default>false</default>
+                <label>Comisiones y facturas</label>
+            </value>
+            <value>
+                <fullName>Consulta en Póliza</fullName>
+                <default>false</default>
+                <label>Consulta en Póliza</label>
+            </value>
+            <value>
+                <fullName>Consultas sobre Herramientas</fullName>
+                <default>false</default>
+                <label>Consultas sobre Herramientas</label>
+            </value>
+            <value>
+                <fullName>Creación Firma Transaccional</fullName>
+                <default>false</default>
+                <label>Creación Firma Transaccional</label>
+            </value>
+            <value>
+                <fullName>Cuotas Mortuorias</fullName>
+                <default>false</default>
+                <label>Cuotas Mortuorias</label>
+            </value>
+            <value>
+                <fullName>Cupón de pago</fullName>
+                <default>false</default>
+                <label>Cupón de pago</label>
+            </value>
+            <value>
+                <fullName>Declaración de Renta</fullName>
+                <default>false</default>
+                <label>Declaración de Renta</label>
+            </value>
+            <value>
+                <fullName>Declaraciones Retenidas SII</fullName>
+                <default>false</default>
+                <label>Declaraciones Retenidas SII</label>
+            </value>
+            <value>
+                <fullName>Denuncio</fullName>
+                <default>false</default>
+                <label>Denuncio</label>
+            </value>
+            <value>
+                <fullName>Denuncio Oncológico</fullName>
+                <default>false</default>
+                <label>Denuncio Oncológico</label>
+            </value>
+            <value>
+                <fullName>Denuncio Siniestro Auto</fullName>
+                <default>false</default>
+                <label>Denuncio Siniestro Auto</label>
+            </value>
+            <value>
+                <fullName>Descuento</fullName>
+                <default>false</default>
+                <label>Descuento</label>
+            </value>
+            <value>
+                <fullName>Devolución Primas</fullName>
+                <default>false</default>
+                <label>Devolución Primas</label>
+            </value>
+            <value>
+                <fullName>Disconformidad Siniestro</fullName>
+                <default>false</default>
+                <label>Disconformidad Siniestro</label>
+            </value>
+            <value>
+                <fullName>Emisión Documentos</fullName>
+                <default>false</default>
+                <label>Emisión Documentos</label>
+            </value>
+            <value>
+                <fullName>Estado</fullName>
+                <default>false</default>
+                <label>Estado</label>
+            </value>
+            <value>
+                <fullName>Exención Salud</fullName>
+                <default>false</default>
+                <label>Exención Salud</label>
+            </value>
+            <value>
+                <fullName>Facturación</fullName>
+                <default>false</default>
+                <label>Facturación</label>
+            </value>
+            <value>
+                <fullName>Fin Contrato SAAP</fullName>
+                <default>false</default>
+                <label>Fin Contrato SAAP</label>
+            </value>
+            <value>
+                <fullName>Funcionamiento de Cuentas</fullName>
+                <default>false</default>
+                <label>Funcionamiento de Cuentas</label>
+            </value>
+            <value>
+                <fullName>Gestión Clave</fullName>
+                <default>false</default>
+                <label>Gestión Clave</label>
+            </value>
+            <value>
+                <fullName>Gestión de Alzamiento</fullName>
+                <default>false</default>
+                <label>Gestión de Alzamiento</label>
+            </value>
+            <value>
+                <fullName>Impugnación de Siniestro</fullName>
+                <default>false</default>
+                <label>Impugnación de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Incorporación</fullName>
+                <default>false</default>
+                <label>Incorporación</label>
+            </value>
+            <value>
+                <fullName>Información al Cliente</fullName>
+                <default>false</default>
+                <label>Información al Cliente</label>
+            </value>
+            <value>
+                <fullName>Información web</fullName>
+                <default>false</default>
+                <label>Información web</label>
+            </value>
+            <value>
+                <fullName>Inspección</fullName>
+                <default>false</default>
+                <label>Inspección</label>
+            </value>
+            <value>
+                <fullName>Liquidación</fullName>
+                <default>false</default>
+                <label>Liquidación</label>
+            </value>
+            <value>
+                <fullName>Mal Servicio</fullName>
+                <default>false</default>
+                <label>Mal Servicio</label>
+            </value>
+            <value>
+                <fullName>Mandatos</fullName>
+                <default>false</default>
+                <label>Mandatos</label>
+            </value>
+            <value>
+                <fullName>Modificación de Póliza</fullName>
+                <default>false</default>
+                <label>Modificación de Póliza</label>
+            </value>
+            <value>
+                <fullName>Modificación No Efectuada</fullName>
+                <default>false</default>
+                <label>Modificación No Efectuada</label>
+            </value>
+            <value>
+                <fullName>Movimientos no Facturados</fullName>
+                <default>false</default>
+                <label>Movimientos no Facturados</label>
+            </value>
+            <value>
+                <fullName>No Gestión Beneficio Estatal</fullName>
+                <default>false</default>
+                <label>No Gestión Beneficio Estatal</label>
+            </value>
+            <value>
+                <fullName>No Pago Pensión</fullName>
+                <default>false</default>
+                <label>No Pago Pensión</label>
+            </value>
+            <value>
+                <fullName>Otros</fullName>
+                <default>false</default>
+                <label>Otros</label>
+            </value>
+            <value>
+                <fullName>Otros Pagos</fullName>
+                <default>false</default>
+                <label>Otros Pagos</label>
+            </value>
+            <value>
+                <fullName>Pagina web</fullName>
+                <default>false</default>
+                <label>Pagina web</label>
+            </value>
+            <value>
+                <fullName>Pago</fullName>
+                <default>false</default>
+                <label>Pago</label>
+            </value>
+            <value>
+                <fullName>Pago Beneficiarios</fullName>
+                <default>false</default>
+                <label>Pago Beneficiarios</label>
+            </value>
+            <value>
+                <fullName>Pago de Pensión</fullName>
+                <default>false</default>
+                <label>Pago de Pensión</label>
+            </value>
+            <value>
+                <fullName>Posesión Efectiva</fullName>
+                <default>false</default>
+                <label>Posesión Efectiva</label>
+            </value>
+            <value>
+                <fullName>Problemas Asesoría/Vta Seg. de Vida</fullName>
+                <default>false</default>
+                <label>Problemas Asesoría/Vta Seg. de Vida</label>
+            </value>
+            <value>
+                <fullName>Procedimientos</fullName>
+                <default>false</default>
+                <label>Procedimientos</label>
+            </value>
+            <value>
+                <fullName>Producto</fullName>
+                <default>false</default>
+                <label>Producto</label>
+            </value>
+            <value>
+                <fullName>Productos</fullName>
+                <default>false</default>
+                <label>Productos</label>
+            </value>
+            <value>
+                <fullName>Reclamos Siniestros S. Vida</fullName>
+                <default>false</default>
+                <label>Reclamos Siniestros S. Vida</label>
+            </value>
+            <value>
+                <fullName>Reembolso</fullName>
+                <default>false</default>
+                <label>Reembolso</label>
+            </value>
+            <value>
+                <fullName>Rehabilitación</fullName>
+                <default>false</default>
+                <label>Rehabilitación</label>
+            </value>
+            <value>
+                <fullName>Renovación</fullName>
+                <default>false</default>
+                <label>Renovación</label>
+            </value>
+            <value>
+                <fullName>Rescate</fullName>
+                <default>false</default>
+                <label>Rescate</label>
+            </value>
+            <value>
+                <fullName>Rescate FFMM</fullName>
+                <default>false</default>
+                <label>Rescate FFMM</label>
+            </value>
+            <value>
+                <fullName>Retención Judicial</fullName>
+                <default>false</default>
+                <label>Retención Judicial</label>
+            </value>
+            <value>
+                <fullName>Saap</fullName>
+                <default>false</default>
+                <label>Saap</label>
+            </value>
+            <value>
+                <fullName>Servicio de Asistencia Vehicular</fullName>
+                <default>false</default>
+                <label>Servicio de Asistencia Vehicular</label>
+            </value>
+            <value>
+                <fullName>Servicios disponibles Sitio Privado</fullName>
+                <default>false</default>
+                <label>Servicios disponibles Sitio Privado</label>
+            </value>
+            <value>
+                <fullName>Siniestros</fullName>
+                <default>false</default>
+                <label>Siniestros</label>
+            </value>
+            <value>
+                <fullName>Sobre Denuncio y Asignación Siniestro</fullName>
+                <default>false</default>
+                <label>Sobre Denuncio y Asignación Siniestro</label>
+            </value>
+            <value>
+                <fullName>Solicitud Certificados</fullName>
+                <default>false</default>
+                <label>Solicitud Certificados</label>
+            </value>
+            <value>
+                <fullName>Suspensión de Pagos</fullName>
+                <default>false</default>
+                <label>Suspensión de Pagos</label>
+            </value>
+            <value>
+                <fullName>Término de Póliza</fullName>
+                <default>false</default>
+                <label>Término de Póliza</label>
+            </value>
+            <value>
+                <fullName>Transacción cancelada</fullName>
+                <default>false</default>
+                <label>Transacción cancelada</label>
+            </value>
+            <value>
+                <fullName>Transferencias de Fondos</fullName>
+                <default>false</default>
+                <label>Transferencias de Fondos</label>
+            </value>
+            <value>
+                <fullName>Traspaso APV</fullName>
+                <default>false</default>
+                <label>Traspaso APV</label>
+            </value>
+            <value>
+                <fullName>Apertura Convenio</fullName>
+                <default>false</default>
+                <label>Apertura Convenio</label>
+            </value>
+            <value>
+                <fullName>Claves y Perfiles</fullName>
+                <default>false</default>
+                <label>Claves y Perfiles</label>
+            </value>
+            <value>
+                <fullName>Convenios</fullName>
+                <default>false</default>
+                <label>Convenios</label>
+            </value>
+            <value>
+                <fullName>Informes</fullName>
+                <default>false</default>
+                <label>Informes</label>
+            </value>
+            <value>
+                <fullName>Usabilidad Aplicativos</fullName>
+                <default>false</default>
+                <label>Usabilidad Aplicativos</label>
+            </value>
+            <value>
+                <fullName>Movimientos</fullName>
+                <default>false</default>
+                <label>Movimientos</label>
+            </value>
+            <value>
+                <fullName>Recaudación</fullName>
+                <default>false</default>
+                <label>Recaudación</label>
+            </value>
+            <value>
+                <fullName>Comisiones</fullName>
+                <default>false</default>
+                <label>Comisiones</label>
+            </value>
+            <value>
+                <fullName>Emisión y Renovación</fullName>
+                <default>false</default>
+                <label>Emisión y Renovación</label>
+            </value>
+            <value>
+                <fullName>Como funciona el seguro</fullName>
+                <default>false</default>
+                <label>Como funciona el seguro</label>
+            </value>
+            <value>
+                <fullName>Movimiento y Suscripción</fullName>
+                <default>false</default>
+                <label>Movimiento y Suscripción</label>
+            </value>
+            <value>
+                <fullName>Siniestro Vida</fullName>
+                <default>false</default>
+                <label>Siniestro Vida</label>
+            </value>
+            <value>
+                <fullName>Comisión</fullName>
+                <default>false</default>
+                <label>Comisión</label>
+            </value>
+            <value>
+                <fullName>Creación RUT Ficticio</fullName>
+                <default>false</default>
+                <label>Creación RUT Ficticio</label>
+            </value>
+            <value>
+                <fullName>Documentación</fullName>
+                <default>false</default>
+                <label>Documentación</label>
+            </value>
+            <value>
+                <fullName>Pagos Comerciales</fullName>
+                <default>false</default>
+                <label>Pagos Comerciales</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

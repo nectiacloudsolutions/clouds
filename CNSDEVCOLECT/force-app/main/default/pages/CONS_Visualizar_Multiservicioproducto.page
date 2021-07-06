@@ -1,0 +1,54 @@
+<apex:page id="pagina3" standardController="Producto_del_Cliente__c"  sidebar="true"  lightningStylesheets="true" showHeader="true" extensions="CONS_Visualizar_Multiservicio" >
+     
+      <apex:includeScript value="/support/console/44.0/integration.js"/>
+ <script type="text/javascript">
+    
+    urllink();
+    init();
+    function urllink() {
+        var url="{!url}";
+       
+        //window.open(url,'myPopup','resizable=yes,height=500,menubar=no,status=yes,titlebar=no,toolbar=no,top=30,width=500');
+         window.open(url, '_blank');
+    }
+    
+    function init()
+    {   
+        
+        setTimeout(function() {                
+            
+            try {
+                
+                var btnJsActivado = document.getElementById('pagina3:from2:pgBlk:pgbloks:pgBlkSecItem:cmbnn');
+                btnJsActivado.click();
+                
+                
+            } catch(e) {
+            }
+        }, 1000);
+        
+    }  
+    </script>
+    <script type="text/javascript">
+    //Close tab in Console    
+    var callCloseTab = function callCloseTab(result) {
+        sforce.console.closeTab(result.id);
+    }        
+    function closeTab() {
+        sforce.console.getEnclosingTabId(callCloseTab);
+    }
+    
+    </script>  
+    <apex:pageBlock id="pagina2" rendered="true">
+         <iframe width='100%'  style='margin: -8px;border: none;' height='900px' src="{!url}"></iframe>
+        </apex:pageBlock>
+    <apex:form id="from2"  style="display:none" >
+        <apex:pageBlock id="pgBlk">
+            <apex:pageBlockSection id="pgbloks">
+                <apex:pageBlockSectionItem id="pgBlkSecItem">
+                    <apex:commandButton id="cmbnn" onclick="closeTab();return false" value="volver"/>                            
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>                
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

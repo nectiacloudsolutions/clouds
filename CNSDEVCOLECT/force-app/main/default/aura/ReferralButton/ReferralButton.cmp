@@ -1,0 +1,71 @@
+<aura:component
+    implements="force:hasRecordId,force:lightningQuickActionWithoutHeader"
+    access="global" controller='ReferralButtonController'>
+    <aura:attribute name="title" type="String"  default="Referir Oportunidad"/>
+    <aura:attribute name="questionText" type="String" default="Está por referir esta oportunidad. Una vez que haya presionado referir, esta pasará a otro ejecutivo especialista y usted solo tendra acceso de lectura" />
+    <aura:attribute name="confirm" type="Boolean" default="true" />
+    <aura:attribute name="stageErrorText" type="String" default="No se encuentra en una etapa válida para referir"/>
+    <aura:attribute name="loading" type="Boolean" default="true" />
+    <aura:attribute name="validStage" type="Boolean" default="true" />
+     <aura:attribute name="buttonControl" type="Boolean" default="true" />
+    <aura:attribute name="disableButton" type="Boolean" default="false" />
+    
+
+   
+    <aura:attribute name="msg" type="String" />
+    
+	<aura:html tag="style">
+        .cuf-content {
+            padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+            padding: 0rem !important;
+        }       
+        .slds-modal__content{
+            overflow-y:hidden !important;
+            height:unset !important;
+            max-height:unset !important;
+        }
+    </aura:html>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="modal-header slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+    </div>
+    
+    <div class="slds-modal__content slds-p-around_x-large slds-is-relative minHeight" id="modal-content">
+        <aura:if isTrue="{! v.loading }">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="large" />
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.confirm }">
+                    <h3>{!v.questionText}</h3>
+                    <aura:set attribute="else">
+                        <h3>{!v.stageErrorText}</h3>
+                    </aura:set>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+        
+        
+    </div>
+    <aura:if isTrue="{! v.confirm }">
+        <div class="modal-footer slds-modal__footer">
+            
+            <aura:if isTrue="{!v.buttonControl}">
+                
+                <lightning:button variant="Neutral" label="Cancelar" title="Base action" onclick="{! c.closeModal }"/>
+                <lightning:button variant="brand" label="Referir" title="Base action" onclick="{! c.referral }"/>
+                
+                
+                <aura:set attribute="else">
+                    <lightning:button variant="brand" label="Listo" title="Base action" onclick="{! c.closeModal }" disabled="{! v.disableButton}"/>
+                </aura:set>
+            </aura:if>
+
+  
+			 
+        </div>
+    </aura:if>
+</aura:component>

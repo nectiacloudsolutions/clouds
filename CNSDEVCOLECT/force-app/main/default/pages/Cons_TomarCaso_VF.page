@@ -1,0 +1,23 @@
+<apex:page standardController="Case" extensions="Cons_TomarCaso">
+    <apex:includeScript value="/support/console/44.0/integration.js"/>
+    <script type="text/javascript">
+     //Close tab in Console    
+    var callCloseTab= function callCloseTab(result) {
+        sforce.console.closeTab(result.id);
+    }        
+    function closeTab() {
+        sforce.console.getEnclosingTabId(callCloseTab);
+    }
+
+    </script>
+   <apex:form >
+       <div align="center">
+           ¿Confirma que desea tomar el caso?<br/><br/><p>
+           
+           </p>
+            <apex:commandButton action="{!redirige}" value="Tomar Caso" />
+           	<!--<apex:commandButton action="{!volver}" value="Rechazar"/>-->
+           <apex:commandButton onclick="closeTab();return false" value="Rechazar"/>
+       </div>
+   </apex:form>
+</apex:page>

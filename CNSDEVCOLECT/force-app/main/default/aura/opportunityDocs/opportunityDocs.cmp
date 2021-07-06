@@ -1,0 +1,685 @@
+<!--
+  @File Name          : opportunityDocs.cmp
+  @Description        : 
+  @Author             : eayalcor@everis.com
+  @Group              : 
+  @Last Modified By   : eayalcor@everis.com
+  @Last Modified On   : 07-22-2020
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    30-12-2019   eayalcor@everis.com     Initial Version
+-->
+<aura:component implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:lightningQuickAction" access="global" controller="OpportunityDocsController">
+    <!--declare events hendlers-->  
+    <aura:handler name="eventFileUpload" event="c:eventFileUpload" action="{!c.handleComponentEvent}"/>
+
+    <aura:attribute name="showButtonEjecutivo" type="Boolean" default="false"/>
+    <aura:attribute name="showButtonVisador" type="Boolean" default="false"/>
+    <aura:attribute name="showButtonVisadorGuardar" type="Boolean" default="false"/>
+    <aura:attribute name="disableButtonEjecutivo" type="Boolean" default="false"/>
+    <aura:attribute name="disableButtonVisador" type="Boolean" default="false"/>
+    <aura:attribute name="disableButtonJefeVisador" type="Boolean" default="false"/>
+    <aura:attribute name="disableApproveButtonJefeVisador" type="Boolean" default="true"/>
+    
+    <aura:attribute name="recordId" type="String" default="{!v.recordId}"/>
+    <aura:attribute name="docRecord" type="documento_oportunidad_sales__c" />
+    <aura:attribute name="docWrapper" type="Map" />
+    <aura:attribute name="profile" type="String"/>
+    <aura:attribute name="isEstadoDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isMotivoDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="isObservacionDisabled" type="Boolean" default="false"/>
+    <aura:attribute name="onchange" type="String"/>
+    <aura:attribute name="isOpen" type="Boolean" default="false"/>
+    <aura:attribute name="isLoading" type="Boolean" default="false"/>
+    <aura:attribute name="enabledSpinner" type="Boolean" default="false"/>
+    <aura:attribute name="isEjecutivoEspecialista" type="Boolean" default="false"/>    
+    <aura:attribute name="isPerfilRiesgo" type="Boolean" default="false"/>
+    <aura:attribute name="isPerfilJefeVisador" type="Boolean" default="false"/>
+    <aura:attribute name="reloadAllDocuments" type="Boolean" default="false"/>
+    <aura:attribute name="showButtonJefeVisador" type="Boolean" default="false"/>
+    <aura:attribute name="showButtonJefeVisadorGuardar" type="Boolean" default="false"/>
+    <aura:attribute name="showMoreDocsSection" type="Boolean" default="false"/>
+    <aura:attribute name="documentTypeValues" type="Object" default="[]" />
+    <aura:attribute name="documentTypeValuesDocument" type="Object" default="[]" />
+    <aura:attribute name="selectedDocumentType" type="String" default="" />
+    <aura:attribute name="documentDetail" type="String" default="" />
+    <aura:attribute name="showSendTo" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="headerSendTo" type="String" access="private" default=""/>
+    <aura:attribute name="textSendTo" type="String" access="private" default=""/>
+    <aura:attribute name="supervisorObs" type="String" access="public" default=""/>
+    <aura:attribute name="showFirst" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="enabledSpinnerModal" type="Boolean" default="false"/>
+    <aura:attribute name="isPerfilJefe" type="Boolean" default="false"/>
+    
+
+    <!-- CONTANTS CMP -->
+    
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler name="init" value="{!this}" action="{!c.getAditionalDocTypes}"/>
+    <aura:handler event="force:showToast" action="{!c.onChangeStage}" />
+    
+    <!-- No tocar -->
+    <aura:attribute name="selectedTabClient" type="String" default="client" />
+    <aura:attribute name="selectedTabParticipant" type="String" default="participant-1" />
+    
+    <aura:if isTrue="{!v.isLoading}">
+        <lightning:spinner alternativeText="Loading" size="medium" />
+    </aura:if>
+
+    
+    <!-- BODY SECTION -->
+    <aura:if isTrue="{!v.isOpen}">
+        
+        <!--###### MODAL BOX Start######-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Start ######-->
+                <header class="slds-modal__header">
+                    <lightning:buttonIcon iconName="utility:close"
+                                          onclick="{! c.closeModal }"
+                                          alternativeText="close"
+                                          variant="bare-inverse"
+                                          class="slds-modal__close"/>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Confirmación</h2>
+                </header>
+                <!--###### MODAL BOX BODY Part Start######-->
+                <aura:if isTrue="{!or(v.docWrapper.rtName == 'sales_credito_consumo' || 
+                                v.docWrapper.rtName == 'sales_credito_consumo_lectura')}">
+                    <aura:if isTrue="{!v.isEjecutivoEspecialista}"> <!--{!and(v.isEjecutivoEspecialista , !v.isPerfilJefe)}-->               
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>
+                            <b>Los documentos se están enviando para aprobación y será enviado a {!v.docWrapper.rtName == 'sales_banca_hipotecario'|| 
+                                v.docWrapper.rtName == 'sales_banca_hipotecario_lectura' || v.docWrapper.rtName == 'sales_credito_consumo' || 
+                                v.docWrapper.rtName == 'sales_credito_consumo_lectura'
+                                ? 'Jefatura' : 'Revisión'}.</b>
+                        </p>
+                    </div>
+                        </aura:if>
+                    <aura:if isTrue="{!and(or(!v.isPerfilJefe),v.docWrapper.stageName == 'Revisión')}">, 
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <p>
+                                <b>La revisión está finalizando y será enviado al estado correspondiente.</b>
+                            </p>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                
+                <!-- HIPOTECARIO --> 
+                 <aura:if isTrue="{!or(v.docWrapper.rtName == 'sales_banca_hipotecario'|| 
+                                v.docWrapper.rtName == 'sales_banca_hipotecario_lectura' || v.docWrapper.rtName == 'plan_plus_sales' || v.docWrapper.rtName == 'plan_plus_lectura_sales')}">
+					<aura:if isTrue="{!and(v.isEjecutivoEspecialista,v.docWrapper.stageName == 'Recopilación')}"> <!--{!and(v.isEjecutivoEspecialista , !v.isPerfilJefe)}-->               
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>
+                            <b>La Recopilación se está enviando para aprobación y será enviado a {!v.docWrapper.rtName == 'sales_banca_hipotecario'|| 
+                                v.docWrapper.rtName == 'sales_banca_hipotecario_lectura' || v.docWrapper.rtName == 'sales_credito_consumo' || 
+                                v.docWrapper.rtName == 'sales_credito_consumo_lectura'
+                                ? 'Jefatura' : 'Revisión'}.</b>
+                        </p>
+                    </div>
+                        </aura:if>
+                    <aura:if isTrue="{!v.docWrapper.stageName == 'Revisión'}">, 
+                        <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                            <p>
+                                <b>La revisión está finalizando y será enviado al estado correspondiente.</b>
+                            </p>
+                        </div>
+                    </aura:if>
+                </aura:if>
+                <!--###### MODAL BOX FOOTER Part Start ######-->
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancelar"
+                                      title="Cancelar"
+                                      onclick="{! c.closeModal }"/>
+                    <!-- "{!or(v.ValueFourisFalse, v.ValueTwoisFalse)}"-->
+                   <!-- <aura:if isTrue="v.docWrapper.profile == 'Ejecutivo Especialista'}">-->
+                    <aura:if isTrue="{!or(v.docWrapper.rtName == 'sales_banca_hipotecario'|| 
+                                v.docWrapper.rtName == 'sales_banca_hipotecario_lectura' || v.docWrapper.rtName == 'plan_plus_sales' || v.docWrapper.rtName == 'plan_plus_lectura_sales')}">
+                    <aura:if isTrue="{!and(and(v.isEjecutivoEspecialista , v.docWrapper.isPerfilVisado != 'OK'),v.docWrapper.stageName == 'Recopilación')}"> 
+                        <lightning:button variant="brand"
+                                          label="Confirmar"
+                                          title="Confirmar 1"
+                                          onclick="{! c.sendVisado }"/><!-- Internamente decide si enviar a Jefatura o Visado -->
+                    </aura:if>
+                    <aura:if isTrue="{!and(or(v.docWrapper.isPerfilVisado == 'OK' || v.docWrapper.isPerfilJefeVisador == 'OK' || v.isPerfilJefe ),v.docWrapper.stageName == 'Revisión')}">
+                        <lightning:button variant="brand"
+                                          label="Confirmar"
+                                          title="Confirmar 2"
+                                          onclick="{! c.finishVisado }"/>
+                    </aura:if>
+                    </aura:if> 
+                    <!-- CONSUMO -->
+                    
+                    <aura:if isTrue="{!or(v.docWrapper.rtName == 'sales_credito_consumo' || 
+                                v.docWrapper.rtName == 'sales_credito_consumo_lectura')}">
+                    
+                    <aura:if isTrue="{!and(v.isEjecutivoEspecialista , v.docWrapper.isPerfilVisado != 'OK')}"> 
+                        <lightning:button variant="brand"
+                                          label="Confirmar"
+                                          title="Confirmar 1"
+                                          onclick="{! c.sendVisado }"/><!-- Internamente decide si enviar a Jefatura o Visado -->
+                    </aura:if>
+                    <aura:if isTrue="{!or(v.docWrapper.isPerfilVisado == 'OK' || v.docWrapper.isPerfilJefeVisador == 'OK')}">
+                        <lightning:button variant="brand"
+                                          label="Confirmar"
+                                          title="Confirmar 2"
+                                          onclick="{! c.finishVisado }"/>
+                    </aura:if>
+                   </aura:if> 
+                </footer>
+            </div> 
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+    
+    <!-- MODAL FOR APPROVE -->
+    <aura:if isTrue="{!v.showSendTo}">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">{!v.headerSendTo}</h2>
+                </header>
+                <aura:if isTrue="{!v.enabledSpinnerModal}">
+                    <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                </aura:if>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>
+                        <b>{!v.textSendTo}</b>
+                    </p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral"
+                                      label="Cancelar"
+                                      title="Cancelar"
+                                      onclick="{! c.closeModalOSA }"/>
+                    <lightning:button variant="brand"
+                                      label="Confirmar"
+                                      title="Confirmar"
+                                      onclick="{! c.approveManagerOSA }"/>
+                    
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </aura:if>
+    
+    
+    
+    
+    
+    <lightning:layout class="slds-media__body slds-wrap"> 
+        <lightning:layoutItem size="12">
+            <div class="slds-is-relative slds-wrap">
+                <aura:if isTrue="{!v.docWrapper.rtName == 'sales_credito_consumo' || 
+                                 v.docWrapper.rtName == 'sales_credito_consumo_lectura'}">
+                    <aura:if isTrue="{!and(or(or(or(v.docWrapper.profile == 'Ejecutivos de Atención al Cliente Seguros Presencial', v.docWrapper.profile == 'Jefe de Atención al Cliente Seguros Presencial' || v.docWrapper.profile == 'Ejecutivo de Venta') || v.docWrapper.profile == 'Ejecutivos de Atención al Cliente Seguros Comercial' || v.docWrapper.profile == 'Jefe de Atención al Cliente Seguros Comercial')),v.showButtonEjecutivo)}"> 
+                        <aura:if isTrue="{!v.docWrapper.profile != 'Ejecutivo de Venta'}">
+                             <lightning:button  variant="brand" disabled="{!v.disableButtonEjecutivo ? false : true}" label="{!$Label.c.ODB_ENVIARJEF}" title="Brand action" onclick="{! c.openModal }" />
+                        </aura:if>
+                        <aura:if isTrue="{!or(v.docWrapper.estadoAprobacionVisado == 'NOK' || v.docWrapper.estadoAprobacionVisado == 'Rechazado' || v.docWrapper.estadoAprobacionVisado == 'Aprobado')}">
+                            <aura:if isTrue="{!or(v.docWrapper.profile == 'Ejecutivo de Venta' || v.docWrapper.profile == 'Jefe de Ventas')}">
+                              No posees lo permisos necesario para acceder a enviar a Jefe <br></br> 
+                            </aura:if>
+                            <lightning:button variant="brand"
+                                              label="{!$Label.c.ODB_CONFIRMDOC}"
+                                              title="{!$Label.c.ODB_CONFIRMDOC}"
+                                              onclick="{! c.changeDocState }"
+                                               />
+                            
+                        </aura:if>
+                        <aura:set attribute="else">
+                            <aura:if isTrue="{!v.showButtonEjecutivo}">
+                                No posees lo permisos necesario para acceder a enviar a Jefe
+                            </aura:if>
+                        </aura:set>
+                    </aura:if>
+                    <aura:set attribute="else"> 
+                        <aura:if isTrue="{!v.showButtonEjecutivo}">
+                            <aura:if isTrue ="{!and(or(
+                                              v.docWrapper.profile == 'Jefe de Atención al Cliente Seguros Presencial' ||
+                                              v.docWrapper.profile == 'Ejecutivos de Atención al Cliente Seguros Presencial', v.docWrapper.profile == 'Ejecutivo de Venta' || 
+                                              v.docWrapper.profile == 'Jefe de Ventas'),
+                                              or(v.docWrapper.rtName == 'sales_banca_hipotecario' || v.docWrapper.rtName == 'sales_banca_hipotecario_lectura'))}">
+                                <aura:if isTrue="{!v.showButtonEjecutivo}">
+                                    No posees lo permisos necesario para acceder a enviar a Jefe<br></br>
+                                </aura:if>
+                                <aura:set attribute="else">
+                                     <lightning:button  variant="brand" disabled="{!v.disableButtonEjecutivo ? false : true}" label="{!v.docWrapper.rtName == 'sales_banca_hipotecario' || 
+                                                                                                                            v.docWrapper.rtName == 'sales_banca_hipotecario_lectura' || 
+                                                                                                                            v.docWrapper.rtName == 'sales_credito_consumo' || 
+                                                                                                                            v.docWrapper.rtName == 'sales_credito_consumo_lectura' ? 
+                                                                                                                            $Label.c.ODB_ENVIARJEF : 'Enviar a Revisión'}" title="Brand action" onclick="{! c.openModal }" />
+                                </aura:set>
+                            </aura:if>
+                           
+                        </aura:if>
+                    </aura:set>
+                </aura:if>          
+                <!-- Botonera -->
+
+                <aura:if isTrue="{!v.showButtonVisador}">
+                    <lightning:button  variant="brand" disabled="{!v.disableButtonVisador ? false : true}" label="Finalizar Revisión" title="Brand action" onclick="{! c.openModal }" />
+                </aura:if>
+                <aura:if isTrue="{!v.showButtonVisadorGuardar}">
+                    <lightning:button  variant="brand" label="Guardar" title="Brand action" onclick="{! c.saveDocVisado }" />
+                </aura:if>
+                <aura:if isTrue="{!v.showButtonVisadorGuardar}">
+                    <lightning:button variant="brand"
+                                      label="{!$Label.c.ODB_CONFIRMDOC}"
+                                      title="{!$Label.c.ODB_CONFIRMDOC}"
+                                      onclick="{! c.changeDocStateAproved}"/>
+                </aura:if>
+                <aura:if isTrue="{!v.showButtonJefeVisador}">
+                    <div class="slds-box slds-box_xx-small slds-m-bottom_small">
+                        <div class="slds-grid slds-grid_align-center">
+                            Aprobación de Documentos
+                        </div>
+                        <aura:if isTrue="{!v.showFirst}">
+                            <div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+                                <lightning:button label="{!$Label.c.OSA_BtnAccept}" class="slds-m-top--medium" variant="brand"
+                                                  onclick="{!c.sendToRisk}" disabled="{!v.disableApproveButtonJefeVisador}" />
+                                <lightning:button label="{!$Label.c.OSA_BtnReject}" class="slds-m-top--medium" variant="destructive"
+                                                  onclick="{!c.sendToExecutive}" disabled="{!v.disableButtonJefeVisador}" />
+                                <lightning:button label="{!$Label.c.OSA_BtnClose}" class="slds-m-top--medium" variant="Neutral"
+                                                  onclick="{!c.sendToClose}" />
+                            </div>
+                            <aura:set attribute="else">
+                                <lightning:textarea label="Observaciones: " value="{!v.supervisorObs}" maxlength="50" />
+                                <div class="slds-p-bottom_large slds-grid slds-grid_align-center">
+                                    <lightning:button label="Confirmar" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.onConfirmOSA}" />
+                                    <lightning:button label="Cancelar" class="slds-m-top--medium" variant="Neutral"
+                                                      onclick="{!c.onCancelOSA}" />
+                                </div>
+                            </aura:set>
+                        </aura:if>
+                    </div>
+                    <!--<lightning:button  variant="brand" disabled="{!v.disableButtonVisador ? false : true}" label="Finalizar Revisión" title="Brand action" onclick="{! c.openModal }" />-->
+                </aura:if>
+                <aura:if isTrue="{!v.showButtonJefeVisadorGuardar}">
+                    <lightning:button  variant="brand" label="Guardar" title="Brand action" onclick="{! c.saveDocVisado }" />
+                    <lightning:button variant="brand"
+                                      label="{!$Label.c.ODB_CONFIRMDOC}"
+                                      title="{!$Label.c.ODB_CONFIRMDOC}"
+                                      onclick="{! c.changeDocStateAproved}"/>
+                </aura:if>
+                <aura:if isTrue="{!and(v.docWrapper.isPerfilEspecialista == 'OK', and(or(v.docWrapper.estadoAprobacionVisado == 'NOK' 
+                                 || v.docWrapper.estadoAprobacionVisado == 'Rechazado' || v.docWrapper.estadoAprobacionVisado == 'Aprobado'), and(or(v.docWrapper.profile == 'Ejecutivo Especialista' 
+                                 || v.docWrapper.profile == 'Ejecutivos de Atención al Cliente Seguros Comercial' || v.docWrapper.profile == 'Jefe de Atención al Cliente Seguros Comercial') ,v.docWrapper.stageName == 'Recopilación')))}">
+                    <lightning:button variant="brand"
+                                          label="{!$Label.c.ODB_CONFIRMDOC}"
+                                          title="{!$Label.c.ODB_CONFIRMDOC}"
+                                          onclick="{! c.changeDocState }"/>
+                </aura:if>
+            </div>
+        </lightning:layoutItem>
+        
+        <lightning:layoutItem size="12">
+            <div class="slds-is-relative">
+                <lightning:tabset aura:id="tabClient" selectedTabId="{!v.selectedTabClient}">
+                    <lightning:tab label="Cliente" id="client">
+                        <div class="slds-is-relative">
+                            <fieldset class="slds-box slds-theme--default slds-p-top_none">
+                                <!-- Columnas -->
+                                <div class="slds-grid slds-wrap ">
+                                    <div class="slds-col slds-size_3-of-12">
+                                        <div class="slds-form-element ">
+                                            <div class="slds-form-element__label slds-text-heading_medium">Documentos</div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_2-of-12">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__label slds-text-heading_medium">Estado</div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_2-of-12">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__label slds-text-heading_medium">Motivo</div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_3-of-12">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__label slds-text-heading_medium">Observación</div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-col slds-size_2-of-12">
+                                        <div class="slds-form-element">
+                                            <div class="slds-form-element__label slds-text-heading_medium">Acciones</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Documentos cliente -->
+                                
+                                <div class="slds-grid slds-wrap ">
+                                    <aura:iteration items="{!v.docWrapper.participantDoc[0].documentsList}" var="item" indexVar="key">
+                                        <div class="slds-col slds-size_3-of-12 slds-m-top_large" >                                 
+                                            <div class="slds-text-heading_small">
+                                                <lightning:formattedText value="{!item.Name}" />
+                                                <aura:if isTrue="{!and(item.detalle_documento_sales__c != null, item.detalle_documento_sales__c != '')}">
+                                                	<lightning:helptext class="slds-m-left_x-small info-doc" content="{!item.detalle_documento_sales__c}"/>
+                                                </aura:if>
+                                            </div>                                
+                                        </div>
+                                        <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                                            <aura:if isTrue="{!or(item.check_documento_sales__c, and(and(item.estado_documento_sales__c == 'Aprobado', 
+                                                             and(v.docWrapper.isPerfilEspecialista == 'OK',v.docWrapper.isPerfilJefeVisador != 'OK')),
+                                                             or(v.docWrapper.estadoAprobacionJefatura != 'En Proceso', v.docWrapper.estadoAprobacionJefatura != 'Rechazado')))}">
+                                                <lightning:select value = "{!item.estado_documento_sales__c}" disabled="{!v.isEstadoDisabled}">
+                                                    <option value="Aprobado">Aprobado</option>
+                                                    <option value="Rechazado">Rechazado</option>
+                                                    <option value="No aplica">No aplica</option>                                                                     
+                                                </lightning:select>
+                                                <aura:set attribute="else">
+                                                    <lightning:select value = "{!item.estado_documento_sales__c}" name ="{!item.Id}" onchange="{!c.onChange}" disabled="{!v.isEstadoDisabled}">
+                                                        <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'No aplica') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                            <aura:if isTrue= "{!or((v.docWrapper.rtName == 'sales_banca_hipotecario'),(v.docWrapper.rtName == 'sales_banca_hipotecario_lectura'))}" >
+                                                                <option value="No aplica">No aplica</option>
+                                                            </aura:if>            
+                                                            <option value="Rechazado">Rechazado</option> 
+                                                            <option value="No aplica">No aplica</option>
+                                                        </aura:if>
+                                                        <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Ingresado') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                            <option value="Ingresado">Ingresado</option> 
+                                                            <option value="Aprobado">Aprobado</option> 
+                                                            <option value="Rechazado">Rechazado</option>
+                                                            <option value="No aplica">No aplica</option>
+                                                        </aura:if>
+                                                        <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Rechazado') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                            <option value="Ingresado">Ingresado</option> 
+                                                            <option value="Aprobado">Aprobado</option> 
+                                                            <option value="Rechazado">Rechazado</option>
+                                                            <aura:if isTrue= "{!or(or((v.docWrapper.rtName == 'sales_credito_consumo'), (v.docWrapper.rtName == 'sales_credito_consumo_lectura')), or((v.docWrapper.rtName == 'sales_banca_hipotecario'),(v.docWrapper.rtName == 'sales_banca_hipotecario_lectura')))}" >
+                                                                <option value="No aplica">No aplica</option>
+                                                            </aura:if>            
+                                                        </aura:if>
+                                                        <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Aprobado') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                            <option value="Ingresado">Ingresado</option>
+                                                            <option value="Aprobado">Aprobado</option>
+                                                            <option value="Rechazado">Rechazado</option>
+                                                        </aura:if>
+                                                        <aura:if isTrue= "{!or((v.docWrapper.stageName == 'Recopilación'),(v.docWrapper.stageName == 'Ingreso del Negocio'))}" >
+                                                            <aura:if isTrue= "{!and(or(v.docWrapper.rtName == 'sales_credito_consumo',v.docWrapper.rtName == 'sales_credito_consumo_lectura'),
+                                                                                    and(v.docWrapper.isPerfilJefeVisador == 'OK', v.docWrapper.estadoAprobacionJefatura == 'En Proceso') )}" >
+                                                                
+                                                                <aura:set attribute="else">
+                                                                    <option value="">Seleccionar</option>
+                                                                </aura:set>
+                                                            </aura:if>
+                                                             
+                                                            <option value="Ingresado">Ingresado</option>
+                                                            <aura:if isTrue= "{!or(v.docWrapper.rtName =='plan_plus_sales' || v.docWrapper.rtName == 'plan_plus_lectura_sales',or(or((v.docWrapper.rtName == 'sales_credito_consumo'), (v.docWrapper.rtName == 'sales_credito_consumo_lectura')), or((v.docWrapper.rtName == 'sales_banca_hipotecario'),(v.docWrapper.rtName == 'sales_banca_hipotecario_lectura'))))}" >
+                                                                
+                                                                <option value="No aplica">No aplica</option>
+                                                            </aura:if>
+                                                            <aura:if isTrue= "{!v.docWrapper.estadoAprobacionJefatura == 'En Proceso'}" >
+                                                                <option value="Aprobado">Aprobado</option>
+                                                                <option value="Rechazado">Rechazado</option>
+                                                            </aura:if>
+                                                           <!-- <aura:if isTrue= "{!v.docWrapper.estadoAprobacionJefatura == 'Rechazado'}" >-->
+                                                            <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Rechazado') , (v.docWrapper.stageName == 'Recopilación'))}" >
+                                                                <option value="Rechazado">Rechazado</option>
+                                                            </aura:if>
+                                                            
+                                                        </aura:if>
+                                                        <aura:if isTrue= "{!or((v.docWrapper.stageName == 'Evaluación'),(v.docWrapper.stageName == 'Cierre Perdida'))}" >
+                                                            <option value="">Seleccionar</option> 
+                                                            <option value="No aplica">No aplica</option>
+                                                            <option value="Aprobado">Aprobado</option>
+                                                            <option value="Ingresado">Ingresado</option>
+                                                            <option value="Rechazado">Rechazado</option>
+                                                            
+                                                        </aura:if>
+                                                    </lightning:select>
+                                                    
+                                                </aura:set>
+                                            </aura:if>
+                                        </div> 
+                                        <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                                            <aura:if isTrue="{!or(item.estado_documento_sales__c == 'Seleccionar', 
+                                                             and(
+                                                             	or((item.estado_documento_sales__c == 'Aprobado' || item.estado_documento_sales__c == 'No aplica'), (item.estado_documento_sales__c == 'Ingresado')) , 
+                                                             	or((v.docWrapper.stageName == 'Revisión' || v.docWrapper.stageName == 'Ingreso del Negocio' ), (v.docWrapper.stageName == 'Recopilación')))) }">
+                                                <aura:if isTrue="{!item.estado_documento_sales__c == 'Ingresado' || item.estado_documento_sales__c == 'No aplica'}">
+                                                    <lightning:input disabled="true"  value = "{!item.motivo_rechazo_sales__c}"/>
+                                                    <aura:set attribute="else">
+                                                        <lightning:select value = "{!item.motivo_rechazo_sales__c}" disabled="true">
+                                                            <option value=""></option>  
+                                                        </lightning:select>
+                                                    </aura:set>
+                                                </aura:if>
+                                                
+                                                <aura:set attribute="else">
+                                                    <lightning:select value = "{!item.motivo_rechazo_sales__c}" disabled="{!v.isMotivoDisabled}" required="{!and((item.estado_documento_sales__c == 'Rechazado') , (v.docWrapper.stageName == 'Revisión')) }" onchange="{!c.disableFinalizarVisado}">
+                                                      
+                                                        <option value="{!v.isMotivoDisabled ? '' : 'Seleccionar'}">{!v.isMotivoDisabled ? '' : 'Seleccionar'}</option>
+                                                        <aura:iteration items="{!v.docWrapper.pickListMotivo}" var="item2">
+                                                            <option value="{!item2}">{!item2}</option>                            
+                                                        </aura:iteration>        
+                                                    </lightning:select>
+                                                </aura:set>
+                                            </aura:if>
+                                        </div>
+                                        <div class="slds-col slds-size_3-of-12 slds-p-right_medium">
+                                            <aura:if isTrue="{!or(item.estado_documento_sales__c == 'Seleccionar', 
+                                                             	and(
+                                                             		or((item.estado_documento_sales__c == 'Aprobado'|| item.estado_documento_sales__c == 'No aplica'),(item.estado_documento_sales__c == 'Ingresado' )) , 
+                                                             		or((v.docWrapper.stageName == 'Revisión'  || v.docWrapper.stageName == 'Ingreso del Negocio'),(v.docWrapper.stageName == 'Recopilación')))) }">
+                                                
+                                                <aura:if isTrue="{!and(item.estado_documento_sales__c == 'Aprobado', or(v.docWrapper.isPerfilJefeVisador == 'OK' || v.docWrapper.isPerfilVisado == 'OK'))  }">
+                                                    <lightning:input disabled="true"  value = ""/>
+                                                    <aura:set attribute="else">
+                                                        <lightning:input disabled="true"  value = "{!item.observaciones_sales__c}"/>
+                                                    </aura:set>
+                                                </aura:if>
+                                                <aura:set attribute="else">   
+                                                    <lightning:input disabled="{!v.isObservacionDisabled}" value = "{!item.observaciones_sales__c}" onchange="{!c.disableFinalizarVisado}"  maxlength ="255" />
+                                                </aura:set>
+                                            </aura:if>
+                                        </div>
+                                        <div class="slds-col slds-size_2-of-12 slds-p-top_medium" >
+                                            <fieldset disabled="false">
+                                               <c:fileUpload fileName="{!item.Name}" parentId="{!v.recordId}" idDocs="{!item.Id}"  lstDocs="{!item}" docWrapperFile ="{!v.docWrapper}" docsType="Recopilacion"/>
+                                            </fieldset>
+                                        </div>
+                                    </aura:iteration>
+                                </div>
+                                
+                                <!-- /Documentos cliente -->
+                            </fieldset>
+                        </div>
+                    </lightning:tab>
+                    <aura:if isTrue="{!v.docWrapper.participantDoc.length > 1}">
+                        <lightning:tab label="Participantes" id="participant">
+                            <lightning:tabset aura:id="tabParticipant" selectedTabId="{!v.selectedTabParticipant}">
+                                <aura:iteration items="{!v.docWrapper.participantDoc}" var="participant" indexVar="key">
+                                    <aura:if isTrue="{!participant.nombre != null}">
+                                        <lightning:tab label="{!participant.nombre}" id="{!'participant-' + key}">
+                                            <div class="slds-is-relative">
+                                                <fieldset class="slds-box slds-theme--default slds-p-top_none">
+                                                    <!-- Columnas -->
+                                                    <div class="slds-grid slds-wrap ">
+                                                        <div class="slds-col slds-size_3-of-12">
+                                                            <div class="slds-form-element ">
+                                                                <div class="slds-form-element__label slds-text-heading_medium">Documentos</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-col slds-size_2-of-12">
+                                                            <div class="slds-form-element">
+                                                                <div class="slds-form-element__label slds-text-heading_medium">Estado</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-col slds-size_2-of-12">
+                                                            <div class="slds-form-element">
+                                                                <div class="slds-form-element__label slds-text-heading_medium">Motivo</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-col slds-size_3-of-12">
+                                                            <div class="slds-form-element">
+                                                                <div class="slds-form-element__label slds-text-heading_medium">Observación</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-col slds-size_2-of-12">
+                                                            <div class="slds-form-element">
+                                                                <div class="slds-form-element__label slds-text-heading_medium">Acciones</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <!-- Documentos participante -->
+                                                    <aura:iteration items="{!participant.documentsList}" var="item">
+                                                        <div class="slds-grid slds-wrap ">
+                                                            <div class="slds-col slds-size_3-of-12 slds-m-top_large " >                                 
+                                                                <div class="slds-text-heading_small">
+                                                                    <lightning:formattedText value="{!item.Name}" />
+                                                                    <aura:if isTrue="{!and(item.detalle_documento_sales__c != null, item.detalle_documento_sales__c != '')}">
+                                                                        <lightning:helptext class="slds-m-left_x-small info-doc" content="{!item.detalle_documento_sales__c}"/>
+                                                                    </aura:if>
+                                                                </div>                                
+                                                            </div>
+                                                            
+                                                            <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                                                                <aura:if isTrue="{!item.check_documento_sales__c}">
+                                                                    <lightning:select value = "{!item.estado_documento_sales__c}" disabled="true">
+                                                                        <option value="Aprobado">Aprobado</option>
+                                                                        <option value="No aplica">No aplica</option>
+                                                                    </lightning:select>
+                                                                    <aura:set attribute="else">
+                                                                        <lightning:select value = "{!item.estado_documento_sales__c}" name ="{!item.Id}" onchange="{!c.onChange}" disabled="{!v.isEstadoDisabled}">
+                                                                            <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'No aplica') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                                                <option value="No aplica">No aplica</option> 
+                                                                                <option value="Rechazado">Rechazado</option> 
+                                                                            </aura:if>
+                                                                            <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Ingresado') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                                                <option value="Ingresado">Ingresado</option> 
+                                                                                <option value="Aprobado">Aprobado</option> 
+                                                                                <option value="Rechazado">Rechazado</option> 
+                                                                            </aura:if>
+                                                                            <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Rechazado') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                                                <option value="Ingresado">Ingresado</option> 
+                                                                                <option value="Aprobado">Aprobado</option> 
+                                                                                <option value="Rechazado">Rechazado</option>
+                                                                                <aura:if isTrue= "{!item.estado_documento_sales__c == 'No Aplica'}" >
+                                                                                     <option value="No aplica">No aplica</option>
+                                                                                </aura:if>
+                                                                                
+                                                                            </aura:if>
+                                                                            <aura:if isTrue= "{!and((item.estado_documento_sales__c == 'Aprobado') , (v.docWrapper.stageName == 'Revisión'))}" >
+                                                                                <option value="Ingresado">Ingresado</option>
+                                                                                <option value="Aprobado">Aprobado</option>
+                                                                                <option value="Rechazado">Rechazado</option>
+                                                                            </aura:if>
+                                                                            <aura:if isTrue= "{!or((v.docWrapper.stageName == 'Recopilación'),(v.docWrapper.stageName == 'Ingreso del Negocio'))}" >
+                                                                                <option value="">Seleccionar</option> 
+                                                                                <aura:if isTrue= "{!or((v.docWrapper.rtName == 'sales_banca_hipotecario'),(v.docWrapper.rtName == 'sales_banca_hipotecario_lectura'))}" >
+                                                                                    <option value="No aplica">No aplica</option>
+                                                                                </aura:if>            
+                                                                                <option value="Ingresado">Ingresado</option> 
+                                                                            </aura:if>     
+                                                                            
+                                                                            <aura:if isTrue= "{!or((v.docWrapper.stageName == 'Evaluación'))}" >
+                                                                                <option value="">Seleccionar</option> 
+                                                                                <option value="No aplica">No aplica</option>
+                                                                                <option value="Aprobado">Aprobado</option>
+                                                                                <option value="Ingresado">Ingresado</option>
+                                                                                <option value="Rechazado">Rechazado</option>
+                                                                            </aura:if>
+                                                                        </lightning:select>
+                                                                        
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </div>
+                                                            
+                                                            <div class="slds-col slds-size_2-of-12 slds-p-right_medium">
+                                                                <aura:if isTrue="{!or(item.estado_documento_sales__c == 'Seleccionar', and(or((item.estado_documento_sales__c == 'Aprobado' || item.estado_documento_sales__c == 'No aplica'),(item.estado_documento_sales__c == 'Ingresado' )) , or((v.docWrapper.stageName == 'Revisión'),(v.docWrapper.stageName == 'Recopilación')))) }">
+                                                                    <lightning:select value = "{!item.motivo_rechazo_sales__c}" disabled="true">
+                                                                        <option ></option> 
+                                                                    </lightning:select>
+                                                                    <aura:set attribute="else">
+                                                                        <lightning:select value = "{!item.motivo_rechazo_sales__c}" disabled="{!v.isMotivoDisabled}" required="{!and((item.estado_documento_sales__c == 'Rechazado') , (v.docWrapper.stageName == 'Revisión')) }" onchange="{!c.disableFinalizarVisado}">
+                                                                            <!-- OLD: {!and(v.docWrapper.profile == 'Ejecutivo de Visado') ? 'Seleccionar' : ''} -->
+                                                                            <option value="{!v.isMotivoDisabled ? '' : 'Seleccionar'}">{!v.isMotivoDisabled ? '' : 'Seleccionar'}</option>
+                                                                            <aura:iteration items="{!v.docWrapper.pickListMotivo}" var="item2">
+                                                                                <option value="{!item2}">{!item2}</option>       
+                                                                            </aura:iteration>
+                                                                        </lightning:select>
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </div>
+                                                            <div class="slds-col slds-size_3-of-12 slds-p-right_medium">
+                                                                <aura:if isTrue="{!or(item.estado_documento_sales__c == 'Seleccionar', and(or((item.estado_documento_sales__c == 'Aprobado' || item.estado_documento_sales__c == 'No aplica'),(item.estado_documento_sales__c == 'Ingresado' )) , or((v.docWrapper.stageName == 'Revisión'),(v.docWrapper.stageName == 'Recopilación')))) }">
+                                                                    <lightning:input disabled="true" />
+                                                                    <aura:set attribute="else">   
+                                                                        <lightning:input disabled="{!v.isObservacionDisabled}" value = "{!item.observaciones_sales__c}" onchange="{!c.disableFinalizarVisado}" maxlength ="255" />
+                                                                    </aura:set>
+                                                                </aura:if>
+                                                            </div>
+                                                        </div>
+                                                        <div class="slds-col slds-size_2-of-12 slds-p-top_medium" >
+                                                            <fieldset disabled="false">
+                                                               <c:fileUpload fileName="{!item.Name}" parentId="{!v.recordId}" idDocs="{!item.Id}"  lstDocs="{!item}" docWrapperFile ="{!v.docWrapper}" docsType="Recopilacion"/>
+                                                            </fieldset>
+                                                        </div>
+                                                    </aura:iteration>
+                                                </fieldset>
+                                            </div>
+                                        </lightning:tab>
+                                    </aura:if>
+                                </aura:iteration>
+                            </lightning:tabset>
+                        </lightning:tab>
+                    </aura:if>
+                </lightning:tabset>
+            </div>
+        </lightning:layoutItem>
+        
+        <aura:if isTrue="{!v.showMoreDocsSection}">
+            <lightning:layoutItem size="12" class="fl-custom">
+                <div aria-labelledby="newleadform" class="slds-is-relative ">
+                    <fieldset class="slds-box slds-theme--default ">
+                        <div class="slds-form--stacked slds-m-bottom_medium">
+                            <div class="slds-text-heading_small">
+                                <label class="doc-font" >Solicitar Documentos Adicionales</label>
+                                <lightning:helptext class="slds-m-left_x-small info-doc" content="Los campos que contienen * son requeridos"/>
+                            </div>  
+                        </div>
+                        <div class="slds-grid slds-wrap slds-grid_align-spread">
+                            <div class="slds-col slds-order_2 slds-large-order_1 slds-grid slds-wrap slds-size_9-of-12">
+                                <div class="slds-col slds-size_4-of-12 slds-align_absolute-center">
+                                    <div class="slds-text-heading_small">
+                                        <label class="doc-font required-field">Tipo de Documento:</label>
+                                    </div>    
+                                </div>
+                                <div class="slds-col slds-size_8-of-12 slds-m-bottom_xxx-small">
+                                    <lightning:select value="{!v.selectedDocumentType}" class="label-hidden">
+                                        <option value="">Seleccionar</option>
+                                        <aura:iteration items="{!v.documentTypeValues}" var="item">
+                                            <option value="{!item.Name}" text="{!item.Name}"></option>
+                                        </aura:iteration>
+                                    </lightning:select>
+                                </div>
+                                <div class="slds-col slds-size_4-of-12 slds-align_absolute-center">
+                                    <div class="slds-text-heading_small ">
+                                        <label class="doc-font detail-css required-field">Detalle:</label>
+                                    </div>
+                                </div>
+                                <div class="slds-col slds-size_8-of-12">
+                                    <lightning:textarea value="{!v.documentDetail}" class="textarea-doc" maxlength = "255" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-form--stacked slds-m-top_x-small slds-align_absolute-center slds-size_12-of-12 ">
+                            <lightning:button variant="brand" class="btn-docs" label="Ingresar" onclick="{! c.clickAddDocument }" />
+                        </div>
+                    </fieldset>
+                    <aura:if isTrue="{!v.enabledSpinner}">
+                        <lightning:spinner aura:id="cmpSpinner" variant="brand" class="spinner-cso"/>
+                    </aura:if>
+                </div>
+            </lightning:layoutItem>
+        </aura:if>
+    </lightning:layout>
+</aura:component>

@@ -1,0 +1,115 @@
+<apex:page standardController="Account"  extensions="CONS_gestionarclaveinternet" action="{!tipodeseguro}" cache="true" sidebar="true"  lightningStylesheets="true" showHeader="true"  >
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" />  
+    <style>
+        div.block01 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.25;
+        z-index: 1000;
+        background-color: black;
+        }
+        div.block02{
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1001;
+        margin: 25% 50%;    
+        }
+        div.block03{
+        display: inline-block;
+        padding: 2px;
+        background-color: #fff;
+        width: 125px;        
+        }
+        img.block04{
+        float: left;
+        margin: 8px;
+        }
+        span.block05{
+        display: inline-block;
+        padding: 10px 0px;
+        }
+    </style>       
+    <body>
+        <center>
+            <apex:sectionHeader title="Gestion clave " ></apex:sectionHeader>
+        </center>
+        <apex:form id="f1" rendered="true">
+            
+            <div >
+                <apex:pageMessages id="errorWS" ></apex:pageMessages> 
+            </div>
+            
+            <div>
+                <apex:pageblock rendered="{!paso1}" >
+                    
+                    
+                    <apex:pageBlockSection >
+                        <center>
+                            
+                            <br/>
+                            <apex:pageBlockSectionItem rendered="true"   dataTitle="aa" labelTitle="sds" >
+                                
+                                <apex:selectList title="Procedimiento"  id="opcion" value="{!opcion}" size="1"> Operacion:  
+                                    <apex:selectOption itemValue="--Ninguno--" itemLabel="--Ninguno--"/>
+                                    <apex:selectOption itemValue="Nueva Clave" itemLabel="Nueva Clave"/>
+                                    <apex:selectOption itemValue="Desbloquear" itemLabel="Desbloquear"/>
+                                </apex:selectList> 
+                            </apex:pageBlockSectionItem>
+                        </center>
+                    </apex:pageBlockSection>
+                </apex:pageblock>
+            </div>
+            <div>
+                <apex:pageblock rendered="{!paso2}">
+                    
+                    <apex:pageBlockSection >
+                        <apex:pageBlockSectionItem rendered="true" >Folio: 
+                            <apex:inputText id="folio"  value="{!folio}"  ></apex:inputText>                                 
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    
+                </apex:pageblock>
+                <apex:pageblock rendered="{!paso4}">
+                    
+                    <apex:pageBlockSection >
+                        <apex:pageBlockSectionItem rendered="true" >Codigo de Validacion: 
+                            <apex:inputText id="registro"  value="{!registro}"  ></apex:inputText>                                 
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    
+                </apex:pageblock>
+            </div>
+            <div >
+                <center>        
+                    <apex:commandButton styleClass=" btn btn-primary"  value="Volver"   reRender="f1" action="{!volver}" />
+                    <apex:commandButton styleClass=" btn btn-primary"  value="Guardar"  rendered="{!paso2}" action="{!Guardar}"/>
+                    <apex:commandButton styleClass=" btn btn-primary"  value="Guardar"  rendered="{!paso4}" action="{!Guardarremoto}"/>
+                    <apex:commandButton styleClass=" btn btn-primary"  value="Continuar"  rendered="{!paso3}" action="{!continuar}"/>
+                    <apex:commandButton styleClass=" btn btn-primary"  value="Siguiente"  rendered="{!paso1}" reRender="f1" action="{!siguiente}" status="espera" >
+                        <apex:actionStatus id="espera">
+                            <apex:facet name="start">
+                                <div class="block01">
+                                    &nbsp;
+                                </div>
+                                <div class="block02">
+                                    <div class="block03">
+                                        <img src="/img/loading.gif" class="block04" />
+                                        <span class="block05">Cargando...</span>
+                                    </div>
+                                </div>
+                            </apex:facet>
+                        </apex:actionStatus>
+                    </apex:commandButton>
+                </center>  
+                <br/>
+            </div>
+            
+        </apex:form>
+    </body>
+</apex:page>

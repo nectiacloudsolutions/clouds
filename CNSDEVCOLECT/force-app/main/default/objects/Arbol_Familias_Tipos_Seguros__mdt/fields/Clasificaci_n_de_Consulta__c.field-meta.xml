@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clasificaci_n_de_Consulta__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Clasificación de Consulta</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Actualización</fullName>
+                <default>true</default>
+                <label>Actualización</label>
+            </value>
+            <value>
+                <fullName>Apoyo Legal en un Siniestro de Vehículos</fullName>
+                <default>false</default>
+                <label>Apoyo Legal en un Siniestro de Vehículos</label>
+            </value>
+            <value>
+                <fullName>Canales de Contacto con Proveedor de Asistencia</fullName>
+                <default>false</default>
+                <label>Canales de Contacto con Proveedor de Asistencia</label>
+            </value>
+            <value>
+                <fullName>Certificados</fullName>
+                <default>false</default>
+                <label>Certificados</label>
+            </value>
+            <value>
+                <fullName>Cobro/Depreciación por Daños Pre-existentes</fullName>
+                <default>false</default>
+                <label>Cobro/Depreciación por Daños Pre-existentes</label>
+            </value>
+            <value>
+                <fullName>Detalle de Coberturas de Póliza Involucrados</fullName>
+                <default>false</default>
+                <label>Detalle de Coberturas de Póliza Involucrados</label>
+            </value>
+            <value>
+                <fullName>Documentos a Entregar Necesarios para Atención</fullName>
+                <default>false</default>
+                <label>Documentos a Entregar Necesarios para Atención</label>
+            </value>
+            <value>
+                <fullName>Emisión</fullName>
+                <default>false</default>
+                <label>Emisión</label>
+            </value>
+            <value>
+                <fullName>Estado</fullName>
+                <default>false</default>
+                <label>Estado</label>
+            </value>
+            <value>
+                <fullName>Estado Cobro (servipag)</fullName>
+                <default>false</default>
+                <label>Estado Cobro (servipag)</label>
+            </value>
+            <value>
+                <fullName>Estado de Compra de Vehículo Nuevo por Reposición</fullName>
+                <default>false</default>
+                <label>Estado de Compra de Vehículo Nuevo por Reposición</label>
+            </value>
+            <value>
+                <fullName>Estado de Emisión Orden de Trabajo/Autorización</fullName>
+                <default>false</default>
+                <label>Estado de Emisión Orden de Trabajo/Autorización</label>
+            </value>
+            <value>
+                <fullName>Estado de Entrega de Propuesta de Indemnización</fullName>
+                <default>false</default>
+                <label>Estado de Entrega de Propuesta de Indemnización</label>
+            </value>
+            <value>
+                <fullName>Estado de Pago de Indemnización</fullName>
+                <default>false</default>
+                <label>Estado de Pago de Indemnización</label>
+            </value>
+            <value>
+                <fullName>Fecha Esperada de Entrega Vehículo Reparado</fullName>
+                <default>false</default>
+                <label>Fecha Esperada de Entrega Vehículo Reparado</label>
+            </value>
+            <value>
+                <fullName>Información sobre Servicios de Asistencia</fullName>
+                <default>false</default>
+                <label>Información sobre Servicios de Asistencia</label>
+            </value>
+            <value>
+                <fullName>Liquidación Pensión</fullName>
+                <default>false</default>
+                <label>Liquidación Pensión</label>
+            </value>
+            <value>
+                <fullName>Monto Pago</fullName>
+                <default>false</default>
+                <label>Monto Pago</label>
+            </value>
+            <value>
+                <fullName>N° de Siniestro y Liquidador Asignado</fullName>
+                <default>false</default>
+                <label>N° de Siniestro y Liquidador Asignado</label>
+            </value>
+            <value>
+                <fullName>Pago Asignación Familiar</fullName>
+                <default>false</default>
+                <label>Pago Asignación Familiar</label>
+            </value>
+            <value>
+                <fullName>Pago de Prima durante Liquidación</fullName>
+                <default>false</default>
+                <label>Pago de Prima durante Liquidación</label>
+            </value>
+            <value>
+                <fullName>Plazos Asociados a una Etapa de la Atención</fullName>
+                <default>false</default>
+                <label>Plazos Asociados a una Etapa de la Atención</label>
+            </value>
+            <value>
+                <fullName>Procedimiento</fullName>
+                <default>false</default>
+                <label>Procedimiento</label>
+            </value>
+            <value>
+                <fullName>Recaudación Primas</fullName>
+                <default>false</default>
+                <label>Recaudación Primas</label>
+            </value>
+            <value>
+                <fullName>Sobre Asignación de Liquidador y Taller del Siniestro</fullName>
+                <default>false</default>
+                <label>Sobre Asignación de Liquidador y Taller del Siniestro</label>
+            </value>
+            <value>
+                <fullName>Sobre Talleres Disponibles</fullName>
+                <default>false</default>
+                <label>Sobre Talleres Disponibles</label>
+            </value>
+            <value>
+                <fullName>Vigencia</fullName>
+                <default>false</default>
+                <label>Vigencia</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

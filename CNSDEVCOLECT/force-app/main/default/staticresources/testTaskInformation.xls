@@ -1,0 +1,4 @@
+Name,Asunto__c,Vencimiento__c,Estado__c,Origen__c,Filtro__c,ValorFiltro__c,Tipo_Notificacion__c	
+PF_TSK_1,Solicitar certificado de liquidación,5,Abierta,RT_Portabilidad_financiera,Campo,Sol_Firmada_PF__c,PF_Tarea_Firma_CAD
+PF_TSK_2,Solicitar CAD (Certificado actualizado de deuda),6,Abierta,RT_Portabilidad_financiera,Estado,CAD,PF_Tarea_Firma_CAD
+PF_TSK_3,Certificado de liquidación fue adjuntado en oportunidad,0,Completada,RT_Portabilidad_financiera,Estado,Tarea_Completa,PF_Tarea_Completa

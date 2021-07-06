@@ -1,0 +1,2117 @@
+<apex:page lightningStylesheets="true" tabStyle="Case"
+    docType="HTML-5.0" standardController="Producto_del_Cliente__c"
+    recordSetVar="{!Producto_del_Cliente__c}"
+    extensions="CONS_NewCaseProductoSeguros_Controller" id="crearcaso">
+    <apex:pagemessages />
+    <apex:includeScript value="/support/console/44.0/integration.js" />
+
+    <style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 130px;
+    background-color: #19345e;
+    color: #fff;
+    text-align: center;
+    border-radius: 0px;
+    padding: 0px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+</style>
+
+    <script type="text/javascript">
+    
+    var callCloseTab = function callCloseTab(result) {
+        sforce.console.closeTab(result.id);
+    }        
+    function closeTab() {
+        sforce.console.getEnclosingTabId(callCloseTab);
+    }
+    </script>
+    <script>
+    
+    
+    
+    function calcular(){   
+        
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF');
+        est.value=tot;
+        
+        
+        var  montocotAPeso=  dol;
+        var  montocotBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var  montocotdepAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var  montocotdepBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var  montocotBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var  montocotdepBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var  totalpesos= (montocotAPeso+montocotBPeso+montocotdepAPeso+montocotdepBPeso+montocotBMPeso+montocotdepBMPeso);
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=totalpesos;
+        
+        
+        
+        var  montocotAUF= tot;
+        var  montocotBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var  montocotdepAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var  montocotdepBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var  montocotBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var  montocotdepBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var  totaluf= (montocotAUF)*1 + (montocotBUF)*1 + (montocotdepAUF)*1 + (montocotdepBUF)*1 + (montocotBMUF)*1 + (montocotdepBMUF)*1;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=totaluf.toFixed(5);
+    }
+    
+    
+    
+    function calcular1(){   
+        
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF');
+        est.value=tot;
+        
+        
+        var  montocotAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var  montocotBPeso=  dol;
+        var  montocotdepAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var  montocotdepBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var  montocotBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var  montocotdepBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var  totalpesos= (montocotAPeso+montocotBPeso+montocotdepAPeso+montocotdepBPeso+montocotBMPeso+montocotdepBMPeso);
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=totalpesos;
+        
+        
+        
+        var  montocotAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var  montocotBUF=  tot;
+        var  montocotdepAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var  montocotdepBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var  montocotBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var  montocotdepBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var  totaluf= (montocotAUF)*1 + (montocotBUF)*1 + (montocotdepAUF)*1 + (montocotdepBUF)*1 + (montocotBMUF)*1 + (montocotdepBMUF)*1;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=totaluf.toFixed(5);
+    }
+    
+    
+    
+    
+    function calcular2(){   
+        
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF');
+        est.value=tot;
+        
+        
+        var  montocotAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var  montocotBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var  montocotdepAPeso=  dol;
+        var  montocotdepBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var  montocotBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var  montocotdepBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var  totalpesos= (montocotAPeso+montocotBPeso+montocotdepAPeso+montocotdepBPeso+montocotBMPeso+montocotdepBMPeso);
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=totalpesos;
+        
+        
+        
+        var  montocotAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var  montocotBUF= (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var  montocotdepAUF=  tot;
+        var  montocotdepBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var  montocotBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var  montocotdepBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var  totaluf= (montocotAUF)*1 + (montocotBUF)*1 + (montocotdepAUF)*1 + (montocotdepBUF)*1 + (montocotBMUF)*1 + (montocotdepBMUF)*1;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=totaluf.toFixed(5);
+    }
+    
+    function calcular3(){   
+        
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF');
+        est.value=tot;
+        
+        
+        var  montocotAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var  montocotBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var  montocotdepAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var  montocotdepBPeso= dol;
+        var  montocotBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var  montocotdepBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var  totalpesos= (montocotAPeso+montocotBPeso+montocotdepAPeso+montocotdepBPeso+montocotBMPeso+montocotdepBMPeso);
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=totalpesos;
+        
+        
+        
+        var  montocotAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var  montocotBUF= (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var  montocotdepAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var  montocotdepBUF=  tot;
+        var  montocotBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var  montocotdepBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var  totaluf= (montocotAUF)*1 + (montocotBUF)*1 + (montocotdepAUF)*1 + (montocotdepBUF)*1 + (montocotBMUF)*1 + (montocotdepBMUF)*1;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=totaluf.toFixed(5);
+    }
+    
+    function calcular4(){   
+        
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor');
+        est.value=tot;
+        
+        
+        var  montocotAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var  montocotBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var  montocotdepAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var  montocotdepBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var  montocotBMPeso=  dol;
+        var  montocotdepBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var  totalpesos= (montocotAPeso+montocotBPeso+montocotdepAPeso+montocotdepBPeso+montocotBMPeso+montocotdepBMPeso);
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=totalpesos;
+        
+        
+        
+        var  montocotAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var  montocotBUF= (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var  montocotdepAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var  montocotdepBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var  montocotBMUF= tot;
+        var  montocotdepBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var  totaluf= (montocotAUF)*1 + (montocotBUF)*1 + (montocotdepAUF)*1 + (montocotdepBUF)*1 + (montocotBMUF)*1 + (montocotdepBMUF)*1;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=totaluf.toFixed(5);
+    }
+    
+    
+    function calcular5(){   
+        
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor');
+        est.value=tot;
+        
+        
+        var  montocotAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var  montocotBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var  montocotdepAPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var  montocotdepBPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var  montocotBMPeso=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var  montocotdepBMPeso=  dol;
+        var  totalpesos= (montocotAPeso+montocotBPeso+montocotdepAPeso+montocotdepBPeso+montocotBMPeso+montocotdepBMPeso);
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=totalpesos;
+        
+        
+        
+        var  montocotAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var  montocotBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var  montocotdepAUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var  montocotdepBUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var  montocotBMUF=  (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var  montocotdepBMUF=  tot;
+        var  totaluf= (montocotAUF)*1 + (montocotBUF)*1 + (montocotdepAUF)*1 + (montocotdepBUF)*1 + (montocotBMUF)*1 + (montocotdepBMUF)*1;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=totaluf.toFixed(5);
+    }
+    
+    function calcularmontopesosauf(){
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_ffmm_1_1:valorUF').value)*1;
+        //var valoruf=('{!ufVal}')*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_ffmm_1_1:montopesos').value)*1;
+        var tot = (dol / valoruf).toFixed(5);
+        var est =document.getElementById('crearcaso:from:pageBlock:solicitudes_ffmm_1_1:montouf');
+        est.value=tot;
+    }
+
+    function calcularmontoufapesos(){
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_ffmm_1_1:valorUF').value)*1;
+        // var valoruf=('{!ufVal}')*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_ffmm_1_1:montouf').value)*1;
+        var tot = ((dol * valoruf)| 0);
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_ffmm_1_1:montopesos');
+        est.value=tot;        
+    }
+    
+    function calcularuf()
+    {
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var tot = ((dol * valoruf)| 0);//dol * valoruf
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos');
+        est.value=tot;
+        var entrada1 = dol;
+        var entrada2 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var entrada3 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var entrada4 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var entrada9 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var entrada0 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var res1=entrada1+entrada2+entrada3+entrada4+entrada9+entrada0;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=res1;
+        var entrada5 = tot;
+        var entrada6 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var entrada7 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var entrada8 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var entrada10 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var entrada11 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var res2=entrada5+entrada6+entrada7+entrada8+entrada10+entrada11;
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=res2;
+    }
+    function calcularuf1()
+    {
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var tot = ((dol * valoruf)| 0);//dol * valoruf
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos');
+        est.value=tot;
+        var entrada1 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var entrada2 =(dol)*1;
+        var entrada3 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var entrada4 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var entrada9 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var entrada0 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var res1=entrada1+entrada2+entrada3+entrada4+entrada9+entrada0;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=res1;
+        var entrada5 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var entrada6 = tot;
+        var entrada7 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var entrada8 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var entrada10 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var entrada11 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var res2=entrada5+entrada6+entrada7+entrada8+entrada10+entrada11;
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=res2;
+    }
+    function calcularuf2()
+    {
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var tot = ((dol * valoruf)| 0);//dol * valoruf
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos');
+        est.value=tot;
+        var entrada1 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var entrada2 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var entrada3 = dol;
+        var entrada4 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var entrada9 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var entrada0 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var res1=entrada1+entrada2+entrada3+entrada4+entrada9+entrada0;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=res1;
+        var entrada5 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var entrada6 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var entrada7 = tot;
+        var entrada8 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1;
+        var entrada10 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var entrada11 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var res2=entrada5+entrada6+entrada7+entrada8+entrada10+entrada11;
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=res2;
+    }
+    function calcularuf3()
+    {
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var tot = ((dol * valoruf)| 0);//dol * valoruf
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos');
+        est.value=tot;
+        var entrada1 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var entrada2 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var entrada3 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var entrada4 = dol;
+        var entrada9 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var entrada0 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var res1=entrada1+entrada2+entrada3+entrada4+entrada9+entrada0;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=res1;
+        var entrada5 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var entrada6 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var entrada7 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var entrada8 = tot;
+        var entrada10 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var entrada11 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var res2=entrada5+entrada6+entrada7+entrada8+entrada10+entrada11;
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=res2;
+    }
+    function calcularuf4()
+    {
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var tot = ((dol * valoruf)| 0);//dol * valoruf
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor');
+        est.value=tot;
+        var entrada1 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var entrada2 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var entrada3 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var entrada4 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var entrada9 = dol;
+        var entrada0 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var res1=entrada1+entrada2+entrada3+entrada4+entrada9+entrada0;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=res1;
+        var entrada5 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var entrada6 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var entrada7 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var entrada8 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1
+        var entrada10 = tot;
+        var entrada11 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor').value)*1;
+        var res2=entrada5+entrada6+entrada7+entrada8+entrada10+entrada11;
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=res2;
+    }
+    function calcularuf5()
+    {
+        var valoruf=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:valorUF').value)*1;
+        var dol=(document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBUFMayor').value)*1;
+        var tot = ((dol * valoruf)| 0);//dol * valoruf
+        
+        var est = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepocitoAPVBpesosMayor');
+        est.value=tot;
+        var entrada1 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionAUF').value)*1;
+        var entrada2 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUF').value)*1;
+        var entrada3 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoAUF').value)*1;
+        var entrada4 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBUF').value)*1;
+        var entrada9 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBUFMayor').value)*1;
+        var entrada0 = dol;
+        var res1=entrada1+entrada2+entrada3+entrada4+entrada9+entrada0;
+        var uf = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totaluf');
+        uf.value=res1;
+        var entrada5 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionApesos').value)*1;
+        var entrada6 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesos').value)*1;
+        var entrada7 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoApesos').value)*1;
+        var entrada8 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montodepositoBpesos').value)*1
+        var entrada10 = (document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:montocotisacionBpesosMayor').value)*1;
+        var entrada11 =tot;
+        var res2=entrada5+entrada6+entrada7+entrada8+entrada10+entrada11;
+        var pesos = document.getElementById('crearcaso:from:pageBlock:solicitudes_apv_1_1:totalpesos');
+        pesos.value=res2;
+    }
+    
+    
+    
+    
+    </script>
+    <apex:form id="from">
+        <apex:pageBlock id="pageBlock">
+            <apex:pageBlockSection title="Datos del Cliente y producto"
+                columns="2" collapsible="false">
+                <apex:outputField value="{!Producto_del_Cliente__c.Cliente_Nectia__c}" />
+                <apex:outputField value="{!Producto_del_Cliente__c.Name}" />
+                <apex:inputField value="{!nuevoCaso.ContactId}" />
+                <apex:outputField value="{!nuevoCaso.RecordTypeId}" />
+
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Ingreso de datos" columns="2"
+                collapsible="false">
+                <!--<apex:inputField value="{!nuevoCaso.Valores_Nectia__c}"/>-->
+
+                <apex:inputField value="{!nuevoCaso.Origin}" required="true">
+                    <apex:actionSupport id="ren" event="onchange"
+                        action="{!validaSeccion}" rerender="working" />
+                </apex:inputField>
+                <apex:inputField value="{!nuevoCaso.Subject}" />
+
+                <apex:inputField value="{!nuevoCaso.Type}" required="true" />
+                <apex:inputField value="{!nuevoCaso.Description}" />
+
+                <apex:inputField value="{!nuevoCaso.Subtipo__c}" required="true">
+                    <apex:actionSupport id="ren" event="onchange"
+                        action="{!validaSeccion}" rerender="working" />
+                </apex:inputField>
+
+                <apex:inputField value="{!nuevoCaso.Priority}" />
+
+            </apex:pageBlockSection>
+            <apex:outputpanel id="working">
+                
+                 <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="Solicitudes_Colectivos_1"
+                    rendered="{!seccion = 'Solicitudes_Colectivos_1'}">
+                    <apex:inputField value="{!nuevoCaso.Subcategor_a__c}" />
+                    
+                </apex:pageBlockSection>
+                
+                 <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="seccion_escrita_ac"
+                    rendered="{!seccion = 'seccion_escrita_ac'}">
+                    <apex:inputField value="{!nuevoCaso.Nombre_primer_cliente_convenio__c}" />
+                    <apex:inputField value="{!nuevoCaso.Cargo_primer_cliente_convenio__c}" />
+                    <apex:inputField value="{!nuevoCaso.Rut_primer_cliente_convenio__c}" />
+                    <apex:inputField value="{!nuevoCaso.rea_primer_cliente_convenio__c}" />
+                    <apex:inputField value="{!nuevoCaso.Propuesta_P_liza_primer_cliente_convenio__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Propuesta__c}" />
+                </apex:pageBlockSection>
+               
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="seccion_escrita_1"
+                    rendered="{!seccion = 'seccion_escrita_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_Oficio__c}" required="true" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_definida_de_respuesta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_recepci_n_rea__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fiscal_a__c}" />
+                    <apex:inputField value="{!nuevoCaso.Comit__c}" />
+                    <apex:inputField value="{!nuevoCaso.Gerencia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_auto_1"
+                    rendered="{!seccion = 'solicitudes_auto_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Raz_n_de_solicitud__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Realizaci_n_de_Denuncio__c}" />
+                    <apex:inputField value="{!nuevoCaso.Liquidad_asignado_ofert_separar_eventos__c}" />
+                    <apex:inputField value="{!nuevoCaso.Detalle_Da_os_Asociados_a_Requerimiento__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_auto_2"
+                    rendered="{!seccion = 'solicitudes_auto_2'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Ingreso_a_Taller_del_Veh_culo__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tiene_Respaldos_de_estos_Gastos__c}" />
+                    <apex:inputField value="{!nuevoCaso.Detalle_Da_os_Asociados_a_Requerimiento__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_auto_3"
+                    rendered="{!seccion = 'solicitudes_auto_3'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tiene_Respaldos_de_estos_Gastos__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_auto_4"
+                    rendered="{!seccion = 'solicitudes_auto_4'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Servicio_de_Asistencia__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Serv_asociado_a_siniestro_en_la_C_I_A__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_auto_5"
+                    rendered="{!seccion = 'solicitudes_auto_5'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_auto_6"
+                    rendered="{!seccion = 'solicitudes_auto_6'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_auto_1"
+                    rendered="{!seccion = 'consultas_auto_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Veh_culo_y_Ubicaci_n_a_Consultar__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_auto_2"
+                    rendered="{!seccion = 'consultas_auto_2'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_auto_3"
+                    rendered="{!seccion = 'consultas_auto_3'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_auto_4"
+                    rendered="{!seccion = 'consultas_auto_4'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Servicio_de_Asistencia__c}"
+                        required="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_auto_5"
+                    rendered="{!seccion = 'consultas_auto_5'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_auto_1"
+                    rendered="{!seccion = 'reclamos_auto_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Realizaci_n_de_Denuncio__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_auto_2"
+                    rendered="{!seccion = 'reclamos_auto_2'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_retiro_del_vehiculo_taller__c}" />
+                    <apex:inputField value="{!nuevoCaso.Retir_el_veh_culo_del_taller__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_auto_3"
+                    rendered="{!seccion = 'reclamos_auto_3'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_auto_4"
+                    rendered="{!seccion = 'reclamos_auto_4'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Servicio_de_Asistencia__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tuvo_que_Incurrir_en_Gastos_Adicionales__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tiene_Respaldos_de_estos_Gastos__c}" />
+                    <apex:inputField value="{!nuevoCaso.Serv_asociado_a_siniestro_en_la_C_I_A__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_solitcitud_realizaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_grales_1"
+                    rendered="{!seccion = 'reclamos_grales_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Siniestro" columns="2"
+                    collapsible="false" id="consulta_soap_1"
+                    rendered="{!seccion = 'consulta_soap_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_auto_5"
+                    rendered="{!seccion = 'reclamos_auto_5'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Informados_Plazo_Requisit_y_Condic_Atenc__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_le_Entreg_la_Informaci_n__c}" />
+                    <apex:inputField value="{!nuevoCaso.Qui_n_est_Realizando_el_Requerimiento__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_rentas_1"
+                    rendered="{!seccion = 'solicitudes_rentas_1'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_Modificaci_n__c}">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2"
+                    rendered="{!seccion = 'solicitudes_rentas_2'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_documento__c}">
+                        <apex:actionSupport id="ren2" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_rentas_3"
+                    rendered="{!seccion = 'solicitudes_rentas_3'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_Modificaci_n__c}">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_rentas_5"
+                    rendered="{!seccion = 'solicitudes_rentas_5'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_Gesti_n_Pago__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_rentas_6"
+                    rendered="{!seccion = 'solicitudes_rentas_6'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_Gesti_n_Pago__c}"
+                        required="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_renta_1"
+                    rendered="{!seccion = 'reclamos_renta_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_renta_1"
+                    rendered="{!seccion = 'consultas_renta_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_2"
+                    rendered="{!seccion = 'solicitudes_grales_2'}">
+                    <apex:inputField value="{!nuevoCaso.Motivo_Anulaci_n__c}" />
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <!--apex:inputField value="{!nuevoCaso.N_P_liza__c}"/-->
+                    <apex:inputField value="{!nuevoCaso.Codigo_de_Validacion_Autentia_Nectia__c}"
+                        required="true" rendered="{!PerfilPresencial}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}"
+                        required="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_1"
+                    rendered="{!seccion = 'solicitudes_grales_1'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_Modificaci_n__c}">
+                        <apex:actionSupport id="ren4" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_3"
+                    rendered="{!seccion = 'solicitudes_grales_3'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_documento__c}">
+                        <apex:actionSupport id="ren5" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_4"
+                    rendered="{!seccion = 'solicitudes_grales_4'}">
+                    <apex:inputField value="{!nuevoCaso.Motivo_de_Devoluci_n__c}">
+                        <apex:actionSupport id="ren9" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_5"
+                    rendered="{!seccion = 'solicitudes_grales_5'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_Modificaci_n__c}">
+                        <apex:actionSupport id="ren4" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_6"
+                    rendered="{!seccion = 'solicitudes_grales_6'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_documento__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                </apex:pageBlockSection>
+                
+               
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_grales_7"
+                    rendered="{!seccion = 'solicitudes_grales_7'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="false" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_documento__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="consultas_vida_1"
+                    rendered="{!seccion = 'consultas_vida_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_ffmm_1"
+                    rendered="{!seccion = 'solicitudes_ffmm_1'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_Rescate__c}">
+                        <!-- <apex:actionSupport id="ren3" event="onchange" action="{!validaSeccion}" rerender="subsecciones" />-->
+                        <!--apex:actionSupport id="ren4" event="onchange" action="{!validaSeccion}" rerender="subsecciones,subsecciones3" /-->
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren5" event="onchange"
+                            action="{!validaSeccion}"
+                            rerender="subsecciones,subsecciones2,subsecciones3" />
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Fecha_Real_Solicitud_solicitud_rescates__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_rescate_1"
+                    rendered="{!seccion = 'solicitudes_rescate_1'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_Rescate__c}">
+                        <!-- <apex:actionSupport id="ren3" event="onchange" action="{!validaSeccion}" rerender="subsecciones" />-->
+                        <!--apex:actionSupport id="ren4" event="onchange" action="{!validaSeccion}" rerender="subsecciones,subsecciones3" /-->
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren5" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones,subsecciones2" />
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Fecha_Real_Solicitud_solicitud_rescates__c}" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="Solicitud_rescate"
+                    rendered="{!seccion = 'Solicitud_rescate'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_Rescate__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="rentas_consulta_productos"
+                    rendered="{!seccion = 'rentas_consulta_productos'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Consulta__c}"
+                        required="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="Solicitud_Traspaso_apv"
+                    rendered="{!seccion = 'Solicitud_Traspaso_apv'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_Rescate__c}">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                    <apex:inputHidden />
+
+                    <apex:outputText label="Monto total" />
+                    <apex:inputHidden />
+                    <apex:input type="number" id="totalpesos" label="$"
+                        value="{!TotalPesos}" disabled="true" />
+                    <apex:input type="number" html-step="any" id="totaluf" label="UF"
+                        value="{!TotalUF}" disabled="true" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_vida_1"
+                    rendered="{!seccion = 'solicitudes_vida_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones,subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Siniestro" columns="2"
+                    collapsible="false" id="solicitudes_vida_2"
+                    rendered="{!seccion = 'solicitudes_vida_2'}">
+
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_vida_4"
+                    rendered="{!seccion = 'solicitudes_vida_4'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="reclamos_vida_1"
+                    rendered="{!seccion = 'reclamos_vida_1'}">
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_del_Reclamo__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso - Denuncio Oncológico"
+                    columns="2" collapsible="false" id="solicitud_siniestro_1"
+                    rendered="{!seccion = 'solicitud_siniestro_1'}">
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_siniestro__c}"></apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Clasificaci_n_de_Solicitud__c}"
+                        required="true"></apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:input type="text" value="{!NombreTerceroAfectado}"
+                        label="Nombre tercero afectado" />
+                    <apex:input type="text" value="{!RutTerceroAfectado}"
+                        label="Rut tercero afectado" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso - Denuncio" columns="2"
+                    collapsible="false" id="solicitud_siniestro_2"
+                    rendered="{!seccion = 'solicitud_siniestro_2'}">
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_siniestro__c}"></apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_Denuncio__c}"></apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:input type="text" value="{!NombreTerceroAfectado}"
+                        label="Nombre tercero afectado" />
+                    <apex:input type="text" value="{!RutTerceroAfectado}"
+                        label="Rut tercero afectado" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso - Reembolso"
+                    columns="2" collapsible="false" id="solicitud_siniestro_3"
+                    rendered="{!seccion = 'solicitud_siniestro_3'}">
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_siniestro__c}"></apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}"></apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:input type="text" value="{!NombreTerceroAfectado}"
+                        label="Nombre tercero afectado" />
+                    <apex:input type="text" value="{!RutTerceroAfectado}"
+                        label="Rut tercero afectado" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Denuncio Oncológico" columns="2"
+                    collapsible="false" id="solicitudes_vida_3"
+                    rendered="{!seccion = 'solicitudes_vida_3'}">
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_Denuncio__c}"
+                        required="true">
+                        <apex:actionSupport id="ren3" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones" />
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_siniestro__c}" />
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+
+            <!-- SUBSECCIONES -->
+
+            <apex:outputpanel id="subsecciones">
+                <apex:pageBlockSection title="Forma de Pago" columns="2"
+                    collapsible="false" id="solicitud_siniestro_1_1"
+                    rendered="{!subseccion_1 = 'solicitud_siniestro_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Forma de Pago" columns="2"
+                    collapsible="false" id="solicitud_siniestro_2_1"
+                    rendered="{!subseccion_1 = 'solicitud_siniestro_2_1'}">
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Forma de Pago" columns="2"
+                    collapsible="false" id="solicitud_siniestro_3_1"
+                    rendered="{!subseccion_1 = 'solicitud_siniestro_3_1'}">
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:selectList label="Banco" value="{!selectedBancos}" size="1">
+                        <apex:selectOptions value="{!listaBancos}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Tipo de Cuenta" value="{!selectedTipoCta}"
+                        size="1">
+                        <apex:selectOptions value="{!listaTipoCtas}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputText value="{!NoCtaTarjeta}" label="Nº de Cuenta" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Banco" columns="2"
+                    collapsible="false" id="datosDeposito_1_1"
+                    rendered="{!subseccion_1 = 'datosDeposito_1_1'}">
+                    <apex:selectList label="Banco" value="{!selectedBancos}" size="1">
+                        <apex:selectOptions value="{!listaBancos}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Tipo de Cuenta" value="{!selectedTipoCta}"
+                        size="1">
+                        <apex:selectOptions value="{!listaTipoCtas}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputText value="{!NoCtaTarjeta}" label="Nº de Cuenta" />
+
+                    <apex:inputHidden />
+                    <apex:pageBlockSection title="Datos de tercero" collapsible="false">
+                        <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                        <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                        <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                        <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                        <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                    </apex:pageBlockSection>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Siniestro" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_1"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_siniestro__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Adicionales" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_2"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_2'}">
+                    <apex:selectList label="Mes Inicio" value="{!MesInicio}" size="1">
+                        <apex:selectOptions value="{!listaMesInicio}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Mes Fin" value="{!MesFin}" size="1">
+                        <apex:selectOptions value="{!listaMesFin}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nuevo Apoderado" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_3"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_3'}">
+                    <!-- <apex:inputField value="{!nuevoCaso.Rut__c}"/>
+<apex:inputField value="{!nuevoCaso.Nombres__c}"/>-->
+                    <apex:inputField value="{!nuevoCaso.Rut_Apoderado__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nombre_Nuevo_Apoderado__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Paterno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Materno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_Inicio_Vigencia__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_Fin_Vigencia__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nueva_V_a_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Receptor Pago Servipag"
+                    columns="2" collapsible="false" id="solicitudes_rentas_2_4"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_4'}">
+                    <apex:input type="text" label="Rut" value="{!RutServipag}" />
+                    <apex:input type="text" label="Nombre" value="{!NombreServipag}" />
+                    <apex:input type="text" label="Apellidos"
+                        value="{!ApellidoPatServipag}" />
+                    <apex:selectList label="Mes Inicio" value="{!MesInicio}" size="1">
+                        <apex:selectOptions value="{!listaMesInicio}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Mes Fin" value="{!MesFin}" size="1">
+                        <apex:selectOptions value="{!listaMesFin}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Adicionales" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_5"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_5'}">
+                    <apex:inputField value="{!nuevoCaso.Nueva_Instituci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nuevo Beneficiario" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_6"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_6'}">
+                    <apex:input type="text" label="Rut" value="{!RutNuevoBeneficiario}" />
+                    <apex:input type="text" label="Nombre"
+                        value="{!NombreNuevoBeneficiario}" />
+                    <apex:input type="text" label="Apellidos"
+                        value="{!ApellidoPatNuevoBeneficiario}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Adicionales" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_8"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_8'}">
+                    <apex:inputField value="{!nuevoCaso.Rut__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Paterno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Materno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren6" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Anticipo" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_9"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_9'}">
+                    <apex:inputField value="{!nuevoCaso.Rut__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Paterno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Materno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren7" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Periodo Garantizado" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_10"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_10'}">
+                    <apex:inputField value="{!nuevoCaso.Rut__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Paterno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Materno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Via de pago" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_11"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_11'}">
+                    <apex:inputField value="{!nuevoCaso.Nueva_V_a_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                    <apex:inputCheckbox value="{!PolizaTutor}" label="Póliza con tutor">
+                        <apex:actionSupport id="ren12" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones3" />
+                    </apex:inputCheckbox>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Patente Provisoria" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_1"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Patente_Provisoria__c}" />
+                    <apex:inputField value="{!nuevoCaso.Patente_Seguros_nectia__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Folio" columns="2"
+                    collapsible="false" id="solicitudes_grales_4_1"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_4_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_mero_de_Folio_DPFS__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Patente" columns="2"
+                    collapsible="false" id="reclamo_grales_1_1"
+                    rendered="{!subseccion_1 = 'reclamo_grales_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Patente_Seguros_nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Propuesta" columns="2"
+                    collapsible="false" id="reclamo_grales_1_2"
+                    rendered="{!subseccion_1 = 'reclamo_grales_1_2'}">
+                    <apex:inputField value="{!nuevoCaso.N_de_Endoso__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Mandato" columns="2"
+                    collapsible="false" id="reclamo_grales_1_3"
+                    rendered="{!subseccion_1 = 'reclamo_grales_1_3'}">
+                    <apex:inputField value="{!nuevoCaso.N_mandato__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Forma de pago" columns="2"
+                    collapsible="false" id="reclamo_grales_1_4"
+                    rendered="{!subseccion_1 = 'reclamo_grales_1_4'}">
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Propuesta" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_3"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_3'}">
+                    <apex:input type="number" label="Nº de Propuesta"
+                        value="{!NoPropuesta}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Via de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_4"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_4'}">
+                    <apex:inputField value="{!nuevoCaso.V_a_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Via de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_9"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_9'}">
+                    <apex:inputField value="{!nuevoCaso.V_a_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones2" />
+                    </apex:inputField>
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Frecuencia de Pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_5"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_5'}">
+                    <apex:inputField value="{!nuevoCaso.Frecuencia_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_de_Cuotas__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Renovación" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_6"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_6'}">
+                    <apex:input type="text" label="Nueva Prima" value="{!NuevaPrima}" />
+                    <apex:input type="text" label="Deducible" value="{!Deducible}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Renovación" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_7"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_7'}">
+                    <apex:input type="text" label="Nueva Prima" value="{!NuevaPrima}" />
+                    <apex:input type="text" label="Nueva Cobertura"
+                        value="{!NuevaCobertura}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Rehabilitación" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_8"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_8'}">
+                    <apex:inputField value="{!nuevoCaso.Motivo_Anulaci_n__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Via de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_10"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_10'}">
+
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Frecuencia de Pago" columns="2"
+                    collapsible="false" id="solicitud_vida_1_1"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Frecuencia_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_de_Cuotas__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Frecuencia de Pago" columns="2"
+                    collapsible="false" id="solicitud_vida_1_10"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_10'}">
+                    <apex:inputField value="{!nuevoCaso.Frecuencia_de_Pago__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Suspensión" columns="2"
+                    collapsible="false" id="solicitud_vida_1_2"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_2'}">
+                    <apex:input type="date" label="Fecha inicio suspensión"
+                        value="{!FechaInicioSuspension}" />
+                    <apex:input type="date" label="Fecha fin suspensión"
+                        value="{!FechaFinSuspension}" />
+                    <apex:inputField value="{!nuevoCaso.Motivo_de_Suspensi_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Cambio de prima" columns="2"
+                    collapsible="false" id="solicitud_vida_1_3"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_3'}">
+                    <apex:input type="number" html-step="any"
+                        label="Monto Prima proyectada anual UF"
+                        value="{!NuevaPrimaProyectada}" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Caso" columns="2"
+                    collapsible="false" id="solicitudes_vida_1_4"
+                    rendered="{!subseccion_1 = 'solicitudes_vida_1_4'}">
+                    <apex:inputField value="{!nuevoCaso.Motivo_Anulaci_n__c}" />
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Régimen Tributario" columns="2"
+                    collapsible="false" id="solicitud_apv_1_1"
+                    rendered="{!subseccion_1 = 'solicitud_apv_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.R_gimen_Tributario__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Rescate" columns="1"
+                    collapsible="false" id="solicitudes_ffmm_1_1"
+                    rendered="{!subseccion_1 = 'solicitudes_ffmm_1_1'}">
+                    <apex:input type="text" html-step="any"
+                        label="Máximo monto disponible" value="{!MontoMaximo}"
+                        disabled="true" />
+                    <apex:inputHidden />
+                    <apex:input type="text" html-step="any" id="valorUF"
+                        label="Valor UF en Pesos" value="{!ufVal}" disabled="true">
+                        <apex:param value="{!ufVal}" />
+                    </apex:input>
+                    <apex:inputHidden />
+
+
+                    <apex:input type="number" id="montopesos" label="$"
+                        value="{!TotalPesos}" onkeyup="calcularmontopesosauf()"
+                        rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',false,true)}">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="13px" /> <span class="tooltiptext">Ingrese el
+                                monto en "Peso"</span>
+                        </div>
+                    </apex:input>
+                    <apex:input type="number" html-step="any" id="montouf" label="UF"
+                        value="{!TotalUF}" onkeyup="calcularmontoufapesos()"
+                        rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',false,true)}">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="13px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Rescate" columns="2"
+                    collapsible="false" id="solicitudes_ffmm_1_3"
+                    rendered="{!subseccion_1 = 'solicitudes_ffmm_1_3'}">
+                    <apex:input type="text" html-step="any"
+                        label="Máximo monto disponible" value="{!MontoMaximo}"
+                        disabled="true" />
+                    <apex:inputHidden />
+
+                    <apex:inputField value="{!nuevoCaso.Monto__c}"
+                        rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',true,false)}" />
+                    <!--rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',false,true)}"-->
+                    <apex:inputField value="{!nuevoCaso.Monto_UF__c}"
+                        rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',true,false)}">
+                        <!--rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',false,true)}"-->
+                        <!-- <apex:actionSupport id="ren8" event="onchange" action="{!validaSeccion}" rerender="subsecciones3" />-->
+                    </apex:inputField>
+                    <!-- <apex:inputField value="{!nuevoCaso.Monto__c}" id="montopesos"  onkeyup="calcularmontopesosauf()" rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='Vida',false,true)}" /><!--rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',false,true)}"-->
+                    <!-- <apex:inputField value="{!nuevoCaso.Monto_UF__c}" id="montouf"  onkeyup="calcularmontoufapesos()" rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='Vida',false,true)}" ><!--rendered="{!if(prdCliente.Producto_de_Seguros_Nectia__r.Familia__c=='APV',false,true)}"-->
+                    <!-- <apex:actionSupport id="ren8" event="onchange" action="{!validaSeccion}" rerender="subsecciones3" />-->
+                    <!-- </apex:inputField>  -->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Siniestro SEF (Denuncio)" columns="2"
+                    collapsible="false" id="siniestroSEF"
+                    rendered="{!subseccion_1 = 'siniestroSEF'}">
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_siniestro__c}" />
+                    <apex:inputHidden />
+                    <apex:outputText label="Siniestro SEF Salud"></apex:outputText>
+                    <apex:outputText label="Siniestro SEF Vida"></apex:outputText>
+                    <apex:inputCheckbox value="{!CheckboxCancerFem}"
+                        label="Cáncer Femenino" />
+                    <apex:inputCheckbox value="{!CheckboxFallecimien}"
+                        label="Fallecimiento" />
+                    <apex:inputCheckbox value="{!CheckboxCirugia}" label="Cirugía" />
+                    <apex:inputCheckbox value="{!CheckboxFallecAccid}"
+                        label="Fallecimiento Accidental" />
+                    <apex:inputCheckbox value="{!CheckboxAntCaptTerm}"
+                        label="Anticipo de Capital por E. Terminal" />
+                    <apex:inputCheckbox value="{!CheckboxInvalAccide}"
+                        label="Invalidez Accidental" />
+                    <apex:inputCheckbox value="{!CheckboxAyuEnfGrave}"
+                        label="Ayuda por E. Grave" />
+                    <apex:inputCheckbox value="{!CheckboxRentEducaci}"
+                        label="Rentas Educacionales" />
+                    <apex:inputHidden />
+                    <apex:inputCheckbox value="{!CheckboxGtoFunerari}"
+                        label="Gastos Funerarios" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Siniestro Vida Individual (Denuncio)"
+                    columns="2" collapsible="false" id="solicitudes_vida_1_1"
+                    rendered="{!subseccion_1 = 'solicitudes_vida_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_siniestro__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_Cobertura_Afectada__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nº Beneficiarios" columns="2"
+                    collapsible="false" id="solicitud_vida_1_4"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_4'}">
+                    <apex:input type="text" value="{!NoDeclaracionBeneficiarios}"
+                        label="Nº declaración beneficiarios" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nuevo Plan" columns="2"
+                    collapsible="false" id="solicitud_vida_1_5"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_5'}">
+                    <apex:input type="text" value="{!NuevoPlan}" label="Nuevo Plan" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Fumador" columns="2"
+                    collapsible="false" id="solicitud_vida_1_6"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_6'}">
+                    <apex:inputCheckbox value="{!Fumador}" label="Fumador" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Régimen SII" columns="2"
+                    collapsible="false" id="solicitud_vida_1_7"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_7'}">
+                    <apex:selectList label="Nuevo Régimen SII"
+                        value="{!selectedRegimenSII}" size="1">
+                        <apex:selectOptions value="{!listaRegimenSII}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Forma de Envío" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_12"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_12'}">
+                    <apex:selectList label="Nueva Forma de Envío"
+                        value="{!selectedFormaEnvio}" size="1">
+                        <apex:selectOptions value="{!listaFormaEnvio}"></apex:selectOptions>
+                    </apex:selectList>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos adicionales" columns="2"
+                    collapsible="false" id="solicitudes_rentas_2_13"
+                    rendered="{!subseccion_1 = 'solicitudes_rentas_2_13'}">
+                    <apex:inputField value="{!nuevoCaso.N_de_Endoso__c}" />
+                    <apex:inputField value="{!nuevoCaso.Motivo_Anulaci_n__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Póliza Destino" columns="2"
+                    collapsible="false" id="solicitud_vida_1_8"
+                    rendered="{!subseccion_1 = 'solicitud_vida_1_8'}">
+                    <apex:input type="text" value="{!NoPolizaDestino}"
+                        label="Nº Póliza Destino" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de tercero" columns="2"
+                    collapsible="false" id="datosTercero_1_1"
+                    rendered="{!subseccion_1 = 'datosTercero_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos APV" columns="3"
+                    collapsible="false" id="solicitudes_apv_1_1"
+                    rendered="{!subseccion_1 = 'solicitudes_apv_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Situaci_n_Asegurado__c}" />
+                    <apex:inputHidden />
+
+
+                    <apex:input type="text" html-step="any" id="valorUF"
+                        label="Valor UF en Pesos" value="{!ufVal}" disabled="true">
+                        <apex:param value="{!ufVal}" />
+                    </apex:input>
+                    <apex:inputHidden />
+                    <apex:inputHidden />
+                    <apex:inputHidden />
+
+
+                    <!-- <apex:inputField value="{!nuevoCaso.Cotizaciones_Voluntarias_Reg_Tribut_A__c}"  />-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionAUF}"
+                        label="Cotizaciones Voluntarias Reg Tribut A" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoA}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!--<apex:inputField value="{!nuevoCaso.Cotizaciones_Voluntarias_Reg_Tribut_B__c}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionBUF}"
+                        label="Cotizaciones Voluntarias Reg Tribut B" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoB}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!--<apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_A__c}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoAUF}"
+                        label="Depósitos de APV A" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVA}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoBUF}"
+                        label="Depósitos de APV B" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVB}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionBUFMayor}"
+                        label="Cotiz.Voluntaria B > 16-12-11" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoBMayor}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoAPVBMayor}"
+                        label="Depósito APV B > 16-12-11" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVBMayor}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+
+                    <!--<apex:outputText value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" label="Devolucion Fiscal"   rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxAporFiscal}"
+                        label="Aporte Fiscal" disabled="true"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFAporFiscal}" />
+                    </apex:outputText>
+                    <apex:inputHidden rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <!-- <apex:outputText value="{!nuevoCaso.Dep_sitos_de_APV_B__c}"  label="Cuenta Unificada" rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" html-step="any"/>-->
+                    <apex:inputCheckbox value="{!CheckboxDevConv}"
+                        label="Depositos convenidos" disabled="true"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDevConv}" />
+                    </apex:outputText>
+
+
+
+                    <apex:inputHidden rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText label="Monto Cotizaciones Voluntarias Régimen Tributario A" />
+                    <apex:input type="number" id="montocotisacionApesos" label="$"
+                        value="{!MontoPesoCotizacionA}" onkeyup="calcular()"
+                        disabled="{! if((MontoUFDepositoA== null || MontoUFDepositoA== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" height="11px" /> <span class="tooltiptext">Ingrese
+                                el monto en "Pesos"</span>
+                        </div>
+                    </apex:input>
+                    <apex:input type="number" html-step="any" id="montocotisacionAUF"
+                        label="UF" value="{!MontoPesoCotizacionAUF}"
+                        onkeyup="calcularuf()"
+                        disabled="{! if((MontoUFDepositoA== null || MontoUFDepositoA== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+
+                    <apex:outputText label="Monto  Cotizaciones Voluntarias Régimen Tributario B" />
+                    <apex:input type="number" id="montocotisacionBpesos" label="$"
+                        value="{!MontoPesoCotizacionB}" onkeyup="calcular1()"
+                        disabled="{! if((MontoUFDepositoB== null || MontoUFDepositoB== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "Pesos"</span>
+                        </div>
+                    </apex:input>
+                    <apex:input type="number" html-step="any" id="montocotisacionBUF"
+                        label="UF" value="{!MontoPesoCotizacionBUF}"
+                        onkeyup="calcularuf1()"
+                        disabled="{! if((MontoUFDepositoB== null || MontoUFDepositoB== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:outputText label="Monto Depósitos de APV A" />
+                    <apex:input type="number" id="montodepositoApesos" label="$"
+                        value="{!MontoPesoDepositoA}" onkeyup="calcular2()"
+                        disabled="{! if((MontoUFDepositoAPVA== null || MontoUFDepositoAPVA== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "Pesos"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:input type="number" html-step="any" id="montodepositoAUF"
+                        label="UF" value="{!MontoPesoDepositoAUF}" onkeyup="calcularuf2()"
+                        disabled="{! if((MontoUFDepositoAPVA== null || MontoUFDepositoAPVA== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:outputText label="Monto Depósitos de APV B" />
+                    <apex:input type="number" id="montodepositoBpesos" label="$"
+                        value="{!MontoPesoDepositoB}" onkeyup="calcular3()"
+                        disabled="{! if((MontoUFDepositoAPVB== null || MontoUFDepositoAPVB== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "Pesos"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:input type="number" html-step="any" id="montodepositoBUF"
+                        label="UF" value="{!MontoPesoDepositoBUF}" onkeyup="calcularuf3()"
+                        disabled="{! if((MontoUFDepositoAPVB== null || MontoUFDepositoAPVB== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:outputText label="Monto Cotizaciones Voluntaria B > 16-12-11" />
+                    <apex:input type="number" id="montocotisacionBpesosMayor" label="$"
+                        value="{!MontoPesoCotizacionBMayor}" onkeyup="calcular4()"
+                        disabled="{! if((MontoUFDepositoBMayor== null || MontoUFDepositoBMayor== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "Pesos"</span>
+                        </div>
+                    </apex:input>
+                    <apex:input type="number" html-step="any"
+                        id="montocotisacionBUFMayor" label="UF"
+                        value="{!MontoPesoCotizacionBUFMayor}" onkeyup="calcularuf4()"
+                        disabled="{! if((MontoUFDepositoBMayor== null || MontoUFDepositoBMayor== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:outputText label="Monto Depósito APV B > 16-12-11" />
+                    <apex:input type="number" id="montodepocitoAPVBpesosMayor"
+                        label="$" value="{!MontoPesoDepositoBMayor}" onkeyup="calcular5()"
+                        disabled="{! if((MontoUFDepositoAPVBMayor== null || MontoUFDepositoAPVBMayor== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "Pesos"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:input type="number" html-step="any"
+                        id="montodepocitoAPVBUFMayor" label="UF"
+                        value="{!MontoPesoDepositoBUFMayor}" onkeyup="calcularuf5()"
+                        disabled="{! if((MontoUFDepositoAPVBMayor== null || MontoUFDepositoAPVBMayor== 0 ),true,false) }">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                monto en "UF"</span>
+                        </div>
+                    </apex:input>
+
+                    <apex:outputText label="Monto total" />
+                    <apex:input type="number" id="totalpesos" label="$"
+                        value="{!TotalPesos}" disabled="true" />
+                    <apex:input type="number" html-step="any" id="totaluf" label="UF"
+                        value="{!TotalUF}" disabled="true" />
+
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+
+            <!-- SUBSECCIONES 2 -->
+
+            <apex:outputpanel id="subsecciones2">
+                <apex:pageBlockSection title="Datos Banco" columns="2"
+                    collapsible="false" id="solicitudes_rentas_3_1"
+                    rendered="{!subseccion_2 = 'solicitudes_rentas_3_1'}">
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de tercero" columns="2"
+                    collapsible="false" id="datosTercero2_1_1_1"
+                    rendered="{!subseccion_2 = 'datosTercero2_1_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Banco" columns="2"
+                    collapsible="false" id="datosDeposito_1_1_1"
+                    rendered="{!subseccion_2 = 'datosDeposito_1_1_1'}">
+                    <apex:selectList label="Banco" value="{!selectedBancos}" size="1">
+                        <apex:selectOptions value="{!listaBancos}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Tipo de Cuenta" value="{!selectedTipoCta}"
+                        size="1">
+                        <apex:selectOptions value="{!listaTipoCtas}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputText value="{!NoCtaTarjeta}" label="Nº de Cuenta" />
+
+                    <apex:inputHidden />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nueva vía de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_4_1"
+                    rendered="{!subseccion_2 = 'solicitudes_grales_1_4_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_mandato__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_Vencimiento_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.D_a_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Frecuencia_de_Pago__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Pagador" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_4_1_1"
+                    rendered="{!subseccion_3 = 'solicitudes_grales_1_4_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Rut__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Paterno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Materno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Genero_Nectia__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_nacimiento__c}" />
+                    <apex:inputField value="{!nuevoCaso.Movil_pagador_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nueva vía de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_5_1"
+                    rendered="{!subseccion_2 = 'solicitudes_grales_1_5_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_mandato__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_Vencimiento_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.D_a_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Frecuencia_de_Pago__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos del Pagador" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_5_1_1"
+                    rendered="{!subseccion_3 = 'solicitudes_grales_1_5_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Rut__c}" />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Paterno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Apellido_Materno__c}" />
+                    <apex:inputField value="{!nuevoCaso.Genero_Nectia__c}" />
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_nacimiento__c}" />
+                    <apex:inputField value="{!nuevoCaso.Movil_pagador_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Nueva vía de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_6_1_1"
+                    rendered="{!subseccion_3 = 'solicitudes_grales_1_6_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.N_mandato__c}" />
+                    <apex:inputField value="{!nuevoCaso.Banco__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}" />
+                    <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}" />
+                    <apex:inputField value="{!nuevoCaso.D_a_de_Pago__c}" />
+                    <apex:inputField value="{!nuevoCaso.Frecuencia_de_Pago__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Empleador" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_7_1"
+                    rendered="{!subseccion_2 = 'solicitudes_grales_1_7_1'}">
+                    <apex:inputField value="{!nuevoCaso.Codigo_Empleador__c}" />
+                    <apex:inputField value="{!nuevoCaso.N_SAAP__c}" />
+                    <apex:inputField value="{!nuevoCaso.Datos_Empleador__c}"
+                        label="Nombre Empleador" />
+                    <apex:inputField value="{!nuevoCaso.RUT_Empleador_Nectia__c}" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Banco" columns="2"
+                    collapsible="false" id="solicitudes_ffmm_1_2"
+                    rendered="{!subseccion_2 == 'solicitudes_ffmm_1_2'}">
+                    <apex:selectList label="Banco" value="{!selectedBancos}" size="1">
+                        <apex:selectOptions value="{!listaBancos}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Tipo de Cuenta" value="{!selectedTipoCta}"
+                        size="1">
+                        <apex:selectOptions value="{!listaTipoCtas}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputText value="{!NoCtaTarjeta}" label="Nº de Cuenta">
+                        <div class="tooltip" style="padding: 1px">
+                            <img
+                                src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                width="11px" /> <span class="tooltiptext">Ingrese el
+                                número de la cuenta de forma correcta</span>
+                        </div>
+                    </apex:inputText>
+                    <!---john esta trabajando aqui-->
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de Banco" columns="1"
+                    collapsible="false" id="datosDeposito_1_2"
+                    rendered="{!subseccion_2 = 'datosDeposito_1_2'}">
+                    <apex:selectList label="Banco" value="{!selectedBancos}" size="1">
+                        <apex:selectOptions value="{!listaBancos}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Tipo de Cuenta" value="{!selectedTipoCta}"
+                        size="1">
+                        <apex:selectOptions value="{!listaTipoCtas}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="N° de Cuenta">
+                            <div class="tooltip" style="padding: 1px">
+                                <img
+                                    src="../servlet/servlet.FileDownload?file=0158A000000QIye"
+                                    width="13px" /> <span class="tooltiptext">Ingrese el
+                                    número de la cuenta de forma correcta</span>
+                            </div>
+                        </apex:outputLabel>
+
+                        <apex:inputText value="{!NoCtaTarjeta}" />
+
+                    </apex:pageBlockSectionItem>
+
+                    <apex:pageBlockSection title="Datos de tercero" collapsible="false"
+                        columns="1">
+                        <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                        <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                        <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                        <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                        <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                    </apex:pageBlockSection>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Forma de pago" columns="2"
+                    collapsible="false" id="datosFormaPago_1_1"
+                    rendered="{!subseccion_2 = 'datosFormaPago_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Forma_de_Pago__c}">
+                        <apex:actionSupport id="ren8" event="onchange"
+                            action="{!validaSeccion}" rerender="subsecciones3" />
+                    </apex:inputField>
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos Via de pago" columns="2"
+                    collapsible="false" id="solicitudes_grales_1_8_1"
+                    rendered="{!subseccion_1 = 'solicitudes_grales_1_8_1'}">
+
+                    <apex:inputField value="{!nuevoCaso.Fecha_de_Vigencia_de_Tarjeta_Nectia__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos APV" columns="3"
+                    collapsible="false" id="solicitudes_apv_1_1_1"
+                    rendered="{!subseccion_2 = 'solicitudes_apv_1_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Situaci_n_Asegurado__c}" />
+                    <apex:inputHidden />
+                    <apex:inputHidden />
+
+                    <apex:input type="text" html-step="any" id="valorUF"
+                        label="Valor UF en Pesos" value="{!ufVal}" disabled="true">
+                        <apex:param value="{!ufVal}" />
+                    </apex:input>
+                    <apex:inputHidden />
+                    <apex:inputHidden />
+
+                    <!-- <apex:inputField value="{!nuevoCaso.Cotizaciones_Voluntarias_Reg_Tribut_A__c}"  />-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionAUF}"
+                        label="Cotizaciones Voluntarias Reg Tribut A" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoA}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!--<apex:inputField value="{!nuevoCaso.Cotizaciones_Voluntarias_Reg_Tribut_B__c}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionBUF}"
+                        label="Cotizaciones Voluntarias Reg Tribut B" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoB}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!--<apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_A__c}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoAUF}"
+                        label="Depósitos de APV A" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVA}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoBUF}"
+                        label="Depósitos de APV B" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVB}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionBUFMayor}"
+                        label="Cotiz.Voluntaria B > 16-12-11" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoBMayor}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoAPVBMayor}"
+                        label="Depósito APV B > 16-12-11" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVBMayor}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+
+                    <!--<apex:outputText value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" label="Devolucion Fiscal"   rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxAporFiscal}"
+                        label="Aporte Fiscal" disabled="true"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFAporFiscal}" />
+                    </apex:outputText>
+                    <apex:inputHidden rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <!-- <apex:outputText value="{!nuevoCaso.Dep_sitos_de_APV_B__c}"  label="Cuenta Unificada" rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" html-step="any"/>-->
+                    <apex:inputCheckbox value="{!CheckboxDevConv}"
+                        label="Depositos convenidos" disabled="true"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDevConv}" />
+                    </apex:outputText>
+                    <apex:inputHidden rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText label="Monto Cotizaciones Voluntarias Régimen Tributario A" />
+                    <apex:pageBlockSectionItem helpText="hola">
+                        <apex:input type="number" id="montocotisacionApesos" label="$"
+                            value="{!MontoPesoCotizacionA}" onkeyup="calcular()"
+                            disabled="{! if((MontoUFDepositoA== null || MontoUFDepositoA== 0 ),true,false) }" />
+                        <apex:input type="number" html-step="any" id="montocotisacionAUF"
+                            label="UF" value="{!MontoPesoCotizacionAUF}"
+                            onkeyup="calcularuf()"
+                            disabled="{! if((MontoUFDepositoA== null || MontoUFDepositoA== 0 ),true,false) }" />
+                    </apex:pageBlockSectionItem>
+                    <apex:outputText label="Monto  Cotizaciones Voluntarias Régimen Tributario B" />
+                    <apex:input type="number" id="montocotisacionBpesos" label="$"
+                        value="{!MontoPesoCotizacionB}" onkeyup="calcular1()"
+                        disabled="{! if((MontoUFDepositoB== null || MontoUFDepositoB== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montocotisacionBUF"
+                        label="UF" value="{!MontoPesoCotizacionBUF}"
+                        onkeyup="calcularuf1()"
+                        disabled="{! if((MontoUFDepositoB== null || MontoUFDepositoB== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Depósitos de APV A" />
+                    <apex:input type="number" id="montodepositoApesos" label="$"
+                        value="{!MontoPesoDepositoA}" onkeyup="calcular2()"
+                        disabled="{! if((MontoUFDepositoAPVA== null || MontoUFDepositoAPVA== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montodepositoAUF"
+                        label="UF" value="{!MontoPesoDepositoAUF}" onkeyup="calcularuf2()"
+                        disabled="{! if((MontoUFDepositoAPVA== null || MontoUFDepositoAPVA== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Depósitos de APV B" />
+                    <apex:input type="number" id="montodepositoBpesos" label="$"
+                        value="{!MontoPesoDepositoB}" onkeyup="calcular3()"
+                        disabled="{! if((MontoUFDepositoAPVB== null || MontoUFDepositoAPVB== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montodepositoBUF"
+                        label="UF" value="{!MontoPesoDepositoBUF}" onkeyup="calcularuf3()"
+                        disabled="{! if((MontoUFDepositoAPVB== null || MontoUFDepositoAPVB== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Cotizaciones Voluntaria B > 16-12-11" />
+                    <apex:input type="number" id="montocotisacionBpesosMayor" label="$"
+                        value="{!MontoPesoCotizacionBMayor}" onkeyup="calcular4()"
+                        disabled="{! if((MontoUFDepositoBMayor== null || MontoUFDepositoBMayor== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any"
+                        id="montocotisacionBUFMayor" label="UF"
+                        value="{!MontoPesoCotizacionBUFMayor}" onkeyup="calcularuf4()"
+                        disabled="{! if((MontoUFDepositoBMayor== null || MontoUFDepositoBMayor== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Depósito APV B > 16-12-11" />
+                    <apex:input type="number" id="montodepocitoAPVBpesosMayor"
+                        label="$" value="{!MontoPesoDepositoBMayor}" onkeyup="calcular5()"
+                        disabled="{! if((MontoUFDepositoAPVBMayor== null || MontoUFDepositoAPVBMayor== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any"
+                        id="montodepocitoAPVBUFMayor" label="UF"
+                        value="{!MontoPesoDepositoBUFMayor}" onkeyup="calcularuf5()"
+                        disabled="{! if((MontoUFDepositoAPVBMayor== null || MontoUFDepositoAPVBMayor== 0 ),true,false) }" />
+
+                    <apex:outputText label="Monto total" />
+                    <apex:input type="number" id="totalpesos" label="$"
+                        value="{!TotalPesos}" disabled="true" />
+                    <apex:input type="number" html-step="any" id="totaluf" label="UF"
+                        value="{!TotalUF}" disabled="true" />
+
+                </apex:pageBlockSection>
+            </apex:outputpanel>
+
+
+            <!-- SUBSECCIONES 3-->
+
+            <apex:outputPanel id="subsecciones3">
+                <apex:pageBlockSection title="Datos de Banco" columns="2"
+                    collapsible="false" id="datosDeposito_1_1_1_1"
+                    rendered="{!subseccion_3 = 'datosDeposito_1_1_1_1'}">
+                    <apex:selectList label="Banco" value="{!selectedBancos}" size="1">
+                        <apex:selectOptions value="{!listaBancos}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:selectList label="Tipo de Cuenta" value="{!selectedTipoCta}"
+                        size="1">
+                        <apex:selectOptions value="{!listaTipoCtas}"></apex:selectOptions>
+                    </apex:selectList>
+                    <apex:inputText value="{!NoCtaTarjeta}" label="Nº de Cuenta" />
+
+                    <apex:inputHidden />
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de tercero" columns="2"
+                    collapsible="false" id="datosTercero_1_1_1"
+                    rendered="{!subseccion_3 = 'datosTercero_1_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Nombres__c}" />
+                    <apex:inputField value="{!nuevoCaso.Rut_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Telefono_de_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Celular_Tercero__c}" />
+                    <apex:inputField value="{!nuevoCaso.Correo_electr_nico__c}" />
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos de apoderado"
+                    collapsible="false" id="solicitudes_rentas_1_1_1"
+                    rendered="{!subseccion_3 = 'solicitudes_rentas_1_1_1'}">
+                    <apex:input type="text" value="{!NombreApoderado}"
+                        label="Nombre Apoderado" />
+                    <apex:input type="text" value="{!ApellidoPatApoderado}"
+                        label="Apellido Paterno Apoderado" />
+                    <apex:input type="text" value="{!ApellidoMatApoderado}"
+                        label="Apellido Materno Apoderado" />
+
+                </apex:pageBlockSection>
+                <apex:pageBlockSection title="Datos APV" columns="3"
+                    collapsible="false" id="solicitudes_ffmm_1_1_1"
+                    rendered="{!subseccion_3 = 'solicitudes_ffmm_1_1_1'}">
+                    <apex:inputField value="{!nuevoCaso.Situaci_n_Asegurado__c}" />
+                    <apex:inputHidden />
+                    <apex:inputHidden />
+
+                    <apex:input type="text" html-step="any" id="valorUF"
+                        label="Valor UF en Pesos" value="{!ufVal}" disabled="true">
+                        <apex:param value="{!ufVal}" />
+                    </apex:input>
+                    <apex:inputHidden />
+                    <apex:inputHidden />
+
+                    <!-- <apex:inputField value="{!nuevoCaso.Cotizaciones_Voluntarias_Reg_Tribut_A__c}"  />-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionAUF}"
+                        label="Cotizaciones Voluntarias Reg Tribut A" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoA}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!--<apex:inputField value="{!nuevoCaso.Cotizaciones_Voluntarias_Reg_Tribut_B__c}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionBUF}"
+                        label="Cotizaciones Voluntarias Reg Tribut B" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoB}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!--<apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_A__c}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoAUF}"
+                        label="Depósitos de APV A" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVA}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoBUF}"
+                        label="Depósitos de APV B" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVB}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxCotizacionBUFMayor}"
+                        label="Cotiz.Voluntaria B > 16-12-11" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoBMayor}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+                    <!-- <apex:inputField value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" />-->
+                    <apex:inputCheckbox value="{!CheckboxDepositoAPVBMayor}"
+                        label="Depósito APV B > 16-12-11" disabled="true" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDepositoAPVBMayor}" />
+                    </apex:outputText>
+                    <apex:inputHidden />
+
+                    <!--<apex:outputText value="{!nuevoCaso.Dep_sitos_de_APV_B__c}" label="Devolucion Fiscal"   rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"/>-->
+                    <apex:inputCheckbox value="{!CheckboxAporFiscal}"
+                        label="Aporte Fiscal" disabled="true"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFAporFiscal}" />
+                    </apex:outputText>
+                    <apex:inputHidden rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <!-- <apex:outputText value="{!nuevoCaso.Dep_sitos_de_APV_B__c}"  label="Cuenta Unificada" rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" html-step="any"/>-->
+                    <apex:inputCheckbox value="{!CheckboxDevConv}"
+                        label="Depositos convenidos" disabled="true"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText value="{0, number, ###,###,##0.00}"
+                        rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}"
+                        label="Monto disponible UF">
+                        <apex:param value="{!MontoUFDevConv}" />
+                    </apex:outputText>
+                    <apex:inputHidden rendered="{!if((nuevoCaso.Tipo_Rescate__c=='Total' || nuevoCaso.Tipo_Rescate__c=='1'),true,false)}" />
+                    <apex:outputText label="Monto Cotizaciones Voluntarias Régimen Tributario A" />
+                    <apex:input type="number" id="montocotisacionApesos" label="$"
+                        value="{!MontoPesoCotizacionA}" onkeyup="calcular()"
+                        disabled="{! if((MontoUFDepositoA== null || MontoUFDepositoA== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montocotisacionAUF"
+                        label="UF" value="{!MontoPesoCotizacionAUF}"
+                        onkeyup="calcularuf()"
+                        disabled="{! if((MontoUFDepositoA== null || MontoUFDepositoA== 0 ),true,false) }" />
+                    <apex:outputText label="Monto  Cotizaciones Voluntarias Régimen Tributario B" />
+                    <apex:input type="number" id="montocotisacionBpesos" label="$"
+                        value="{!MontoPesoCotizacionB}" onkeyup="calcular1()"
+                        disabled="{! if((MontoUFDepositoB== null || MontoUFDepositoB== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montocotisacionBUF"
+                        label="UF" value="{!MontoPesoCotizacionBUF}"
+                        onkeyup="calcularuf1()"
+                        disabled="{! if((MontoUFDepositoB== null || MontoUFDepositoB== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Depósitos de APV A" />
+                    <apex:input type="number" id="montodepositoApesos" label="$"
+                        value="{!MontoPesoDepositoA}" onkeyup="calcular2()"
+                        disabled="{! if((MontoUFDepositoAPVA== null || MontoUFDepositoAPVA== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montodepositoAUF"
+                        label="UF" value="{!MontoPesoDepositoAUF}" onkeyup="calcularuf2()"
+                        disabled="{! if((MontoUFDepositoAPVA== null || MontoUFDepositoAPVA== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Depósitos de APV B" />
+                    <apex:input type="number" id="montodepositoBpesos" label="$"
+                        value="{!MontoPesoDepositoB}" onkeyup="calcular3()"
+                        disabled="{! if((MontoUFDepositoAPVB== null || MontoUFDepositoAPVB== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any" id="montodepositoBUF"
+                        label="UF" value="{!MontoPesoDepositoBUF}" onkeyup="calcularuf3()"
+                        disabled="{! if((MontoUFDepositoAPVB== null || MontoUFDepositoAPVB== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Cotizaciones Voluntaria B > 16-12-11" />
+                    <apex:input type="number" id="montocotisacionBpesosMayor" label="$"
+                        value="{!MontoPesoCotizacionBMayor}" onkeyup="calcular4()"
+                        disabled="{! if((MontoUFDepositoBMayor== null || MontoUFDepositoBMayor== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any"
+                        id="montocotisacionBUFMayor" label="UF"
+                        value="{!MontoPesoCotizacionBUFMayor}" onkeyup="calcularuf4()"
+                        disabled="{! if((MontoUFDepositoBMayor== null || MontoUFDepositoBMayor== 0 ),true,false) }" />
+                    <apex:outputText label="Monto Depósito APV B > 16-12-11" />
+                    <apex:input type="number" id="montodepocitoAPVBpesosMayor"
+                        label="$" value="{!MontoPesoDepositoBMayor}" onkeyup="calcular5()"
+                        disabled="{! if((MontoUFDepositoAPVBMayor== null || MontoUFDepositoAPVBMayor== 0 ),true,false) }" />
+                    <apex:input type="number" html-step="any"
+                        id="montodepocitoAPVBUFMayor" label="UF"
+                        value="{!MontoPesoDepositoBUFMayor}" onkeyup="calcularuf5()"
+                        disabled="{! if((MontoUFDepositoAPVBMayor== null || MontoUFDepositoAPVBMayor== 0 ),true,false) }" />
+
+                    <apex:outputText label="Monto total" />
+                    <apex:input type="number" id="totalpesos" label="$"
+                        value="{!TotalPesos}" disabled="true" />
+                    <apex:input type="number" html-step="any" id="totaluf" label="UF"
+                        value="{!TotalUF}" disabled="true" />
+
+                </apex:pageBlockSection>
+            </apex:outputPanel>
+
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Guardar y cerrar caso"
+                    action="{!saveAndClose}" />
+                <apex:commandButton value="Iniciar Flujo" action="{!saveAndSee}" />
+                <apex:commandButton value="Cancelar" action="{!cerrar}"
+                    immediate="true" />
+                <!--<apex:commandButton value="Cancelar" onclick="closeTab();return false" immediate="true" />-->
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

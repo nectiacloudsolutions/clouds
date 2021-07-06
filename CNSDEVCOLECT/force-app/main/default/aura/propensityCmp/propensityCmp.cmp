@@ -1,0 +1,61 @@
+<aura:component implements="force:hasSObjectName,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" controller="PropensityController" access="global">
+    <aura:attribute name="rut" type="String" default=""/>
+    <aura:attribute name="rutExecutive" type="String" default=""/> 
+    <aura:attribute name="recordId" type="String" default="{!v.recordId}"/>
+    <aura:attribute name="enabledSpinner" type="Boolean" access="private" default="true"/>
+    <aura:attribute name="sobjecttype" type="String" default="{!v.sObjectName}"/>
+    <aura:attribute name="isProne" type="Boolean" default="false"/>
+    <aura:attribute name="propensityObject" type="object"/>
+    <aura:attribute name="headerPropensity" type="String"/> 
+    <aura:attribute name="resultService" type="Boolean" access="private" default="false" />
+    <aura:attribute name="messageService" type="String" default="" />
+    <aura:attribute name="Lead" type="String" default="Lead" />
+    <aura:attribute name="Account" type="String" default="Account" />    
+
+	<!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="c-container">
+    <!-- PAGE HEADER -->
+    <lightning:layout class="slds-page-header slds-page-header--object-home">
+        <lightning:layoutItem>
+            <h1 class="slds-page-header__name-title"><lightning:icon iconName="standard:client" alternativeText="Propensión"/><strong> &nbsp;  {!v.headerPropensity}</strong></h1>
+        </lightning:layoutItem>
+    </lightning:layout>
+    <!-- BODY SECTION -->
+    <lightning:layout class="slds-media__body">
+        <lightning:layoutItem size="12">
+            <div aria-labelledby="newleadform" class="slds-is-relative">
+                <fieldset class="slds-box slds-theme--default slds-p-top_none">
+                    <aura:if isTrue="{!v.enabledSpinner}">
+                        <div class="slds-col slds-p-top_small slds-p-right_medium">
+                            <lightning:spinner alternativeText="Loading" size="small" aura:id="cmpSpinner" variant="brand" />
+                        </div>
+                        <aura:set attribute="else">
+                            <div class="slds-grid slds-grid_vertical slds-grid_align-center">                                
+                            <aura:if isTrue="{!v.resultService}">   
+                                <aura:iteration items="{!v.propensityObject.products}" var="lst">
+                                        <div class="slds-col slds-p-top_small slds-p-right_medium">
+                                            <aura:if isTrue="{!v.sObjectName==v.Account}">
+                                                <a class="slds-text-link_reset" data-prod="{!lst.prodCod}" onclick="{!c.needDetector}"><lightning:icon iconName="{!lst.icon}" class="{!lst.propension =='APTO' ? 'avatarIconColor' : 'avatarIconColor2'}" alternativeText="hipotecario"/>&nbsp; {!lst.prodFamDesc}</a>
+                                            </aura:if>
+                                            <aura:if isTrue="{!v.sObjectName==v.Lead}">
+                                                <span class="slds-current-color"><lightning:icon iconName="{!lst.icon}" class="{!lst.propension =='APTO' ? 'avatarIconColor' : 'avatarIconColor2'}" alternativeText="hipotecario"/>&nbsp; {!lst.prodFamDesc}</span>
+                                            </aura:if>   
+                                        </div>
+                                </aura:iteration>
+                            <aura:set attribute="else">
+                                <div class="slds-col slds-p-top_small slds-p-right_medium">
+                                    {!v.messageService}
+                                </div>
+                            </aura:set>
+                            </aura:if>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                </fieldset>
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    </div>
+</aura:component>

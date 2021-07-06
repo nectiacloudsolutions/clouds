@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Seguros - Referidos Seguros Generales</name>
+    <queueMembers>
+        <users>
+            <user>claudia.guzman@consorcio.cl</user>
+            <user>francia.quintana@consorcio.cl</user>
+            <user>ismael.neira@consorcio.cl</user>
+            <user>issa.gutierrez@consorcio.cl</user>
+            <user>javiera.bello@consorcio.cl</user>
+            <user>roberto.fuentes@consorcio.cl</user>
+            <user>laura.molina@consorcio.cl</user>
+            <user>macarena.rubio@consorcio.cl</user>
+            <user>maritza.carrasco@consorcio.cl</user>
+            <user>patricia.vergara@consorcio.cl</user>
+            <user>paulina.cabezas@consorcio.cl</user>
+            <user>silvana.farias@consorcio.cl</user>
+            <user>stephany.quintanilla@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

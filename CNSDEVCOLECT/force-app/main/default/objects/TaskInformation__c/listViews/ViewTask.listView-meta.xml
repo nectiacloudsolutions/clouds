@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ViewTask</fullName>
+    <columns>NAME</columns>
+    <columns>Asunto__c</columns>
+    <columns>Estado__c</columns>
+    <columns>Origen__c</columns>
+    <columns>Vencimiento__c</columns>
+    <columns>Filtro__c</columns>
+    <columns>ValorFiltro__c</columns>
+    <columns>Tipo_Notificacion__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>ViewTask</label>
+</ListView>

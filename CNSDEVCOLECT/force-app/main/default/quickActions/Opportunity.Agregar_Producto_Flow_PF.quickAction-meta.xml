@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QuickAction xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Botón que permite seleccionar productos de portabilidad financiera y asociarlos a la oportunidad mediante un producto de la oportunidad</description>
+    <flowDefinition>Nuevo_Producto_PF</flowDefinition>
+    <label>Agregar Producto</label>
+    <optionsCreateFeedItem>false</optionsCreateFeedItem>
+    <type>Flow</type>
+</QuickAction>

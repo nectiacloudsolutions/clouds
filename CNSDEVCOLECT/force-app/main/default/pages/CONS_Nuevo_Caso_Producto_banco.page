@@ -1,0 +1,58 @@
+<apex:page lightningStylesheets="true" tabStyle="Case" standardController="Producto_del_Cliente__c" recordSetVar="{!Producto_del_Cliente__c}" extensions="CONS_Nuevo_Caso_Producto_Controller">
+     <apex:includeScript value="/support/console/44.0/integration.js"/>
+
+    <script type="text/javascript">
+    
+    var callCloseTab = function callCloseTab(result) {
+        sforce.console.closeTab(result.id);
+    }        
+    function closeTab() {
+        sforce.console.getEnclosingTabId(callCloseTab);
+    }
+    </script>
+
+    
+    <apex:form id="theForm" >
+    <apex:pagemessages id="errmsg"/>
+  <apex:pageBlock >
+  
+  <apex:pageBlockSection title="Datos del Cliente y producto" columns="2" collapsible="false">
+      <apex:outputField value="{!Producto_del_Cliente__c.Cliente_Nectia__c}"/>
+      <apex:outputField value="{!Producto_del_Cliente__c.Name}"/>
+      <apex:inputField value="{!nuevoCaso.ContactId}"/>
+  </apex:pageBlockSection>
+  <apex:pageBlockSection title="Ingreso de datos" columns="2" collapsible="false">
+      <apex:inputField value="{!nuevoCaso.Tipo_Auxiliar__c}" required="true"/>
+      
+      <apex:inputField value="{!nuevoCaso.Subject}"/>
+      <apex:inputField value="{!nuevoCaso.Tipo_de_producto_banco__c}" required="true"/>
+      <apex:inputField value="{!nuevoCaso.Description}"/>
+      
+      <apex:inputField value="{!nuevoCaso.Subtipo_Auxiliar__c}" required="true"/>
+      <apex:inputField value="{!nuevoCaso.N_Cuenta_Corriente__c}" />
+      <apex:inputField value="{!nuevoCaso.Priority}"/>
+      <apex:inputField value="{!nuevoCaso.Oficina_de_Entrega__c}"/>      
+      <apex:inputField value="{!nuevoCaso.Origin}"/>
+      <apex:inputField value="{!nuevoCaso.Banco__c}"/>
+      <apex:inputField value="{!nuevoCaso.Tipo_de_cuenta__c}"/>
+      <apex:inputField value="{!nuevoCaso.N_Cta_o_Tarjeta__c}"/>
+      <apex:inputField value="{!nuevoCaso.Enviar_documento_a__c}"/>
+      <apex:inputField value="{!nuevoCaso.Modalidad_de_pago_solicitada__c}"/>
+      <apex:inputField value="{!nuevoCaso.Fecha_y_hora_del_evento__c}"/>
+      <apex:inputField value="{!nuevoCaso.Tipo_de_medio_de_pago__c}"/>
+      <apex:inputField value="{!nuevoCaso.Tipo_de_moneda__c}"/>
+      <apex:inputField value="{!nuevoCaso.Monto_reclamado__c}"/>
+      <apex:inputField value="{!nuevoCaso.Monto_recuperado__c}"/>
+      <apex:inputField value="{!nuevoCaso.Motivo_Certificado__c}"/>
+      
+  </apex:pageBlockSection>
+  <apex:pageBlockButtons location="bottom">
+      <apex:commandButton value="Guardar y cerrar caso" action="{!saveAndClose}" rerender="errmsg"/>
+      <apex:commandButton value="Iniciar Flujo" action="{!saveAndSee}"/>
+      <!--<apex:commandButton value="Cancelar" action="{!cerrar}" immediate="true" />-->
+      <apex:commandButton value="Cancelar" onclick="closeTab();return false" immediate="true" />
+
+  </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

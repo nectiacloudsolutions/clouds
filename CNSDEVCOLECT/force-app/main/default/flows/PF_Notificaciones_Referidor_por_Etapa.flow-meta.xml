@@ -1,0 +1,3122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_11_A1</name>
+        <label>Noti Cierre 1</label>
+        <locationX>1100</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_11_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Ganada</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La Solicitud de Portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_11_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_11_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>1100</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_13_A1</name>
+        <label>Noti Cierre 2</label>
+        <locationX>1300</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_13_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Ganada</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_13_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_13_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>1300</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_15_A1</name>
+        <label>Noti Cierre 3</label>
+        <locationX>1500</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_15_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_15_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_15_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>1500</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_17_A1</name>
+        <label>Noti Cierre 4</label>
+        <locationX>1700</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_17_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_17_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_17_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>1700</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_19_A1</name>
+        <label>Noti Cierre 5</label>
+        <locationX>1900</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_19_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_19_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_19_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>1900</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A1</name>
+        <label>Noti Cambio 1</label>
+        <locationX>100</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_1_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Cambio en la solicitud de portabilidad</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se encuentra en etapa &quot;{!myVariable_current.StageName}&quot; desde la fecha {!myVariable_current.LastModifiedDate}. 
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_1_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_1_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>100</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_21_A1</name>
+        <label>Noti Cierre 6</label>
+        <locationX>2100</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_21_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_21_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_21_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>2100</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_23_A1</name>
+        <label>Noti Cierre 7</label>
+        <locationX>2300</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_23_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_23_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_23_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>2300</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_25_A1</name>
+        <label>Noti Cierre 8</label>
+        <locationX>2500</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_25_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_25_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_25_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>2500</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_27_A1</name>
+        <label>Noti Cierre 9</label>
+        <locationX>2700</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_27_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_27_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_27_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>2700</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_29_A1</name>
+        <label>Noti Cierre 10</label>
+        <locationX>2900</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_29_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Oportunidad Cerrada Perdida</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se ha cerrado en etapa &quot;{!myVariable_current.StageName}&quot; con fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_29_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_29_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>2900</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_3_A1</name>
+        <label>Noti Cambio 2</label>
+        <locationX>300</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_3_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Cambio en la solicitud de portabilidad</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se encuentra en etapa &quot;{!myVariable_current.StageName}&quot; desde la fecha {!myVariable_current.LastModifiedDate}. 
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_3_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_3_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>300</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_5_A1</name>
+        <label>Noti Cambio 3</label>
+        <locationX>500</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_5_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Cambio en la solicitud de portabilidad</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se encuentra en etapa &quot;{!myVariable_current.StageName}&quot; desde la fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_5_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_5_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>500</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_7_A1</name>
+        <label>Noti Cambio 4</label>
+        <locationX>700</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_7_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Cambio en la solicitud de portabilidad</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se encuentra en etapa &quot;{!myVariable_current.StageName}&quot; desde la fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_7_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_7_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>700</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientCategory</name>
+            <value>
+                <stringValue>user</stringValue>
+            </value>
+        </processMetadataValues>
+        <processMetadataValues>
+            <name>recipientType</name>
+            <value>
+                <stringValue>reference</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_9_A1</name>
+        <label>Noti Cambio 5</label>
+        <locationX>900</locationX>
+        <locationY>200</locationY>
+        <actionName>customNotificationAction</actionName>
+        <actionType>customNotificationAction</actionType>
+        <connector>
+            <targetReference>myRule_9_A2</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>customNotifTypeId</name>
+            <value>
+                <stringValue>000000000000000</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>customNotifTypeName</name>
+            <value>
+                <stringValue>cnf_sal_cn_alerta_desktop</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>title</name>
+            <value>
+                <stringValue>Cambio en la solicitud de portabilidad</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>body</name>
+            <value>
+                <stringValue>La solicitud de portabilidad de {!myVariable_current.Account.FirstName} {!myVariable_current.Account.LastName} se encuentra en etapa &quot;{!myVariable_current.StageName}&quot; desde la fecha {!myVariable_current.LastModifiedDate}.
+Para mayor información, dirígete a la ficha del cliente.</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>targetId</name>
+            <value>
+                <stringValue>{!myVariable_current.Id}</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <processMetadataValues>
+                <name>dataType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>isRequired</name>
+                <value>
+                    <booleanValue>true</booleanValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>leftHandSideLabel</name>
+                <value>
+                    <stringValue>recipientIds</stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>maxOccurs</name>
+                <value>
+                    <numberValue>500.0</numberValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>objectType</name>
+                <value>
+                    <stringValue></stringValue>
+                </value>
+            </processMetadataValues>
+            <processMetadataValues>
+                <name>rightHandSideType</name>
+                <value>
+                    <stringValue>String</stringValue>
+                </value>
+            </processMetadataValues>
+            <name>recipientIds</name>
+            <value>
+                <elementReference>myCollection_myRule_9_A1recipientIds</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <actionCalls>
+        <processMetadataValues>
+            <name>emailAlertSelection</name>
+            <value>
+                <stringValue>PF_Cambio_Etapa_Oppty</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>myRule_9_A2</name>
+        <label>Correo para referidor</label>
+        <locationX>900</locationX>
+        <locationY>300</locationY>
+        <actionName>Opportunity.PF_Cambio_Etapa_Oppty</actionName>
+        <actionType>emailAlert</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>SObjectRowId</name>
+            <value>
+                <elementReference>myVariable_current.Id</elementReference>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <apiVersion>50.0</apiVersion>
+    <assignments>
+        <name>myAssignment_myRule_11_A1</name>
+        <label>myAssignment_myRule_11_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_11_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_11_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_13_A1</name>
+        <label>myAssignment_myRule_13_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_13_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_13_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_15_A1</name>
+        <label>myAssignment_myRule_15_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_15_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_15_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_17_A1</name>
+        <label>myAssignment_myRule_17_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_17_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_17_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_19_A1</name>
+        <label>myAssignment_myRule_19_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_19_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_19_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_1_A1</name>
+        <label>myAssignment_myRule_1_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_1_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_1_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_21_A1</name>
+        <label>myAssignment_myRule_21_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_21_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_21_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_23_A1</name>
+        <label>myAssignment_myRule_23_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_23_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_23_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_25_A1</name>
+        <label>myAssignment_myRule_25_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_25_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_25_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_27_A1</name>
+        <label>myAssignment_myRule_27_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_27_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_27_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_29_A1</name>
+        <label>myAssignment_myRule_29_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_29_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_29_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_3_A1</name>
+        <label>myAssignment_myRule_3_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_3_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_3_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_5_A1</name>
+        <label>myAssignment_myRule_5_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_5_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_5_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_7_A1</name>
+        <label>myAssignment_myRule_7_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_7_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_7_A1</targetReference>
+        </connector>
+    </assignments>
+    <assignments>
+        <name>myAssignment_myRule_9_A1</name>
+        <label>myAssignment_myRule_9_A1</label>
+        <locationX>0</locationX>
+        <locationY>0</locationY>
+        <assignmentItems>
+            <assignToReference>myCollection_myRule_9_A1recipientIds</assignToReference>
+            <operator>Add</operator>
+            <value>
+                <elementReference>myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.Id</elementReference>
+            </value>
+        </assignmentItems>
+        <connector>
+            <targetReference>myRule_9_A1</targetReference>
+        </connector>
+    </assignments>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>0.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision</name>
+        <label>myDecision</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision2</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_1</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_1_A1</targetReference>
+            </connector>
+            <label>Avance Contacto-Simulación</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>5.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision10</name>
+        <label>myDecision10</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision12</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_11</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_11</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_11_A1</targetReference>
+            </connector>
+            <label>Cierre Ganada Total</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>6.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision12</name>
+        <label>myDecision12</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision14</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_13</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_13</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_13_A1</targetReference>
+            </connector>
+            <label>Cierre Ganada Parcial</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>7.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision14</name>
+        <label>myDecision14</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision16</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_15</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_15</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_15_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 1</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>8.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision16</name>
+        <label>myDecision16</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision18</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_17</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_17</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_17_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 2</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>9.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision18</name>
+        <label>myDecision18</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision20</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_19</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_19</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_19_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 3</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>1.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision2</name>
+        <label>myDecision2</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision4</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_3</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_3</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_3_A1</targetReference>
+            </connector>
+            <label>Avance Simulación-Evaluación</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>10.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision20</name>
+        <label>myDecision20</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision22</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_21</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_21</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_21_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 4</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>11.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision22</name>
+        <label>myDecision22</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision24</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_23</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_23</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_23_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 5</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>12.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision24</name>
+        <label>myDecision24</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision26</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_25</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_25</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_25_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 6</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>13.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision26</name>
+        <label>myDecision26</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision28</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_27</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_27</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_27_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 7</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>14.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision28</name>
+        <label>myDecision28</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_29</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_29</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_29_A1</targetReference>
+            </connector>
+            <label>Cierre Perdida 8</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>2.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision4</name>
+        <label>myDecision4</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision6</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_5</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_5</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_5_A1</targetReference>
+            </connector>
+            <label>Avance Evaluación-Oferta</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>3.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision6</name>
+        <label>myDecision6</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision8</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_7</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_7</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_7_A1</targetReference>
+            </connector>
+            <label>Avance Oferta-Firma</label>
+        </rules>
+    </decisions>
+    <decisions>
+        <processMetadataValues>
+            <name>index</name>
+            <value>
+                <numberValue>4.0</numberValue>
+            </value>
+        </processMetadataValues>
+        <name>myDecision8</name>
+        <label>myDecision8</label>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <defaultConnector>
+            <targetReference>myDecision10</targetReference>
+        </defaultConnector>
+        <defaultConnectorLabel>default</defaultConnectorLabel>
+        <rules>
+            <name>myRule_9</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>formula_myRule_9</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>myAssignment_myRule_9_A1</targetReference>
+            </connector>
+            <label>Avance Firma-Rendición</label>
+        </rules>
+    </decisions>
+    <description>Notificaciones para el Ejecutivo Referidor ante cambios de etapa</description>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE([Opportunity].StageName) ,&apos;Contacto&apos;),
+ISPICKVAL([Opportunity].StageName ,&apos;Simulación&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_1</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE({!myVariable_current.StageName}) ,&apos;Contacto&apos;),
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Simulación&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Ganada&apos;),
+ISPICKVAL([Opportunity].Sub_estado__c,&apos;Port. exitosa entrada total&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_11</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Ganada&apos;),
+ISPICKVAL({!myVariable_current.Sub_estado__c},&apos;Port. exitosa entrada total&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Ganada&apos;),
+ISPICKVAL([Opportunity].Sub_estado__c,&apos;Port. exitosa entrada parcial&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_13</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Ganada&apos;),
+ISPICKVAL({!myVariable_current.Sub_estado__c},&apos;Port. exitosa entrada parcial&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;Rechazo por Riesgo&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_15</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;Rechazo por Riesgo&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;No le conviene o monto muy pequeño&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_17</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;No le conviene o monto muy pequeño&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;Estaba solo cotizando&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_19</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;Estaba solo cotizando&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;No es posible cursar por reparos administrativos&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_21</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;No es posible cursar por reparos administrativos&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;No Apto&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_23</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;No Apto&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;Rechazo comercial&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_25</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;Rechazo comercial&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;Cerrado sin firma&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_27</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;Cerrado sin firma&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL([Opportunity].StageName ,&apos;Cierre Perdida&apos;),
+ISPICKVAL([Opportunity].Detalle_Perdida__c ,&apos;Flujo descolgado&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_29</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Cierre Perdida&apos;),
+ISPICKVAL({!myVariable_current.Detalle_Perdida__c} ,&apos;Flujo descolgado&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE([Opportunity].StageName) ,&apos;Simulación&apos;),
+ISPICKVAL([Opportunity].StageName ,&apos;Evaluación&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_3</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE({!myVariable_current.StageName}) ,&apos;Simulación&apos;),
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Evaluación&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE([Opportunity].StageName) ,&apos;Evaluación&apos;),
+ISPICKVAL([Opportunity].StageName ,&apos;Oferta de portabilidad&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_5</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE({!myVariable_current.StageName}) ,&apos;Evaluación&apos;),
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Oferta de portabilidad&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE([Opportunity].StageName) ,&apos;Oferta de portabilidad&apos;),
+ISPICKVAL([Opportunity].StageName ,&apos;Firma Contrato/Escritura&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_7</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE({!myVariable_current.StageName}) ,&apos;Oferta de portabilidad&apos;),
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Firma Contrato/Escritura&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <formulas>
+        <processMetadataValues>
+            <name>originalFormula</name>
+            <value>
+                <stringValue>AND(
+[Opportunity].RecordType.DeveloperName = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE([Opportunity].StageName) ,&apos;Firma Contrato/Escritura&apos;),
+ISPICKVAL([Opportunity].StageName ,&apos;Rendición de cuenta&apos;),
+[Opportunity].Caso_PF__c != null,
+[Opportunity].AccountId != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__c != null,
+[Opportunity].PF_Nombre_Ejecutivo_Referidor__r.IsActive != false
+)</stringValue>
+            </value>
+        </processMetadataValues>
+        <name>formula_myRule_9</name>
+        <dataType>Boolean</dataType>
+        <expression>AND(
+{!myVariable_current.RecordType.DeveloperName} = &apos;RT_Portabilidad_financiera&apos;,
+ISPICKVAL(PRIORVALUE({!myVariable_current.StageName}) ,&apos;Firma Contrato/Escritura&apos;),
+ISPICKVAL({!myVariable_current.StageName} ,&apos;Rendición de cuenta&apos;),
+{!myVariable_current.Caso_PF__c} != null,
+{!myVariable_current.AccountId} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__c} != null,
+{!myVariable_current.PF_Nombre_Ejecutivo_Referidor__r.IsActive} != false
+)</expression>
+    </formulas>
+    <interviewLabel>PF_Notificaciones_Referidor_por_Etapa-2_InterviewLabel</interviewLabel>
+    <label>PF Notificaciones Referidor por Etapa</label>
+    <processMetadataValues>
+        <name>ObjectType</name>
+        <value>
+            <stringValue>Opportunity</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>ObjectVariable</name>
+        <value>
+            <elementReference>myVariable_current</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OldObjectVariable</name>
+        <value>
+            <elementReference>myVariable_old</elementReference>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>TriggerType</name>
+        <value>
+            <stringValue>onAllChanges</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Workflow</processType>
+    <startElementReference>myDecision</startElementReference>
+    <status>Active</status>
+    <variables>
+        <name>myCollection_myRule_11_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_13_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_15_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_17_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_19_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_1_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_21_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_23_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_25_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_27_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_29_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_3_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_5_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_7_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myCollection_myRule_9_A1recipientIds</name>
+        <dataType>String</dataType>
+        <isCollection>true</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>myVariable_current</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+    <variables>
+        <name>myVariable_old</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+        <objectType>Opportunity</objectType>
+    </variables>
+</Flow>

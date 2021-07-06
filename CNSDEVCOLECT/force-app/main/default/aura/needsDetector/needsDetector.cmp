@@ -1,0 +1,109 @@
+<!--
+  @File Name          : needsDetector.cmp
+  @Description        : 
+  @Author             : eayalcor@everis.com
+  @Group              : 
+  @Last Modified By   : eayalcor@everis.com
+  @Last Modified On   : 2/12/2020, 12:43:26 PM
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    2/12/2020   eayalcor@everis.com     Initial Version
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" controller="needsDetectorController">
+    <!--ATTRIBUTES-->
+    <aura:attribute name="analyticsData" type="Map" default='{"formulario":{"code":"1","message":"exitoso","nombreFormulario":"FORMULARIO-AUTO","preguntas":[{"idPregunta":"1","tipoSeleccionRespuesta":"PICKLIST","helpText":"AYUDAAA","descripcionPregunta":"¿TE INTERESA CUBRIR SOLO GRANDES SINIESTROS?","visible":true,"helpText":"AYUDAAA","respuestas":[{"idRespuesta":"1","descripcionRespuesta":"SI","respuesta":"0","idPreguntaHija":"0"},{"idRespuesta":"2","descripcionRespuesta":"NO","respuesta":"0","idPreguntaHija":"2"}]},{"idPregunta":"2","tipoSeleccionRespuesta":"EXCLUYENTE","descripcionPregunta":"¿MANEJAS MAS DE 900 KM MENSUALES?","visible":false,"helpText":"AYUDAAA","respuestas":[{"idRespuesta":"1","descripcionRespuesta":"SI","respuesta":"0","idPreguntaHija":"0"},{"idRespuesta":"2","descripcionRespuesta":"NO","respuesta":"0","idPreguntaHija":"0"}]}]}}' />
+    <aura:attribute name="error" type="Boolean" default="false"/>
+    <aura:attribute name="errorProd" type="Boolean" default="true"/>
+    <aura:attribute name="msg" type="String" default=""/>
+    <aura:attribute name="rutClient" type="String" default=""/>
+    <aura:attribute name="rutEjecutivo" type="String" default=""/>
+    <aura:attribute name="nombreCliente" type="String" default=""/>
+    <aura:attribute name="accountId" type="String" default=""/>    
+    <aura:attribute name="code" type="String" default=""/>
+    <aura:attribute name="productos" type="Map" default=""/> <!-- default='{"code":"1","message":"exitoso","productos":[  { "coberturas":[{"montoUF":"500","nombreCobertura":"Fallecimiento","helpText":"help text etc"},{"montoUF":"200","nombreCobertura":"Invalidez 2/3","helpText":"help text etc2"} ], "idProducto":"1101", "nombreProducto":"APV fondo experto", "helpText":"Seguro Fondo experto APV - Este seguro es el recomendado para usted"  },  { "coberturas":[{"montoUF":"500","nombreCobertura":"Fallecimiento","helpText":"Help text test"},{"montoUF":"200","nombreCobertura":"Invalidez 2/3","helpText":"Seguro Fondo experto APV - Este seguro es el recomendado para usted"},{"montoUF":"100","nombreCobertura":"RPM","helpText":"Seguro Fondo experto APV - Este seguro es el recomendado para usted"},{"montoUF":"100","nombreCobertura":"Muerte Accidental","helpText":"Seguro Fondo experto APV - Este seguro es el recomendado para usted"} ], "idProducto":"1100", "nombreProducto":"Vida Ahorro Flex", "helpText":"Seguro Fondo experto APV - Este seguro es el recomendado para usted"  }]}'/> -->
+    <aura:attribute name="loadingSpinner" type="Boolean" default="false"/>
+    <!--/ATTRIBUTES-->
+    <lightning:workspaceAPI aura:id="workspace"/>
+    
+    <!--HANDLER-->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="cmpEvent" event="c:needsDetectorEvent" action="{!c.handleComponentEvent}"/> 
+    <!--BODY-->
+    <!--HEADER-->
+    <ui:scrollerWrapper class="scrollerSize">
+        <div class="innerDivWrapper">
+                <lightning:card title="Detector de Necesidades" class="" iconName="custom:custom18" >
+        <!--/HEADER-->
+        <!--QUESTIONS-->
+        <aura:if isTrue="{!v.error}">
+            <aura:iteration items="{!v.analyticsData.formulario.preguntas}" var="question" indexVar="key">
+                <c:needsDetectorQuestion pregunta="{!question}"/>
+                <br/>
+            </aura:iteration>            
+            <aura:set attribute="else">
+                PREGUNTAS VACIAS
+            </aura:set>
+        </aura:if>
+        <lightning:layout multipleRows="true" class="slds-p-bottom_large  slds-align_absolute-center" >
+            <lightning:button variant="brand" aura:id="Submit" label="Enviar Preguntas" onclick="{!c.sendQuestions}" class="slds-m-top_medium" 
+                              disabled =""/> 
+        </lightning:layout>
+        <!--/QUESTIONS-->
+        <!--PRODUCTS-->
+        <div class="slds-box " >
+            <div class="">
+                Resultados:
+            </div>
+            <aura:if isTrue="{!v.loadingSpinner}">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </aura:if>    
+            <aura:if isTrue="{!v.errorProd}">
+                
+                <aura:set attribute="else">
+                    
+                    <aura:iteration items="{!v.productos.productos}" var="prod" indexVar="index">
+                        <div class="slds-box" >
+                            <label style="padding-top: 16px !important;">{!prod.nombreProducto} &nbsp;</label>
+                            <lightning:helptext content="{!prod.helpText}" class="slds-form-element__icon" style="padding-top:0rem;"></lightning:helptext>
+                            <lightning:card  footer="" >
+                               
+                                <div class="slds-grid slds-box slds-box_x-small">
+                                    
+                                    <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
+                                        <b>Coberturas</b>
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
+                                        <b>Monto (UF)</b>
+                                    </div>
+                                </div>
+                                <!--COBERTURAS-->
+                                <aura:iteration items="{!prod.coberturas}" var="inner" indexVar="index">
+                                    <div class="slds-grid slds-box_x-small">
+                                        <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
+                                            <p>{!inner.nombreCobertura} &ensp;</p> <lightning:helptext content="{!inner.helpText}" ></lightning:helptext>
+                                  			
+                                        </div>
+                                        <div class="slds-col slds-size_6-of-12 slds-align_absolute-center">
+                                            <p>{!inner.montoUF}</p>
+                                        </div>
+                                    </div>
+                                </aura:iteration>
+                                <!--/COBERTURAS-->
+                                 
+                                    <lightning:button class="slds-align_absolute-center" value="{!prod.idProducto}" variant="success" label="Crear Oportunidad" title="Brand action" onclick="{! c.handleClick }" />
+                                
+                            </lightning:card>
+                        </div>
+                    </aura:iteration>
+                </aura:set>
+            </aura:if>
+            
+            
+        </div>
+        <!--/PRODUCTS-->
+        
+    		</lightning:card>
+        </div>
+    </ui:scrollerWrapper>
+    <!--/BODY-->   
+</aura:component>

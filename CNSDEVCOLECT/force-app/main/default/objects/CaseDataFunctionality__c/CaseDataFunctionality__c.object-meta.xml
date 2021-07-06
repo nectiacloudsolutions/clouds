@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>List</customSettingsType>
+    <description>Contiene Perfiles que pueden realizar acciones para autorización y desautorización de uso de datos para Account</description>
+    <enableFeeds>false</enableFeeds>
+    <label>CaseDataFunctionality</label>
+    <visibility>Public</visibility>
+</CustomObject>

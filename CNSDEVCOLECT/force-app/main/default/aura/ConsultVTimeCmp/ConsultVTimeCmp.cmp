@@ -1,0 +1,112 @@
+<!--
+  @File Name          : ConsultVTimeCmp.cmp
+  @Description        : 
+  @Author             : eayalcor@everis.com
+  @Group              : 
+  @Last Modified By   : eayalcor@everis.com
+  @Last Modified On   : 28-02-2020 12:07:53
+  @Modification Log   : 
+  Ver       Date            Author      		    Modification
+  1.0    28-02-2020   eayalcor@everis.com     Initial Version
+-->
+<aura:component
+    implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader"
+    access="global" controller='VTimeController'>
+    <aura:attribute name="headerBtnOpp" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="vTObject" type="object" />
+    <aura:attribute name="resPropuesta" type="object" />
+    <aura:attribute name="stage" type="Boolean" default="true" />
+    <aura:attribute name="resMandato" type="object" />
+    <aura:attribute name="contador" type="Boolean" default="false" />
+    <aura:attribute name="loaded" type="Boolean" default="false" />
+    <aura:attribute name="msg" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <div class="c-container">
+        <aura:if isTrue="{! v.contador }">
+            <aura:if isTrue="{! v.loaded }">
+                <aura:if isTrue="{! v.stage }">
+                    <!--<h1 align="center" class="slds-page-header__title" style="font-size: 14px">Resultado consulta</h1>-->
+                    <div class="slds-grid slds-grid_vertical slds-grid_align-center"> 
+                        <div class="slds-col slds-p-top_x-large">
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered "
+                                style="font-size: 14px">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                          <div style="font-size: 14px" title="Consulta Mandato">Consulta Mandato</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size: 14px">
+                                    <tr class="slds-hint-parent">
+                                        <td width="30%">
+                                            <div class="" style="font-size: 14px">Estado Mandato</div>
+                                        </td>
+                                        <td width="70%">
+                                            <div class="" style="font-size: 14px">{!v.resMandato.message == 'OK' ? v.resMandato.descripcion : v.resMandato.message}</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="30%">
+                                            <div class="" style="font-size: 14px">Banco Mandato/Via Pago</div>
+                                        </td>
+                                        <td width="70%">
+                                            <div class="" style="font-size: 14px">{!v.resMandato.banco}/{!v.resMandato.viaPago}</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table class="slds-table slds-table_cell-buffer slds-table_bordered "
+                                style="font-size: 14px">
+                                <thead>
+                                    <tr class="slds-line-height_reset">
+                                        <th class="" scope="col">
+                                          <div  style="font-size: 14px" title="Consulta Propuesta">Consulta Propuesta</div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody style="font-size: 14px">
+                                    <tr class="slds-hint-parent">
+                                        <td width="30%">
+                                            <div class="" style="font-size: 14px">Estado Propuesta</div>
+                                        </td>
+                                        <td width="70%">
+                                            <div class="" style="font-size: 14px">{!v.resPropuesta.descripcion}</div> 
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="30%">
+                                            <div class="" style="font-size: 14px">Causal Propuesta</div>
+                                        </td>
+                                        <td width="70%">
+                                            <div class="" style="font-size: 14px">{!v.resPropuesta.causal}</div> 
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <aura:set attribute="else">
+                        <div class="" style="height:6rem">
+                            <h1 align="center" class="slds-page-header__title">Solo se puede realizar la consulta de estados en la etapa Evaluación</h1>
+                        </div>
+                    </aura:set>
+                </aura:if>
+                <aura:set attribute="else">
+                    <div class="" style="height:6rem">
+                        <div role="status" class="slds-spinner slds-spinner_medium">
+                            <span class="slds-assistive-text">Loading</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </aura:set>
+
+            </aura:if>
+        </aura:if>
+    </div>
+</aura:component>

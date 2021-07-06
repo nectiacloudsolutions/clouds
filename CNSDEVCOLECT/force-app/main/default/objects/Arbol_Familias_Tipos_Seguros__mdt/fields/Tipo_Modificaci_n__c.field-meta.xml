@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Modificaci_n__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Tipo Modificación</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Actualización Patente (solo provisoria a definitiva)</fullName>
+                <default>true</default>
+                <label>Actualización Patente (solo provisoria a definitiva)</label>
+            </value>
+            <value>
+                <fullName>Anula/Desiste Endoso</fullName>
+                <default>false</default>
+                <label>Anula/Desiste Endoso</label>
+            </value>
+            <value>
+                <fullName>Anulación de Endoso</fullName>
+                <default>false</default>
+                <label>Anulación de Endoso</label>
+            </value>
+            <value>
+                <fullName>Anulación de Propuesta</fullName>
+                <default>false</default>
+                <label>Anulación de Propuesta</label>
+            </value>
+            <value>
+                <fullName>Anulación de Siniestro</fullName>
+                <default>false</default>
+                <label>Anulación de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Aplicación de Deducible Inteligente en Siniestro</fullName>
+                <default>false</default>
+                <label>Aplicación de Deducible Inteligente en Siniestro</label>
+            </value>
+            <value>
+                <fullName>Apoyo Legal en un Siniestro de Vehículos</fullName>
+                <default>false</default>
+                <label>Apoyo Legal en un Siniestro de Vehículos</label>
+            </value>
+            <value>
+                <fullName>Asignación Apoderado</fullName>
+                <default>false</default>
+                <label>Asignación Apoderado</label>
+            </value>
+            <value>
+                <fullName>Aumento Capital</fullName>
+                <default>false</default>
+                <label>Aumento Capital</label>
+            </value>
+            <value>
+                <fullName>Beneficiarios</fullName>
+                <default>false</default>
+                <label>Beneficiarios</label>
+            </value>
+            <value>
+                <fullName>Cambio Beneficiario Designado</fullName>
+                <default>false</default>
+                <label>Cambio Beneficiario Designado</label>
+            </value>
+            <value>
+                <fullName>Cambio de Clave</fullName>
+                <default>false</default>
+                <label>Cambio de Clave</label>
+            </value>
+            <value>
+                <fullName>Cambio de Liquidador Asignado</fullName>
+                <default>false</default>
+                <label>Cambio de Liquidador Asignado</label>
+            </value>
+            <value>
+                <fullName>Cambio de Taller Asignado</fullName>
+                <default>false</default>
+                <label>Cambio de Taller Asignado</label>
+            </value>
+            <value>
+                <fullName>Cambio Institución de Salud</fullName>
+                <default>false</default>
+                <label>Cambio Institución de Salud</label>
+            </value>
+            <value>
+                <fullName>Cambio Receptor Pago Servipag</fullName>
+                <default>false</default>
+                <label>Cambio Receptor Pago Servipag</label>
+            </value>
+            <value>
+                <fullName>Cambio Vía Pago</fullName>
+                <default>false</default>
+                <label>Cambio Vía Pago</label>
+            </value>
+            <value>
+                <fullName>Cobertura en Siniestro de Daños Pre-existentes</fullName>
+                <default>false</default>
+                <label>Cobertura en Siniestro de Daños Pre-existentes</label>
+            </value>
+            <value>
+                <fullName>Cobro Erróneo</fullName>
+                <default>false</default>
+                <label>Cobro Erróneo</label>
+            </value>
+            <value>
+                <fullName>Contratante</fullName>
+                <default>false</default>
+                <label>Contratante</label>
+            </value>
+            <value>
+                <fullName>Daños al Vehículo en Taller</fullName>
+                <default>false</default>
+                <label>Daños al Vehículo en Taller</label>
+            </value>
+            <value>
+                <fullName>Daños Ocasionados al Vehículo durante el Servicio</fullName>
+                <default>false</default>
+                <label>Daños Ocasionados al Vehículo durante el Servicio</label>
+            </value>
+            <value>
+                <fullName>Datos Materia Asegurada</fullName>
+                <default>false</default>
+                <label>Datos Materia Asegurada</label>
+            </value>
+            <value>
+                <fullName>DEF (Devolución Experiencia Favorable)</fullName>
+                <default>false</default>
+                <label>DEF (Devolución Experiencia Favorable)</label>
+            </value>
+            <value>
+                <fullName>Demora en la Emisión de la Orden de Trabajo/Autorización</fullName>
+                <default>false</default>
+                <label>Demora en la Emisión de la Orden de Trabajo/Autorización</label>
+            </value>
+            <value>
+                <fullName>Demora en la Entrega del Vehículo</fullName>
+                <default>false</default>
+                <label>Demora en la Entrega del Vehículo</label>
+            </value>
+            <value>
+                <fullName>Demora en la Inspección del Vehículo en Taller</fullName>
+                <default>false</default>
+                <label>Demora en la Inspección del Vehículo en Taller</label>
+            </value>
+            <value>
+                <fullName>Desbloqueo Clave</fullName>
+                <default>false</default>
+                <label>Desbloqueo Clave</label>
+            </value>
+            <value>
+                <fullName>Detalle de Reparación Involucrada</fullName>
+                <default>false</default>
+                <label>Detalle de Reparación Involucrada</label>
+            </value>
+            <value>
+                <fullName>Detalle de Repuestos Involucrados en Reparación</fullName>
+                <default>false</default>
+                <label>Detalle de Repuestos Involucrados en Reparación</label>
+            </value>
+            <value>
+                <fullName>Devolución de Prima</fullName>
+                <default>false</default>
+                <label>Devolución de Prima</label>
+            </value>
+            <value>
+                <fullName>Día de Pago</fullName>
+                <default>false</default>
+                <label>Día de Pago</label>
+            </value>
+            <value>
+                <fullName>Disminución Capital Asegurado</fullName>
+                <default>false</default>
+                <label>Disminución Capital Asegurado</label>
+            </value>
+            <value>
+                <fullName>Documentos a Entregar Necesario para Atención</fullName>
+                <default>false</default>
+                <label>Documentos a Entregar Necesario para Atención</label>
+            </value>
+            <value>
+                <fullName>Documentos a Entregar Necesarios para Atención</fullName>
+                <default>false</default>
+                <label>Documentos a Entregar Necesarios para Atención</label>
+            </value>
+            <value>
+                <fullName>Elimina Coberturas</fullName>
+                <default>false</default>
+                <label>Elimina Coberturas</label>
+            </value>
+            <value>
+                <fullName>Emisión Propuesta</fullName>
+                <default>false</default>
+                <label>Emisión Propuesta</label>
+            </value>
+            <value>
+                <fullName>Entrega de Informe/Preinforme de Liquidación</fullName>
+                <default>false</default>
+                <label>Entrega de Informe/Preinforme de Liquidación</label>
+            </value>
+            <value>
+                <fullName>Entrega de Nueva Clave</fullName>
+                <default>false</default>
+                <label>Entrega de Nueva Clave</label>
+            </value>
+            <value>
+                <fullName>Estado de Atención al Tercero</fullName>
+                <default>false</default>
+                <label>Estado de Atención al Tercero</label>
+            </value>
+            <value>
+                <fullName>Estado de Compra de Vehículo Nuevo por Reposición</fullName>
+                <default>false</default>
+                <label>Estado de Compra de Vehículo Nuevo por Reposición</label>
+            </value>
+            <value>
+                <fullName>Estado de Entrega de Propuesta de Indemnización</fullName>
+                <default>false</default>
+                <label>Estado de Entrega de Propuesta de Indemnización</label>
+            </value>
+            <value>
+                <fullName>Estado de Pago de Indemnización</fullName>
+                <default>false</default>
+                <label>Estado de Pago de Indemnización</label>
+            </value>
+            <value>
+                <fullName>Facturación</fullName>
+                <default>false</default>
+                <label>Facturación</label>
+            </value>
+            <value>
+                <fullName>Fondos de Inversión</fullName>
+                <default>false</default>
+                <label>Fondos de Inversión</label>
+            </value>
+            <value>
+                <fullName>Forma Envío Liquidación</fullName>
+                <default>false</default>
+                <label>Forma Envío Liquidación</label>
+            </value>
+            <value>
+                <fullName>Frecuencia de Pago</fullName>
+                <default>false</default>
+                <label>Frecuencia de Pago</label>
+            </value>
+            <value>
+                <fullName>Fuera de Promesa de Ingreso de Siniestro</fullName>
+                <default>false</default>
+                <label>Fuera de Promesa de Ingreso de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Gestión Mandato</fullName>
+                <default>false</default>
+                <label>Gestión Mandato</label>
+            </value>
+            <value>
+                <fullName>Grabación Telefónica</fullName>
+                <default>false</default>
+                <label>Grabación Telefónica</label>
+            </value>
+            <value>
+                <fullName>Impugnación de Siniestro</fullName>
+                <default>false</default>
+                <label>Impugnación de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Imputación de Prima</fullName>
+                <default>false</default>
+                <label>Imputación de Prima</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Envío de Evaluación de Cobertura</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Envío de Evaluación de Cobertura</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Envío de Propuesta Indemnizatoria</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Envío de Propuesta Indemnizatoria</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Pago de Indemnización Acordada</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Pago de Indemnización Acordada</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento sobre Condiciones del Servicio</fullName>
+                <default>false</default>
+                <label>Incumplimiento sobre Condiciones del Servicio</label>
+            </value>
+            <value>
+                <fullName>Ingreso/Modifica Coberturas</fullName>
+                <default>false</default>
+                <label>Ingreso/Modifica Coberturas</label>
+            </value>
+            <value>
+                <fullName>Inspección</fullName>
+                <default>false</default>
+                <label>Inspección</label>
+            </value>
+            <value>
+                <fullName>Inspección de Vehículo en Taller</fullName>
+                <default>false</default>
+                <label>Inspección de Vehículo en Taller</label>
+            </value>
+            <value>
+                <fullName>Inspección de Vehículo Inmovilizado</fullName>
+                <default>false</default>
+                <label>Inspección de Vehículo Inmovilizado</label>
+            </value>
+            <value>
+                <fullName>Mala Calidad de Atención del Servicio</fullName>
+                <default>false</default>
+                <label>Mala Calidad de Atención del Servicio</label>
+            </value>
+            <value>
+                <fullName>Mala Reparación de Vehículo</fullName>
+                <default>false</default>
+                <label>Mala Reparación de Vehículo</label>
+            </value>
+            <value>
+                <fullName>Modalidad de Inversión</fullName>
+                <default>false</default>
+                <label>Modalidad de Inversión</label>
+            </value>
+            <value>
+                <fullName>N° de Siniestro y Liquidador Asignado</fullName>
+                <default>false</default>
+                <label>N° de Siniestro y Liquidador Asignado</label>
+            </value>
+            <value>
+                <fullName>Pago de Prima durante Liquidación</fullName>
+                <default>false</default>
+                <label>Pago de Prima durante Liquidación</label>
+            </value>
+            <value>
+                <fullName>Pérdida de Objetos de Valor</fullName>
+                <default>false</default>
+                <label>Pérdida de Objetos de Valor</label>
+            </value>
+            <value>
+                <fullName>Plan (DPFS)</fullName>
+                <default>false</default>
+                <label>Plan (DPFS)</label>
+            </value>
+            <value>
+                <fullName>Plazos Asociados a una Etapa de la Atención</fullName>
+                <default>false</default>
+                <label>Plazos Asociados a una Etapa de la Atención</label>
+            </value>
+            <value>
+                <fullName>Prima Proyectada</fullName>
+                <default>false</default>
+                <label>Prima Proyectada</label>
+            </value>
+            <value>
+                <fullName>Reapertura de Siniestro</fullName>
+                <default>false</default>
+                <label>Reapertura de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Recuperación Clave</fullName>
+                <default>false</default>
+                <label>Recuperación Clave</label>
+            </value>
+            <value>
+                <fullName>Reembolso sobre Gastos</fullName>
+                <default>false</default>
+                <label>Reembolso sobre Gastos</label>
+            </value>
+            <value>
+                <fullName>Refinanciamiento Simple</fullName>
+                <default>false</default>
+                <label>Refinanciamiento Simple</label>
+            </value>
+            <value>
+                <fullName>Régimen SII (Factura)</fullName>
+                <default>false</default>
+                <label>Régimen SII (Factura)</label>
+            </value>
+            <value>
+                <fullName>Regimen Tributario</fullName>
+                <default>false</default>
+                <label>Regimen Tributario</label>
+            </value>
+            <value>
+                <fullName>Rehabilitación</fullName>
+                <default>false</default>
+                <label>Rehabilitación</label>
+            </value>
+            <value>
+                <fullName>Rehabilitación de pólizas</fullName>
+                <default>false</default>
+                <label>Rehabilitación de pólizas</label>
+            </value>
+            <value>
+                <fullName>Renovación</fullName>
+                <default>false</default>
+                <label>Renovación</label>
+            </value>
+            <value>
+                <fullName>Separación de Eventos</fullName>
+                <default>false</default>
+                <label>Separación de Eventos</label>
+            </value>
+            <value>
+                <fullName>Servicio de Asistencia no Entregado</fullName>
+                <default>false</default>
+                <label>Servicio de Asistencia no Entregado</label>
+            </value>
+            <value>
+                <fullName>Suspensión de Pagos</fullName>
+                <default>false</default>
+                <label>Suspensión de Pagos</label>
+            </value>
+            <value>
+                <fullName>Terminos de Pólizas (Solo Vida Tradicional)</fullName>
+                <default>false</default>
+                <label>Terminos de Pólizas (Solo Vida Tradicional)</label>
+            </value>
+            <value>
+                <fullName>Tiempos de Espera Excesivos</fullName>
+                <default>false</default>
+                <label>Tiempos de Espera Excesivos</label>
+            </value>
+            <value>
+                <fullName>Tipo Fumador</fullName>
+                <default>false</default>
+                <label>Tipo Fumador</label>
+            </value>
+            <value>
+                <fullName>Traspasos Cobertura</fullName>
+                <default>false</default>
+                <label>Traspasos Cobertura</label>
+            </value>
+            <value>
+                <fullName>Vía de Pago</fullName>
+                <default>false</default>
+                <label>Vía de Pago</label>
+            </value>
+            <value>
+                <fullName>Vía de Pago Pensión</fullName>
+                <default>false</default>
+                <label>Vía de Pago Pensión</label>
+            </value>
+            <value>
+                <fullName>Beneficiarios (declaración de beneficiarios)</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Beneficiarios (declaración de beneficiarios)</label>
+            </value>
+            <value>
+                <fullName>Contratante (Solicitud de modificación de contratante) No requeire evaluación de riesgo.</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Contratante (Solicitud de modificación de contratante) No requeire evaluación de riesgo.</label>
+            </value>
+            <value>
+                <fullName>Ingreso/Modifica Coberturas (DPFS) Agregando personas se debe pedir DPFS</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Ingreso/Modifica Coberturas (DPFS) Agregando personas se debe pedir DPFS</label>
+            </value>
+            <value>
+                <fullName>Traspasos Cobertura Solo salud y onco (Solicitud de traspaso de coberturas) 2 endosos en uno</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Traspasos Cobertura Solo salud y onco (Solicitud de traspaso de coberturas) 2 endosos en uno</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

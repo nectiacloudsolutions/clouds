@@ -1,0 +1,37 @@
+.THIS .slds-col.slds-order_2.slds-large-order_1.slds-grid.slds-wrap.slds-size_8-of-12 {
+    display: flex;
+}
+
+.THIS .btn-docs {
+    font-size:16px;
+    font-family:"Salesforce sans", arial, sans serif;
+    border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    border: 0px solid #000000;    
+}
+
+.THIS .detail-css {
+    left: -35pt;
+    position:relative; 
+}
+
+.THIS .slds-textarea {
+    height: 80pt;
+}
+
+.THIS .required-field:after {
+	content: " *";
+	color: red;
+}
+
+.THIS .info-doc {
+    position: relative;
+    bottom:2pt;
+}
+.THIS .field-bold{
+    font-weight: bold;
+}
+.THIS .field-Size{
+    font-size: var(--lwc-fontSize3,1rem);
+}

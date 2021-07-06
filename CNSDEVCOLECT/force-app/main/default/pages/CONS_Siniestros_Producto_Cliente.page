@@ -1,0 +1,96 @@
+<apex:page lightningStylesheets="true" standardController="Producto_del_Cliente__c" extensions="CONS_Siniestros_PdC_Controller">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS)}" />
+        
+        <style type="text/css">
+            #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            }
+            
+            #customers td, #customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #808080;
+            color: white;
+            } 
+        </style>
+        <apex:pageBlock rendered="{!esquemagenerales}"> 
+            <apex:pageBlockSection title="Siniestros Generales">
+                <apex:dataTable value="{!listaSiniestros}" var="pdc" id="TablaGenerales" rowClasses="odd,even" styleClass="slds-table slds-table--bordered">
+                    <apex:column >
+                        <apex:facet name="header">N° Denuncio</apex:facet>
+                        <apex:outputText value="{!pdc.numero_denuncio}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">N° Siniestro</apex:facet>
+                        <apex:outputText value="{!pdc.numero_siniestro}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Fecha de Denuncio</apex:facet>
+                        <apex:outputText value="{!pdc.fecha_de_denuncio}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Estado del Siniestro (Operacional)</apex:facet>
+                        <apex:outputText value="{!pdc.estado}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Fecha de Ocurrencia del Siniestro</apex:facet>
+                        <apex:outputText value="{!pdc.fecha_ocurrenci_denuncio}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Descripción de los Eventos del Siniestro</apex:facet>
+                        <apex:outputText value="{!pdc.des_evento_siniestro}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Tipo de Pérdida</apex:facet>
+                        <apex:outputText value="{!pdc.tipo_perdida}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Causal del Siniestro</apex:facet>
+                        <apex:outputText value="{!pdc.causal}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Liquidador Asignado</apex:facet>
+                        <apex:outputText value="{!pdc.liquidador_asignado}" />
+                    </apex:column>
+                </apex:dataTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+     
+        <apex:pageBlock rendered="{!esquemavida}">
+            <apex:pageBlockSection title="Siniestros Vida">
+                <apex:dataTable value="{!lista}" var="l" id="TablaVida" rowClasses="odd,even" styleClass="slds-table slds-table--bordered">
+                    <apex:column >
+                        <apex:facet name="header"  >Asegurado Afectado</apex:facet>
+                        <apex:outputText value="{!l.nombre_asegurado}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Plan</apex:facet>
+                        <apex:outputText value="{!l.glosa_plan}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Siniestro</apex:facet>
+                        <apex:outputText value="{!l.numero_siniestro}" />
+                    </apex:column>
+                    <apex:column >
+                        <apex:facet name="header">Situación</apex:facet>
+                        <apex:outputText value="{!l.glosa_situacion}" />
+                    </apex:column>
+                    
+                </apex:dataTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </html>
+</apex:page>

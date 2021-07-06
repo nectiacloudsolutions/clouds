@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Seguros - Especialista RPP</name>
+    <queueMembers>
+        <users>
+            <user>francisco.rodriguez@consorcio.cl</user>
+            <user>francisco.villar@consorcio.cl</user>
+            <user>ignacia.munoz@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

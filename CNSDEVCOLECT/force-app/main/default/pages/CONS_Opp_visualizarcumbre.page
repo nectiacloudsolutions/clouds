@@ -1,0 +1,13 @@
+<apex:page standardController="Opportunity" lightningStylesheets="true" extensions="CONS_Opp_visualizarcumbre" cache="true" showHeader="false" sidebar="true" >
+
+   
+
+       <!--<apex:iframe src="{!url}" scrolling="true" id="theIframe1" rendered="{!if(error==false,true,false)}" width="100%" height="900px" />
+     <apex:iframe src="{!url2}" scrolling="true" id="theIframe2" rendered="{!if(error==false,true,false)}" width="100%" height="900px" />
+   <apex:iframe src="{!url}" scrolling="true" id="theIframe2"  width="100%" height="900px" />-->
+       <apex:iframe src="{!url2}" scrolling="true" id="theIframe22"  width="100%" height="900px" />
+   <!--<apex:iframe src="http://pbcnsiis01/CUMBRES/Auth/Login" scrolling="true" id="theIframe" rendered="true" width="100%" height="900px" />-->
+
+<apex:pageMessages rendered="{!error}"/>  
+ 
+</apex:page>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Participantes_Sales__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Check para configurar que perfiles pueden trabajar en el objeto Participante_sales</description>
+    <externalId>false</externalId>
+    <label>Participantes</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

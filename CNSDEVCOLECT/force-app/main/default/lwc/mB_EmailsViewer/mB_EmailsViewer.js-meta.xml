@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property label="Ingrese Apiname del campo del mail (TO)" name="fieldApiName" type="String" required="true" description="Es el campo del objecto donde se registra el destinatario del correo para listar los registros"/>
+            <property label="Ingrese Los asuntos a filtrar" name="subjectTextFilter" type="String" default="abc;def;ghi" description="Ingrese los asuntos separados por ; para indicar multiples filtros. Si no se ingresa texto, se mostrarán todos. EJ: valor1;valor2;valor3"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

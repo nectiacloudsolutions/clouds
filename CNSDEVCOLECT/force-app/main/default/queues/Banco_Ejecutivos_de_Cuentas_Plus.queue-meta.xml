@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Banco - Ejecutivos de Cuentas Plus</name>
+    <queueMembers>
+        <users>
+            <user>asaa@bancoconsorcio.cl</user>
+            <user>asotoc@bancoconsorcio.cl</user>
+            <user>acid@bancoconsorcio.cl</user>
+            <user>cperezi@bancoconsorcio.cl</user>
+            <user>cdonosom@bancoconsorcio.cl</user>
+            <user>dgarcia@bancoconsorcio.cl</user>
+            <user>dcuevas@bancoconsorcio.cl</user>
+            <user>gdegeri@bancoconsorcio.cl</user>
+            <user>gmartinezg@bancoconsorcio.cl</user>
+            <user>hsoriano@bancoconsorcio.cl</user>
+            <user>imartinezc@bancoconsorcio.cl</user>
+            <user>jguajardo@bancoconsorcio.cl</user>
+            <user>jvallotton@bancoconsorcio.cl</user>
+            <user>jveral@bancoconsorcio.cl</user>
+            <user>jurtubia@bancoconsorcio.cl</user>
+            <user>jvalladares@bancoconsorcio.cl</user>
+            <user>jmontt@bancoconsorcio.cl</user>
+            <user>kdiazp@bancoconsorcio.cl</user>
+            <user>msanchez@bancoconsorcio.cl</user>
+            <user>mcarmona@bancoconsorcio.cl</user>
+            <user>mrojasg@bancoconsorcio.cl</user>
+            <user>mvalenzuelac@bancoconsorcio.cl</user>
+            <user>nmateluna@bancoconsorcio.cl</user>
+            <user>purbina@bancoconsorcio.cl</user>
+            <user>ptorres@bancoconsorcio.cl</user>
+            <user>scalquin@bancoconsorcio.cl</user>
+            <user>tromo@bancoconsorcio.cl</user>
+            <user>vcardenas@bancoconsorcio.cl</user>
+            <user>vrecupero@bancoconsorcio.cl</user>
+            <user>xgonzalez@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

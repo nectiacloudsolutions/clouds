@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>motivo_rechazo_sales__c</fullName>
+    <description>Campo para almacenar el motivo por el cual se rechazo un documento en la oportunidad</description>
+    <externalId>false</externalId>
+    <label>Motivo de Rechazo</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Documento No Corresponde</fullName>
+                <default>false</default>
+                <label>Documento No Corresponde</label>
+            </value>
+            <value>
+                <fullName>Documento Ilegible</fullName>
+                <default>false</default>
+                <label>Documento Ilegible</label>
+            </value>
+            <value>
+                <fullName>Documento Incompleto</fullName>
+                <default>false</default>
+                <label>Documento Incompleto</label>
+            </value>
+            <value>
+                <fullName>Expirado</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Expirado</label>
+            </value>
+            <value>
+                <fullName>No Legible</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>No Legible</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

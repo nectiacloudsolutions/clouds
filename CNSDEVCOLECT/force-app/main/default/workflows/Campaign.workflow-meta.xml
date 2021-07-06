@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>cnf_sal_ea_inicio_campania</fullName>
+        <description>Sales Alerta Inicio Campaña</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantillas_Sales_Consorcio/Sales_Activacion_de_Campanas_sales</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Cambio_A_False</fullName>
+        <field>IsActive</field>
+        <literalValue>0</literalValue>
+        <name>Cambio A False</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cambio_A_True</fullName>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Cambio A True</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>cnf_sal_bbee_cambio_estado</fullName>
+        <field>Status</field>
+        <literalValue>Activada</literalValue>
+        <name>Sales Actualiza Estado Campaña</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>cnf_sal_bbee_campania_terminada</fullName>
+        <field>Status</field>
+        <literalValue>Terminada</literalValue>
+        <name>Campaña Terminada BBEE</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>cnf_sal_fu_cambio_estado</fullName>
+        <field>Status</field>
+        <literalValue>Activada</literalValue>
+        <name>Sales Actualiza Estado Campaña</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>cnf_sal_fu_campania_terminada</fullName>
+        <description>Cambia valor del campo Status de una campaña y lo deja con el valor Terminada.</description>
+        <field>Status</field>
+        <literalValue>Terminada</literalValue>
+        <name>Campaña Terminada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>cnf_sal_fu_check_activa</fullName>
+        <field>IsActive</field>
+        <literalValue>1</literalValue>
+        <name>Sales Marcar Check</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>cnf_sal_fu_uncheck_activa</fullName>
+        <field>IsActive</field>
+        <literalValue>0</literalValue>
+        <name>Sales Desmarcar Check</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Sales Activar Campaña</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Ingresada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaña Sales</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>cnf_sal_ea_inicio_campania</name>
+                <type>Alert</type>
+            </actions>
+            <actions>
+                <name>cnf_sal_fu_cambio_estado</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>cnf_sal_fu_check_activa</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.fecha_hora_inicio_sales__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Sales Activar Campaña - Creacion BBEE</fullName>
+        <actions>
+            <name>Cambio_A_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Empresas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Activada</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Activar Campaña 2</fullName>
+        <actions>
+            <name>Cambio_A_True</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>cnf_sal_fu_check_activa</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Activada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaña Sales</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Activar Campaña BBEE</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Ingresada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Empresas</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Cambio_A_True</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>cnf_sal_bbee_cambio_estado</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.fecha_hora_inicio_sales__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Sales Campaña Terminada</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Ingresada,Activada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaña Sales</value>
+        </criteriaItems>
+        <description>Cambio de estado de una campaña dejándola como Terminada al llegar la fecha de termino de la misma.</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>cnf_sal_fu_campania_terminada</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>cnf_sal_fu_uncheck_activa</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.fecha_hora_fin_sales__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Sales Campaña Terminada BBEE</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Empresas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Ingresada,Activada</value>
+        </criteriaItems>
+        <description>Cambiar el estado a terminada de una campaña, al completar la fecha de termino</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Cambio_A_False</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <actions>
+                <name>cnf_sal_bbee_campania_terminada</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Campaign.fecha_hora_fin_bbee__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Sales Cancelar Campaña BBEE</fullName>
+        <actions>
+            <name>Cambio_A_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Empresas</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Cancelada</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Suspender Campaña1</fullName>
+        <actions>
+            <name>Cambio_A_False</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>cnf_sal_fu_uncheck_activa</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Suspendida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Campaña Sales</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Banca_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Banca</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Personas</fullName>
+                <default>false</default>
+                <label>Personas</label>
+            </value>
+            <value>
+                <fullName>Empresas</fullName>
+                <default>false</default>
+                <label>Empresas</label>
+            </value>
+            <value>
+                <fullName>Finanzas</fullName>
+                <default>false</default>
+                <label>Finanzas</label>
+            </value>
+            <value>
+                <fullName>Tipos de Banca</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Tipos de Banca</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

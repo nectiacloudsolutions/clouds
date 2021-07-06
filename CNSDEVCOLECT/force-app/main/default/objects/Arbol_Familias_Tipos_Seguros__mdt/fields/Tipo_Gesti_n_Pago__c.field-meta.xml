@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Gesti_n_Pago__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Tipo Gestión Pago</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>APS</fullName>
+                <default>true</default>
+                <label>APS</label>
+            </value>
+            <value>
+                <fullName>Activación de Sobrevivencias</fullName>
+                <default>false</default>
+                <label>Activación de Sobrevivencias</label>
+            </value>
+            <value>
+                <fullName>Activar Pago Beneficiario</fullName>
+                <default>false</default>
+                <label>Activar Pago Beneficiario</label>
+            </value>
+            <value>
+                <fullName>Anticipos de Pensión</fullName>
+                <default>false</default>
+                <label>Anticipos de Pensión</label>
+            </value>
+            <value>
+                <fullName>Asignación Familiar</fullName>
+                <default>false</default>
+                <label>Asignación Familiar</label>
+            </value>
+            <value>
+                <fullName>Cuota Mortuoria</fullName>
+                <default>false</default>
+                <label>Cuota Mortuoria</label>
+            </value>
+            <value>
+                <fullName>Garantía Estatal</fullName>
+                <default>false</default>
+                <label>Garantía Estatal</label>
+            </value>
+            <value>
+                <fullName>Pensiones No Cobradas</fullName>
+                <default>false</default>
+                <label>Pensiones No Cobradas</label>
+            </value>
+            <value>
+                <fullName>Periodo Garantizado</fullName>
+                <default>false</default>
+                <label>Periodo Garantizado</label>
+            </value>
+            <value>
+                <fullName>Reemisión Pensión</fullName>
+                <default>false</default>
+                <label>Reemisión Pensión</label>
+            </value>
+            <value>
+                <fullName>Retención Judicial</fullName>
+                <default>false</default>
+                <label>Retención Judicial</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

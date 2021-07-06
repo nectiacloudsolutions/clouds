@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Everis_Mensajes</fullName>
+    <columns>NAME</columns>
+    <columns>Header__c</columns>
+    <columns>Body__c</columns>
+    <columns>Functionality__c</columns>
+    <columns>object__c</columns>
+    <columns>Parameters__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Everis Mensajes</label>
+</ListView>

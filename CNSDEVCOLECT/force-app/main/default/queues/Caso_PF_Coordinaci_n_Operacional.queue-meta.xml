@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Coordinación Operacional</name>
+    <queueMembers>
+        <users>
+            <user>cfragapane@bancoconsorcio.cl</user>
+            <user>fpena@bancoconsorcio.cl</user>
+            <user>fdiaz@bancoconsorcio.cl</user>
+            <user>ksilva@bancoconsorcio.cl</user>
+            <user>mlobos@bancoconsorcio.cl</user>
+            <user>nhernandez@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Task</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AutoResponseRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <autoResponseRule>
+        <fullName>Autorespuesta Consorcio</fullName>
+        <active>true</active>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Casos Corredora</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Status</field>
+                <operation>equals</operation>
+                <value>Nuevo</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>comunicaciones@consorciocb.cl</senderEmail>
+            <senderName>Servicio al cliente Consorcio Corredores de Bolsa</senderName>
+            <template>Plantillas_CCB/CCB_Caso_Recibido</template>
+        </ruleEntry>
+        <ruleEntry>
+            <criteriaItems>
+                <field>Case.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Casos Banco</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Tipo_Auxiliar__c</field>
+                <operation>notEqual</operation>
+                <value>Reclamo</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Subtipo_Auxiliar__c</field>
+                <operation>notEqual</operation>
+                <value>Fraude - Desconoce transacción</value>
+            </criteriaItems>
+            <criteriaItems>
+                <field>Case.Origin</field>
+                <operation>equals</operation>
+                <value>Web</value>
+            </criteriaItems>
+            <notifyCcRecipients>false</notifyCcRecipients>
+            <senderEmail>servicioalcliente@bancoconsorcio.cl</senderEmail>
+            <senderName>Banco Consorcio Informa</senderName>
+            <template>Banco_Reclamos_Fraude/Mail_de_aviso_de_recepci_n_y_fecha_pago</template>
+        </ruleEntry>
+    </autoResponseRule>
+</AutoResponseRules>

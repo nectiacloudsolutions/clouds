@@ -1,0 +1,5 @@
+<design:component>
+		<design:attribute name="CSType" label="CustomSettingName"></design:attribute>
+	    <design:attribute name="ObjectName" label="Objeto Relacionado"></design:attribute>
+	    <design:attribute name="RelatedField" label="Campo de Control"></design:attribute>
+</design:component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Banco - Custodia</name>
+    <queueMembers>
+        <users>
+            <user>creyes@bancoconsorcio.cl</user>
+            <user>jbello@bancoconsorcio.cl</user>
+            <user>mreyesf@bancoconsorcio.cl</user>
+            <user>mpinos@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

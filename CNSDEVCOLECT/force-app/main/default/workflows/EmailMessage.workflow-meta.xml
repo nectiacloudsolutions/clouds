@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>CCB_cambiar_estado_caso</fullName>
+        <field>Status</field>
+        <literalValue>Reabierto</literalValue>
+        <name>CCB - cambiar estado caso</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Caso_SAC_desde_email</fullName>
+        <field>Sub_estado_Nectia__c</field>
+        <literalValue>SAC</literalValue>
+        <name>Caso SAC desde email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Caso_en_proceso_desde_Email</fullName>
+        <field>Status</field>
+        <literalValue>En proceso</literalValue>
+        <name>Caso en proceso desde Email</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>actualiza_fecha_solicitud_antecedentes</fullName>
+        <field>PF_Fecha_Solicitud_Antecedentes__c</field>
+        <formula>TODAY()</formula>
+        <name>actualiza fecha solicitud antecedentes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>actualizacion_pf_correo_enviado</fullName>
+        <field>PF_Correo_Enviado__c</field>
+        <literalValue>1</literalValue>
+        <name>actualizacion pf correo enviado</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+        <targetObject>ParentId</targetObject>
+    </fieldUpdates>
+    <rules>
+        <fullName>CCB - Caso en proceso desde Email</fullName>
+        <actions>
+            <name>Caso_SAC_desde_email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Caso_en_proceso_desde_Email</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>EmailMessage.Incoming</field>
+            <operation>equals</operation>
+            <value>Falso</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>EmailMessage.Subject</field>
+            <operation>contains</operation>
+            <value>Hemos recibido su solicitud</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Corredora</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Origin</field>
+            <operation>equals</operation>
+            <value>Email</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>CCB - Reabrir caso Cerrado por correo electronico</fullName>
+        <actions>
+            <name>CCB_cambiar_estado_caso</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>EmailMessage.Incoming</field>
+            <operation>equals</operation>
+            <value>Verdadero</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.Status</field>
+            <operation>equals</operation>
+            <value>Cerrado</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Case.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Corredora</value>
+        </criteriaItems>
+        <description>cuando el caso ya está cerrado y el cliente responde un mail por el mismo caso, este flujo modificará el estado de caso y lo dejara en nuevo</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>PF_envio_correo</fullName>
+        <actions>
+            <name>actualiza_fecha_solicitud_antecedentes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>actualizacion_pf_correo_enviado</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>EmailMessage.Status</field>
+            <operation>equals</operation>
+            <value>Enviado</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>EmailMessage.Subject</field>
+            <operation>equals</operation>
+            <value>Simulación de productos Portabilidad Financiera- Banco Consorcio</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+</Workflow>

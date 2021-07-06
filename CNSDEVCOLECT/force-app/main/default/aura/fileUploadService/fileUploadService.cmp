@@ -1,0 +1,31 @@
+<aura:component controller="FileUploadServiceController" implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global" > 
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!--Declare Attributes-->
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="managerOk" type="boolean"/>
+    <aura:attribute name="showLoadingSpinner" type="boolean" default="false" />
+    <aura:attribute name="FileList" type="Object"/>
+    
+    
+
+    <!--Component Start-->
+    
+    <aura:if isTrue="{!v.showLoadingSpinner}">
+        <lightning:spinner alternativeText="Cargando Documento, Favor esperar..." title="Cargando Documento, Favor esperar..." variant="brand" size="large"/>
+    </aura:if> 
+    <div class="slds-card slds-card_boundary">
+        
+        
+        <div class="slds-align_absolute-center slds-p-bottom_medium">  
+            <lightning:input aura:id="fileId" onchange="{!c.handleFilesChange}" files="{!v.FileList}" type="file" accept=".pdf"
+                             name="file" label="Archivo" multiple="false" disabled="{!v.managerOk}" />     
+        </div>
+        
+
+        
+        
+    </div>
+        
+    
+</aura:component>

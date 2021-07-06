@@ -1,0 +1,8 @@
+Name,Body__c,Functionality__c,Header__c, object__c, Parameters__c
+PF1,Port. Fin. Entrada -Recuerda revisar Caso,Warning,Caso por Vencer,CASE,CaseNumber
+PF2,Port. Fin. Entrada- SLA ha Vencido,Infraccion,Caso Vencido,CASE,CaseNumber
+PF3,Port. Fin. Salida -Recuerda revisar Caso,Warning Salida,Caso por Vencer,CASE,CaseNumber
+PF4,Port. Fin. Salida- SLA ha Vencido,Infracción Salida,Caso Vencido,CASE,CaseNumber
+PF5,Se ha cerrado con exito el caso de Portabilidad,Cerrado Solucionado,Caso Cerrado Solucionado,CASE,CaseNumber
+PF6,Coordinación Operacional se ha asignado una tarea de Portabilidad. Asunto: {0} Fecha vencimiento: {1},PF_Tarea_Firma_CAD,Coordinación Operacional,Task,Subject;ActivityDate
+PF7,Certificado de liquidación fue adjuntado en oportunidad Cliente:{0} Asunto:{1},PF_Tarea_Completa,Coordinación Operacional,Task,PF_Cliente__c;Subject

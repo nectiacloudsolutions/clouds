@@ -1,0 +1,35 @@
+<!--
+  @description       : 
+  @author            : mbeltran@everis.com
+  @group             : 
+  @last modified on  : 01-13-2021
+  @last modified by  : mbeltran@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   01-04-2021   mbeltran@everis.com   Initial Version
+-->
+<!-- wireFunction.html -->
+
+<template>
+    <div class="spinner">
+        <template if:true={isLoading}>
+             <lightning-spinner alternative-text="Loading" size="medium">
+             </lightning-spinner>
+        </template>
+    </div>
+    <article class="slds-card">
+      <div class="slds-card__header slds-grid">
+            <lightning-card  variant="Narrow"  title="Emails enviados" class="slds-card__header-link baseCard__header-title-container" icon-name="custom:custom105">
+          </lightning-card> 
+        </div>
+
+        <div class="slds-card__body">
+          <lightning-datatable
+            key-field="id"
+            data={emailsRecords} 
+            columns={columns}  
+            hide-checkbox-column>
+        </lightning-datatable>
+        </div>
+      </article>    
+</template>

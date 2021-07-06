@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>Asignacion_Lead_Sales_BBEE</fullName>
+        <description>Asignacion Lead Sales BBEE</description>
+        <protected>false</protected>
+        <recipients>
+            <type>campaignMemberDerivedOwner</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantilla_Banca_Empresas/Sales_BBEE_notificacion_lead</template>
+    </alerts>
+    <alerts>
+        <fullName>Felicitaciones</fullName>
+        <description>Felicitaciones</description>
+        <protected>false</protected>
+        <recipients>
+            <field>Email</field>
+            <type>email</type>
+        </recipients>
+        <senderAddress>servicioalcliente@bancoconsorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantilla_Banca_Empresas/Agradecimiento_Reunion_Exitosa</template>
+    </alerts>
+    <alerts>
+        <fullName>Sales_BBEE_notificacion_aprobacion_analista</fullName>
+        <description>Sales BBEE notificacion aprobacion analista</description>
+        <protected>false</protected>
+        <recipients>
+            <type>campaignMemberDerivedOwner</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantilla_Banca_Empresas/sales_bbee_aprobacion_analista</template>
+    </alerts>
+    <alerts>
+        <fullName>Sales_BBEE_notificacion_asignacion_lead</fullName>
+        <description>Sales BBEE notificacion asignacion lead</description>
+        <protected>false</protected>
+        <recipients>
+            <type>campaignMemberDerivedOwner</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantilla_Banca_Empresas/Sales_lead_BBEE</template>
+    </alerts>
+    <alerts>
+        <fullName>Sales_BBEE_notificacion_rechazo_analista</fullName>
+        <description>Sales BBEE notificacion rechazo analista</description>
+        <protected>false</protected>
+        <recipients>
+            <type>campaignMemberDerivedOwner</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantilla_Banca_Empresas/sales_bbee_rechazo_analista</template>
+    </alerts>
+    <alerts>
+        <fullName>cnf_sal_ea_lead_asignacion</fullName>
+        <description>Sales Asignacion Lead</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>DefaultWorkflowUser</senderType>
+        <template>Plantillas_Sales_Consorcio/cnf_sal_et_asignacion_lead_custom</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>cnf_sal_fu_numero_documento_lead</fullName>
+        <description>Convertir a mayúsculas el campo Número de Documento del Lead.</description>
+        <field>numero_de_documento_sales__c</field>
+        <formula>UPPER( numero_de_documento_sales__c )</formula>
+        <name>Sales Actualizar Numero Documento Lead</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Sales Convertir Número Documento Lead</fullName>
+        <actions>
+            <name>cnf_sal_fu_numero_documento_lead</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Actualiza el valor ingresado en Número de Documento del Lead y lo deja en mayúscula.</description>
+        <formula>OR(   				ISNEW(),   				ISCHANGED( numero_de_documento_sales__c), 				RecordType.DeveloperName = &apos;sales_lead_personas&apos; )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

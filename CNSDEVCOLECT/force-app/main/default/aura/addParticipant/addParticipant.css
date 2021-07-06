@@ -1,0 +1,19 @@
+.THIS .div-containers{
+  background-color:#FFFFFF;  
+}
+.THIS [lightning-input_input-host] {
+	display: contents;
+}
+.THIS .required-field:after {
+	content: "*";
+	color: red;
+}
+.THIS .slds-form-element.slds-dropdown-trigger.slds-dropdown-trigger_click.slds-size_1-of-1 {
+    display: contents;
+}
+.THIS .spinner-cso  {
+    margin-top: 1rem;
+    margin-bottom: 1rem; 
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

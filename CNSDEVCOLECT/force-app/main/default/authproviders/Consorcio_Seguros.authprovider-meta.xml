@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuthProvider xmlns="http://soap.sforce.com/2006/04/metadata">
+    <authorizeUrl>https://ssoqa.consorcio.cl/auth/realms/CRM/protocol/openid-connect/auth</authorizeUrl>
+    <consumerKey>sf-crm</consumerKey>
+    <consumerSecret>Mo8v6Of8yn/kBaE4c1L00EuPWfw1cMR1iDcolaOW5igqYrmf56A40w==</consumerSecret>
+    <defaultScopes>openid profile</defaultScopes>
+    <executionUser>consultor_force@bancoconsorcio.cl.devcolect</executionUser>
+    <friendlyName>Consorcio Seguros</friendlyName>
+    <idTokenIssuer>https://ssoqa.consorcio.cl/auth/realms/CRM</idTokenIssuer>
+    <includeOrgIdInIdentifier>false</includeOrgIdInIdentifier>
+    <logoutUrl>https://ssoqa.consorcio.cl/auth/realms/CRM/protocol/openid-connect/logout?redirect_uri=https://bancoconsorcio--devhotfix.my.salesforce.com/</logoutUrl>
+    <providerType>OpenIdConnect</providerType>
+    <registrationHandler>AutocreatedRegHandler1548768767986</registrationHandler>
+    <sendAccessTokenInHeader>true</sendAccessTokenInHeader>
+    <sendClientCredentialsInHeader>false</sendClientCredentialsInHeader>
+    <sendSecretInApis>true</sendSecretInApis>
+    <tokenUrl>https://ssoqa.consorcio.cl/auth/realms/CRM/protocol/openid-connect/token</tokenUrl>
+    <userInfoUrl>https://ssoqa.consorcio.cl/auth/realms/CRM/protocol/openid-connect/userinfo</userInfoUrl>
+</AuthProvider>

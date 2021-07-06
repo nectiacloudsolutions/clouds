@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Tipo</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cuenta Inversiones</fullName>
+                <default>false</default>
+                <label>Cuenta Inversiones</label>
+            </value>
+            <value>
+                <fullName>Cuenta Previsional Régimen A</fullName>
+                <default>false</default>
+                <label>Cuenta Previsional Régimen A</label>
+            </value>
+            <value>
+                <fullName>Cuenta Previsional Régimen B</fullName>
+                <default>false</default>
+                <label>Cuenta Previsional Régimen B</label>
+            </value>
+            <value>
+                <fullName>Cuenta Previsional Depositos Convenidos</fullName>
+                <default>false</default>
+                <label>Cuenta Previsional Depositos Convenidos</label>
+            </value>
+            <value>
+                <fullName>Cuenta Demo CCB</fullName>
+                <default>false</default>
+                <label>Cuenta Demo CCB</label>
+            </value>
+            <value>
+                <fullName>Planificación Auto</fullName>
+                <default>false</default>
+                <label>Planificación Auto</label>
+            </value>
+            <value>
+                <fullName>Planificación Vivienda</fullName>
+                <default>false</default>
+                <label>Planificación Vivienda</label>
+            </value>
+            <value>
+                <fullName>Planificación Vacaciones</fullName>
+                <default>false</default>
+                <label>Planificación Vacaciones</label>
+            </value>
+            <value>
+                <fullName>Planificación Educación</fullName>
+                <default>false</default>
+                <label>Planificación Educación</label>
+            </value>
+            <value>
+                <fullName>Otra Planificación</fullName>
+                <default>false</default>
+                <label>Otra Planificación</label>
+            </value>
+            <value>
+                <fullName>Cuenta Internacional</fullName>
+                <default>false</default>
+                <label>Cuenta Internacional</label>
+            </value>
+            <value>
+                <fullName>Servicios</fullName>
+                <default>false</default>
+                <label>Servicios</label>
+            </value>
+            <value>
+                <fullName>APV Flexibles</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>APV Flexibles</label>
+            </value>
+            <value>
+                <fullName>Acciones</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Acciones</label>
+            </value>
+            <value>
+                <fullName>Depósitos a Plazo</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Depósitos a Plazo</label>
+            </value>
+            <value>
+                <fullName>Fondos Mutuos</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Fondos Mutuos</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

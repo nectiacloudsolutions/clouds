@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Actualiza_Rut_de_Clientes</fullName>
+        <description>Cuando se cumple el criterio de que el rut del cliente contiene una letra k minuscula, este se actualiza por mayúsculas.</description>
+        <field>RUT__c</field>
+        <formula>UPPER(RUT__c)</formula>
+        <name>Actualiza Rut de Clientes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cambia_persona_corredora</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Cliente_Persona_Corredora</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Cambia persona corredora</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Cuenta_empresa_corredora</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Cliente_Empresa_Corredora</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Cuenta empresa corredora</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>CCB - Cambia tipo de registro corredora</fullName>
+        <actions>
+            <name>Cambia_persona_corredora</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Account.Cliente_Corredora__c</field>
+            <operation>equals</operation>
+            <value>Verdadero</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Cliente_Banco__c</field>
+            <operation>equals</operation>
+            <value>Falso</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.IsPersonAccount</field>
+            <operation>equals</operation>
+            <value>Verdadero</value>
+        </criteriaItems>
+        <description>CCB - Cambia tipo de registro corredora</description>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>CCB - Cambia tipo de registro corredora empresa</fullName>
+        <actions>
+            <name>Cuenta_empresa_corredora</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Cliente_Corredora__c</field>
+            <operation>equals</operation>
+            <value>Verdadero</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Cliente_Banco__c</field>
+            <operation>equals</operation>
+            <value>Falso</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.IsPersonAccount</field>
+            <operation>equals</operation>
+            <value>Falso</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Actualiza Rut Cliente</fullName>
+        <actions>
+            <name>Actualiza_Rut_de_Clientes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.Rut_Cliente_Nectia__pc</field>
+            <operation>contains</operation>
+            <value>k</value>
+        </criteriaItems>
+        <description>Workflow encargado de cambiar a mayúsculas los rut con &apos;k&apos; minúscula</description>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

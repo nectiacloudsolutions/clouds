@@ -1,0 +1,26 @@
+<apex:page showHeader="false" sidebar="false" >
+       <apex:includeScript value="/support/console/44.0/integration.js"/>
+    <script type="text/javascript">
+     //Close tab in Console    
+    //  var callCloseTab = function callCloseTab(result) {
+    //   sforce.console.closeTab(result.id);
+    //}        
+    //function closeTab() {
+    //    sforce.console.getEnclosingTabId(callCloseTab);
+    // }
+
+    </script>
+    <script>
+   
+    
+    function urllink() {
+        var url="/apex/CONS_refrescartoken";
+       
+        window.open(url,'paginarefreshtoken','resizable=yes,height=400,menubar=no,status=yes,titlebar=no,toolbar=no,top=30,width=400');
+    }
+     urllink();
+    </script>
+    <!--<apex:form >
+           <apex:commandButton onclick="closeTab();return false" value="Rechazar"/>
+    </apex:form>-->
+</apex:page>

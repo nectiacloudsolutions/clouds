@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Configuración personalizada que contiene los productos de oportunidad y usuarios que podrán realizar gestión en los flujos con cotizador.</description>
+    <enableFeeds>false</enableFeeds>
+    <label>Flujo Cotizador</label>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApprovalProcess xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <allowRecall>true</allowRecall>
+    <allowedSubmitters>
+        <type>owner</type>
+    </allowedSubmitters>
+    <approvalPageFields>
+        <field>Name</field>
+        <field>Owner</field>
+        <field>Account</field>
+        <field>Amount</field>
+        <field>StageName</field>
+        <field>Loss_Reason__c</field>
+        <field>detalle_perdida_sales__c</field>
+        <field>estado_antes_de_perdida_sales__c</field>
+    </approvalPageFields>
+    <approvalStep>
+        <allowDelegate>false</allowDelegate>
+        <assignedApprover>
+            <approver>
+                <type>userHierarchyField</type>
+            </approver>
+        </assignedApprover>
+        <label>Aprobacion Oportunidad Perdida</label>
+        <name>Aprobacion_Oportunidad_Perdida</name>
+    </approvalStep>
+    <description>Flujo de aprobación para la oportunidad perdida</description>
+    <emailTemplate>Correos_automatizados/sales_solicitud_aprobacion_oportunidad_perdida</emailTemplate>
+    <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
+    <entryCriteria>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>notEqual</operation>
+            <value>Cierre Ganada,Cierre Perdida,Closed Lost,Evaluación</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordType</field>
+            <operation>equals</operation>
+            <value>Sales Banca Hipotecario</value>
+        </criteriaItems>
+    </entryCriteria>
+    <finalApprovalActions>
+        <action>
+            <name>Actualiza_Checkbox_opp_perdida</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>actualiza_cierre_perdida_sales</name>
+            <type>FieldUpdate</type>
+        </action>
+        <action>
+            <name>email_aprobacion_sales</name>
+            <type>Alert</type>
+        </action>
+        <action>
+            <name>sales_banca_actualiza_etapa_sales</name>
+            <type>FieldUpdate</type>
+        </action>
+    </finalApprovalActions>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalRejectionActions>
+        <action>
+            <name>email_rechazo_oportunidad_perdida_sales</name>
+            <type>Alert</type>
+        </action>
+    </finalRejectionActions>
+    <finalRejectionRecordLock>false</finalRejectionRecordLock>
+    <label>Oportunidad Perdida</label>
+    <nextAutomatedApprover>
+        <useApproverFieldOfRecordOwner>false</useApproverFieldOfRecordOwner>
+        <userHierarchyField>Manager</userHierarchyField>
+    </nextAutomatedApprover>
+    <processOrder>1</processOrder>
+    <recordEditability>AdminOrCurrentApprover</recordEditability>
+    <showApprovalHistory>true</showApprovalHistory>
+</ApprovalProcess>

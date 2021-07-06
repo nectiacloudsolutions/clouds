@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clasificaci_n_del_Reclamo__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Clasificación del Reclamo</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cobro de Prima Posterior a Término de Atención</fullName>
+                <default>true</default>
+                <label>Cobro de Prima Posterior a Término de Atención</label>
+            </value>
+            <value>
+                <fullName>Cobro Erróneo</fullName>
+                <default>false</default>
+                <label>Cobro Erróneo</label>
+            </value>
+            <value>
+                <fullName>Daños al Vehículo en Taller</fullName>
+                <default>false</default>
+                <label>Daños al Vehículo en Taller</label>
+            </value>
+            <value>
+                <fullName>Daños Ocasionados al Vehículo durante el Servicio</fullName>
+                <default>false</default>
+                <label>Daños Ocasionados al Vehículo durante el Servicio</label>
+            </value>
+            <value>
+                <fullName>DEF (Devolución Experiencia Favorable)</fullName>
+                <default>false</default>
+                <label>DEF (Devolución Experiencia Favorable)</label>
+            </value>
+            <value>
+                <fullName>Demora en la Emisión de la Orden de Trabajo/Autorización</fullName>
+                <default>false</default>
+                <label>Demora en la Emisión de la Orden de Trabajo/Autorización</label>
+            </value>
+            <value>
+                <fullName>Demora en la Entrega del Vehículo</fullName>
+                <default>false</default>
+                <label>Demora en la Entrega del Vehículo</label>
+            </value>
+            <value>
+                <fullName>Demora en la Inspección del Vehículo en Taller</fullName>
+                <default>false</default>
+                <label>Demora en la Inspección del Vehículo en Taller</label>
+            </value>
+            <value>
+                <fullName>Desconformidad con Monto Indemnización Ofrecido</fullName>
+                <default>false</default>
+                <label>Desconformidad con Monto Indemnización Ofrecido</label>
+            </value>
+            <value>
+                <fullName>Descuento Caja Compensación</fullName>
+                <default>false</default>
+                <label>Descuento Caja Compensación</label>
+            </value>
+            <value>
+                <fullName>Descuento Institución Salud</fullName>
+                <default>false</default>
+                <label>Descuento Institución Salud</label>
+            </value>
+            <value>
+                <fullName>Desinformación sobre Estado de Liquidación</fullName>
+                <default>false</default>
+                <label>Desinformación sobre Estado de Liquidación</label>
+            </value>
+            <value>
+                <fullName>Devolución de Prima</fullName>
+                <default>false</default>
+                <label>Devolución de Prima</label>
+            </value>
+            <value>
+                <fullName>Disconformidad con el Pago de Siniestro</fullName>
+                <default>false</default>
+                <label>Disconformidad con el Pago de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Disconformidad Resultado Liquidación de Siniestro</fullName>
+                <default>false</default>
+                <label>Disconformidad Resultado Liquidación de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Emisión Propuesta</fullName>
+                <default>false</default>
+                <label>Emisión Propuesta</label>
+            </value>
+            <value>
+                <fullName>Estado Siniestros</fullName>
+                <default>false</default>
+                <label>Estado Siniestros</label>
+            </value>
+            <value>
+                <fullName>Facturación</fullName>
+                <default>false</default>
+                <label>Facturación</label>
+            </value>
+            <value>
+                <fullName>Falta de Acuse de Recibo post Envío Documentos</fullName>
+                <default>false</default>
+                <label>Falta de Acuse de Recibo post Envío Documentos</label>
+            </value>
+            <value>
+                <fullName>Fuera de Promesa de Ingreso de Siniestro</fullName>
+                <default>false</default>
+                <label>Fuera de Promesa de Ingreso de Siniestro</label>
+            </value>
+            <value>
+                <fullName>Gestión Mandato</fullName>
+                <default>false</default>
+                <label>Gestión Mandato</label>
+            </value>
+            <value>
+                <fullName>Imputación de Prima</fullName>
+                <default>false</default>
+                <label>Imputación de Prima</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Compra de Vehículo Nuevo</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Compra de Vehículo Nuevo</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Envío de Evaluación de Cobertura</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Envío de Evaluación de Cobertura</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Envío de Propuesta Indemnizatoria</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Envío de Propuesta Indemnizatoria</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Pago de Indemnización</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Pago de Indemnización</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento de Plazo de Pago de Indemnización Acordada</fullName>
+                <default>false</default>
+                <label>Incumplimiento de Plazo de Pago de Indemnización Acordada</label>
+            </value>
+            <value>
+                <fullName>Incumplimiento sobre Condiciones del Servicio</fullName>
+                <default>false</default>
+                <label>Incumplimiento sobre Condiciones del Servicio</label>
+            </value>
+            <value>
+                <fullName>Inspección</fullName>
+                <default>false</default>
+                <label>Inspección</label>
+            </value>
+            <value>
+                <fullName>Mala Calidad de Atención del Servicio</fullName>
+                <default>false</default>
+                <label>Mala Calidad de Atención del Servicio</label>
+            </value>
+            <value>
+                <fullName>Mala Reparación de Vehículo</fullName>
+                <default>false</default>
+                <label>Mala Reparación de Vehículo</label>
+            </value>
+            <value>
+                <fullName>No Pago Asignación Familiar</fullName>
+                <default>false</default>
+                <label>No Pago Asignación Familiar</label>
+            </value>
+            <value>
+                <fullName>No Pago Pensión</fullName>
+                <default>false</default>
+                <label>No Pago Pensión</label>
+            </value>
+            <value>
+                <fullName>Pérdida de Objetos de Valor</fullName>
+                <default>false</default>
+                <label>Pérdida de Objetos de Valor</label>
+            </value>
+            <value>
+                <fullName>Renovación</fullName>
+                <default>false</default>
+                <label>Renovación</label>
+            </value>
+            <value>
+                <fullName>Servicio de Asistencia no Entregado</fullName>
+                <default>false</default>
+                <label>Servicio de Asistencia no Entregado</label>
+            </value>
+            <value>
+                <fullName>Tiempos de Espera Excesivos</fullName>
+                <default>false</default>
+                <label>Tiempos de Espera Excesivos</label>
+            </value>
+            <value>
+                <fullName>Tiempos de Respuesta</fullName>
+                <default>false</default>
+                <label>Tiempos de Respuesta</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

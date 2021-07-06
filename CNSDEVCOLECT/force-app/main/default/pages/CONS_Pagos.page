@@ -1,0 +1,290 @@
+<apex:page standardController="Producto_del_Cliente__c" lightningStylesheets="true" extensions="CONS_Pagos" docType="html-5.0">
+    <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <apex:stylesheet value="{!URLFOR($Resource.SLDS)}" />
+ <!--   <apex:pageBlock> 
+        <apex:pageBlockSection title="Pagos Generales">
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Contrato" >Contrato</apex:outputLabel>
+                <apex:outputLabel id="Contrato" value="Contrato"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Cuota" >Cuota</apex:outputLabel>
+                <apex:outputLabel id="Cuota" value="Cuota"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="F_Vcto_Cuota" >F. Vcto Cuota</apex:outputLabel>
+                <apex:outputLabel id="F_Vcto_Cuota" value="F_Vcto_Cuota"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="F_Cobranza" >F. Cobranza</apex:outputLabel>
+                <apex:outputLabel id="F_Cobranza" value="F_Cobranza"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Monto_Cuota_UF" >Monto Cuota UF</apex:outputLabel>
+                <apex:outputLabel id="Monto_Cuota_UF" value="Monto_Cuota_UF"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Monto_Pagado_UF" >Monto Pagado UF</apex:outputLabel>
+                <apex:outputLabel id="Monto_Pagado_UF" value="Monto_Pagado_UF"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Vía_Pago" >Vía Pago</apex:outputLabel>
+                <apex:outputLabel id="Vía_Pago" value="Vía_Pago"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fec_Pago" >Fec Pago</apex:outputLabel>
+                <apex:outputLabel id="Fec_Pago" value="Fec_Pago"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Monto_Pagado_" >Monto Pagado_</apex:outputLabel>
+                <apex:outputLabel id="Monto_Pagado_" value="Monto_Pagado_"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Saldo_UF" >Saldo UF</apex:outputLabel>
+                <apex:outputLabel id="Saldo_UF" value="Saldo_UF"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Estado" >Estado</apex:outputLabel>
+                <apex:outputLabel id="Estado" value="Estado"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="N_Relación_Cobro" >N° Relación Cobro</apex:outputLabel>
+                <apex:outputLabel id="N_Relación_Cobro" value="N_Relación_Cobro"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="N_Boletin" >N° Boletin</apex:outputLabel>
+                <apex:outputLabel id="N_Boletin" value="N_Boletin"   />                             
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        
+        <apex:pageBlockSection title="Pagos Vida">
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Concepto" >Concepto</apex:outputLabel>
+                <apex:outputLabel id="Concepto" value="Concepto"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Período" >Período</apex:outputLabel>
+                <apex:outputLabel id="Período" value="Período"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Recibo" >Recibo</apex:outputLabel>
+                <apex:outputLabel id="Recibo" value="Recibo"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Valor_Cargo_UF" >Valor Cargo UF</apex:outputLabel>
+                <apex:outputLabel id="Valor_Cargo_UF" value="Valor_Cargo_UF"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Vía_Pago" >Vía Pago</apex:outputLabel>
+                <apex:outputLabel id="Vía_Pago" value="Vía_Pago"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Abono" >Fecha Abono</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Abono" value="Fecha_Abono"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Pago_Moneda_Origen_UF" >Pago oneda rigen UF</apex:outputLabel>
+                <apex:outputLabel id="Pago_Moneda_Origen_UF" value="Pago_Moneda_Origen_UF"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Valor_Moneda_Origen_UF" >Valor Moneda Origen UF</apex:outputLabel>
+                <apex:outputLabel id="Valor_Moneda_Origen_UF" value="Valor_Moneda_Origen_UF"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="dinero_Pagado" >$ Pagado</apex:outputLabel>
+                <apex:outputLabel id="dinero_Pagado" value="$_Pagado"   />                             
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+    </apex:pageBlock>-->
+
+ <style type="text/css">
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #808080;
+  color: white;
+} 
+     
+     
+     
+     
+     
+
+</style>
+
+  <apex:pageBlock > 
+       <apex:pageBlockSection title="Pagos Generales" rendered="{!esquemagenerales}">
+    <apex:dataTable value="{!listagenerales}" var="l" id="theTable" rowClasses="odd,even" styleClass="slds-table slds-table--bordered">
+          <apex:column styleClass="inBorder">
+        <apex:facet name="header"   >Contrato</apex:facet>
+        <apex:outputText value="{!l.contrato}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Cuota</apex:facet>
+        <apex:outputText value="{!l.nro_cuota}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">F. Vcto Cuota</apex:facet>
+        <apex:outputText value="{!l.fecha_vencimiento}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">F. Cobranza</apex:facet>
+        <apex:outputText value="{!l.fecha_cobranza}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Monto Cuota UF</apex:facet>
+        <apex:outputText value="{!l.monto_cuota_uf}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Monto Pagado UF</apex:facet>
+        <apex:outputText value="{!l.cuota}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Vía Pago</apex:facet>
+        <apex:outputText value="{!l.via_de_pago}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Fec Pago</apex:facet>
+        <apex:outputText value="{!l.fecha_pago}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Monto Pagado $</apex:facet>
+        <apex:outputText value="{!l.monto_moneda_origen}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Saldo UF</apex:facet>
+        <apex:outputText value="{!l.balance}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Estado</apex:facet>
+        <apex:outputText value="{!l.estado_contrato}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">N° Relación Cobro</apex:facet>
+        <apex:outputText value="{!l.relacion}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">N° Boletin</apex:facet>
+        <apex:outputText value="{!l.boletin}" />
+    </apex:column>
+ 
+
+           </apex:dataTable>
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="Pagos Vida" rendered="{!esquemavida}">
+    <apex:dataTable value="{!lista}" var="l" id="theTable" rowClasses="odd,even" styleClass=".slds-table_striped slds-table--bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal">
+        
+    <apex:column >
+        <apex:facet name="header">Concepto</apex:facet>
+        <apex:outputText value="{!l.concepto}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Período</apex:facet>
+        <apex:outputText value="{!l.periodo}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Recibo</apex:facet>
+        <apex:outputText value="{!l.recibo}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Valor Cargo UF</apex:facet>
+        <apex:outputText value="{!l.valor_cargo}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Vía Pago</apex:facet>
+        <apex:outputText value="{!l.via_de_pago}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Fecha Abono</apex:facet>
+        <apex:outputText value="{!l.fecha_de_abono}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Pago Moneda rigen UF</apex:facet>
+        <apex:outputText value="{!l.pago_moneda_origen}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">Valor Moneda Origen UF</apex:facet>
+        <apex:outputText value="{!l.valor_moneda_origen}" />
+    </apex:column>
+  <apex:column >
+        <apex:facet name="header">$ Pagado</apex:facet>
+        <apex:outputText value="{!l.monto_pagado}" />
+    </apex:column>
+          </apex:dataTable>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+ <!--  
+    <table id="customers">
+<tr>
+<th>Contrato</th>
+<th>Cuota</th>
+<th>F. Vcto</th>
+<th>F. Cobranza</th>
+<th>Monto Cuota UF</th>
+<th>Monto Pagado UF</th>
+<th>Vía Pago</th>
+<th>Fec Pago</th>
+<th>Monto Pagado $</th>
+<th>Saldo UF</th>
+<th>Estado</th>
+<th>N° Relación Cobro</th>
+<th>N° Boletin</th>
+</tr>
+<tr>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+<td>test</td>
+
+</tr>
+</table>
+-->
+       
+</html>
+</apex:page>

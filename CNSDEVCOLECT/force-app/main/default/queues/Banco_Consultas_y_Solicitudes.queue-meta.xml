@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Banco - Consultas y Solicitudes</name>
+    <queueMembers>
+        <users>
+            <user>agonzalez@bancoconsorcio.cl</user>
+            <user>aclaver@bancoconsorcio.cl</user>
+            <user>caguirre@bancoconsorcio.cl</user>
+            <user>crebolledo@bancoconsorcio.cl</user>
+            <user>caranguiz@bancoconsorcio.cl</user>
+            <user>icortes@bancoconsorcio.cl</user>
+            <user>malvarez@bancoconsorcio.cl</user>
+            <user>yguzman@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

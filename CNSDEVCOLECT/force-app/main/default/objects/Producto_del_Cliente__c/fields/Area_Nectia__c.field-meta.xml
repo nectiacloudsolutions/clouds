@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Area_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Área</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Auto</fullName>
+                <default>false</default>
+                <label>Auto</label>
+            </value>
+            <value>
+                <fullName>Hogar</fullName>
+                <default>false</default>
+                <label>Hogar</label>
+            </value>
+            <value>
+                <fullName>Vida/Ahorro</fullName>
+                <default>false</default>
+                <label>Vida/Ahorro</label>
+            </value>
+            <value>
+                <fullName>Vida/Protección</fullName>
+                <default>false</default>
+                <label>Vida/Protección</label>
+            </value>
+            <value>
+                <fullName>APV</fullName>
+                <default>false</default>
+                <label>APV</label>
+            </value>
+            <value>
+                <fullName>Previsión</fullName>
+                <default>false</default>
+                <label>Previsión</label>
+            </value>
+            <value>
+                <fullName>Colectivos</fullName>
+                <default>false</default>
+                <label>Colectivos</label>
+            </value>
+            <value>
+                <fullName>Otros Seguros</fullName>
+                <default>false</default>
+                <label>Otros Seguros</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

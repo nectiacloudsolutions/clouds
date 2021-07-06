@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>PF Portabilidad Financiera</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Sol_Firmada_PF__c</fieldNames>
+        <fieldNames>tipo_de_gestion_portabilidad__c</fieldNames>
+        <fieldNames>PF_Cert_Liq_Adjuntado__c</fieldNames>
+        <picklistValueName>Contacto</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PF_Cert_Liq_Adjuntado__c</fieldNames>
+        <fieldNames>PF_Oferta_enviada__c</fieldNames>
+        <picklistValueName>Evaluación</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PF_CAD_recibido__c</fieldNames>
+        <fieldNames>PF_Contrato_Firmado__c</fieldNames>
+        <fieldNames>PF_Comprobante_Pagos_Recibidos__c</fieldNames>
+        <picklistValueName>Firma Contrato/Escritura</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PF_Resultado_Oferta__c</fieldNames>
+        <picklistValueName>Oferta de portabilidad</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <fieldNames>PF_Cert_Liq_Adjuntado__c</fieldNames>
+        <picklistValueName>Simulación</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>RT_Portabilidad_financiera</recordTypeName>
+</PathAssistant>

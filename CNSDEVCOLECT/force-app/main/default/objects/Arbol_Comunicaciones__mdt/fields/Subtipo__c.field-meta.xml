@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Subtipo__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Subtipo</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Atención del Tercero Afectado en Siniestro</fullName>
+                <default>true</default>
+                <label>Atención del Tercero Afectado en Siniestro</label>
+            </value>
+            <value>
+                <fullName>Atención de Siniestro de Pérdida Parcial</fullName>
+                <default>false</default>
+                <label>Atención de Siniestro de Pérdida Parcial</label>
+            </value>
+            <value>
+                <fullName>Atención de Siniestro de Pérdida Total</fullName>
+                <default>false</default>
+                <label>Atención de Siniestro de Pérdida Total</label>
+            </value>
+            <value>
+                <fullName>Cambio Dato Contacto</fullName>
+                <default>false</default>
+                <label>Cambio Dato Contacto</label>
+            </value>
+            <value>
+                <fullName>Descuento</fullName>
+                <default>false</default>
+                <label>Descuento</label>
+            </value>
+            <value>
+                <fullName>Modificación de Póliza</fullName>
+                <default>false</default>
+                <label>Modificación de Póliza</label>
+            </value>
+            <value>
+                <fullName>Reclamos Pólizas</fullName>
+                <default>false</default>
+                <label>Reclamos Pólizas</label>
+            </value>
+            <value>
+                <fullName>Reclamos Siniestros</fullName>
+                <default>false</default>
+                <label>Reclamos Siniestros</label>
+            </value>
+            <value>
+                <fullName>Rescate</fullName>
+                <default>false</default>
+                <label>Rescate</label>
+            </value>
+            <value>
+                <fullName>Servicio de Asistencia Vehicular</fullName>
+                <default>false</default>
+                <label>Servicio de Asistencia Vehicular</label>
+            </value>
+            <value>
+                <fullName>Sobre Denuncio y Asignación Siniestro</fullName>
+                <default>false</default>
+                <label>Sobre Denuncio y Asignación Siniestro</label>
+            </value>
+            <value>
+                <fullName>Término de Póliza</fullName>
+                <default>false</default>
+                <label>Término de Póliza</label>
+            </value>
+            <value>
+                <fullName>Traspaso</fullName>
+                <default>false</default>
+                <label>Traspaso</label>
+            </value>
+            <value>
+                <fullName>Asociadas a Producción Grales</fullName>
+                <default>false</default>
+                <label>Asociadas a Producción Grales</label>
+            </value>
+            <value>
+                <fullName>Modificación No Efectuada</fullName>
+                <default>false</default>
+                <label>Modificación No Efectuada</label>
+            </value>
+            <value>
+                <fullName>No Gestión Beneficio Estatal</fullName>
+                <default>false</default>
+                <label>No Gestión Beneficio Estatal</label>
+            </value>
+            <value>
+                <fullName>No Pago Pensión</fullName>
+                <default>false</default>
+                <label>No Pago Pensión</label>
+            </value>
+            <value>
+                <fullName>Asociadas a Producción S. Vida</fullName>
+                <default>false</default>
+                <label>Asociadas a Producción S. Vida</label>
+            </value>
+            <value>
+                <fullName>Reclamos Siniestros S. Vida</fullName>
+                <default>false</default>
+                <label>Reclamos Siniestros S. Vida</label>
+            </value>
+            <value>
+                <fullName>Asociadas a Producción S. Generales</fullName>
+                <default>false</default>
+                <label>Asociadas a Producción S. Generales</label>
+            </value>
+            <value>
+                <fullName>21 dias</fullName>
+                <default>false</default>
+                <label>21 dias</label>
+            </value>
+            <value>
+                <fullName>Traspaso APV</fullName>
+                <default>false</default>
+                <label>Traspaso APV</label>
+            </value>
+            <value>
+                <fullName>Devolución Primas</fullName>
+                <default>false</default>
+                <label>Devolución Primas</label>
+            </value>
+            <value>
+                <fullName>Suspensión de Pagos</fullName>
+                <default>false</default>
+                <label>Suspensión de Pagos</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

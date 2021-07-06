@@ -1,0 +1,51 @@
+<!--
+  @description       : 
+  @author            : mbeltran@everis.com
+  @group             : 
+  @last modified on  : 01-26-2021
+  @last modified by  : mbeltran@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   01-25-2021   mbeltran@everis.com   Initial Version
+-->
+<template >
+    <template if:true={showConfirmDialog}>
+            <!--Modal Box Start-->
+        <div role="dialog" class="slds-modal slds-fade-in-open ">
+                <div class="slds-modal__container">
+                    <!--Modal Box Header Start-->
+                    <header class="slds-modal__header">
+                        <h1 class="slds-text-heading--medium">Confirmación</h1>
+                    </header>
+                    <!--Modal Box Header End-->
+                     
+                    <!--Modal Box Content Start-->
+                    <div class="slds-modal__content slds-p-around--medium">
+                        <center><b>Esta seguro de cambiar el valor de este campo?</b></center>
+                    </div>
+                    <!--Modal Box Content End-->
+                     
+                    <!--Modal Box Button Start-->
+                    <footer class="slds-modal__footer">
+                        <lightning-button name='No' label='No' onclick={handleConfirmDialogNo}></lightning-button>
+                        <lightning-button variant="brand" name='Si' label='Si' onclick={handleConfirmDialogYes}></lightning-button>
+                    </footer>
+                    <!--Modal Box Button End-->
+                </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>            
+
+    </template>
+
+    <div class="slds-form-element">
+        <label class="slds-checkbox_toggle slds-grid">
+          <span class="slds-form-element__label slds-m-bottom_none">{fieldLabel}</span>
+          <input type="checkbox" name="checkbox-toggle-16" value="checkbox-toggle-16" aria-describedby="checkbox-toggle-16" onchange={handleChange} checked={checkboxVal} />
+          <span id="checkbox-toggle-16" class="slds-checkbox_faux_container" aria-live="assertive">
+            <span class="slds-checkbox_faux"></span>
+            <span class="slds-checkbox_on">{checkOnLabel}</span>
+            <span class="slds-checkbox_off">{checkOffLabel}</span>
+          </span>
+        </label>
+      </div>
+</template>

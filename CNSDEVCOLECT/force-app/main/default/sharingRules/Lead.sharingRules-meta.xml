@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Ejecutivos_de_Servicio</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para todos los Ejecutivos y Jefes de Servicio.</description>
+        <label>Ejecutivos de Servicio</label>
+        <sharedTo>
+            <group>Usuarios_de_Servicio</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerente_Contact_Center</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para Gerente Contact Center y subordinados</description>
+        <label>Gerente Contact Center</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Contact_Center</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerente_Riesgo</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Colaboración para el Gerente de Riesgo y subordinados.</description>
+        <label>Gerente Riesgo</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Riesgo</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerente_Visado</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Colaboración para Gerente Visado y sus subordinados.</description>
+        <label>Gerente Visado</label>
+        <sharedTo>
+            <roleAndSubordinates>Gerente_Visado</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Gerentes</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para Gerentes de Sucursales, Zonales y Sub. Gte. Comercial Hipotecario.</description>
+        <label>Gerentes</label>
+        <sharedTo>
+            <group>Gerentes</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Jefe_de_Sucursales</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para Jefes de Sucursales.</description>
+        <label>Jefe de Sucursales</label>
+        <sharedTo>
+            <group>Jefe_Sucursales</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Consorcio</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Clasificacion__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Clasificación</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cambio de Taller Asignado</fullName>
+                <default>true</default>
+                <label>Cambio de Taller Asignado</label>
+            </value>
+            <value>
+                <fullName>Cambio de Liquidador Asignado</fullName>
+                <default>false</default>
+                <label>Cambio de Liquidador Asignado</label>
+            </value>
+            <value>
+                <fullName>Parcial</fullName>
+                <default>false</default>
+                <label>Parcial</label>
+            </value>
+            <value>
+                <fullName>Total</fullName>
+                <default>false</default>
+                <label>Total</label>
+            </value>
+            <value>
+                <fullName>Depósito</fullName>
+                <default>false</default>
+                <label>Depósito</label>
+            </value>
+            <value>
+                <fullName>Vale Vista</fullName>
+                <default>false</default>
+                <label>Vale Vista</label>
+            </value>
+            <value>
+                <fullName>No Pago Pensión</fullName>
+                <default>false</default>
+                <label>No Pago Pensión</label>
+            </value>
+            <value>
+                <fullName>No Pago Asignación Familiar</fullName>
+                <default>false</default>
+                <label>No Pago Asignación Familiar</label>
+            </value>
+            <value>
+                <fullName>Descuento Caja Compensación</fullName>
+                <default>false</default>
+                <label>Descuento Caja Compensación</label>
+            </value>
+            <value>
+                <fullName>Descuento Institución Salud</fullName>
+                <default>false</default>
+                <label>Descuento Institución Salud</label>
+            </value>
+            <value>
+                <fullName>Transferencia</fullName>
+                <default>false</default>
+                <label>Transferencia</label>
+            </value>
+            <value>
+                <fullName>Prima Proyectada</fullName>
+                <default>false</default>
+                <label>Prima Proyectada</label>
+            </value>
+            <value>
+                <fullName>Vía de Pago</fullName>
+                <default>false</default>
+                <label>Vía de Pago</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

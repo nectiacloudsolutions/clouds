@@ -1,0 +1,172 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction,Lightning:actionOverride" access="global" controller="ApprovalRequestController">
+    <!-- Attributes -->
+    <aura:attribute name="textBtn1" type="String" default='Aprobar' access="public" />
+    <aura:attribute name="textBtn2" type="String" default='Rechazar' access="public" />
+    <aura:attribute name="hasReason" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="hasReasonRisk" type="Boolean"  default="false"/>
+    <aura:attribute name="btnVisible" type="Boolean" access="private" default="true"/>
+    <aura:attribute name="indicacionesRiskText" type="String" access="public" default=""/>
+    <aura:attribute name="indicacionesBossText" type="String" access="public" default=""/>
+    <aura:attribute name="enabledSpinner" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="rejectReason" type="String"  />
+    <aura:attribute name="recordType" type="String"  />
+    <aura:attribute name="riskEnable" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="bossEnable" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="executiveEnable" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="errorEnable" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="visibleEnable" type="Boolean" access="private" default="false"/>
+    <aura:attribute name="result" type="String" access="public" default="EN PROCESO"/>
+    <aura:attribute name="errorMessage" type="String" access="private"/>
+    <aura:attribute name="sendMsg" type="String"  />
+    <aura:attribute name="btnDisable" type="Boolean" default="false"/>
+    <aura:attribute name="toExecutive" type="Boolean" default="false"/>
+    <aura:attribute name="motives" type="String[]" />
+    <aura:attribute name="executiveAction" type="String"  />
+    <aura:attribute name="actions" type="String[]" />
+    <aura:attribute name="showProfile" type="Boolean" default="false"/>
+    <aura:attribute name="dataVisibility" type="Object" default="[]" />
+    
+    <!-- Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+    
+    <!--<aura:if isTrue="{!v.visibleEnable}">-->
+    <aura:if isTrue="{!or (v.visibleEnable, v.showProfile)}">
+        <!-- PAGE HEADER -->
+        <lightning:layout class="slds-page-header slds-page-header--object-home">
+            <lightning:layoutItem>
+                <lightning:icon iconName="standard:approval" alternativeText="Mis Candidatos" class="avatarIconColor"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="horizontal-small">
+                <div class="page-section page-header">
+                    <h1 class="slds-text-heading--label">APROBACIÓN DE </h1>
+                    <h2 class="slds-text-heading--medium">OPORTUNIDAD</h2>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+        <!-- / PAGE HEADER -->
+        <lightning:layout >
+            <!-- FORM SECTION -->
+            <lightning:layoutItem size="12">
+                <div aria-labelledby="newleadform" class="slds-is-relative">
+                    <!-- Show Spinner -->
+                    <aura:if isTrue="{!v.enabledSpinner}">
+                        <lightning:spinner aura:id="cmpSpinner" variant="brand"/>
+                    </aura:if>
+                    <!-- Risk Section -->
+                    <aura:if isTrue="{!or (v.riskEnable, v.showProfile)}">
+                        <fieldset class="slds-box slds-theme--default ">
+                            <div class="slds-form--stacked">
+                                <aura:if isTrue="{!!v.hasReason}">
+                                    <div class="slds-p-bottom_large">
+                                        <lightning:button label="{!v.textBtn1}" class="slds-m-top--medium" variant="brand"
+                                                          onclick="{!c.approveRisk}" disabled="{!v.btnDisable}"/>
+                                        <lightning:button label="{!v.textBtn2}" class="slds-m-top--medium" variant="destructive"
+                                                          onclick="{!c.rejectBtn}"/>
+                                        <aura:if isTrue="{!v.hasReasonRisk}">
+                                             <lightning:textarea name="input2" label="OBSERVACIONES SUPERVISOR : " value="{!v.indicacionesBossText}" readonly="true" />
+                                        </aura:if>
+                                       
+                                    </div>
+                                </aura:if>
+                                <aura:if isTrue="{!v.hasReason}">
+                                    <lightning:select name="select1" label="MOTIVO DE RECHAZO: " required="true" value="{!v.rejectReason}">
+                                        <option value="">-</option>
+                                        <aura:iteration items="{!v.motives}" var="item"> 
+                                            <option value="{!item.label}">{!item.value}</option>                            
+                                        </aura:iteration> 
+  
+                                    </lightning:select>
+                                    <lightning:textarea name="input2" label="OBSERVACIONES RIESGO : " value="{!v.indicacionesRiskText}" maxlength = "255"/>
+                                    
+                                    <lightning:button label="Confirmar" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.rejectRisk}" />
+                                    <lightning:button label="Cancelar" class="slds-m-top--medium" variant="Neutral"
+                                                      onclick="{!c.cancelBtn}" />
+                                </aura:if>
+                            </div>
+                        </fieldset>
+                    </aura:if>
+                    <!-- / Risk Section -->
+                    <!-- Boss Section -->
+                    <aura:if isTrue="{!v.bossEnable}">
+                        <fieldset class="slds-box slds-theme--default ">
+                            <div class="slds-form--stacked">
+                                <aura:if isTrue="{!!v.hasReason}">
+                                    <div class="slds-grid slds-grid_vertical">
+                                        <div class="slds-col slds-align_absolute-center">
+                                            <lightning:button label="CERRAR PERDIDA" class="slds-m-top--medium" variant="brand"
+                                                              onclick="{!c.approveBoss}" />
+                                        </div>
+                                        <div class="slds-col slds-align_absolute-center">
+                                            <lightning:button label="ENVIAR A RIESGO" class="slds-m-top--medium" variant="Neutral"
+                                                              onclick="{!c.sendRisk}" />
+                                        </div>
+                                        <div class="slds-col slds-align_absolute-center">
+                                            <lightning:button label="ENVIAR A EJECUTIVO" class="slds-m-top--medium" variant="Neutral"
+                                                              onclick="{!c.sendExecutive}" />
+                                        </div>
+                                        <div class="">
+                                            <lightning:input name="select1" label="MOTIVO DE RECHAZO: " value="{!v.rejectReason}" readonly="true"/>
+                                            <lightning:textarea name="input2" label="OBSERVACIONES RIESGO " value="{!v.indicacionesBossText}" readonly="true" maxlength = "255" />
+                                        </div>
+                                    </div>
+                                    
+                                </aura:if>
+                                <aura:if isTrue="{!v.hasReason}">
+                                    La oportunidad será enviada a {!v.sendMsg} con la siguiente observación:
+                                    <aura:if isTrue="{!and(v.sendMsg == 'Ejecutivo Especialista', or(v.recordType == 'sales_banca_hipotecario',v.recordType == 'sales_banca_hipotecario_lectura' ))}">
+                                        <lightning:select name="select1" label="Acción Requerida: " required="true" value="{!v.executiveAction}">
+                                            <option value="">-</option>
+                                            <aura:iteration items="{!v.actions}" var="item"> 
+                                                <option value="{!item.label}">{!item.value}</option>                            
+                                            </aura:iteration> 
+                                            
+                                        </lightning:select>
+                                    </aura:if>
+                                    
+                                    <lightning:textarea name="input2" label="OBSERVACIONES SUPERVISOR : " value="{!v.indicacionesRiskText}" maxlength = "255"/>
+                                    <lightning:button label="Confirmar" class="slds-m-top--medium" variant="brand"
+                                                      onclick="{!c.okBtnBoss}" />
+                                    <lightning:button label="Cancelar" class="slds-m-top--medium" variant="Neutral"
+                                                      onclick="{!c.cancelBtnBoss}" />
+                                </aura:if>
+                            </div>
+                        </fieldset>
+                    </aura:if>
+                    <!-- / Boss Section -->
+                    <!-- Executive Section -->
+                    <aura:if isTrue="{!v.executiveEnable}">
+                        <fieldset class="slds-box slds-theme--default ">
+                            <div class="slds-form--stacked">
+                                <div class="slds-text-heading_medium">
+                                    <h1>RESULTADO: {!v.result}</h1>
+                                </div>
+                                <aura:if isTrue="{!v.hasReason}">
+                                    <lightning:input name="select1" label="MOTIVO DE RECHAZO: " value="{!v.rejectReason}" readonly="true"/>
+                                    <aura:if isTrue="{!or(v.recordType == 'sales_banca_hipotecario',v.recordType == 'sales_banca_hipotecario_lectura')}">
+                                        <lightning:input name="select1" label="Acción Requerida: " value="{!v.executiveAction}" readonly="true"/>
+                                    </aura:if>
+                                    <lightning:textarea name="input2" label="INDICACIONES: " value="{!v.indicacionesBossText}" readonly="true" />
+                                </aura:if>
+                            </div>
+                        </fieldset>
+                    </aura:if>
+                    <!-- / Executive Section -->
+                    <!-- Error Section -->
+                    <aura:if isTrue="{!v.errorEnable}">
+                        <fieldset class="slds-box slds-theme--default ">
+                            <div class="slds-form--stacked">
+                                <div class="slds-text-heading_medium">
+                                    <h1>ERROR: {!v.errorMessage}</h1>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </aura:if>
+                    <!-- / Error Section -->
+                </div>
+            </lightning:layoutItem>
+            <!-- / FORM SECTION -->
+            
+        </lightning:layout>
+    </aura:if>
+</aura:component>

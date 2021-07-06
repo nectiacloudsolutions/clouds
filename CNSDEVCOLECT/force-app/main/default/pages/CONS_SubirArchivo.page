@@ -1,0 +1,158 @@
+<apex:page standardController="Case" extensions="CONS_SubirArchivo" id="page1"   lightningStylesheets="true" showHeader="true" > 
+    
+    <style>
+        div.block01 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0.25;
+        z-index: 1000;
+        background-color: black;
+        }
+        div.block02{
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1001;
+        margin: 25% 50%;	
+        }
+        div.block03{
+        display: inline-block;
+        padding: 2px;
+        background-color: #fff;
+        width: 125px;        
+        }
+        img.block04{
+        float: left;
+        margin: 8px;
+        }
+        span.block05{
+        display: inline-block;
+        padding: 10px 0px;
+        }
+    </style>
+   
+    <!--  <h2>Subir archivo</h2>-->
+    <br /> <br />
+
+    
+    
+    <apex:form id="from1" rendered="true">
+        <apex:pageMessages id="mensage" ></apex:pageMessages>
+        
+        <apex:pageBlock >
+            
+            <apex:pageBlockSection title="subir archivo" columns="1" rendered="true" id="sect1">
+                
+                
+                <apex:pageBlockSectionItem id="s1" rendered="true">
+                    <apex:selectList title="Proceso de Negocios"  id="opcion1" value="{!opcion}" size="1" > Proceso de Negocios:  
+                        
+                        <apex:selectOption itemLabel="Anulación"	 itemValue="ANU"/>	
+                        <apex:selectOption itemLabel="Cancelación"	 itemValue="CANC"/>	
+                        <apex:selectOption itemLabel="Emisión"	 itemValue="EMI"/>	
+                        <apex:selectOption itemLabel="Endoso"	 itemValue="END" />	
+                        <apex:selectOption itemLabel="Pago"	 itemValue="PAG"/>	
+                        <apex:selectOption itemLabel="Post-Venta"	 itemValue="PVEN"/>	
+                        <apex:selectOption itemLabel="Renovación"	 itemValue="RENV"/>	
+                        <apex:selectOption itemLabel="Rescate"	  itemValue="Rescate"/>	
+                        <apex:selectOption itemLabel="Siniestro"	 itemValue="SIN"/>	
+                        <apex:selectOption itemLabel="Venta"	 itemValue="VEN"/>	
+                        
+                        
+                        
+                        <apex:actionSupport event="onchange" reRender="sect1,s2,opcion2"  action="{!seccion}" status="esperar">
+                         <apex:actionStatus id="esperar">
+                <apex:facet name="start">
+                    <div class="block01">
+                        &nbsp;
+                    </div>
+                    <div class="block02">
+                        <div class="block03">
+                            <img src="/img/loading.gif" class="block04" />
+                            <span class="block05">Cargando..</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+                        </apex:actionSupport>
+                    </apex:selectList> 
+                </apex:pageBlockSectionItem> 
+                <apex:pageBlockSectionItem id="s2" rendered="true">
+                    <apex:selectList title="Tipo de Documento"  id="opcion2" value="{!opcion2}" size="1" rendered="true" > Tipo de Documento:  
+                        <apex:selectOptions value="{!lista2}" />
+                         <apex:actionSupport event="onchange"  reRender="sect2" status="esperar2">
+                               <apex:actionStatus id="esperar2">
+                <apex:facet name="start">
+                    <div class="block01">
+                        &nbsp;
+                    </div>
+                    <div class="block02">
+                        <div class="block03">
+                            <img src="/img/loading.gif" class="block04" />
+                            <span class="block05">Cargando..</span>
+                        </div>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+                        </apex:actionSupport>
+                    </apex:selectList> 
+                </apex:pageBlockSectionItem>
+                
+                
+                
+            </apex:pageBlockSection>                
+            
+            
+        </apex:pageBlock>
+        
+        
+        
+        
+        
+        
+        <!--       <apex:selectList title="Clasificación Documento"  id="opcion3" value="{!opcion3}" size="1"> Clasificación Documento:  
+<apex:selectOption itemValue="CERTIFICADO" itemLabel="Certificado"/>
+<apex:selectOption itemValue="CUESTIONARIO" itemLabel="Cuestionarios"/>
+<apex:selectOption itemValue="FORMULARIO" itemLabel="Formulario"/>
+<apex:selectOption itemValue="EXAMENES" itemLabel="Exámenes"/>
+<apex:selectOption itemValue="CARTAS" itemLabel="Cartas"/>
+<apex:selectOption itemValue="FOTOS" itemLabel="Fotos"/>
+<apex:selectOption itemValue="MAN" itemLabel="Mandato"/>
+<apex:selectOption itemValue="DOCTOS" itemLabel="Documentos"/>
+<apex:selectOption itemValue="OTROS" itemLabel="Otros"/>
+</apex:selectList> -->
+    </apex:form>       
+    <apex:form >  
+        <apex:pageBlock >
+            <apex:pageBlockSection id="sect2" rendered="true">
+                <apex:pageBlockSectionItem id="s3" rendered="true">
+                    <apex:inputFile fileName="{!objCaseAtt.Name}" value="{!objCaseAtt.body}" fileSize="{!largo}"    >
+                        
+                    </apex:inputFile>
+                </apex:pageBlockSectionItem>
+                
+            </apex:pageBlockSection>
+            <br/>
+            <br/>
+            <br/>
+          
+            
+            
+            <apex:commandButton value="subir archivo" action="{!estado}"    >
+         
+            </apex:commandButton>
+            
+            <apex:commandButton value="Volver" action="{!volver}"     />
+            
+           
+            
+        </apex:pageBlock>
+        
+    </apex:form> 
+    
+</apex:page>

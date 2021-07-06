@@ -1,0 +1,104 @@
+<apex:page controller="CONS_refrescartoken"  id="Token" action="{!actualiza_token}" sidebar="false" showHeader="false">
+    <apex:includeScript value="/soap/ajax/24.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/24.0/apex.js"/>
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />   
+    <HTML>
+        <HEAD>
+            
+            
+            
+            <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+            
+            
+            
+            <script>
+            //    $j = jQuery.noConflict();
+            // $j(document).ready(function($) {
+            //    $("#Verificame").click();
+            // });
+            // function Iniciar(){
+            //    setTimeout(function() {
+            //        window.location.href = "/apex/refrescartoken";
+            //          $("#mensajeAMostrar").html('vsadvfdsfsf');
+            //    }, 60*1000);
+            
+            // }
+            function init(){   
+                setTimeout(function() {                
+                    try {
+                        var btnJsActivado = document.getElementById('Token:from2:pgBlk:pgbloks:pgBlkSecItem:cmbnn');
+                        btnJsActivado.click();
+                    } catch(e) {
+                    }
+                }, 20*60*1000);
+            }  
+            init();
+            </script>
+            <script type="text/javascript">
+            // function popUp() {
+            //day = new Date();
+            //id = day.getTime();
+            //eval("page" + id + " = window.open('/apex/refrescartoken', '" + id + "', 'toolbar=yes,scrollbars=1,location=0,statusbar=1,s tatus=1,menubar=0,resizable=1,width=540,height=400 ,left = 140,top = 25');");
+            //}
+            /*    function openThis(){
+   var  myWin;
+          var  myWin2;
+          var width  = 10;
+ var height = 10;
+ var left   = (screen.width  - width)/2;
+ var top    = (screen.height - height)/2;
+ var params = 'width='+width+', height='+height;
+ params += ', top='+top+', left='+left;
+ params += ', directories=no';
+ params += ', location=yes';
+ params += ', menubar=no';
+ params += ', resizable=no';
+ params += ', scrollbars=no';
+ params += ', status=yes';
+ params += ', toolbar=no';
+    myWin = window.open("/apex/refrescartoken",'myPopup',params);
+   myWin2 = window.open("/apex/refrescartoken",'Popup',params);
+}*/
+    </script>
+        </HEAD>
+        <body>
+            <apex:slds />
+            <div id="mostrar">
+                <center>
+                    <!--span id="mensajeAMostrar"></span> <img src="/img/social/loading32.gif" /-->
+                    <div class="demo-only" style="height: 6rem;">
+                        <div role="status" class="slds-spinner slds-spinner_medium">
+                            <span class="slds-assistive-text">Cargando</span>
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </center>
+            </div>
+            
+            <form name="Form1" style="display:none"  >
+                
+                <!--style="display:none"-->
+                <table align="center" border="0">
+                    <tr>
+                        <td>
+                            <p>
+                                <input type='button' id='Verificame' value='Verificar' onClick='Iniciar()' />
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <apex:form id="from2"  style="display:none">
+                <apex:pageBlock id="pgBlk">
+                    <apex:pageBlockSection id="pgbloks">
+                        <apex:pageBlockSectionItem id="pgBlkSecItem">
+                            <apex:commandButton id="cmbnn" onclick="Iniciar()" value="continuar" action="{!actualiza_token}"/>                            
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>                
+                </apex:pageBlock>
+            </apex:form>
+        </body>
+    </HTML>
+    
+</apex:page>

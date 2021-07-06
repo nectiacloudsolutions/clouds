@@ -1,0 +1,66 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader" 
+                access="global" controller='ActivateParticipantController'>
+    <aura:attribute name="title" type="String"  default="Activar Participante"/>
+    <aura:attribute name="loading" type="Boolean" default="true" />
+    <aura:attribute name="confirm" type="Boolean" default="false" />
+    <aura:attribute name="participant" type="participante_sales__c" />
+    <aura:attribute name="textMessage" type="String" default="Esta por activar este participante para la oportunidad, presione confirmar para activarlo." />
+    <aura:attribute name="buttonControl" type="Boolean" default="false" />
+    <aura:attribute name="motiveList" type="String[]"  default=""/>
+    <aura:attribute name="motiveValue" type="String"  default=""/>
+    <aura:attribute name="showMotive" type="Boolean" default="true" />
+    
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        overflow-y:hidden !important;
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="modal-header slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+    </div>
+    
+    <div class="slds-modal__content slds-p-around_x-large slds-is-relative minHeight" id="modal-content">
+        <aura:if isTrue="{!v.loading}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="large" />
+            </div>
+            <aura:set attribute="else">
+                {!v.textMessage}
+                <aura:if isTrue="{!v.showMotive}">
+                    <lightning:select aura:id="motivo" value = "{!v.motiveValue}" onchange="{!c.onChange}" required="true">
+                        <option value="">Indicar un motivo</option>
+                        <aura:iteration items="{!v.motiveList}" var="item1" >    
+                            <option value="{!item1}">{!item1}</option>                            
+                        </aura:iteration>
+                    </lightning:select>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{!v.confirm}">
+        
+    </aura:if>
+    <div class="modal-footer slds-modal__footer">
+        
+        <aura:if isTrue="{!v.buttonControl}">
+            <lightning:button  variant="brand" label="Confirmar" title="Brand action" onclick="{! c.deactivePart}" />
+            <lightning:button variant="Neutral" label="Cancelar" title="Base action" onclick="{! c.closeModal }"/>
+        </aura:if>
+        <aura:if isTrue="{!!v.buttonControl}">
+            <lightning:button variant="Neutral" label="Cerrar" title="Base action" onclick="{! c.closeModal }"/>
+        </aura:if>
+    </div>
+    
+    
+</aura:component>

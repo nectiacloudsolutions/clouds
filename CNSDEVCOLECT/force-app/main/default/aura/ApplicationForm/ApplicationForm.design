@@ -1,0 +1,3 @@
+<design:component>
+	<design:attribute name="pageLayout" label="Page Layout" description="Page Layout of object" />
+</design:component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>Share_ofertas</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Regla que comparte las ofertas</description>
+        <label>Share ofertas</label>
+        <sharedTo>
+            <roleAndSubordinates>Jefe_Contact_Center</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <role>Consorcio</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

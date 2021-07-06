@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Auto</fullName>
+    <columns>SETUP_OWNER_NAME</columns>
+    <columns>Auto_sales__c</columns>
+    <columns>Cambiar_Propietario_sales__c</columns>
+    <columns>Referir_sales__c</columns>
+    <columns>Sales_project__c</columns>
+    <columns>Sincronizar_sales__c</columns>
+    <columns>Validation_rules__c</columns>
+    <columns>Etapa_Evaluacion_sales__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>Auto</label>
+</ListView>

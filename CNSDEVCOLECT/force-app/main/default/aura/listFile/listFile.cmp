@@ -1,0 +1,70 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" controller="ListFileController" access="global" >
+    <!--Declare Attributes-->
+    <aura:attribute name="showSpinner" type="boolean" default="false"/>
+    <aura:attribute name="files" type="object" />
+    <aura:attribute name="recordId" type="String" />
+    
+    <!--ATRIBUTOS PDF-->
+    <aura:attribute name="pdfData" type="String"/>
+    <aura:attribute name="pdfContainer" type="Aura.Component[]"/>
+    <aura:attribute name="isOpenPdf" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:refreshView" action="{!c.doInit}"/>
+    
+    <!--Component Start-->
+    
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Favor esperar..." title="Favor esperar..." variant="brand" size="large"/>
+    </aura:if>    
+    
+    
+    <aura:if isTrue="{!v.isOpenPdf}">
+        <!--###### MODAL BOX ######-->
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                 aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open slds-modal_large">
+            <div class="slds-modal__container">
+                {!v.pdfContainer}
+                <footer class="slds-modal__footer">
+                    <lightning:button variant="neutral" label="Cerrar" title="Cerrar" onclick="{! c.closeModel }" />
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+    <div class="slds-card">
+        
+        <lightning:accordion allowMultipleSectionsOpen="true">
+            <lightning:accordionSection name="A" label="Documentos">
+                <div class="slds-form">
+                    <table class="slds-table slds-table--bordered">  
+                        <!-- hide the table header if file is empty -->
+                        <aura:if isTrue="{!not(empty(v.files))}">
+                            <thead>  
+                                <tr>  
+                                    <th>Acción</th>  
+                                    <th>Repositorio</th>
+                                    <th>Fecha Documento</th>
+                                </tr>  
+                            </thead>  
+                        </aura:if>
+                        <tbody>
+                            <aura:iteration items="{!v.files}" var="f">  
+                                <tr>  
+                                    <td>
+                                        <a href="javascript:void(0)" id="{!f.idRepo}" data-prod="{!f.origen}" onclick="{!c.previewFile}" value="{!f.origen}">
+                                            Ver Documento
+                                        </a>
+                                    </td>  
+                                    <td>{!f.origen}</td>
+                                    <td>{!f.fecha}</td>
+                                </tr>  
+                            </aura:iteration>  
+                        </tbody>  
+                    </table>  
+                </div>
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </div>
+</aura:component>

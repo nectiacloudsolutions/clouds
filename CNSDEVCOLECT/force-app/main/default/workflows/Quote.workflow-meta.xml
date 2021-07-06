@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldUpdates>
+        <fullName>Actualizar_Quote_Lectura</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Sales_Seguros_Auto_Lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Actualizar Quote Lectura</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Estado_Abierto</fullName>
+        <field>Status</field>
+        <literalValue>Abierto</literalValue>
+        <name>Estado Abierto</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Quote_Cerrada</fullName>
+        <field>Status</field>
+        <literalValue>Cerrado</literalValue>
+        <name>Quote Cerrada</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Quote_Lectura</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Sales_Seguros_Hogar_Lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Quote Lectura</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Quote_Lectura_Hogar</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Sales_Seguros_Hogar_Lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Quote Lectura Hogar</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Sales Activar Estado Abierto Quote</fullName>
+        <actions>
+            <name>Estado_Abierto</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Quote.Status</field>
+            <operation>notEqual</operation>
+            <value>Abierto</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Seguros Hogar Lectura</fullName>
+        <actions>
+            <name>Actualizar_Quote_Lectura</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Quote_Cerrada</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Quote.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Seguros Auto Lectura</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Seguros Auto Lectura</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <description>Workflow rule que cambia a estado de lectura el Presupuesto cuando la Oportunidad es cerrada.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+</Workflow>

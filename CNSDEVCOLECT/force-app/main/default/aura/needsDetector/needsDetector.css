@@ -1,0 +1,43 @@
+.THIS {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Create three unequal columns that floats next to each other */
+.THIS .column {
+  float: left;
+  padding: 10px;
+  height: 100px; /* Should be removed. Only for demonstration */
+}
+
+.THIS .left {
+  width: 10%;
+}
+ .THIS .right {
+  width: 45%;
+}
+
+.THIS .middle {
+  width: 45%;
+}
+
+/* Clear floats after the columns */
+.THIS.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.THIS slds-form-element__icon{
+    padding-top: 0px !important;
+}
+
+.THIS.scrollerSize {
+    height: 100%;
+    width: 100%;
+    border-radius: 1px;
+}
+
+.THIS .innerDivWrapper {
+    min-height: 101%;
+    padding-bottom: 20px;
+}

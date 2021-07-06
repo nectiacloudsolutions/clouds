@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Banco - Asistente Comercial Bca. Empresa</name>
+    <queueMembers>
+        <users>
+            <user>csepulveda@bancoconsorcio.cl</user>
+            <user>ccorrea@bancoconsorcio.cl</user>
+            <user>fserrano@bancoconsorcio.cl</user>
+            <user>jpinochet@bancoconsorcio.cl</user>
+            <user>ptello@bancoconsorcio.cl</user>
+            <user>lmatamala@bancoconsorcio.cl</user>
+            <user>mleal@bancoconsorcio.cl</user>
+            <user>mibarra@bancoconsorcio.cl</user>
+            <user>nacosta@bancoconsorcio.cl</user>
+            <user>rlara@bancoconsorcio.cl</user>
+            <user>rmeza@bancoconsorcio.cl</user>
+            <user>ydinamarca@bancoconsorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

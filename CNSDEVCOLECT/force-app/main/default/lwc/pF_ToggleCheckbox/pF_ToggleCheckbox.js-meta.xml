@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage">
+            <property label="Ingrese FieldApiname. Ej: objecto.field" name="fieldApiName" type="String" required="true" description=""/>
+            <property label="Ingrese Label del campo" name="fieldLabel" type="String" required="true" description="Nombre de etiqueta visible en el formumario"/>
+            <property label="Ingrese Label ON" name="checkOnLabel" type="String" required="false" description="Mensaje de valor ON en componente"/>
+            <property label="Ingrese Label OFF" name="checkOffLabel" type="String" required="false" description="Mensaje de valor OFF en componente"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

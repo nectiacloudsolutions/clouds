@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Etapa_Recopilacion_sales__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo creado por everis para controlar los perfiles que pueden avanzar a la etapa Recopilación en la Oportunidad de Banca Hipotecario.</description>
+    <externalId>false</externalId>
+    <label>Etapa Recopilación</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sincronizar_sales__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Valida si el perfil puede sincronizar el presupuesto por producto.</description>
+    <externalId>false</externalId>
+    <label>Sincronizar</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

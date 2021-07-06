@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Formato_compacto_Producto_del_Cliente_Seguros</fullName>
+    <fields>Familia_del__c</fields>
+    <fields>L_nea__c</fields>
+    <fields>Estado_Nectia__c</fields>
+    <fields>Poliza_Nectia__c</fields>
+    <label>Formato compacto Producto del Cliente Seguros</label>
+</CompactLayout>

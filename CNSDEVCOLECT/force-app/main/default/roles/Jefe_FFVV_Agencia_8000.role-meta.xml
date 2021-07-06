@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Jefe FFVV Agencia 8000</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Jefe FFVV Agencia 8000</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Gerente_FFVV_Zonas_Centrales</parentRole>
+</Role>

@@ -1,0 +1,60 @@
+<apex:page id="pagina2" standardController="Account"  sidebar="true"  lightningStylesheets="true" showHeader="true" extensions="CONS_Visualizar_Multiconsulta">
+     <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/36.0/apex.js"/>  
+    <apex:includeScript value="/support/console/44.0/integration.js"/>
+ <script type="text/javascript">
+    
+    urllink();
+    init();
+    function urllink() {
+        var url="{!url}";
+       
+       // window.open(url,'myPopup','resizable=yes,height=500,menubar=no,status=yes,titlebar=no,toolbar=no,top=30,width=500');
+        window.open(url, '_blank');
+    }
+    
+    function init()
+    {   
+        
+        setTimeout(function() {                
+            
+            try {
+                
+                var btnJsActivado = document.getElementById('pagina2:from2:pgBlk:pgbloks:pgBlkSecItem:cmbnn');
+                btnJsActivado.click();
+                
+                
+            } catch(e) {
+            }
+        }, 1000);
+        
+    }  
+    </script>
+    <script type="text/javascript">
+    //Close tab in Console    
+    var callCloseTab = function callCloseTab(result) {
+        sforce.console.closeTab(result.id);
+    }        
+    function closeTab() {
+        sforce.console.getEnclosingTabId(callCloseTab);
+    }
+    
+    </script>  
+     <apex:pageBlock id="pagina2" rendered="true">
+       <!--  <iframe width='100%'  style='margin: -8px;border: none;' height='900px' src=" https://aplicacionesqa.cnsv.cl/ConsultasPolizas/loginCRM.asp?sCertype=2&nBranch=1&nProduct=650&nPolicy=11514904&nCertif=0&sAplicacion=MULCONCCV"  ></iframe>
+        <iframe width='100%'  style='margin: -8px;border: none;' height='900px' src="{!url}"  ></iframe>-->
+            
+    </apex:pageBlock>
+    <apex:form id="from2"  style="display:none" >
+        <apex:pageBlock id="pgBlk">
+            <apex:pageBlockSection id="pgbloks">
+                <apex:pageBlockSectionItem id="pgBlkSecItem">
+                    <apex:commandButton id="cmbnn" onclick="closeTab();return false" value="volver"/>                            
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>                
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

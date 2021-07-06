@@ -1,0 +1,29 @@
+<apex:page lightningStylesheets="true" tabStyle="Case" standardController="Producto_del_Cliente__c" recordSetVar="{!Producto_del_Cliente__c}" extensions="CONS_Nuevo_Caso_Producto_Controller">
+  
+    <apex:form >
+  <apex:pageBlock >
+  <apex:pageBlockSection title="Datos del Cliente y producto" columns="2" collapsible="false">
+      <apex:outputField value="{!Producto_del_Cliente__c.Cliente_Nectia__c}"/>
+      <apex:outputField value="{!Producto_del_Cliente__c.Name}"/>
+      <apex:inputField value="{!nuevoCaso.ContactId}"/>
+  </apex:pageBlockSection>
+  <apex:pageBlockSection title="Ingreso de datos" columns="2" collapsible="false">
+      <apex:inputField value="{!nuevoCaso.Valores_Nectia__c}"/>
+      <apex:inputField value="{!nuevoCaso.Subject}"/>
+      <apex:inputField value="{!nuevoCaso.Type}"/>
+      <apex:inputField value="{!nuevoCaso.Description}"/>
+      
+      <apex:inputField value="{!nuevoCaso.Subtipo__c}"/>
+      <apex:inputField value="{!nuevoCaso.Priority}"/>
+      <apex:inputField value="{!nuevoCaso.Motivo__c}"/>
+      <apex:inputField value="{!nuevoCaso.Origin}"/>
+      
+  </apex:pageBlockSection>
+  <apex:pageBlockButtons location="bottom">
+      <apex:commandButton value="Guardar y cerrar caso" action="{!saveAndClose}"/>
+      <apex:commandButton value="Guardar y ver" action="{!saveAndSee}"/>
+      <apex:commandButton value="Cancelar" action="{!cerrar}"/> 
+  </apex:pageBlockButtons>
+  </apex:pageBlock>
+  </apex:form>
+</apex:page>

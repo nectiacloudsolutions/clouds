@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Case</entityName>
+    <fieldName>Status</fieldName>
+    <masterLabel>Caso Retencion</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;En primer lugar, validar si el cliente es apto o no:&lt;/p&gt;&lt;p&gt;Si cliente no es apto, se cierra el caso en Salesforce con subestado “No apto”&lt;/p&gt;&lt;p&gt;Si cliente es apto, se debe contactar al cliente para dar inicio a las acciones de retención, se debe enviar la simulación y agregar el estado de la gestión. &lt;/p&gt;&lt;p&gt;En paralelo debemos crear oportunidades en Salesforce de forma manual y registrar el “N° de caso en la oportunidad” para tener trazabilidad.&lt;/p&gt;&lt;p&gt;Si el cliente está interesado en la simulación por la totalidad o parcial de los productos se deberá marcar la etapa como completada y pasar al siguiente paso “En evaluación”.&lt;/p&gt;&lt;p&gt;Si no muestra interés por la simulación de uno de los productos, se debe contactar nuevamente al cliente para que le pareció nuestra oferta, si ven espacios de mejora proceder con la generación de una nueva simulación o aún mejores condiciones. Si finalmente el cliente no acepta, se debe cerrar el caso y las oportunidades perdidas.&lt;/p&gt;</info>
+        <picklistValueName>En proceso</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;Dependiendo del producto se evalúa en las diferentes plataformas (evalvin o evalhipo) &lt;/p&gt;&lt;p&gt;Una vez aprobada la solicitud se debe marcar en el caso Salesforce el producto de portabilidad correspondiente, ingresar la resolución del caso (cliente retenido) y el ticket parcial o total y se cierra.&lt;/p&gt;&lt;p&gt;Se contacta a cliente para la firma y curse. Si ve espacios de nuevas oportunidades, deberá levantarlas como también aprovechar de solicitar referidos.&lt;/p&gt;</info>
+        <picklistValueName>Evaluación</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Caso_Portabilidad_Salida</recordTypeName>
+</PathAssistant>

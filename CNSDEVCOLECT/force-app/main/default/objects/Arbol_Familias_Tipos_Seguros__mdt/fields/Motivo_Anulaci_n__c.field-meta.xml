@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Motivo_Anulaci_n__c</fullName>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <label>Motivo Anulación</label>
+    <required>false</required>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Anulación a pedido del cliente</fullName>
+                <default>true</default>
+                <label>Anulación a pedido del cliente</label>
+            </value>
+            <value>
+                <fullName>Motivos Economicos</fullName>
+                <default>false</default>
+                <label>Motivos Economicos</label>
+            </value>
+            <value>
+                <fullName>Mejor condición otra C.I.A.</fullName>
+                <default>false</default>
+                <label>Mejor condición otra C.I.A.</label>
+            </value>
+            <value>
+                <fullName>Venta de la materia asegurada</fullName>
+                <default>false</default>
+                <label>Venta de la materia asegurada</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

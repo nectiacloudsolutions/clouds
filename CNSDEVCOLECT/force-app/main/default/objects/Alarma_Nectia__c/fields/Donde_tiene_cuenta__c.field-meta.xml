@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Donde_tiene_cuenta__c</fullName>
+    <externalId>false</externalId>
+    <label>Donde tiene cuenta</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Banco BBVA</fullName>
+                <default>false</default>
+                <label>Banco BBVA</label>
+            </value>
+            <value>
+                <fullName>Banco BCI</fullName>
+                <default>false</default>
+                <label>Banco BCI</label>
+            </value>
+            <value>
+                <fullName>Banco Bice</fullName>
+                <default>false</default>
+                <label>Banco Bice</label>
+            </value>
+            <value>
+                <fullName>Banco BTG Pactual Chile</fullName>
+                <default>false</default>
+                <label>Banco BTG Pactual Chile</label>
+            </value>
+            <value>
+                <fullName>Banco Chile</fullName>
+                <default>false</default>
+                <label>Banco Chile</label>
+            </value>
+            <value>
+                <fullName>Banco Estado</fullName>
+                <default>false</default>
+                <label>Banco Estado</label>
+            </value>
+            <value>
+                <fullName>Banco Falabella</fullName>
+                <default>false</default>
+                <label>Banco Falabella</label>
+            </value>
+            <value>
+                <fullName>Banco HSBC Bank</fullName>
+                <default>false</default>
+                <label>Banco HSBC Bank</label>
+            </value>
+            <value>
+                <fullName>Banco Internacional</fullName>
+                <default>false</default>
+                <label>Banco Internacional</label>
+            </value>
+            <value>
+                <fullName>Banco Itau</fullName>
+                <default>false</default>
+                <label>Banco Itau</label>
+            </value>
+            <value>
+                <fullName>Banco Ripley</fullName>
+                <default>false</default>
+                <label>Banco Ripley</label>
+            </value>
+            <value>
+                <fullName>Banco Santander</fullName>
+                <default>false</default>
+                <label>Banco Santander</label>
+            </value>
+            <value>
+                <fullName>Banco Scotiabank</fullName>
+                <default>false</default>
+                <label>Banco Scotiabank</label>
+            </value>
+            <value>
+                <fullName>Banco Security</fullName>
+                <default>false</default>
+                <label>Banco Security</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,21 @@
+.THIS .slds-file-selector__dropzone{ /*the border around*/
+    border: none;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__text{ /*the right label (or drop file)*/
+    display: none;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button .slds-button__icon{ /*For the icon*/
+    /*display: none;*/
+    margin: 0 auto;
+}
+.THIS .slds-file-selector__dropzone .slds-file-selector__button{ /**/
+    font-size: 0;
+    
+}
+.THIS .slds-form-element .slds-form-element__label{ /*the label above*/
+    display: none;
+}
+.THIS .iconCNS{
+     color:#003DA5;
+     width: 50px;
+ }

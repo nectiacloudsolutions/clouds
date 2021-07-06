@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Seguros -  Res Imputación de Prima</name>
+    <queueMembers>
+        <users>
+            <user>externo.partner3222@consorcio.cl</user>
+            <user>mariajose.diaz.j@consorcio.cl</user>
+            <user>marjorie.orellana@consorcio.cl</user>
+            <user>nicolas.guzman1@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <alerts>
+        <fullName>PF_Alerta_Asignaci_n_de_Owner_Oppty</fullName>
+        <description>PF Alerta Asignación de Owner Oppty</description>
+        <protected>false</protected>
+        <recipients>
+            <field>PF_Nombre_Ejecutivo_Referidor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantillas_Portabilidad_Financiera/asignacion_de_solicitud_portabilidad_oppty</template>
+    </alerts>
+    <alerts>
+        <fullName>PF_Cambio_Etapa_Oppty</fullName>
+        <description>PF Cambio Etapa Oppty</description>
+        <protected>false</protected>
+        <recipients>
+            <field>PF_Nombre_Ejecutivo_Referidor__c</field>
+            <type>userLookup</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantillas_Portabilidad_Financiera/Actualizacion_oppty_etapa</template>
+    </alerts>
+    <alerts>
+        <fullName>Sales_Cierre_Ganada_Opp</fullName>
+        <description>Sales Cierre Ganada Opp</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderAddress>consorcio.informa@consorcio.cl</senderAddress>
+        <senderType>OrgWideEmailAddress</senderType>
+        <template>Plantillas_Seguros/Sales_OPP_Cierre_Ganada</template>
+    </alerts>
+    <alerts>
+        <fullName>email_aprobacion_sales</fullName>
+        <description>Email de aprobación</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Correos_automatizados/sales_aprobacion_solicitud_aprobacion_oportunidad_perdida</template>
+    </alerts>
+    <alerts>
+        <fullName>email_rechazo_oportunidad_perdida_sales</fullName>
+        <description>Email de rechazo oportunidad perdida</description>
+        <protected>false</protected>
+        <recipients>
+            <type>owner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>Correos_automatizados/sales_rechazo_solicitud_aprobacion_oportunidad_perdida</template>
+    </alerts>
+    <fieldUpdates>
+        <fullName>Actualiza_Checkbox_opp_perdida</fullName>
+        <field>oportunidad_perdida_aprobada_sales__c</field>
+        <literalValue>Aprobado</literalValue>
+        <name>Actualiza Checkbox opp perdida</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Actualiza_fecha_de_cierre</fullName>
+        <description>Field Update para actualizar la fecha de cierre de la oportunidad perdida</description>
+        <field>CloseDate</field>
+        <formula>TODAY()</formula>
+        <name>Actualiza fecha de cierre</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Actualizar_Estado_Oportunidad_Perdida</fullName>
+        <field>estado_antes_de_perdida_sales__c</field>
+        <formula>TEXT(PRIORVALUE(StageName ) )</formula>
+        <name>Actualizar Estado Oportunidad Perdida</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Actualizar_Estado_Opp_Perdida</fullName>
+        <field>estado_oportunidad_perdida_sales__c</field>
+        <formula>TEXT(PRIORVALUE(StageName ) )</formula>
+        <name>Actualizar Estado Opp Perdida</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>FU_Record_Type_Lectura_CC</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>sales_credito_consumo_lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>FU Record Type Lectura CC</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Plan_Plus_Nombre</fullName>
+        <field>Name</field>
+        <formula>(
+TEXT(YEAR(fecha_creacion_sales__c)) + &apos;/&apos; +
+TEXT(MONTH(fecha_creacion_sales__c)) + &apos;/&apos; +
+&quot;Plan Plus&quot; + &apos;/&apos; +
+Account.FirstName + &quot; &quot; + Account.LastName
+)</formula>
+        <name>Sales Plan Plus Nombre</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Seguros_Auto_Cambiar_Lectura</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Sales_Seguros_Auto_Lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Sales Seguros Auto Cambiar Lectura</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Seguros_Hogar_cambiar_Lectura</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Sales_Seguros_Hogar_Lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Sales Seguros Hogar cambiar Lectura</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Update_Close_Date_Opp</fullName>
+        <description>Actualiza campo fecha de cierre al día en que se ejecuta el paso de una oportunidad a cierre ganada o perdida.</description>
+        <field>CloseDate</field>
+        <formula>TODAY()</formula>
+        <name>Sales Update Close Date Opp</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Sales_Update_RT_PP</fullName>
+        <description>Acción que cambia el record type de las oportunidades de plan plus a sólo lectura cuando éstas pasan a cierre.</description>
+        <field>RecordTypeId</field>
+        <lookupValue>plan_plus_lectura_sales</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Sales Update RT PP</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>actualiza_check_opp_per_sales</fullName>
+        <field>oportunidad_perdida_aprobada_sales__c</field>
+        <literalValue>Aprobado</literalValue>
+        <name>Actualiza Checkbox opp perdida</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>actualiza_cierre_perdida_sales</fullName>
+        <field>StageName</field>
+        <literalValue>Cierre Perdida</literalValue>
+        <name>Actualiza cierre perdida</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_actualiza_Flag_eva_sim_sales</fullName>
+        <field>flag_banca_eva_sim_sales__c</field>
+        <literalValue>0</literalValue>
+        <name>Sales Actualiza Flag eva_sim</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_approval_check</fullName>
+        <field>Aprobacion_Riesgo_sales__c</field>
+        <literalValue>Aprobado</literalValue>
+        <name>sales_approval_check</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_banca_actualiza_etapa_eva_sales</fullName>
+        <field>Aprobacion_Riesgo_sales__c</field>
+        <literalValue>En Proceso</literalValue>
+        <name>Sales Banca Actualiza Etapa Eval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_banca_actualiza_etapa_sales</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>sales_banca_hipotecario_lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Sales_Banca_Actualiza_Etapa</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_banca_actualiza_record_Type</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>sales_banca_hipotecario_lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Sales Banca Actualiza Record Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_banca_cambia_nombre</fullName>
+        <description>Actualiza campo Nombre de Oportunidad</description>
+        <field>Name</field>
+        <formula>(
+TEXT(YEAR(fecha_creacion_sales__c))  + &apos;/&apos; +
+TEXT(MONTH(fecha_creacion_sales__c)) + &apos;/&apos; +
+ &quot;Crédito Hipotecario&quot;  + &apos;/&apos; +
+ Account.FirstName + &quot; &quot; + Account.LastName
+)</formula>
+        <name>Sales_Banca_Cambia_Nombre</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_banca_update_flag_sales</fullName>
+        <field>flag_banca_eva_sim_sales__c</field>
+        <literalValue>1</literalValue>
+        <name>Sales Banca Update Flag</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>sales_seguros_actualiza_record_type</fullName>
+        <field>RecordTypeId</field>
+        <lookupValue>Sales_Opp_Seguro_Vida_Solo_Lectura</lookupValue>
+        <lookupValueType>RecordType</lookupValueType>
+        <name>Sales Seguros Actualiza Record Type</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>LookupValue</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Estado Opp Cerrada</fullName>
+        <actions>
+            <name>Actualizar_Estado_Opp_Perdida</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Actualiza Flag Eva Sim</fullName>
+        <actions>
+            <name>sales_actualiza_Flag_eva_sim_sales</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>sales_banca_actualiza_etapa_eva_sales</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( RecordType.DeveloperName = &quot;sales_banca_hipotecario&quot;, ISCHANGED(StageName), ISPICKVAL(StageName,&quot;Evaluación&quot;), ISPICKVAL(PRIORVALUE(StageName),&quot;Visado&quot;), flag_banca_eva_sim_sales__c = true )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Banca Layout Lectura Consumo</fullName>
+        <actions>
+            <name>FU_Record_Type_Lectura_CC</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Crédito Consumo</value>
+        </criteriaItems>
+        <description>Regla para cambiar el rt de las opp de consumo a solo lectura cuando se cierran.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Banca Plan Plus Nombre</fullName>
+        <actions>
+            <name>Sales_Plan_Plus_Nombre</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Plan Plus</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Banca Rechazo Riesgo</fullName>
+        <actions>
+            <name>sales_banca_update_flag_sales</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND( RecordType.DeveloperName = &quot;sales_banca_hipotecario&quot;, ISCHANGED(StageName), ISPICKVAL(StageName,&quot;Simulación&quot;), ISPICKVAL(PRIORVALUE(StageName),&quot;Evaluación&quot;), NOT( ISPICKVAL(Aprobacion_Riesgo_sales__c,&apos;Aprobado&apos;)), flag_banca_eva_sim_sales__c = false )</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Estado Oportunidad Perdida</fullName>
+        <actions>
+            <name>Actualiza_fecha_de_cierre</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Actualizar_Estado_Oportunidad_Perdida</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <description>Workflow Rule para poblar campo Estado antes de perdida.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Fecha Cierre Opp</fullName>
+        <actions>
+            <name>Sales_Update_Close_Date_Opp</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada,Cierre Perdida</value>
+        </criteriaItems>
+        <description>Flujo que cambia la fecha de cierre de una oportunidad al día en que ésta pasa a cierre ganada o perdida.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales OPP Cierre Ganada Auto</fullName>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada,Cierre Perdida</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Seguros Auto Lectura</fullName>
+        <actions>
+            <name>Sales_Seguros_Auto_Cambiar_Lectura</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Seguros Auto</value>
+        </criteriaItems>
+        <description>Workflow Rule que cambia el Record Type de Oportunidad Seguros Auto a Lectura cuando la etapas son Cierre Ganada o Cierre Perdida.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales Seguros Hogar Lectura</fullName>
+        <actions>
+            <name>Sales_Seguros_Hogar_cambiar_Lectura</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Seguros Hogar</value>
+        </criteriaItems>
+        <description>Workflow Rule que cambia el Record Type de Oportunidad Seguros Hogar a Lectura cuando la etapas son Cierre Ganada o Cierre Perdida.</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales banca layout PP lectura</fullName>
+        <actions>
+            <name>Sales_Update_RT_PP</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Plan Plus</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales banca layout lectura</fullName>
+        <actions>
+            <name>sales_banca_actualiza_record_Type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Banca Hipotecario</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales seguros layout lectura</fullName>
+        <actions>
+            <name>sales_seguros_actualiza_record_type</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Ganada</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.StageName</field>
+            <operation>equals</operation>
+            <value>Cierre Perdida</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Opp Seguro Vida</value>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Sales_Banca_Actualiza_Campos</fullName>
+        <actions>
+            <name>sales_banca_cambia_nombre</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Opportunity.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Sales Banca Hipotecario</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+</Workflow>

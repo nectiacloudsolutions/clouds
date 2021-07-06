@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Antofagasta</fullName>
+        <default>false</default>
+        <label>Antofagasta</label>
+    </customValue>
+    <customValue>
+        <fullName>Temuco</fullName>
+        <default>false</default>
+        <label>Temuco</label>
+    </customValue>
+    <customValue>
+        <fullName>Arica</fullName>
+        <default>false</default>
+        <label>Arica</label>
+    </customValue>
+    <customValue>
+        <fullName>Iquique</fullName>
+        <default>false</default>
+        <label>Iquique</label>
+    </customValue>
+    <customValue>
+        <fullName>Calama</fullName>
+        <default>false</default>
+        <label>Calama</label>
+    </customValue>
+    <customValue>
+        <fullName>Copiapó</fullName>
+        <default>false</default>
+        <label>Copiapó</label>
+    </customValue>
+    <customValue>
+        <fullName>La Serena</fullName>
+        <default>false</default>
+        <label>La Serena</label>
+    </customValue>
+    <customValue>
+        <fullName>Los Andes</fullName>
+        <default>false</default>
+        <label>Los Andes</label>
+    </customValue>
+    <customValue>
+        <fullName>Viña Del Mar</fullName>
+        <default>false</default>
+        <label>Viña Del Mar</label>
+    </customValue>
+    <customValue>
+        <fullName>Rancagua</fullName>
+        <default>false</default>
+        <label>Rancagua</label>
+    </customValue>
+    <customValue>
+        <fullName>San Fernando</fullName>
+        <default>false</default>
+        <label>San Fernando</label>
+    </customValue>
+    <customValue>
+        <fullName>Curicó</fullName>
+        <default>false</default>
+        <label>Curicó</label>
+    </customValue>
+    <customValue>
+        <fullName>Talca</fullName>
+        <default>false</default>
+        <label>Talca</label>
+    </customValue>
+    <customValue>
+        <fullName>Linares</fullName>
+        <default>false</default>
+        <label>Linares</label>
+    </customValue>
+    <customValue>
+        <fullName>Chillan</fullName>
+        <default>false</default>
+        <label>Chillan</label>
+    </customValue>
+    <customValue>
+        <fullName>Los Angeles</fullName>
+        <default>false</default>
+        <label>Los Angeles</label>
+    </customValue>
+    <customValue>
+        <fullName>Concepción</fullName>
+        <default>false</default>
+        <label>Concepción</label>
+    </customValue>
+    <customValue>
+        <fullName>Valdivia</fullName>
+        <default>false</default>
+        <label>Valdivia</label>
+    </customValue>
+    <customValue>
+        <fullName>Osorno</fullName>
+        <default>false</default>
+        <label>Osorno</label>
+    </customValue>
+    <customValue>
+        <fullName>Puerto Montt</fullName>
+        <default>false</default>
+        <label>Puerto Montt</label>
+    </customValue>
+    <customValue>
+        <fullName>Punta Arenas</fullName>
+        <default>false</default>
+        <label>Punta Arenas</label>
+    </customValue>
+    <customValue>
+        <fullName>El Bosque II</fullName>
+        <default>false</default>
+        <label>El Bosque II</label>
+    </customValue>
+    <customValue>
+        <fullName>Casa Matriz (El Bosque)</fullName>
+        <default>true</default>
+        <label>Casa Matriz (El Bosque)</label>
+    </customValue>
+    <customValue>
+        <fullName>Apoquindo</fullName>
+        <default>false</default>
+        <label>Apoquindo</label>
+    </customValue>
+    <customValue>
+        <fullName>Maipú</fullName>
+        <default>false</default>
+        <label>Maipú</label>
+    </customValue>
+    <customValue>
+        <fullName>Puente Alto</fullName>
+        <default>false</default>
+        <label>Puente Alto</label>
+    </customValue>
+    <customValue>
+        <fullName>Agustinas</fullName>
+        <default>false</default>
+        <label>Agustinas</label>
+    </customValue>
+    <customValue>
+        <fullName>Mac Iver</fullName>
+        <default>false</default>
+        <label>Mac Iver</label>
+    </customValue>
+    <masterLabel>Sucursal</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

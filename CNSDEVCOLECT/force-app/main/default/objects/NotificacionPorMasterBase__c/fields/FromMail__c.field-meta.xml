@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FromMail__c</fullName>
+    <description>Registra el mail de remitente. El valor definido es: consorio.informa@consorcio.cl</description>
+    <externalId>false</externalId>
+    <label>From Mail</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

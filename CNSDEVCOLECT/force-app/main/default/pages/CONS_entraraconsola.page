@@ -1,0 +1,15 @@
+<apex:page standardController="account" extensions="CONS_entraraconsola">
+
+    <apex:includeScript value="/support/console/44.0/integration.js"/>
+    <script type="text/javascript">
+        function testSetCustomConsoleComponentButtonIconUrl() {
+            var idventana='{!id}';
+            if(idventana!=null && idventana!=''){
+              window.location = 'https://na78.salesforce.com/console?tsid=02u4F0000008ZdF#%2F{!id}';
+                }else{
+               window.location = 'https://na78.salesforce.com/console?tsid=02u4F0000008ZdF#%2F001/e?retURL=%2F001%2Fo&RecordType=0121N000000oBig&ent=Account';       
+                    }
+        }
+    testSetCustomConsoleComponentButtonIconUrl();
+    </script>
+</apex:page>

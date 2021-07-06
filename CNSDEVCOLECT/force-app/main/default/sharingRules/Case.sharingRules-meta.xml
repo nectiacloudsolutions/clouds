@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Casos_CCB_Operaciones</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Casos CCB Operaciones</label>
+        <sharedTo>
+            <roleAndSubordinates>Operaciones_Financieras_Corredora</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Corredora</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Casos_CCB_Tesorer_a</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Casos CCB Tesorería</label>
+        <sharedTo>
+            <roleAndSubordinates>Tesoreria_Corredora</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Corredora</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Casos_Portabilidad</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para visibilidad para Ejecutivos de FFVV sobre casos de portabilidad.</description>
+        <label>Casos Portabilidad</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Corporativos_1_2_3</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Portabilidad Entrada</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Casos_Portabilidad_Z_Centrales_y_Extremas</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para visibilidad para Ejecutivos de FFVV sobre casos de portabilidad.</description>
+        <label>Casos Portabilidad Z.Centrales y Extremas</label>
+        <sharedTo>
+            <group>Usuarios_FFVV_Zonas_Centrales_Extremas</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Portabilidad Entrada</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Colabora_Ejecutivo_Banco</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Colabora Ejecutivo Banco</label>
+        <sharedTo>
+            <role>Ejecutivo_Servicio_al_cliente_Banco</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Banco</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingGuestRules>
+        <fullName>Encuestasurvey</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Encuestasurvey</label>
+        <sharedTo>
+            <guestUser>EncuestasSurvey</guestUser>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Corredora,Modificación de póliza,Seguros - Reclamo - Generales,Casos Banco,Seguros - Consulta - Renta,Seguros - Reclamo,Seguros - Consulta - Vida,Casos Estandar,Seguros - Consulta - Generales,Seguros - Consulta,Casos Seguros</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Seguros - Solicitud - Vida,Seguros - Solicitud,Seguros - Solicitud - Generales,Requerimiento Interno,Seguros - Reclamo - Renta,Seguros - Solicitud - Renta,Seguros - Reclamo - Vida,Caso Banco Visado</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+    <sharingGuestRules>
+        <fullName>Survey_Collaboration</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Colaboración para servicio de Encuestas CCB</description>
+        <label>Survey Collaboration</label>
+        <sharedTo>
+            <guestUser>Encuestasdeservicio</guestUser>
+        </sharedTo>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Casos Corredora,Modificación de póliza,Seguros - Reclamo - Generales,Casos Banco,Seguros - Consulta - Renta,Seguros - Reclamo,Seguros - Consulta - Vida,Casos Estandar,Seguros - Consulta - Generales,Seguros - Consulta,Casos Seguros</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Seguros - Solicitud - Vida,Seguros - Solicitud,Seguros - Solicitud - Generales,Requerimiento Interno,Seguros - Reclamo - Renta,Seguros - Solicitud - Renta,Seguros - Reclamo - Vida,Caso Banco Visado</value>
+        </criteriaItems>
+        <includeHVUOwnedRecords>false</includeHVUOwnedRecords>
+    </sharingGuestRules>
+</SharingRules>

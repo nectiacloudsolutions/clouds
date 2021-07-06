@@ -1,0 +1,64 @@
+<apex:page id="pagina" controller="CONS_Via_Pago"  action="{!cambioviapago}">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+    <apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+    <apex:includeScript value="/soap/ajax/36.0/apex.js"/>
+    <script type='text/javascript'>
+    $j = jQuery.noConflict();
+    $j(document).ready(function($) {
+        $("#Verificame").click();          
+    });
+    
+    function init()
+    {   
+        var flag = '{!idcas}';
+        
+        setTimeout(function() {                
+            
+            try {
+                
+                var btnJsActivado = document.getElementById('pagina:from2:pgBlk:pgbloks:pgBlkSecItem:btnDemoaa');
+                btnJsActivado.click();
+                //  window.location.href = '{!urlSF}'+flag;
+                
+            } catch(e) {
+            }
+        }, 5000);
+        
+    }
+    </script>
+    <html>
+        <body>
+            <center>
+                <span id="mensajeAMostrar"></span> <img src="/img/social/loading32.gif" />
+                <p>Procesando transaccion... </p>
+                <div id="mostrar">
+                    
+                </div>
+            </center>  
+            <apex:form id="from2" style="display:none">
+                <apex:pageBlock id="pgBlk">
+                    <apex:pageBlockSection id="pgbloks">
+                        <apex:pageBlockSectionItem id="pgBlkSecItem">
+                            <apex:commandButton id="btnDemoaa"  action="{!continuar}" onmouseover="init1()" onClick="init()"  value="1234553" />
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>                
+                </apex:pageBlock>
+            </apex:form>
+            <form name="Form1" style="display:none" >
+                <table align="center" border="0">
+                    <tr>
+                        <td>
+                            <p>
+                                
+                                <input type='button' id='Verificame' value='Verificame' onmouseover='init1()' onClick='init()' />                               
+                                
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </body>
+    </html>
+</apex:page>

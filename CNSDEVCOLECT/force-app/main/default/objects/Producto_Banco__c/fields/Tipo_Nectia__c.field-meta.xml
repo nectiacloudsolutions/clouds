@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Tipo_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Tipo</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <controllingField>Banca_Nectia__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Boleta De Garantia</fullName>
+                <default>false</default>
+                <label>Boleta De Garantia</label>
+            </value>
+            <value>
+                <fullName>Boletas</fullName>
+                <default>false</default>
+                <label>Boletas</label>
+            </value>
+            <value>
+                <fullName>Comex</fullName>
+                <default>false</default>
+                <label>Comex</label>
+            </value>
+            <value>
+                <fullName>Crédito Comercial</fullName>
+                <default>false</default>
+                <label>Crédito Comercial</label>
+            </value>
+            <value>
+                <fullName>Crédito Complementario</fullName>
+                <default>false</default>
+                <label>Crédito Complementario</label>
+            </value>
+            <value>
+                <fullName>Crédito de Consumo</fullName>
+                <default>false</default>
+                <label>Crédito de Consumo</label>
+            </value>
+            <value>
+                <fullName>Crédito Especiales</fullName>
+                <default>false</default>
+                <label>Crédito Especiales</label>
+            </value>
+            <value>
+                <fullName>Crédito hipotecario</fullName>
+                <default>false</default>
+                <label>Crédito hipotecario</label>
+            </value>
+            <value>
+                <fullName>Crédito Pensionado</fullName>
+                <default>false</default>
+                <label>Crédito Pensionado</label>
+            </value>
+            <value>
+                <fullName>Cuenta Corriente</fullName>
+                <default>false</default>
+                <label>Cuenta Corriente</label>
+            </value>
+            <value>
+                <fullName>Cuentas Por Cobrar Gop</fullName>
+                <default>false</default>
+                <label>Cuentas Por Cobrar Gop</label>
+            </value>
+            <value>
+                <fullName>Cuenta Vista</fullName>
+                <default>false</default>
+                <label>Cuenta Vista</label>
+            </value>
+            <value>
+                <fullName>DAP</fullName>
+                <default>false</default>
+                <label>DAP</label>
+            </value>
+            <value>
+                <fullName>Factoring</fullName>
+                <default>false</default>
+                <label>Factoring</label>
+            </value>
+            <value>
+                <fullName>Forward</fullName>
+                <default>false</default>
+                <label>Forward</label>
+            </value>
+            <value>
+                <fullName>Leasing</fullName>
+                <default>false</default>
+                <label>Leasing</label>
+            </value>
+            <value>
+                <fullName>Línea de crédito</fullName>
+                <default>false</default>
+                <label>Línea de crédito</label>
+            </value>
+            <value>
+                <fullName>Línea De Sobregiro</fullName>
+                <default>false</default>
+                <label>Línea De Sobregiro</label>
+            </value>
+            <value>
+                <fullName>Spot</fullName>
+                <default>false</default>
+                <label>Spot</label>
+            </value>
+            <value>
+                <fullName>Swap</fullName>
+                <default>false</default>
+                <label>Swap</label>
+            </value>
+            <value>
+                <fullName>Tarjeta de crédito</fullName>
+                <default>false</default>
+                <label>Tarjeta de crédito</label>
+            </value>
+            <value>
+                <fullName>Tarjeta de Débito</fullName>
+                <default>false</default>
+                <label>Tarjeta de Débito</label>
+            </value>
+            <value>
+                <fullName>Trader</fullName>
+                <default>false</default>
+                <label>Trader</label>
+            </value>
+            <value>
+                <fullName>Abono de Remuneraciones</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Abono de Remuneraciones</label>
+            </value>
+            <value>
+                <fullName>Comercio Exterior</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Comercio Exterior</label>
+            </value>
+            <value>
+                <fullName>Compra y Venta de Monedas</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Compra y Venta de Monedas</label>
+            </value>
+            <value>
+                <fullName>Créditos Universales</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Créditos Universales</label>
+            </value>
+            <value>
+                <fullName>Cuenta Preferente</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cuenta Preferente</label>
+            </value>
+            <value>
+                <fullName>Cuentas para cobrar Gop</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Cuentas para cobrar Gop</label>
+            </value>
+            <value>
+                <fullName>Depósito a Plazo Online</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Depósito a Plazo Online</label>
+            </value>
+            <value>
+                <fullName>Derivados</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Derivados</label>
+            </value>
+            <value>
+                <fullName>Inversiones</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Inversiones</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Crédito Complementario</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Crédito de Consumo</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Crédito Especiales</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Crédito hipotecario</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Crédito Pensionado</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Cuenta Corriente</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Cuentas Por Cobrar Gop</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Cuenta Vista</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>DAP</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Línea de crédito</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Línea De Sobregiro</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Tarjeta de crédito</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <valueName>Tarjeta de Débito</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>1</controllingFieldValue>
+            <controllingFieldValue>3</controllingFieldValue>
+            <valueName>Trader</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>2</controllingFieldValue>
+            <valueName>Boleta De Garantia</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>2</controllingFieldValue>
+            <valueName>Boletas</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>2</controllingFieldValue>
+            <valueName>Comex</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>2</controllingFieldValue>
+            <valueName>Crédito Comercial</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>2</controllingFieldValue>
+            <valueName>Factoring</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>2</controllingFieldValue>
+            <valueName>Leasing</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3</controllingFieldValue>
+            <valueName>Forward</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3</controllingFieldValue>
+            <valueName>Spot</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>3</controllingFieldValue>
+            <valueName>Swap</valueName>
+        </valueSettings>
+    </valueSet>
+</CustomField>

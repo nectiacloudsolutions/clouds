@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>All</fullName>
+    <columns>NAME</columns>
+    <columns>Id_Interno_Nectia__c</columns>
+    <columns>Sistema_Nectia__c</columns>
+    <columns>Estado_Nectia__c</columns>
+    <columns>Tipo_Nectia__c</columns>
+    <columns>Banca_Nectia__c</columns>
+    <columns>Descripcion_Nectia__c</columns>
+    <columns>OBJECT_ID</columns>
+    <filterScope>Everything</filterScope>
+    <label>Todos</label>
+    <sharedTo>
+        <role>Banco</role>
+        <roleAndSubordinates>Banco</roleAndSubordinates>
+    </sharedTo>
+</ListView>

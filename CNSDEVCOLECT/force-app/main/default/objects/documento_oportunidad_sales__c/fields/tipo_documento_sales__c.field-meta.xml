@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>tipo_documento_sales__c</fullName>
+    <description>Campo para almacenar los tipos de documentos que se solicitan en recopilación para hipotecario.</description>
+    <externalId>false</externalId>
+    <label>Tipo de Documento</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Cédula de Identidad</fullName>
+                <default>false</default>
+                <label>Cédula de Identidad</label>
+            </value>
+            <value>
+                <fullName>Activos Circulantes</fullName>
+                <default>false</default>
+                <label>Activos Circulantes</label>
+            </value>
+            <value>
+                <fullName>Vehículos</fullName>
+                <default>false</default>
+                <label>Vehículos</label>
+            </value>
+            <value>
+                <fullName>Propiedades</fullName>
+                <default>false</default>
+                <label>Propiedades</label>
+            </value>
+            <value>
+                <fullName>Pasivos</fullName>
+                <default>false</default>
+                <label>Pasivos</label>
+            </value>
+            <value>
+                <fullName>Pie</fullName>
+                <default>false</default>
+                <label>Pie</label>
+            </value>
+            <value>
+                <fullName>Liquidaciones de Sueldo</fullName>
+                <default>false</default>
+                <label>Liquidaciones de Sueldo</label>
+            </value>
+            <value>
+                <fullName>AFP</fullName>
+                <default>false</default>
+                <label>AFP</label>
+            </value>
+            <value>
+                <fullName>Honorarios</fullName>
+                <default>false</default>
+                <label>Honorarios</label>
+            </value>
+            <value>
+                <fullName>Impuestos</fullName>
+                <default>false</default>
+                <label>Impuestos</label>
+            </value>
+            <value>
+                <fullName>Certificado de Matrimonio</fullName>
+                <default>false</default>
+                <label>Certificado de Matrimonio</label>
+            </value>
+            <value>
+                <fullName>Ficha Cliente</fullName>
+                <default>false</default>
+                <label>Ficha Cliente</label>
+            </value>
+            <value>
+                <fullName>Foto Selfie</fullName>
+                <default>false</default>
+                <label>Foto Selfie</label>
+            </value>
+            <value>
+                <fullName>Declaración Impuestos</fullName>
+                <default>false</default>
+                <label>Declaración Impuestos</label>
+            </value>
+            <value>
+                <fullName>Ingreso Negocio Comercializador</fullName>
+                <default>false</default>
+                <label>Ingreso Negocio Comercializador</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estado_de_Siniestro_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Estado de Siniestro</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Valores de estado de siniestro</fullName>
+                <default>false</default>
+                <label>Valores de estado de siniestro</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

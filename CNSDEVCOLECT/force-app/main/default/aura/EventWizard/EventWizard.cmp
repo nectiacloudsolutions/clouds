@@ -1,0 +1,114 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickActionWithoutHeader,lightning:isUrlAddressable,force:appHostable" 
+                access="global" controller='EventWizardController'>
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="title" type="String"  default="Crear Evento: Llamada"/>
+    <aura:attribute name="eventWrapper" type="Map" />
+    <aura:attribute name="phoneValue" type="String" />
+    <aura:attribute name="OtherphoneValue" type="String" />
+    <aura:attribute name="stateValue" type="String" />
+    <aura:attribute name="resultValue" type="String" />
+    <aura:attribute name="commentaries" type="String" />
+    <aura:attribute name="motivoValue" type="String" />
+    <aura:attribute name="showMotivo" type="Boolean" default="false" />
+    <aura:attribute name="showResult" type="Boolean" default="false" />
+    <aura:attribute name="showOtherNumber" type="Boolean" default="false" />
+    <aura:attribute name="dateValue" type="DateTime" />
+    <aura:attribute name="showDate" type="Boolean" default="false" />
+    <aura:attribute name="showMessage" type="Boolean" default="false" />
+    <aura:attribute name="textMessage" type="String" default="Está por referir esta oportunidad. Una vez que haya presionado referir, esta pasará a otro ejecutivo especialista y usted solo tendra acceso de lectura" />
+    <aura:attribute name="eventId" type="Id" />
+    <aura:attribute name="dateList" type="String[]" default="['Volver a Llamar', 'Entrevista','No Contesta(Volver a Llamar)']" />
+    <aura:attribute name="dateMin" type="DateTime" />
+    <aura:attribute name="dateMax" type="DateTime" />
+    <aura:attribute name="disableButton" type="Boolean" default="false" />
+     <aura:attribute name="disableButtonListo" type="Boolean" default="false" />
+    <aura:attribute name="buttonControl" type="Boolean" default="true" />
+    
+    <aura:attribute name="confirm" type="Boolean" default="true" />
+    <aura:attribute name="stageErrorText" type="String" default="No se encuentra en una etapa válida para referir"/>
+    <aura:attribute name="loading" type="Boolean" default="false" />
+    <aura:attribute name="headerPropensity" type="string" default="true" />
+    
+    
+    <aura:html tag="style">
+        .cuf-content {
+        padding: 0 0rem !important;
+        }
+        .slds-p-around--medium {
+        padding: 0rem !important;
+        }       
+        .slds-modal__content{
+        height:unset !important;
+        max-height:unset !important;
+        }
+    </aura:html>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div class="modal-header slds-modal__header">
+        <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{!v.title}</h2>
+    </div>
+    
+    <div class="slds-modal__content slds-p-around_x-large slds-is-relative minHeight" id="modal-content">
+        <aura:if isTrue="{!v.loading}">
+            <div class="exampleHolder">
+                <lightning:spinner alternativeText="Loading" size="large" />
+            </div>
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.showMessage}">
+                    <div class="slds-text-heading_medium">{!v.textMessage} 
+                         <!--<a href="{!'/one/one.app?#/sObject/'+ v.eventId + '/view'}" target="_blank">Ir a evento</a>-->
+                    </div>
+                </aura:if>
+                <aura:if isTrue="{!!v.showMessage}">
+                    <lightning:select label="Teléfono" value = "{!v.phoneValue}" required="true" onchange="{!c.onChangeTelf}" aura:id="Tel">
+                        <option value="">Seleccione un Teléfono</option>
+                        <aura:iteration items="{!v.eventWrapper.Telefonos}" var="item2">    
+                            <option value="{!item2}">{!item2}</option>
+                        </aura:iteration>
+                        <option value="Otro">Otro</option>
+                    </lightning:select>
+                    <aura:if isTrue="{!v.showOtherNumber}">
+                        <lightning:input aura:id="lbOtro"  value="{!v.OtherphoneValue}" type="tel" label="Otro Teléfono" placeholder="ingrese un teléfono" pattern="^[0-9]*$" required="true"/>
+                    </aura:if>
+                    <lightning:select aura:id="lbEstado" name="Estado Llamada" label="Estado de la Llamada" value = "{!v.stateValue}" required="true" onchange="{!c.onChangeState}">
+                        <option value="">Ingrese el estado de la llamada</option>
+                        <option value="Contactado">Contactado</option>
+                        <option value="No Contactado">No Contactado</option>
+                    </lightning:select>
+                    <aura:if isTrue="{!v.showResult}">
+                        <lightning:select aura:id="lbResultado" name="Resultado" label="Resultado de la Llamada" value="{!v.resultValue}" required="true" onchange="{!c.onChangeResultado}">
+                            <option value="">Ingrese el resultado de la llamada</option>
+                            <aura:iteration items="{!v.stateValue == 'Contactado' ? v.eventWrapper.Contactado : v.eventWrapper.NoContactado}" var="item2">    
+                                <option value="{!item2}">{!item2}</option>                            
+                            </aura:iteration>
+                        </lightning:select>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showMotivo}">
+                        <lightning:select aura:id="lbMotivo" name="Motivo" label="Motivo de no interés" value="{!v.motivoValue}"  required="true">
+                            <aura:iteration items="{!v.eventWrapper.Motivos}" var="item2">    
+                                <option value="{!item2}">{!item2}</option>                            
+                            </aura:iteration>
+                        </lightning:select>
+                    </aura:if>
+                    <aura:if isTrue="{!v.showDate}">
+                    <lightning:input aura:id="lbDate" type="datetime" label="Fecha próxima Gestión" value="{!v.dateValue}" min="{!v.dateMin}" max="{!v.dateMax}" required="true" onchange="{!c.onChangeDate}" />
+                    </aura:if>
+                    <lightning:textarea name="input1" label="Comentarios" value="{!v.commentaries}"/>
+                </aura:if>
+            </aura:set>
+        </aura:if>
+    </div>
+    <aura:if isTrue="{! v.confirm }">
+        <div class="modal-footer slds-modal__footer">
+            <aura:if isTrue="{!v.buttonControl}">
+                <lightning:button variant="Neutral" label="Cancelar" title="Base action" onclick="{!c.closeModal}"/>
+                <lightning:button variant="brand" label="Crear" title="Base action" onclick="{!c.createEvent}" disabled="{! v.disableButton}"/>
+                <aura:set attribute="else">
+                    <lightning:button variant="brand" label="Listo" title="Base action" onclick="{!c.closeModal }" disabled="{! v.disableButtonListo}" />
+                </aura:set>
+            </aura:if>
+        </div>
+    </aura:if>
+        
+</aura:component>

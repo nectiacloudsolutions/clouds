@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Seguros - Contacto Ag. Libres</name>
+    <queueMembers>
+        <users>
+            <user>karina.segura@consorcio.cl</user>
+            <user>mariasoledad.millar@consorcio.cl</user>
+            <user>pamela.ortega@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

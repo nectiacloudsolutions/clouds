@@ -1,0 +1,198 @@
+<apex:page standardController="Producto_del_Cliente__c" lightningStylesheets="true" extensions="CONS_Coberturas">
+ <!--   <apex:pageBlock>
+        <apex:pageBlockSection title="Coberturas Generales">
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Glosa_Modulo_Cobertura" >Glosa Modulo Cobertura</apex:outputLabel>
+        <apex:outputLabel id="Glosa_Modulo_Cobertura" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Monto_Asegurado" >Monto Asegurado</apex:outputLabel>
+        <apex:outputLabel id="Monto_Asegurado" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Deducible_UF" >Deducible UF</apex:outputLabel>
+        <apex:outputLabel id="Deducible_UF" value="ejemplo"  />                             
+    </apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Deducible_porcentaje" >Deducible %</apex:outputLabel>
+        <apex:outputLabel id="Deducible_porcentaje" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Tasa_Fija" >Tasa Fija</apex:outputLabel>
+        <apex:outputLabel id="Tasa_Fija" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Tasa_Variable" >Tasa Variable</apex:outputLabel>
+        <apex:outputLabel id="Tasa_Variable" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Descuento" >Descuento</apex:outputLabel>
+        <apex:outputLabel id="Descuento" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+    <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Prima_Neta" >Prima Neta</apex:outputLabel>
+        <apex:outputLabel id="Prima_Neta" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        
+      <apex:pageBlockSection  title="Coberturas Vida">
+        <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Cobertura">Cobertura</apex:outputLabel>
+        <apex:outputLabel id="Cobertura" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Pol_Cad">Pol-Cad</apex:outputLabel>
+        <apex:outputLabel id="Pol_Cad" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Capital">Capital</apex:outputLabel>
+        <apex:outputLabel id="Capital" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Tasa_Anual">Tasa Anual</apex:outputLabel>
+        <apex:outputLabel id="Tasa_Anual" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Tasa_Ajuste">Tasa Ajuste</apex:outputLabel>
+        <apex:outputLabel id="Tasa_Ajuste" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Costo_Fijo">Costo Fijo</apex:outputLabel>
+        <apex:outputLabel id="Costo_Fijo" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="porcentaje_Recargo">% Recargo</apex:outputLabel>
+        <apex:outputLabel id="porcentaje_Recargo" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Tasa_Recargo">Tasa Recargo</apex:outputLabel>
+        <apex:outputLabel id="Tasa_Recargo" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Tasa_Total">Tasa Total</apex:outputLabel>
+        <apex:outputLabel id="Tasa_Total" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Afecto_IVA">Afecto IVA</apex:outputLabel>
+        <apex:outputLabel id="Afecto_IVA" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Prima_Bruta">Prima Bruta</apex:outputLabel>
+        <apex:outputLabel id="Prima_Bruta" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="PF_Pago">PF Pago</apex:outputLabel>
+        <apex:outputLabel id="PF_Pago" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Prima_Proyectada">Prima Proyectada</apex:outputLabel>
+        <apex:outputLabel id="Prima_Proyectada" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+ <apex:pageBlockSectionItem rendered="true" >
+        <apex:outputLabel for="Prima_Primer_Ahno">Prima Primer Año</apex:outputLabel>
+        <apex:outputLabel id="Prima_Primer_Ahno" value="ejemplo"   />                             
+    </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>  
+    </apex:pageBlock>-->
+    
+<apex:pageBlock > 
+       <apex:pageBlockSection title="Coberturas Generales"   rendered="{!esquemagenerales}">
+    <apex:dataTable value="{!listag}" var="pdc" id="theTable" rowClasses="odd,even" styleClass="slds-table slds-table--bordered">
+        <apex:column >
+        <apex:facet name="header">Glosa Modulo Cobertura</apex:facet>
+        <apex:outputText value="{!pdc.glosa_cobertura}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Monto Asegurado</apex:facet>
+        <apex:outputText value="{!pdc.capital_asegurado}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Deducible UF</apex:facet>
+        <apex:outputText value="{!pdc.deducible_uf}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Deducible %</apex:facet>
+        <apex:outputText value="{!pdc.deducible_pje}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Tasa Fija</apex:facet>
+        <apex:outputText value="{!pdc.tasa_fija}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Tasa Variable</apex:facet>
+        <apex:outputText value="{!pdc.tasa_variable}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Descuento</apex:facet>
+        <apex:outputText value="{!pdc.descuento}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Prima Neta</apex:facet>
+        <apex:outputText value="{!pdc.prima_neta}" />
+    </apex:column>
+           </apex:dataTable>
+    </apex:pageBlockSection>
+    
+    <apex:pageBlockSection title="Coberturas Vida" rendered="{!esquemavida}">
+    <apex:dataTable value="{!lista}" var="l" id="theTable" rowClasses="odd,even" styleClass="slds-table slds-table--bordered">
+
+    <apex:column >
+        <apex:facet name="header">Cobertura</apex:facet>
+        <apex:outputText value="{!l.glosa_cobertura}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Pol-Cad</apex:facet>
+        <apex:outputText value="{!l.condicionado}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Capital</apex:facet>
+        <apex:outputText value="{!l.capital_asegurado}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Tasa Anual</apex:facet>
+        <apex:outputText value="{!l.total_prima}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Tasa Ajuste</apex:facet>
+        <apex:outputText value="{!l.tasa_ajuste}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Costo Fijo</apex:facet>
+        <apex:outputText value="{!l.valor_tasa_recargos}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">% Recargo</apex:facet>
+        <apex:outputText value="{!l.porcentaje_tasa_recargos}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Tasa Recargo</apex:facet>
+        <apex:outputText value="{!l.tasa_recargo}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Tasa Total</apex:facet>
+        <apex:outputText value="{!l.tasa_tarifa}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Afecto IVA</apex:facet>
+        <apex:outputText value="{!l.impuesto}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Prima Bruta</apex:facet>
+        <apex:outputText value="{!l.prima_bruta}" />
+    </apex:column>
+<apex:column >
+    <apex:facet name="header">P.F/ Pago</apex:facet>
+        <apex:outputText value="{!l.prima_forma_pago}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Prima Proyectada</apex:facet>
+        <apex:outputText value="{!l.prima_proyectada}" />
+    </apex:column>
+<apex:column >
+        <apex:facet name="header">Prima Primer Año</apex:facet>
+        <apex:outputText value="{!l.prima_bruta}" />
+    </apex:column>
+    </apex:dataTable>
+    </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Productos_Banco</fullName>
+    <columns>NAME</columns>
+    <columns>Cliente_Nectia__c</columns>
+    <columns>Estado_Nectia__c</columns>
+    <columns>Id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Producto_del_Cliente__c.Producto_cliente_Banco</value>
+    </filters>
+    <label>Productos Banco</label>
+    <sharedTo>
+        <role>Banco</role>
+        <roleAndSubordinates>Banco</roleAndSubordinates>
+    </sharedTo>
+</ListView>

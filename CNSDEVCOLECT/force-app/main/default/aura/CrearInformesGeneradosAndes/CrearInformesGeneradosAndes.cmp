@@ -1,0 +1,71 @@
+<!--
+  @description       : 
+  @author            : ggonzroj@everis.com
+  @group             : 
+  @last modified on  : 10-20-2020
+  @last modified by  : ggonzroj@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   10-15-2020   ggonzroj@everis.com   Initial Version
+-->
+<aura:component controller="CrearInformesGeneradosAndesCtrl" implements="force:lightningQuickActionWithoutHeader,force:hasRecordId,lightning:isUrlAddressable,force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,flexipage:availableForRecordHome" 
+                access="global">
+
+  <aura:attribute name="recordId" type="Id" />
+
+  <aura:attribute name="alertaShouldShow" type="Boolean" default="false" />
+  <aura:attribute name="alertaMsgTittle" type="String" />
+  <aura:attribute name="alertaMsg" type="String" />
+
+  <aura:attribute name="generadaShouldShow" type="Boolean" default="false" />
+  <aura:attribute name="ageneradaMsgTittle" type="String" />
+  <aura:attribute name="generadaMsg" type="String" />
+  
+  <aura:attribute name="isOpen" type="boolean" default="true" />
+  
+  <aura:attribute name="info" type="Object" />
+  <aura:attribute name="Spinner" type="Boolean" default="false" />
+  <aura:attribute name="disableAceptButton" type="Boolean" default="false" />
+
+  <aura:html tag="style">
+    .cuf-content { padding: 0 0rem !important; } .slds-p-around--medium { padding: 0rem !important; }
+    .slds-modal__content{ overflow-y:hidden !important; height:unset !important; max-height:unset !important; }
+  </aura:html>
+
+  <aura:if isTrue="{!v.Spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container" style="z-index: 9999; margin: -100%;">
+      <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+        <span class="slds-assistive-text">Loading</span>
+        <div class="slds-spinner__dot-a"></div>
+        <div class="slds-spinner__dot-b"></div>
+      </div>
+    </div>
+  </aura:if>
+
+  <aura:if isTrue="{!v.isOpen}">
+    <div class="c-container" style="background-color: white;padding: 1%;">
+      <div class="modal-header slds-modal__header slds-size_1-of-1">
+        <h4 class="title slds-text-heading--medium">Generar en ANDES</h4>
+      </div>
+    
+      <div class="slds-modal__content slds-p-around--x-small slds-size_1-of-1 slds-is-relative" style="padding: 60px;"
+        aura:id="modalbody" id="modalbody">
+        <center>
+          <h1>¿Está seguro qué desea generar este informe en ANDES?</h1>
+        </center>
+      </div>
+    
+      <div class="modal-footer slds-modal__footer slds-size_1-of-1">
+        <div class="forceChangeRecordTypeFooter">
+          <ui:button class="slds-button slds-button_neutral" label="Cancelar" press="{! c.doCancel}" />
+          <ui:button class="slds-button slds-button_brand" label="Aceptar" press="{!c.doInit}"/>
+        </div>
+      </div>
+    </div>
+  </aura:if>
+
+
+
+  
+
+</aura:component>

@@ -1,0 +1,6 @@
+<apex:page controller="CONS_OrquestaPDF"  action="{!generador}">
+	<apex:form >
+		<apex:message />
+		<apex:commandButton title="Volver" action="{!volver}" />
+	</apex:form>
+</apex:page>

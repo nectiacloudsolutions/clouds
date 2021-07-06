@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>true</doesSendEmailToMembers>
+    <name>Resolución Devolución Primas Vida</name>
+    <queueMembers>
+        <publicGroups>
+            <publicGroup>Solo_colas_Vida</publicGroup>
+        </publicGroups>
+        <users>
+            <user>rosa.gonzalezs@consorcio.cl</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Case</sobjectType>
+    </queueSobject>
+</Queue>

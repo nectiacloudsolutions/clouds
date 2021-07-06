@@ -1,0 +1,41 @@
+<!--
+  @description       : 
+  @author            : mbeltran@everis.com
+  @group             : 
+  @last modified on  : 01-15-2021
+  @last modified by  : mbeltran@everis.com
+  Modifications Log 
+  Ver   Date         Author                Modification
+  1.0   01-14-2021   mbeltran@everis.com   Initial Version
+-->
+<aura:component controller="ApplicationFormController" implements="flexipage:availableForRecordHome,force:hasRecordId,force:hasSObjectName,flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="pageLayout" type="String"/>
+    <aura:attribute name="records" type="List" />
+    <aura:attribute name="section" type="List" />    
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="force:refreshView" action="{!c.init}" />
+    <aura:iteration items="{!v.section}"  var="sect" indexVar="key">
+        <c:CollapsibleSection title="{!sect.section}">
+            <lightning:layout verticalAlign="left" multipleRows="true">
+                <aura:iteration items="{!v.records}" var="oli">
+                    <aura:if isTrue="{!sect.nro_sec == oli.value.seccion_nro__c}">                
+                        <lightning:layoutItem flexibility="auto" size="12" smallDeviceSize="6" mediumDeviceSize="6" largeDeviceSize="6">
+                            <div class="slds-form" role="list">
+                                <div class="slds-form__row">
+                                    <div class="slds-form__item" role="listitem">
+                                        <div class="slds-form-element slds-form-element_edit slds-form-element_readonly slds-form-element_stacked slds-hint-parent">
+                                            <span class="slds-form-element__label">{!oli.value.MasterLabel}</span>
+                                            <div class="slds-form-element__control">
+                                                <div class="slds-form-element__static">{!oli.value.valor__c}</div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>  
+                        </lightning:layoutItem>
+                    </aura:if>    
+                </aura:iteration>
+            </lightning:layout>
+        </c:CollapsibleSection> 
+    </aura:iteration>
+</aura:component>

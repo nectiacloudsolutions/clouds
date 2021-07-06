@@ -1,0 +1,81 @@
+<aura:component controller="HeaderOppLineItemController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes">
+    <aura:attribute name="recordId" type="String" />
+	<aura:attribute name="isOpen" type="Boolean" default="false" />
+    <aura:attribute name="fields" type="Object[]" />
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <aura:handler event="force:refreshView" action="{!c.init}" />
+    
+	<div class="slds-page-header slds-page-header_record-home">
+      <div class="slds-page-header__row">
+        <div class="slds-page-header__col-title">
+          <div class="slds-media">
+            <div class="slds-media__figure">
+              <span class="slds-icon_container slds-icon-standard-opportunity">
+                <lightning:icon iconName="custom:custom16" alternativeText="Address" title="custom16" />
+              </span>
+            </div>
+            <div class="slds-media__body">
+              <div class="slds-page-header__name">
+                <div class="slds-page-header__name-title">
+                  <h1>
+                      <lightning:recordEditForm aura:id="test"
+                                              objectApiName="OpportunityLineItem"
+                                              recordId="{! v.recordId }"
+                                              recordTypeId="master">
+                        <lightning:messages />
+                        <lightning:outputField fieldName="Name" class="slds-page-header__title slds-truncate" />
+                    </lightning:recordEditForm> 
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slds-page-header__col-actions">
+          <div class="slds-page-header__controls">
+            <div class="slds-page-header__control">
+              <ul class="slds-button-group-list">
+                <li>
+                  <button class="slds-button slds-button_neutral" onclick="{! c.runFlow }">Modificar</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+        <lightning:recordEditForm aura:id="test"
+                                  objectApiName="OpportunityLineItem"
+                                  recordId="{! v.recordId }"
+                                  recordTypeId="master">
+            <lightning:messages />
+    
+            
+                <div class="slds-page-header__row slds-page-header__row_gutters">
+                    <div class="slds-page-header__col-details">
+                        <ul class="slds-page-header__detail-row">
+                            <aura:iteration items="{! v.fields }" var="field">
+                                <li class="slds-page-header__detail-block">
+                                    <lightning:outputField fieldName="{! field}" class="slds-p-top_small slds-m-top_medium" />
+                                </li>
+                            </aura:iteration>
+                        </ul>
+                    </div>
+                </div>
+        </lightning:recordEditForm> 
+    </div>
+    <aura:if isTrue="{!v.isOpen}">
+        <div style="height: 640px;">
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header slds-modal__header_empty">
+                        <lightning:buttonIcon iconName="utility:close" class="slds-modal__close" onclick="{!c.closeFlowModal}"/>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning:flow aura:id="flow" onstatuschange="{!c.closeModalOnFinish}" ></lightning:flow>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </div> 
+    </aura:if>
+</aura:component>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Familia_Producto_sales__c</fullName>
+    <externalId>false</externalId>
+    <label>Familia Producto</label>
+    <required>true</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AUTO</fullName>
+                <default>false</default>
+                <label>AUTO</label>
+            </value>
+            <value>
+                <fullName>HOGAR</fullName>
+                <default>false</default>
+                <label>HOGAR</label>
+            </value>
+            <value>
+                <fullName>RRVV</fullName>
+                <default>false</default>
+                <label>RRVV</label>
+            </value>
+            <value>
+                <fullName>VIDA</fullName>
+                <default>false</default>
+                <label>VIDA</label>
+            </value>
+            <value>
+                <fullName>CUENTA VISTA</fullName>
+                <default>false</default>
+                <label>CUENTA VISTA</label>
+            </value>
+            <value>
+                <fullName>PLAN PLUS</fullName>
+                <default>false</default>
+                <label>PLAN PLUS</label>
+            </value>
+            <value>
+                <fullName>CREDITO DE CONSUMO</fullName>
+                <default>false</default>
+                <label>CREDITO DE CONSUMO</label>
+            </value>
+            <value>
+                <fullName>INVERSIONES</fullName>
+                <default>false</default>
+                <label>INVERSIONES</label>
+            </value>
+            <value>
+                <fullName>CREDITO HIPOTECARIO</fullName>
+                <default>false</default>
+                <label>CREDITO HIPOTECARIO</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

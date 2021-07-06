@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Etapa_Cierre_Ganada_sales__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Campo creado por everis para controlar perfiles que pueden cerrar una Oportunidad Ganada.</description>
+    <externalId>false</externalId>
+    <label>Etapa Cierre Ganada</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>

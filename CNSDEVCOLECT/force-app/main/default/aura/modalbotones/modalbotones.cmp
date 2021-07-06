@@ -1,0 +1,34 @@
+<aura:component  controller="CONS_modalbotones"
+                implements="force:LightningQuickAction,force:hasRecordId"  access="global">
+    
+    
+    
+    <table class="egt">
+        <tr>
+            <td>
+<lightning:button name="modal1" label="Copia de Póliza" onclick="{!c.openmodal1}"/>
+</td>
+            <td><lightning:button name="modal2" label="Certificado de Pago" onclick="{!c.openmodal2}"/></td>
+        </tr>
+        <br/>
+        <tr>
+            <td><lightning:button name="modal3" label="Certificado de cargas legales" onclick="{!c.openmodal3}"/></td>
+           <td><lightning:button name="modal4" label="Copia SOAP" onclick="{!c.openmodal4}"/></td>
+        </tr>
+        <br/> 
+        <tr>
+            <td><lightning:button name="modal5" label="Liquidación de Pensión" onclick="{!c.openmodal5}"/></td>
+            <td><lightning:button name="modal6" label="Certificado de Vigencia" onclick="{!c.openmodal6}"/></td>
+        </tr>
+        <br/>
+        <tr>
+            <td><lightning:button name="modal7" label="Certificado de Coberturas" onclick="{!c.openmodal7}"/></td>
+            <!--  <td><lightning:button name="modal8" label="Cartola (solo Vida Individual)" onclick="{!c.openmodal8}"/></td>-->
+        </tr>
+    </table>  
+    
+    
+    
+    
+    
+</aura:component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Detalle_Documento__c</fullName>
+    <description>Guarda el detalle del documento adicional solicitado.</description>
+    <externalId>false</externalId>
+    <label>Detalle Documento</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>TextArea</type>
+</CustomField>

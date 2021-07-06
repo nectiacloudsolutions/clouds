@@ -1,0 +1,241 @@
+<apex:page standardController="Producto_del_Cliente__c" lightningStylesheets="true" extensions="CONS_ProductoCliente">
+    <!--  <apex:form>-->
+    <!--   <body onload="startTime()">
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" />
+<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" />
+<apex:includeScript value="/soap/ajax/36.0/connection.js"/>
+<apex:includeScript value="/soap/ajax/36.0/apex.js"/>-->
+    <script type='text/javascript'>
+    $j = jQuery.noConflict();
+    $j(document).ready(function($) {
+        $("#Verificame").click();            
+    });
+    
+    function init()
+    {   
+        setTimeout(function() {                
+            
+            try { 
+                
+                alert();
+            } catch(e) {
+                
+            }
+        }, 2000);
+        
+    }
+    </script>
+    <!--     <html>
+<body>
+<div id="mostrar">
+<center>
+<span id="mensajeAMostrar"></span> <img src="/img/social/loading32.gif" />
+<p>espere informacion... </p>
+</center>
+</div> 
+
+
+<form name="Form1" style="display:none">
+<input type='button' id='Verificame' value='Verificame' onmouseover='init1()' onClick='init()' />                               
+</form>
+</body>
+</html>
+
+--> 
+    
+    
+    
+    <apex:pageBlock rendered="true">
+        
+       <apex:pageBlockSection title="Datos Producto" columns="2" >
+           
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Aceptacion" >Vigencia Desde</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Aceptacion" value="{!desde}"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Modalidad_Pension" >Vigencia Hasta</apex:outputLabel>
+                <apex:outputLabel id="Modalidad_Pension" value="{!hasta}"   />                             
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Tipo_de_Pension" >Fecha Emisión</apex:outputLabel>
+                <apex:outputLabel id="Tipo_de_Pension" value="{!emision}"   />                             
+            </apex:pageBlockSectionItem>
+           <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Anulacion" >Fecha Anulación</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Anulacion" value="{!fecha_anulacion}"   />                             
+            </apex:pageBlockSectionItem>
+            
+             <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Estado" >Estado</apex:outputLabel>
+                <apex:outputLabel id="Estado" value="{!estado}"/>
+            </apex:pageBlockSectionItem>
+
+           <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Motivo_cancelacion" >Motivo de cancelación</apex:outputLabel>
+                <apex:outputLabel id="Motivo_cancelacion" value="{!motivo_cancelacion}"   />                             
+            </apex:pageBlockSectionItem>        
+        </apex:pageBlockSection>
+                
+        <apex:pageBlockSection title="Roles"  columns="2"  >
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Asegurado" >Asegurado</apex:outputLabel>
+                <apex:outputLabel id="Asegurado" value="{!nombre_asegurado}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Rut_Asegurado" >Rut Asegurado</apex:outputLabel>
+                <apex:outputLabel id="Rut_Asegurado" value="{!rut_asegurado}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Contrante_Causante" >Contrante/Causante</apex:outputLabel>
+                <apex:outputLabel id="Contrante_Causante" value="{!nombre_contratante}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Rut_Contratante_Causante" >Rut Contratante/Causante</apex:outputLabel>
+                <apex:outputLabel id="Rut_Contratante_Causante" value="{!rut_contratante}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Pagador" >Pagador</apex:outputLabel>
+                <apex:outputLabel id="Pagador" value="{!nombre_pagador}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Rut_Pagador" >Rut Pagador</apex:outputLabel>
+                <apex:outputLabel id="Rut_Pagador" value="{!rut_pagador}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Estado" >Estado</apex:outputLabel>
+                <apex:outputLabel id="Estado" value="{!estado}"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Datos Materia Asegurada (solo Seguros Generales)"  columns="2"  >
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Marca" >Marca</apex:outputLabel>
+                <apex:outputLabel id="Marca" value="{!marca}"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Modelo" >Modelo</apex:outputLabel>
+                <apex:outputLabel id="Modelo" value="{!modelo}"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Ahno" >Año</apex:outputLabel>
+                <apex:outputLabel id="Ahno" value="{!anio}"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Patente" >Patente</apex:outputLabel>
+                <apex:outputLabel id="Patente" value="{!patente}"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Direccion_Riesgo" >Dirección Riesgo</apex:outputLabel>
+                <apex:outputLabel id="Direccion_Riesgo" value="{!direccion_riesgo}"   />                             
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+        
+      <!--  <apex:pageBlockSection title="Datos Producto (solo Rentas Previsionales)">
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Tipo_de_Pension" >Tipo de Pensión</apex:outputLabel>
+                <apex:outputLabel id="Tipo_de_Pension" value="-------"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Aceptacion" >Fecha Aceptación</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Aceptacion" value="---------"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Modalidad_Pension" >Modalidad Pensión</apex:outputLabel>
+                <apex:outputLabel id="Modalidad_Pension" value="---------"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Emision" >Fecha Emisión</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Emision" value="--------"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Etapa_de_Pago" >Etapa de Pago</apex:outputLabel>
+                <apex:outputLabel id="Etapa_de_Pago" value="--------"   />                             
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Inicio_Vigencia" >Fecha Inicio Vigencia</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Inicio_Vigencia" value="----------"   />                             
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>-->
+        
+        <apex:pageBlockSection title="Recaudación" columns="2" >
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Via_de_pago" >Via de pago</apex:outputLabel>
+                <apex:outputLabel id="Via_de_pago" value="{!via_pago}"/>
+            </apex:pageBlockSectionItem>    
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Banco" >Banco</apex:outputLabel>
+                <apex:outputLabel id="Banco" value="{!banco}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Tipo_tarjeta" >Tipo tarjeta</apex:outputLabel>
+                <apex:outputLabel id="Tipo_tarjeta" value="{!tipo_tarjeta}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Expiracion_TC" >Fecha Expiración TC</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Expiracion_TC" value="{!expiracion_tarjeta_credito}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Fecha_Pago" >Fecha Pago</apex:outputLabel>
+                <apex:outputLabel id="Fecha_Pago" value="{!fecha_pago}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Pactadas" >Pactadas</apex:outputLabel>
+                <apex:outputLabel id="Pactadas" value="{!cuotas_pactadas}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Total_Prima" >Total Prima</apex:outputLabel>
+                <apex:outputLabel id="Total_Prima" value="{!total_prima}"/>
+            </apex:pageBlockSectionItem>   
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Intermediario" columns="2" >
+            <apex:pageBlockSectionItem rendered="true"  >
+                <apex:outputLabel for="Nombre_Intermediario" >Nombre Intermediario</apex:outputLabel>
+                <apex:outputLabel id="Nombre_Intermediario" value="{!nombre_intermediario}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Rut_Intermediario" >Rut Intermediario</apex:outputLabel>
+                <apex:outputLabel id="Rut_Intermediario" value="{!rut_intermediario}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Canal" >Canal</apex:outputLabel>
+                <apex:outputLabel id="Canal" value="{!canal}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Canal" >Agencias</apex:outputLabel>
+                <apex:outputLabel id="Canal" value="{!agencia}"/>
+            </apex:pageBlockSectionItem>
+            
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Telefono_Intermediario" >Telefono Intermediario</apex:outputLabel>
+                <apex:outputLabel id="Telefono_Intermediario" value="{!telefono}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Mail_Intermediario" >Mail Intermediario</apex:outputLabel>
+                <apex:outputLabel id="Mail_Intermediario" value="------"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Es_Corredor_Si_No" >Es Corredor  Si/No</apex:outputLabel>
+                <apex:outputLabel id="Es_Corredor_Si_No" value="{!es_corredor}"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Ejecutivo_Comercial" >Ejecutivo Comercial</apex:outputLabel>
+                <apex:outputLabel id="Ejecutivo_Comercial" value="--------"/>
+            </apex:pageBlockSectionItem>
+            <apex:pageBlockSectionItem rendered="true" >
+                <apex:outputLabel for="Rut_Ejecutivo_Comercial" >Rut Ejecutivo Comercial</apex:outputLabel>
+                <apex:outputLabel id="Rut_Ejecutivo_Comercial" value="------"/>
+            </apex:pageBlockSectionItem>
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+    <!--   </apex:form>-->
+    <!--   </body>-->
+</apex:page>

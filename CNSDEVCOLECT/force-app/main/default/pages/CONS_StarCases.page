@@ -1,0 +1,8 @@
+<apex:page standardController="Case" extensions="CONS_StopCases" recordSetVar="Case" action="{!StartCases}" >
+  
+    <apex:form >
+     
+    <apex:messages />
+     <apex:commandButton value="Continuar"  action="{!continuar}"   />
+    </apex:form>
+</apex:page>

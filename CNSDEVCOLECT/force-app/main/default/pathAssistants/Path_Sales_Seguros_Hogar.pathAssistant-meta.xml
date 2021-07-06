@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>Path Sales Seguros Hogar</masterLabel>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;¡Felicitaciones, la Oportunidad de Seguros Hogar ha sido ganada!.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Cierre Ganada</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;La Oportunidad de Seguros Hogar ha sido perdida. ¡Ánimo!&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Cierre Perdida</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;u&gt;Estado Contacto&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Primer estado del flujo de Oportunidad de Seguros Hogar. Para pasar al estado Cotización, se deben cumplir los siguientes criterios:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Agendar una Entrevista.&lt;/li&gt;&lt;li&gt;El resultado de la entrevista debe ser Reunión Exitosa.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Si la Oportunidad pasa al estado Cierre Perdida, deberá seleccionar el motivo de la pérdida dentro de las opciones disponibles.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Contacto</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;u&gt;Estado Cotización&lt;/u&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Segundo estado del flujo de Oportunidad de Seguros Hogar. Para pasar al estado Ingreso del Negocio, los siguientes campos del Presupuesto deben poseer información:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Número de Cotización&lt;/li&gt;&lt;li&gt;Fecha Estado de Cotización.&lt;/li&gt;&lt;li&gt;Tarifa Anual UF.&lt;/li&gt;&lt;li&gt;Requiere Inspección.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Si la Oportunidad pasa al estado Cierre Perdida, deberá seleccionar el motivo de la pérdida dentro de las opciones disponibles.&lt;/p&gt;</info>
+        <picklistValueName>Cotización</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;u&gt;Estado Evaluación&lt;/u&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Cuarto estado del flujo de Oportunidad de Seguros Hogar, desplegando las siguientes opciones de acuerdo a la gestión de la Oportunidad:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Cierre Ganada.&lt;/li&gt;&lt;li&gt;Cierre Perdida.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Si la Oportunidad pasa al estado Cierre Perdida, deberá seleccionar el motivo de la pérdida dentro de las opciones disponibles.&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;</info>
+        <picklistValueName>Evaluación</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p style=&quot;text-align: center;&quot;&gt;&lt;u&gt;Estado Ingreso del Negocio&lt;/u&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;u&gt;﻿&lt;/u&gt;Tercer estado del flujo de Oportunidades de Seguros Hogar. Para pasar al siguiente estado, se deben cumplir los siguientes criterios:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;El campo Número de Presupuesto debe tener información.&lt;/li&gt;&lt;li&gt;Forma de Pago: el cual en caso de ser PAC o PAT debe llenar el campo El Número de Mandato&lt;/li&gt;&lt;li&gt;Forma de Pago en caso de ser Aviso de Cobranza no solicita llenar el campo &lt;span style=&quot;font-size: 13px;&quot;&gt;Número &lt;/span&gt;de Mandato&lt;/li&gt;&lt;li&gt;Una vez realizado lo anterior se debe proceder a Sincronizar el Presupuesto&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Además, puede volver a estado Cotización para modificar los siguientes campos en el Presupuesto:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Número de Cotización.&lt;/li&gt;&lt;li&gt;Fecha de Estado Cotización.&lt;/li&gt;&lt;li&gt;Tarifa Anual UF.&lt;/li&gt;&lt;li&gt;Requiere Inspección.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Una vez realizada la modificación, el cambio de estado se realiza automática&lt;/p&gt;</info>
+        <picklistValueName>Ingreso del Negocio</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>Sales_Seguros_Hogar</recordTypeName>
+</PathAssistant>

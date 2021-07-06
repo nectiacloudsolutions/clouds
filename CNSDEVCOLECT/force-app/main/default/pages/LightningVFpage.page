@@ -1,0 +1,85 @@
+<apex:page standardController="CampaignMember" extensions="AgendarVFPageEx" showHeader="false" sidebar="false"  lightningStylesheets="true">
+    
+    <apex:includeLightning /> 
+    <apex:includeScript value="/support/console/47.0/integration.js"/> 
+    <div id="lightning" />
+    <apex:form >
+        <apex:pagemessages id="msgId" />
+        <apex:PageBlock >
+            <div align="center" draggable="false" >
+                <apex:CommandButton value="Regresar" onclick="myFunction()"  onComplete="return null;"/>
+            </div>
+            <div id="myDIV" class="genericNotification">
+
+                <span class="genericError">La campaña no se encuentra activa. No se puede crear un evento.</span>
+            </div>
+             
+        </apex:PageBlock>
+    </apex:form>
+
+    <script>
+
+    function myFunction(){
+        sforce.one.navigateToSObject('{!CampaignMember.Id}', "detail");
+    }
+    function testCloseTab() {
+        //First find the ID of the current tab to close it
+        sforce.console.getEnclosingTabId(closeSubtab);
+    }
+
+    var closeSubtab = function closeSubtab(result) {
+        //Now that we have the tab ID, we can close it
+        console.log("result---> "+result);
+        console.log("ID---> "+result.id);
+        
+        var tabId = result.id;
+        sforce.console.closeTab(tabId);
+    };
+  
+    console.log('Start VFP');
+    
+    var recordType = '{!Greeting}';
+    console.log(recordType);
+    console.log('Paso');
+    var campaignIsActive = true;// {!CampaignMember.Campaign.IsActive};
+    console.log( 'Campaign {Id: {!CampaignMember.Campaign.Id}, IsActive: {!CampaignMember.Campaign.IsActive}}');
+    var x = document.getElementById('myDIV');
+    x.style.display = 'none';
+    console.log(x.style.display);
+    console.log('Contact-->{!CampaignMember.LeadOrContactId}');
+    console.log('Campaign-->{!CampaignMember.CampaignId}');
+    console.log('CampaignMember-->{!CampaignMember.Id}');
+    if(campaignIsActive){
+                testCloseTab();
+        
+        var objectType = "{!CampaignMember.LeadOrContactId}";
+        console.log(objectType.substring(0,3));
+        if(objectType.substring(0,3) === '00Q'){
+            sforce.one.createRecord('Event', recordType, {
+                WhoId  : "{!CampaignMember.LeadOrContactId}",
+                WhoId_Campana_sales__c : "{!CampaignMember.CampaignId}",
+                Id_Miembro_de_Campana_sales__c : "{!CampaignMember.Id}",
+                Nombre_de_Campana_sales__c : "{!CampaignMember.nombre_campania_sales__c}",
+                RecordTypeId : recordType
+            });
+        }else{
+          sforce.one.createRecord('Event', null, {
+                WhoId  : "{!CampaignMember.LeadOrContactId}",
+                WhatId : "{!CampaignMember.CampaignId}",
+                Id_Miembro_de_Campana_sales__c : "{!CampaignMember.Id}"
+          });
+        }
+        
+        
+        console.log("Antes de Cerrar la tap");
+
+        
+    } else {
+        x.style.display = 'block';
+        //alert("Campaña inactiva");
+    }
+
+    </script>
+    
+    
+</apex:page>

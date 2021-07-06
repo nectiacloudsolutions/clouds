@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Region_Nectia__c</fullName>
+    <externalId>false</externalId>
+    <label>Región</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>TARAPACÁ</fullName>
+                <default>false</default>
+                <label>TARAPACÁ</label>
+            </value>
+            <value>
+                <fullName>ANTOFAGASTA</fullName>
+                <default>false</default>
+                <label>ANTOFAGASTA</label>
+            </value>
+            <value>
+                <fullName>ATACAMA</fullName>
+                <default>false</default>
+                <label>ATACAMA</label>
+            </value>
+            <value>
+                <fullName>COQUIMBO</fullName>
+                <default>false</default>
+                <label>COQUIMBO</label>
+            </value>
+            <value>
+                <fullName>VALPARAÍSO</fullName>
+                <default>false</default>
+                <label>VALPARAÍSO</label>
+            </value>
+            <value>
+                <fullName>LIB. GRAL. BERNARDO O&apos;HIGGINS</fullName>
+                <default>false</default>
+                <label>LIB. GRAL. BERNARDO O&apos;HIGGINS</label>
+            </value>
+            <value>
+                <fullName>MAULE</fullName>
+                <default>false</default>
+                <label>MAULE</label>
+            </value>
+            <value>
+                <fullName>BIOBÍO</fullName>
+                <default>false</default>
+                <label>BIOBÍO</label>
+            </value>
+            <value>
+                <fullName>LA ARAUCANÍA</fullName>
+                <default>false</default>
+                <label>LA ARAUCANÍA</label>
+            </value>
+            <value>
+                <fullName>LOS LAGOS</fullName>
+                <default>false</default>
+                <label>LOS LAGOS</label>
+            </value>
+            <value>
+                <fullName>AISÉN DEL GRAL. C. IBÁÑEZ DEL CAMPO</fullName>
+                <default>false</default>
+                <label>AISÉN DEL GRAL. C. IBÁÑEZ DEL CAMPO</label>
+            </value>
+            <value>
+                <fullName>MAGALLANES Y ANTÁRTICA CHILENA</fullName>
+                <default>false</default>
+                <label>MAGALLANES Y ANTÁRTICA CHILENA</label>
+            </value>
+            <value>
+                <fullName>METROPOLITANA</fullName>
+                <default>false</default>
+                <label>METROPOLITANA</label>
+            </value>
+            <value>
+                <fullName>LOS RÍOS</fullName>
+                <default>false</default>
+                <label>LOS RÍOS</label>
+            </value>
+            <value>
+                <fullName>ARICA Y PARINACOTA</fullName>
+                <default>false</default>
+                <label>ARICA Y PARINACOTA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

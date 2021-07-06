@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>perfiles_jefe_ventas__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Aqui irán los perfiles asociados a Perfil de jefe de ventas</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Aqui irán los perfiles asociados a Perfil de jefe de ventas</inlineHelpText>
+    <label>Perfiles_Jefe_Ventas</label>
+    <trackTrending>false</trackTrending>
+    <type>Checkbox</type>
+</CustomField>
